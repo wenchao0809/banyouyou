@@ -1,0 +1,93 @@
+.register {
+    padding: 200rpx 70rpx 0rpx;
+}
+
+.form-item {
+    /* display: flex; */
+    width: 100%;
+    padding: 40rpx 0 10rpx 0;
+    border-bottom: 1px solid gray;
+    vertical-align: middle;
+    color: #c2c2c2;
+}
+.form-item text, view, input {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-item input {
+    width: 500rpx;
+}
+.form-item .icon {
+    margin-right: 35rpx;
+    font-size: 40rpx;
+}
+
+.form-item.sms input {
+    width: 300rpx;
+}
+.placeholder {
+    color: #c2c2c2;
+}
+
+.form-item.sms .send-sms {
+    padding: 10rpx 20rpx;
+    border: 1px solid #e9452c;
+    color: #e9452c;
+    border-radius: 50rpx;
+    vertical-align: middle;
+}
+
+.form-error {
+    margin-top: 40rpx;
+    color: #e9452c;
+}
+
+/* 隐私政策 */
+.private-policy {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+}
+
+.private-policy icon {
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+.private-policy .desc {
+    color: #c2c2c2;
+    vertical-align: middle;
+}
+
+.private-policy .link {
+    color: #e9452c;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.button-wrap {
+    margin: 0 auto;
+}
+.button-wrap .button {
+    margin-top: 110rpx;
+    text-align: center;
+    line-height: 90rpx;
+    height: 90rpx;
+    width: 600rpx;
+    border-radius: 50rpx;
+    color: white;
+    background: #e9452c;
+}
+
+.to-login {
+    margin-top: 20rpx;
+    width: 100%;
+    text-align: center;
+    color: #e9452c;
+}
+
+.to-login .link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+

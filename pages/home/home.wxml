@@ -1,0 +1,132 @@
+<view class="container">
+    <!-- 头部 -->
+    <view class="swiper-container">
+        <view class="search-container {{scrollFlag ? 'active' : ''}}">
+            <!-- <view class="search-icon">
+                <image class="search-img" src="/image/ai3.png" />
+            </view> -->
+            <view class="location">
+                <view class="province">
+                    {{ region[0] }}
+                </view>
+                <picker class="region-picker"  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <view class="city">
+                        {{region[1]}}
+                    </view>
+                </picker>
+            </view>
+            <view class="search-input">
+                <i>
+                    <image src="/image/ati.png" />
+                </i>
+                <input type="text" placeholder-class="place-holder" placeholder="请输入您要搜索的商品" />
+            </view>
+            <!-- <view class="search-icon">
+                <image class="search-img" src="/image/ahw.png" />
+            </view> -->
+        </view>
+        <!-- 轮播图 -->
+        <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color='{{ctrlColor}}' indicator-active-color="{{ctrlCurrentColor}}">
+            <block wx:for="{{imgUrls}}" wx:key="index">
+                <swiper-item class="swiper-item">
+                    <image src="{{item.image}}" class="slide-image" width="355" height="150" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!-- 导航 -->
+    <view class="nav-list">
+        <block>
+            <view class="nav-row1">
+                <view class="nav-item">
+                    <view class="title">市场板</view>
+                    <view class="desc">最高立减￥500</view>
+                </view>
+               <view class="nav-item">
+                   <view class="title">厚芯板</view>
+                   <view class="desc">限量第二人免单</view>
+               </view>
+            </view>
+            <view class="nav-row2">
+                <view class="nav-item">
+                    <view class="title">中迁板</view>
+                    <view class="desc">最高立减700</view>
+                </view>
+                <view class="nav-item">
+                    <view class="title">免漆板</view>
+                    <view class="desc">限量￥200</view>
+                </view>
+                <view class="nav-item">
+                    <view class="title">家具板</view>
+                    <view class="desc">独家品牌质量100%</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 热品推荐 -->
+    <view class='page-margin'>
+        <view class="page-row">
+            <text>热品推荐</text>
+             <view class='theme_more'>
+               <text class="icon icon-youjiantou"></text>
+            </view>
+            <!-- <image class='theme_img' src="/image/bej.png" mode="aspectFill" /> -->
+           
+        </view>
+        <scroll-view class='hot-list' scroll-x="true">
+            <block wx:for-items="{{hotItems}}" wx:key="index">
+                <view class="hot-item" style="display: inline-block;">
+                    <view class="image">
+                        <image src="{{item.image}}" mode="aspectFill" />
+                    </view>
+                    <view class="title">{{ item.title }}</view>
+                    <view class="price">
+                        <view class="cur">
+                            <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
+                            <text class="money">￥</text>
+                            <text class="num"> {{ item.curPrice }}</text>
+                        </view>
+                        <view class="old">￥{{ item.oldPrice }}</view>
+                    </view>
+                    <view class="count-and-cart">
+                        <view class="count">销量：{{ item.count }}</view>
+                        <view class="cart">
+                            <text class="icon icon-gouwuche"></text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+    <!-- 新品推荐 -->
+     <view class='page-margin'>
+        <view class="page-row">
+            <text>新品推荐</text>          
+        </view>
+        <view class="border"></view>
+       <scroll-view class="new-list" scroll-y>
+           <block wx:for-items="{{newGoods}}" wx:key="index">
+               <view class="good-item">
+                   <view class="image">
+                        <image src="{{item.image}}" mode="aspectFill" />
+                   </view>
+                   <view class="desc">
+                       <view class="title">{{ item.title }}</view>
+                       <view class="price">￥{{ item.price }}</view>
+                       <view class="count">销量：{{ item.count }}</view>
+                   </view>
+                   <view class="operate">
+                       <text class="price">￥{{ item.count }}</text>
+                       <text class="icon icon-gouwuche"></text>
+                   </view>
+               </view>
+                <view class="border"></view>
+           </block>
+       </scroll-view>
+    </view>
+    <!-- <block wx:for='{{pageRow}}' wx:for-item="page" wx:key="index">
+        <view class='page-row' style="justify-content:center">
+            <image class='page_img' wx:for='{{page}}' wx:key="index" src="{{item}}" mode="aspectFill"></image>
+        </view>
+    </block> -->
+</view>

@@ -1,0 +1,23 @@
+<view class="distributor">
+    <view class="header"></view>
+    <view class="form-wrap">
+        <form action="">
+            <view class="form-item">
+                <text class="icon icon-yonghu"></text>
+                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" />
+            </view>
+            <view class="form-item">
+                <text class="icon icon-shouji"></text>
+                <input type="text" placeholder-class="placeholder" placeholder="请输入手机号" />
+            </view>
+            <view class="form-item sms">
+                <text class="icon icon-pinglun"></text>
+                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" />
+                <view class="send-sms">发送验证码</view>
+            </view>
+        </form>
+    </view>
+    <view class="button-wrap">
+        <view class="button">申请</view>
+    </view>
+</view>

@@ -1,0 +1,61 @@
+.header {
+    width: 750rpx;
+    height: 380rpx;
+    margin-bottom: 80rpx;
+    /* background-image: url('../image/jd2.jpg') */
+}
+
+.form-wrap, .button-wrap {
+    padding: 0 70rpx;
+}
+
+
+.form-item {
+    /* display: flex; */
+    width: 100%;
+    padding: 40rpx 0 10rpx 0;
+    border-bottom: 1px solid gray;
+    vertical-align: middle;
+    color: #c2c2c2;
+}
+.form-item text, view, input {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-item input {
+    width: 500rpx;
+}
+.form-item .icon {
+    margin-right: 35rpx;
+    font-size: 40rpx;
+}
+
+.form-item.sms input {
+    width: 300rpx;
+}
+.placeholder {
+    color: #c2c2c2;
+}
+
+.form-item.sms .send-sms {
+    padding: 10rpx 20rpx;
+    border: 1px solid #e9452c;
+    color: #e9452c;
+    border-radius: 50rpx;
+    vertical-align: middle;
+}
+
+.button-wrap {
+    margin: 0 auto;
+}
+.button-wrap .button {
+    margin-top: 110rpx;
+    text-align: center;
+    line-height: 90rpx;
+    height: 90rpx;
+    width: 600rpx;
+    border-radius: 50rpx;
+    color: white;
+    background: #e9452c;
+}

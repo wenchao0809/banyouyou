@@ -1,0 +1,20 @@
+.header .photo image {
+  width: 165rpx;
+  height: 165rpx;
+  border-radius: 82.5rpx;
+}
+
+.header .photo, .name-and-phone, .to-user-detail {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header .photo {
+  margin-left: 80rpx;
+  margin-right: 30rpx;
+}
+
+.to-user-detail {
+  position: absolute;
+  right: 30rpx;
+}

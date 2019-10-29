@@ -1,0 +1,27 @@
+<view class="login-wrap">
+    <view class="nick-and-photo">
+        <view class="photo">
+            <view>头像</view>
+        </view>
+        <view>板优优</view>
+    </view>
+    <view class="form">
+        <form action="">
+            <view class="form-item">
+                <text class="icon icon-yonghu"></text>
+                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" />
+            </view>
+             <view class="form-item">
+                <text class="icon icon-mima"></text>
+                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" />
+            </view>
+        </form>
+    </view>
+     <view class="button-wrap">
+        <view class="button">注册</view>
+    </view>
+    <view class="to-register">
+        <text>没有账号？</text>
+        <text class="link">立即注册板优优</text>
+    </view>
+</view>
