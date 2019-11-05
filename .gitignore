@@ -1,0 +1,6 @@
+dist/
+node_modules
+.idea
+miniprogram_npm
+# .vscode
+/project.config.json

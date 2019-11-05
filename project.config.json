@@ -9,11 +9,22 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": true
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.3",
-	"appid": "wxd47f45c53d20ce82",
+	"appid": "wx0a85e587fbb7f034",
 	"projectname": "%E4%BB%BF%E4%BA%AC%E4%B8%9C",
 	"debugOptions": {
 		"hidedInDevtools": []

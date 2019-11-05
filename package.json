@@ -1,0 +1,22 @@
+{
+  "name": "banyouyou",
+  "version": "1.0.0",
+  "description": "> UI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ET912/banyouyou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ET912/banyouyou/issues"
+  },
+  "homepage": "https://github.com/ET912/banyouyou#readme",
+  "dependencies": {
+    "vant-weapp": "^0.5.23"
+  }
+}
