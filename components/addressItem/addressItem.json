@@ -1,4 +1,8 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "van-panel": "/miniprogram_npm/vant-weapp/panel/index",
+    "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
+    "van-icon": "/miniprogram_npm/vant-weapp/icon/index"
+  }
 }

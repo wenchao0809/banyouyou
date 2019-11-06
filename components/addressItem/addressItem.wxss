@@ -1,1 +1,14 @@
 /* components/addressItem/addressItem.wxss */
+.address-item-container {
+  margin-bottom: 10rpx;
+}
+
+.address-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-item-footerRight {
+  display: flex;
+}

@@ -1,11 +1,11 @@
-// pages/address/address.js
+// pages/add-address/add-address.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**

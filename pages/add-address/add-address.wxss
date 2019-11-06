@@ -1,0 +1,8 @@
+/* pages/add-address/add-address.wxss */
+.add-address-container {
+  height: 100%;
+}
+
+.contacts-container {
+  display: flex;
+}

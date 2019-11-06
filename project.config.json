@@ -54,7 +54,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -109,6 +109,13 @@
 					"id": -1,
 					"name": "pages/address/address",
 					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/add-address",
+					"pathName": "pages/add-address/add-address",
 					"scene": null
 				}
 			]

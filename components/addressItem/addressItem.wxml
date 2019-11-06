@@ -1,2 +1,26 @@
 <!--components/addressItem/addressItem.wxml-->
-<text>components/addressItem/addressItem.wxml</text>
+<view class="address-item-container">
+  <van-panel use-footer-slot>
+    <view slot="header">
+      <text class="address-item-name">叶文洁 </text>
+      <text class="address-item-sex">先生 </text>
+      <text class="address-item-phoneNumber">18998756545 </text>
+      <van-tag plain type="success">家里</van-tag>
+      <view class="address-item-desc">诉讼法首发式方式改革感到翻跟斗翻跟斗放松放松郭德纲的改动很大很大</view>
+    </view>
+    <view slot="footer" class="address-item-footer">
+      <radio-group>
+        <radio checked="{{ true }}"/> 设为默认
+      </radio-group>
+      <view class="address-item-footerRight">
+        <view style="width: 140rpx;">
+          <van-icon name="edit" style="font-size: 36rpx;" />
+          <text> 编辑</text>
+        </view>
+        <view>
+          <van-icon name="delete" style="font-size: 36rpx;" /> 删除
+        </view>
+      </view>
+    </view>
+  </van-panel>
+</view>

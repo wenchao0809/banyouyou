@@ -12,7 +12,7 @@
     <couponItem/>
   </view>
   <view class="coupon-content coupon-blank" wx:else>
-    <text class="icon icon-quan" style="font-size: 204rpx;"></text>
+    <text class="icon icon-quan" style="font-size: 124rpx;"></text>
     <view class="coupon-blank-text">暂无优惠券</view>
   </view>
 </view>

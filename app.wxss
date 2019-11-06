@@ -12,3 +12,9 @@ page {
 view, text {
   font-size: 32rpx;
 }
+
+.divider {
+  height: 1rpx;
+  width: 100%;
+  background: #B0C4DE;
+}

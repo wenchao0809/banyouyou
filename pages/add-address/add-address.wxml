@@ -1,0 +1,13 @@
+<!--pages/add-address/add-address.wxml-->
+<view class="add-address-container">
+  <form bindsubmit="formSubmit">
+    <view class="contacts-container">
+      <view>联系人</view>
+      <view style="flex: 1;">
+        <input placeholder="姓名" adjust-position="{{ false }}"></input>
+        <view class="divider"></view>
+        <view class=""></view>
+      </view>
+    </view>
+  </form>
+</view>

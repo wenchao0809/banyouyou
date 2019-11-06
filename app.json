@@ -12,7 +12,8 @@
     "pages/login/login",
     "pages/my-orders/my-orders",
     "pages/my-coupon/my-coupon",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/add-address/add-address"
   ],
   "window": {
     "backgroundTextStyle": "light",
