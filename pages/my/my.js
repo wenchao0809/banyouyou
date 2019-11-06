@@ -17,12 +17,7 @@ Page({
       },
       {
         name: '收货地址',
-        icon: 'icon icon-dizhi:',
-        path: ''
-      },
-      {
-        name: '关于我们',
-        icon: 'icon icon-xinxi:',
+        icon: 'icon icon-dizhi',
         path: ''
       },
       {
@@ -32,12 +27,12 @@ Page({
       },
       {
         name: '意见反馈',
-        icon: 'icon-fankuiyijianfankui-xianxing',
+        icon: 'icon icon-fankuiyijianfankui-xianxing',
         path: ''
       },
       {
         name: '设置',
-        icon: 'icon icon-xinxi',
+        icon: 'icon icon-shezhi',
         path: ''
       },
       {
