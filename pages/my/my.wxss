@@ -18,3 +18,49 @@
   position: absolute;
   right: 30rpx;
 }
+
+.my-distribute {
+  display: flex;
+  justify-content: space-between;
+}
+.my-distribute .left {
+  padding-left: 20rpx;
+  width: 300rpx;
+}
+.my-distribute .right {
+  padding-right: 20rpx;
+  width: 518rpx;
+  text-align: right;
+}
+.my-distribute .left, .right text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my-distribute .left .icon {
+  margin-right: 10rpx;
+}
+
+.my-distribute .right .icon {
+  margin-left: 10rpx;
+}
+
+.serve-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  margin-bottom: 20rpx;
+}
+.serve-item .icon {
+  display: inline-block;
+  margin-left: 20rpx;
+  width: 80rpx;
+}
+
+.serve-item .navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20rpx;
+  width: 708rpx;
+}

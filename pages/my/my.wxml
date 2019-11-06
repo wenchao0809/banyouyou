@@ -15,21 +15,21 @@
   <view class="my-distribute">
     <view class="left">
       <text class="icon icon-VIP"></text>
-      <text>我的分销</text>
+      <text>我的分销1</text>
     </view>
     <view class="right">
-      <view class="desc">联系我们加入分销商</view>
+      <text class="desc">联系我们加入分销商</text>
       <text class="icon icon-youjiantou"></text>
     </view>
   </view>
   <view class="my-serve">
-    <block wx:for-items="{{serveItems}}" wx:key="index">
+    <view class="serve-item" wx:for-items="{{serveItems}}" wx:key="index">
       <text class="{{ item.icon }}"></text>
-      <navigator url="/page/index/index">
+      <navigator class="navigator" url="/page/index/index">
        <text>{{ item.name }}</text>
        <text class="icon icon-youjiantou"></text>
       </navigator>
-    </block>
+    </view>
   </view>
   <view class="my-helper"></view>
 </view>
