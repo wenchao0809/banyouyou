@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ET912/banyouyou#readme",
   "dependencies": {
+    "mobx-wxapp": "^2.2.1",
     "vant-weapp": "^0.5.23",
     "wechat-weapp-mobx": "^0.2.0"
   }
