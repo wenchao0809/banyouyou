@@ -1,0 +1,25 @@
+<!--components/goodItem/goodItem.wxml-->
+<view class="goodItem-container">
+  <view class="goodItem-top">
+    <view style="display: flex;align-items: center;">
+       <image src="/image/shop.png" style="width: 39rpx; height: 38rpx;" />
+       <text style="font-weight: bold;">板优优商家</text>
+       <image src="/image/arrowright.png" style="height: 25rpx;width: 24rpx;"/> 
+    </view>
+    <view class="goodItem-top-status">买家已收货</view>
+  </view>
+  <view class="goodItem-center">
+     <image src="https://upload.cc/i1/2019/11/06/v5zWam.png" style="width: 183rpx; height: 179rpx;" />
+     <view class="goodItem-center-title">班优优3厘米木质好的好烦的</view>
+     <view style="flex: 1;text-align: right;">
+       <view class="goodItem-center-price">298.00</view>
+       <view class="goodItem-center-num">x1</view>
+     </view>  
+  </view>
+  <view class="goodItem-total">共1件商品 合计:￥599.00</view>
+  <view class="goodItem-bottom">
+    <view class="goodItem-bottom-btn">查看物流</view>
+    <view class="goodItem-bottom-btn">延长收货</view>
+    <view class="goodItem-bottom-btn red">确认收货</view>
+  </view>  
+</view>

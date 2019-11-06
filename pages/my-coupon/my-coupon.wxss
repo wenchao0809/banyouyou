@@ -1,0 +1,20 @@
+/* pages/my-coupon/my-coupon.wxss */
+.coupon-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.coupon-content {
+  flex: 1;
+}
+
+.coupon-blank {
+  text-align: center;
+  padding: 30rpx;
+}
+
+.coupon-blank-text {
+  color: #999999;
+  margin-top: 10rpx;
+}

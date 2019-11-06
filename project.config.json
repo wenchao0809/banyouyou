@@ -95,6 +95,20 @@
 					"id": -1,
 					"name": "pages/my-orders",
 					"pathName": "pages/my-orders/my-orders",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my-coupon/my-coupon",
+					"pathName": "pages/my-coupon/my-coupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
 					"scene": null
 				}
 			]

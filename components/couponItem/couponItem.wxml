@@ -1,0 +1,14 @@
+<!--components/couponItem/couponItem.wxml-->
+<view class="couponsItem-container">
+  <view class='coupons-money'>
+    <text > ￥\n 200 </text>
+  </view>
+  <view class='coupons-info'>
+    <text style='font-size:48rpx;'> 全商品立减券\n </text>
+    <text style='font-size:20rpx;'> 满 </text>
+    <text style='font-size:28rpx;color:green;'>123 </text>
+    <text style='font-size:20rpx;'>元使用 \n</text>
+    <text style='font-size:28rpx;color:green;' > 2012-11-08 00:00:00 </text>
+    <text style='font-size:20rpx;'> 前有效\n </text>
+  </view>
+</view>

@@ -3,10 +3,18 @@
   <view class="orders-tabBar-top">
     <view class="orders-tabBar-item" wx:for="{{ tabBar }}">
       <text>{{ item.num }}</text>
-      <text>{{ item.text }}</text>
+      <text style="font-weight: bold;margin-top: 10rpx;">{{ item.text }}</text>
     </view>
   </view>
   <view class="orders-advertising">
     <image src="{{ adImg }}" style="height: 100%; width: 100%;"></image>
+  </view>
+  <view class="orders-blank" wx:if="{{ false }}">
+    <image src="http://chuantu.xyz/t6/703/1573009130x977013264.png" style="width: 277rpx;height: 322rpx;"></image>
+    <text style="color: #9e9e9e;margin: 34rpx 0;">没有你的订单</text>
+    <view class="orders-goshopping" bindtap="goShop">去购物</view>
+  </view>
+  <view wx:else>
+    <goodItem/>
   </view>
 </view>

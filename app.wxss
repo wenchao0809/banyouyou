@@ -8,3 +8,7 @@ page {
 .container {
   width: 100%;
 }
+
+view, text {
+  font-size: 32rpx;
+}

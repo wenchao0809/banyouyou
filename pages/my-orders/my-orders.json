@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "goodItem": "/components/goodItem/goodItem"
+  },
   "navigationBarTitleText": "我的订单"
 }

@@ -1,36 +1,13 @@
-// pages/my-orders/my-orders.js
+// pages/address/address.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabBar: [
-      {
-        num: 0,
-        text: '待付款'
-      },
-      {
-        num: 0,
-        text: '待发货'
-      },
-      {
-        num: 0,
-        text: '待收获'
-      },
-      {
-        num: 0,
-        text: '退款 / 售后'
-      }
-    ],
-    adImg: 'http://chuantu.xyz/t6/703/1573008573x992245926.png'
+
   },
 
-  goShop () {
-    wx.switchTab({
-      url: '/pages/home/home'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

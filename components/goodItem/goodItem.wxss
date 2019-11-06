@@ -1,0 +1,65 @@
+/* components/goodItem/goodItem.wxss */
+.goodItem-container {
+  margin: 33rpx 22rpx;
+  background: #f9f9f9;
+  height: 442rpx;
+  border-radius: 5rpx;
+  padding: 20rpx 16rpx;
+}
+
+.goodItem-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goodItem-top-status {
+  color: #d82020;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.goodItem-center {
+  display: flex;
+}
+
+.goodItem-center-title {
+  color: #676767;
+  font-weight: bolder;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 300rpx;
+  font-size: 34rpx;
+}
+
+.goodItem-center-price {
+  margin: 3rpx 0 10rpx;
+}
+
+.goodItem-total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #656565;
+}
+
+.goodItem-bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.goodItem-bottom-btn {
+  height: 54rpx;
+  width: 152rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid #999999;
+  color: #999999;
+  text-align: center;
+  line-height: 54rpx;
+  font-size: 28rpx;
+}
+
+.red {
+  border-color: #d82020;
+  color: #d82020;
+}

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   font-size: 32rpx;
-  font-weight: bold;
+  margin: 36rpx 0; 
 }
 
 .orders-tabBar-item {
@@ -17,10 +17,26 @@
 }
 
 .orders-advertising {
-  height: 200rpx;
-  width: 100%;
-  padding: 0 30rpx;
-  box-sizing: border-box;
+  width: 702rpx;
+  height: 136rpx;
+  margin: 0 auto;
   border-radius: 10rpx;
   overflow: hidden;
+}
+
+.orders-blank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90rpx;
+}
+
+.orders-goshopping {
+  width: 200rpx;
+  height: 60rpx;
+  border: 1rpx solid #9e9e9e;
+  border-radius: 25rpx;
+  color: #9e9e9e;
+  text-align: center;
+  line-height: 60rpx;
 }

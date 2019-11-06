@@ -10,7 +10,9 @@
     "pages/register/register",
     "pages/bussiness-register/register",
     "pages/login/login",
-    "pages/my-orders/my-orders"
+    "pages/my-orders/my-orders",
+    "pages/my-coupon/my-coupon",
+    "pages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",
