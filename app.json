@@ -9,7 +9,8 @@
     "pages/productdetail/productdetail",
     "pages/register/register",
     "pages/bussiness-register/register",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/my-orders/my-orders"
   ],
   "window": {
     "backgroundTextStyle": "light",

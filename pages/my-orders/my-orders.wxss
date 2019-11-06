@@ -1,0 +1,26 @@
+/* pages/my-orders/my-orders.wxss */
+.my-orders-container {
+  height: 100%;
+}
+
+.orders-tabBar-top {
+  display: flex;
+  justify-content: space-around;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.orders-tabBar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orders-advertising {
+  height: 200rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  overflow: hidden;
+}

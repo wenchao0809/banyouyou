@@ -1,0 +1,12 @@
+<!--pages/my-orders/my-orders.wxml-->
+<view class="my-orders-container">
+  <view class="orders-tabBar-top">
+    <view class="orders-tabBar-item" wx:for="{{ tabBar }}">
+      <text>{{ item.num }}</text>
+      <text>{{ item.text }}</text>
+    </view>
+  </view>
+  <view class="orders-advertising">
+    <image src="{{ adImg }}" style="height: 100%; width: 100%;"></image>
+  </view>
+</view>

@@ -1,5 +1,10 @@
 @import "/icon/icon.wxss";
 
+page {
+  height: 100%;
+  width: 100%;
+}
+
 .container {
   width: 100%;
 }
