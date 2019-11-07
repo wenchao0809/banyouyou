@@ -14,7 +14,7 @@ view, text {
 }
 
 .divider {
-  height: 1rpx;
+  height: 2rpx;
   width: 100%;
   background: #B0C4DE;
 }

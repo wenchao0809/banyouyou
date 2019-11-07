@@ -2,12 +2,59 @@
 <view class="add-address-container">
   <form bindsubmit="formSubmit">
     <view class="contacts-container">
-      <view>联系人</view>
+      <view style="padding-top: 4rpx;">联系人</view>
       <view style="flex: 1;">
         <input placeholder="姓名" adjust-position="{{ false }}"></input>
         <view class="divider"></view>
-        <view class=""></view>
+        <view class="add-address-sex">
+          <van-tag plain type="success" style="margin-right: 20rpx;">先生</van-tag>
+          <van-tag plain type="">女士</van-tag>
+        </view>
       </view>
+    </view>
+    <view class="add-address-phoneNumber">
+      <view class="divider"></view>
+      <view style="display: flex;">
+        <text>电话</text>
+        <picker bindchange="bindPickerChange" value="{{ index }}" range="{{ array }}">
+          <view class="picker">
+            {{ array[index] }} | 
+          </view>
+        </picker>
+        <input style="flex: 1;" placeholder="请输入您的手机号码"></input>
+      </view>
+      <view class="divider"></view>
+    </view>
+    <view class="add-address-desc" bindtap="getLocaltion">
+      <view style="display: flex;">
+        <text>小区/大厦/学校</text>
+        <input style="flex: 1;" disabled></input>
+        <text class="icon icon-dizhi1" style="font-size: 42rpx;"></text>
+      </view>
+      <view class="divider"></view>
+      <view style="display: flex;">
+        <text>补充信息</text>
+        <input style="flex: 1;" placeholder="如门牌号等"></input>
+      </view>
+      <view class="divider"></view>
+    </view>
+    <view class="add-address-type">
+      <view style="text-align: right;">
+        <van-tag plain type="success" style="margin-right: 20rpx;">先生</van-tag>
+        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
+        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
+        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
+        <van-tag plain type="">先生</van-tag>
+      </view>
+      <view style="display: flex;justify-content: space-between;">
+        <text>设为默认</text>
+        <switch/>
+      </view>
+    </view>
+    <view class="add-address-btn">
+      <button type="warn" style="flex: 1;">取消</button>
+      <view style="flex: 0.1;"></view>
+      <button type="primary" form-type="submit" style="flex: 1;">保存</button>
     </view>
   </form>
 </view>

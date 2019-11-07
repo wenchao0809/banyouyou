@@ -116,6 +116,13 @@
 					"id": -1,
 					"name": "pages/add-address",
 					"pathName": "pages/add-address/add-address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/feedback",
+					"pathName": "pages/feedback/feedback",
 					"scene": null
 				}
 			]

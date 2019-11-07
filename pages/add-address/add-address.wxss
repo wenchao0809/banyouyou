@@ -6,3 +6,12 @@
 .contacts-container {
   display: flex;
 }
+
+.add-address-phoneNumber {
+  padding-top: 10rpx;
+}
+
+.add-address-btn {
+  display: flex;
+  justify-content: space-between;
+}

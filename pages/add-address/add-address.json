@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    
+    "van-tag": "/miniprogram_npm/vant-weapp/tag/index"
   },
   "navigationBarTitleText": "新增收货地址"
 }
