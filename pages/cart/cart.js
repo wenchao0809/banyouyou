@@ -21,6 +21,19 @@ Page({
     wx.getStorage({
       key: 'cartInfo',
       success: (res) => {
+        res.data = res.data || [{
+          title: 'HUAWEI P20 Pro 全面屏徕卡三摄游戏手机 6GB+128GB 亮黑色 全网通移动联通电信4G手机 双卡双待',
+          price: 4499.00,
+          total: 10,
+          count: 1,
+          loopImgUrl: ['/image/classify/huawei.png']
+        }, 
+        {
+          title: 'HUAWEI P20 Pro 全面屏徕卡三摄游戏手机 6GB+128GB 亮黑色 全网通移动联通电信4G手机 双卡双待',
+          price: 124,
+          total: 10,
+          image: 'https://img12.360buyimg.com/n4/jfs/t1/40395/22/1110/670439/5cbc0508E2ff0175a/19ecfe5ad4e946be.jpg'
+        }]
         res.data.forEach(item => {
           item.select = false
         })
@@ -74,8 +87,10 @@ Page({
     })
 
   },
+  // 选择商品属性
+  selectGoodAttr() {},
   selectAll(){
-
+    console.log('select all');
     const cartList = this.data.cartList
     let totalMoney = 0 // 合计初始化为0
     let totalCount = 0 // 结算个数初始化为0
@@ -142,8 +157,8 @@ Page({
         v.isTouchMove = false;
     })
     this.setData({
-      startX: e.changedTouches[0].clientX,
-      startY: e.changedTouches[0].clientY,
+      startX: e.touches[0].clientX,
+      startY: e.touches[0].clientY,
       cartList: this.data.cartList
     })
   },

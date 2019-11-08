@@ -4,18 +4,28 @@
     <text class='empyt_txt'>购物车空空如也，去逛逛吧~</text>
   </view>
   <view wx:else class='section'>
+    <view class="header">
+      <checkRadio class="select-all" catch:change="selectAll" checked="{{selectAll}}"></checkRadio>
+      <text class="icon icon-shanchu"></text>
+    </view>
     <block wx:for='{{cartList}}' wx:key="index">
       <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" catchtap='gotoProductDetail' data-index="{{index}}"bindtouchstart="touchstart" bindtouchmove="touchmove">
         <view class='content'>
-          <view class='select_icon' data-index='{{index}}' catchtap='selectProduct'>
-            <image wx:if='{{item.select}}' src='/image/selected.png'></image>
-            <image class='icon' wx:else src='/image/unselect.png'></image>
-          </view>
+          <checkRadio 
+            class="select-single"
+            data-index="{{index}}"
+            catch:change="selectProduct" 
+            checked="{{ item.select }}" /> 
           <view class='goods'>
-            <image class='good_img' src='{{item.loopImgUrl[0]}}'></image>
+            <image class='good_img' src='/image/quick3.jpg'></image>
             <view class='good_info'>
               <view class='good_title'>
                 <text>{{item.title}}</text>
+              </view>
+              <!-- 商品属性 -->
+              <view class="good_attr">
+                <text class="desc">i7 16G+512G, 15英寸</text>
+                <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text>
               </view>
               <view class='good_price'>
                 <text class='price'>{{item.price}}</text>
@@ -30,12 +40,6 @@
       </view>
     </block>
     <view class='fixBar'>
-      <view class='select_all' catchtap='selectAll'>
-        <image wx:if='{{selectAll}}' class='icon' src='/image/selected.png'></image>
-        <image wx:else class='icon' src='/image/unselect.png'></image>
-
-        <text>全选</text>
-      </view>
       <view class='total'>
         <text>合计:</text>
         <text class='money'>¥{{totalMoney}}</text>
