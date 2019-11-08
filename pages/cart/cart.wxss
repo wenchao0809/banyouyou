@@ -9,7 +9,7 @@
 }
 
 .header .select-all {
-  margin-left: 20rpx;
+  padding-left: 20rpx;
 }
 
 .header .icon-shanchu {
@@ -53,14 +53,18 @@
 }
 .content{
   box-sizing: border-box;
-  padding: 10rpx;
+  /* padding: 10rpx; */
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-right:0;
   transition: all 0.4s;
   transform: translateX(90px);
   margin-left: -90px;
   padding-right: 0;
+}
+.content .select-single {
+  padding-left: 20rpx;
 }
 .select_icon{
   margin-left: 20rpx;
@@ -141,14 +145,14 @@
   justify-content: space-between;
   height: 100rpx;
 }
-.select_all{
+/* .select_all{
   width: 20%;
   line-height: 100rpx;
   font-size: 24rpx;
   color: #999;
   box-sizing: border-box;
   padding-left: 20rpx;
-}
+} */
 .select_all text {
   vertical-align: middle;
 }
