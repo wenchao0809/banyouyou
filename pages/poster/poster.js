@@ -1,20 +1,13 @@
-// pages/add-address/add-address.js
+// pages/poster/poster.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: ['美国', '中国', '巴西', '日本'],
-    index: 0
 
   },
 
-  getLocaltion () {
-    wx.chooseLocation({
-      
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
