@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "poster": "wxa-plugin-canvas/poster"
-  }
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  },
+  "navigationBarTitleText": "分享页面"
 }

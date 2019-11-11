@@ -13,7 +13,8 @@ Page({
     sku: {
       '厚度': ['5MM', '9MM', '12MM', '5MM', '9MM', '12MM'],
       '环保级别': ['5MM', '9MM', '12MM']
-    }
+    },
+    showFlag: false
   },
 
   showPopup () {
@@ -25,6 +26,13 @@ Page({
   cancel () {
     this.setData({
       show: false
+    })
+  },
+
+  onClickIcon () {
+    let that = this
+    this.setData({
+      showFlag: !that.data.showFlag
     })
   },
 

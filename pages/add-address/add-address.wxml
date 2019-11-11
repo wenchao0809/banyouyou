@@ -1,14 +1,16 @@
 <!--pages/add-address/add-address.wxml-->
 <view class="add-address-container">
+  
   <form bindsubmit="formSubmit">
-    <view class="contacts-container">
+    <view class="add-address-form">
+      <view class="contacts-container">
       <view style="padding-top: 4rpx;">联系人</view>
       <view style="flex: 1;">
         <input placeholder="姓名" adjust-position="{{ false }}"></input>
         <view class="divider"></view>
         <view class="add-address-sex">
-          <van-tag plain type="success" style="margin-right: 20rpx;">先生</van-tag>
-          <van-tag plain type="">女士</van-tag>
+          <tag type="success" style="margin-right: 20rpx;">先生</tag>
+          <tag type="">女士</tag>
         </view>
       </view>
     </view>
@@ -40,16 +42,17 @@
     </view>
     <view class="add-address-type">
       <view style="text-align: right;">
-        <van-tag plain type="success" style="margin-right: 20rpx;">先生</van-tag>
-        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
-        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
-        <van-tag plain type="" style="margin-right: 20rpx;">先生</van-tag>
-        <van-tag plain type="">先生</van-tag>
+        <tag type="success" style="margin-right: 20rpx;">先生</tag>
+        <tag type="" style="margin-right: 20rpx;">先生</tag>
+        <tag type="" style="margin-right: 20rpx;">先生</tag>
+        <tag type="" style="margin-right: 20rpx;">先生</tag>
+        <tag type="">先生</tag>
       </view>
       <view style="display: flex;justify-content: space-between;">
         <text>设为默认</text>
         <switch/>
       </view>
+    </view>
     </view>
     <view class="add-address-btn">
       <button type="warn" style="flex: 1;">取消</button>

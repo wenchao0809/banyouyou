@@ -1,7 +1,7 @@
 <!--pages/address/address.wxml-->
 <view class="address-container">
   <view class="address-blank" wx:if="{{ false }}">
-    <van-icon name="location" style="font-size: 124rpx;color: #7CFC00;" />
+    <text class="icon icon-dizhi1" style="font-size: 124rpx;color: #18ab1c;"></text>
     <text style="margin: 20rpx 0;font-size: 36rpx;">没有收获地址</text>
     <text style="font-size: 28rpx;">点击新增按钮即可添加地址</text>
   </view>

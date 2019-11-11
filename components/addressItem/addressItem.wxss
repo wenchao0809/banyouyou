@@ -1,14 +1,40 @@
 /* components/addressItem/addressItem.wxss */
 .address-item-container {
   margin-bottom: 10rpx;
+  background: #fff;
+  padding: 0 20rpx;
 }
 
 .address-item-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20rpx 0;
 }
 
 .address-item-footerRight {
   display: flex;
+  font-size: 28rpx;
+}
+
+.divider {
+  height: 2rpx;
+  width: 100%;
+  background: #f3f3f3;
+}
+
+.address-item-header {
+  padding-top: 20rpx;
+}
+
+.address-item-tag {
+  position: relative;
+  top: -3rpx;
+}
+
+.address-item-desc {
+  font-size: 28rpx;
+  line-height: 48rpx;
+  padding-bottom: 10rpx;
+  color: #757575;
 }

@@ -69,3 +69,31 @@ button[plain] {
 .productdetail-sku-desc {
   padding: 0 20rpx 10rpx;
 }
+
+.chat-type {
+  position: fixed;
+  height: 80rpx;
+  width: 200rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  bottom: 110rpx;
+  left: 55rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.chat-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chat-type-item text {
+  font-size: 26rpx;
+}
+
+.c-state {
+  transform: rotate(0deg) scale(1) translate(0, 0%);
+}
