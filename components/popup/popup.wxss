@@ -1,10 +1,25 @@
 /* components/popup/popup.wxss */
-.popup-container {
-  height: 300rpx;
-  background: rgba(0, 0, 0, 0.3);
+.popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.popup-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 1000000;
+  height: 0;
+  background: #fff;
+  transition: height 0.4s ease;
+}
+
+.popup-transition {
+  height: 30%;
 }

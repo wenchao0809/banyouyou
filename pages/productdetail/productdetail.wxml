@@ -41,30 +41,6 @@
   <view class="productdetail-imgdesc">
    <image src=""></image>
   </view>
-  <van-goods-action>
-    <van-goods-action-icon
-      icon="home-o"
-      text="首页"
-    />
-    <van-goods-action-icon
-      icon="chat-o"
-      text="客服"
-      bind:click="onClickIcon"
-    />
-    <van-goods-action-icon
-      icon="star-o"
-      text="收藏"
-    />
-    <van-goods-action-button
-      text="加入购物车"
-      type="warning"
-      bind:click="onClickButton"
-    />
-    <van-goods-action-button
-      text="立即购买"
-      bind:click="onClickButton"
-    />
-  </van-goods-action>
   <view class="chat-type {{ showFlag ? 'c-state' : '' }}">
     <view class="chat-type-item">
       <text class="icon icon-dianhua"></text>
@@ -75,9 +51,7 @@
       <text>聊天</text>
     </view>
   </view>
-  <popup/>
-  <van-popup show="{{ show }}" position="bottom" bind:close="onClose" overlay="{{false}}" 
-     custom-style="border-top: 1rpx solid #888;height: 22%;display: flex;flex-direction: column;">
+  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;" height="22%">
     <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">
       <button class="productdetail-popup" plain="true" open-type="share">
         <text class="icon icon-weixin" style="font-size: 70rpx;color: #32CD32;"></text>
@@ -89,5 +63,5 @@
       </view>
     </view>
     <button style="width: 100%;" bindtap="cancel">取消</button>
-  </van-popup>
+  </popup>
 </view>

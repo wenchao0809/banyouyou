@@ -1,4 +1,6 @@
 <!--components/popup/popup.wxml-->
-<view class="popup-container">
-  
+<view class="popup-overlay" style="{{ overlayStyle }}" wx:if="{{ overlay && show }}"></view>
+<view class="popup-content" style="{{ customStyle }}height: {{ show ?  height : '0' }};">
+  <slot></slot>
 </view>
+
