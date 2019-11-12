@@ -18,8 +18,15 @@
   height: 0;
   background: #fff;
   transition: height 0.4s ease;
+  overflow: hidden;
 }
 
 .popup-transition {
   height: 30%;
+}
+
+.popup-closeBtn {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
 }

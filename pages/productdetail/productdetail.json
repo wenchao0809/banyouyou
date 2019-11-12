@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "popup": "/components/popup/popup",
+    "goodsAction": "/components/goodsAction/goodsAction",
     "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
     "van-goods-action": "/miniprogram_npm/vant-weapp/goods-action/index",
     "van-goods-action-icon": "/miniprogram_npm/vant-weapp/goods-action-icon/index",

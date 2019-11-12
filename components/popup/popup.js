@@ -23,6 +23,10 @@ Component({
     'overlay': {
       type: Boolean,
       value: true
+    },
+    'closeIcon': {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -30,7 +34,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // Height: ''
+    
   },
 
   /**
@@ -38,11 +42,5 @@ Component({
    */
   methods: {
 
-  },
-  // attached () {
-  //   let Height = this.properties.height
-  //   this.setData({
-  //     Height
-  //   })
-  // }
+  }
 })

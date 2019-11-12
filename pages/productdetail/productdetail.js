@@ -14,7 +14,38 @@ Page({
       '厚度': ['5MM', '9MM', '12MM', '5MM', '9MM', '12MM'],
       '环保级别': ['5MM', '9MM', '12MM']
     },
-    showFlag: false
+    iconList: [
+      {
+        text: '首页',
+        icon: 'icon-shouye',
+        click: false,
+        clickColor: '#FFA500'
+      },
+      {
+        text: '客服',
+        icon: 'icon-10',
+        click: false,
+        clickColor: '#e87584'
+      },
+      {
+        text: '收藏',
+        icon: 'icon-shoucang',
+        click: false,
+        clickColor: '#FFA500'
+      }
+    ],
+    btns: [
+      {
+        style: '',
+        text: '加入购物车',
+        btn: 'left'
+      },
+      {
+        style: 'background: #f04347;color: #fff;',
+        text: '立即购买',
+        btn: 'right'
+      }
+    ]
   },
 
   showPopup () {
@@ -29,11 +60,12 @@ Page({
     })
   },
 
-  onClickIcon () {
-    let that = this
-    this.setData({
-      showFlag: !that.data.showFlag
-    })
+  tapLeftBtn () {
+    
+  },
+
+  tapRightBtn () {
+    
   },
 
   onShareAppMessage: function (options) {
@@ -114,13 +146,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

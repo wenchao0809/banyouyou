@@ -41,16 +41,6 @@
   <view class="productdetail-imgdesc">
    <image src=""></image>
   </view>
-  <view class="chat-type {{ showFlag ? 'c-state' : '' }}">
-    <view class="chat-type-item">
-      <text class="icon icon-dianhua"></text>
-      <text>电话</text>
-    </view>
-    <view class="chat-type-item">
-      <text class="icon icon-conversation_icon"></text>
-      <text>聊天</text>
-    </view>
-  </view>
   <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;" height="22%">
     <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">
       <button class="productdetail-popup" plain="true" open-type="share">
@@ -64,4 +54,24 @@
     </view>
     <button style="width: 100%;" bindtap="cancel">取消</button>
   </popup>
+  <popup show="{{true}}" closeIcon="{{true}}" height="45%">
+    <view class="cart-container">
+     <view class="cart-desc">
+       <image src="https://i.ibb.co/yVV5WHk/20191112161220-03.png" class="cart-img"></image>
+        <view>
+          <text>3厘全按市场办</text>
+          <view class="productdetail-price">
+            <text class="productdetail-current-price">￥28.00</text>
+            <text class="productdetail-original-price">￥30</text>
+          </view>
+          <view>
+            <text class="productdetail-stock">库存：900</text>
+            <text class="productdetail-sales">销量：3332</text>
+          </view>
+        </view>
+     </view>
+      
+    </view>
+  </popup>
+  <goodsAction icons="{{ iconList }}" btns="{{ btns }}" bind:tapLeftBtn="tapLeftBtn" bind:tapRightBtn="tapRightBtn"></goodsAction>
 </view>
