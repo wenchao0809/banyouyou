@@ -69,9 +69,3 @@ button[plain] {
 .productdetail-sku-desc {
   padding: 0 20rpx 10rpx;
 }
-
-.cart-img {
-  width: 170rpx;
-  height: 170rpx;
-  
-}

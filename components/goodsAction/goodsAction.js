@@ -23,6 +23,7 @@ Component({
    */
   data: {
     showFlag: false,
+    showCart: false,
     changeStar: false,
     iconList: []
   },
@@ -68,10 +69,17 @@ Component({
     },
     onClickBtn (e) {
       if (e.currentTarget.dataset.btn === 'left') {
-        this.triggerEvent('tapLeftBtn', {})
+        this.setData({
+          showCart: !this.data.showCart
+        })
       } else {
         this.triggerEvent('tapRightBtn', {})
       }
+    },
+    onClose () {
+      this.setData({
+        showCart: false
+      })
     }
   },
   attached () {

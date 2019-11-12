@@ -19,4 +19,5 @@
       <text>聊天</text>
     </view>
   </view>
+  <minCart show="{{ showCart }}" bind:onClose="onClose"/>
 </view>

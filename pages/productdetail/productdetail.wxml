@@ -34,14 +34,14 @@
     <block wx:for="{{sku}}" wx:for-index="title" wx:for-item="list">
       <view style="padding-top: 20rpx;">{{ title }}</view>
       <view style="padding: 10rpx 0;">
-        <van-tag wx:for="{{list}}" style="margin-right: 10rpx;">{{item}}</van-tag>
+        <tag wx:for="{{list}}" style="margin-right: 10rpx;" bindtap="">{{item}}</tag>
       </view> 
     </block>
   </view>
   <view class="productdetail-imgdesc">
    <image src=""></image>
   </view>
-  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;" height="22%">
+  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;height: 22%;">
     <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">
       <button class="productdetail-popup" plain="true" open-type="share">
         <text class="icon icon-weixin" style="font-size: 70rpx;color: #32CD32;"></text>
@@ -54,24 +54,5 @@
     </view>
     <button style="width: 100%;" bindtap="cancel">取消</button>
   </popup>
-  <popup show="{{true}}" closeIcon="{{true}}" height="45%">
-    <view class="cart-container">
-     <view class="cart-desc">
-       <image src="https://i.ibb.co/yVV5WHk/20191112161220-03.png" class="cart-img"></image>
-        <view>
-          <text>3厘全按市场办</text>
-          <view class="productdetail-price">
-            <text class="productdetail-current-price">￥28.00</text>
-            <text class="productdetail-original-price">￥30</text>
-          </view>
-          <view>
-            <text class="productdetail-stock">库存：900</text>
-            <text class="productdetail-sales">销量：3332</text>
-          </view>
-        </view>
-     </view>
-      
-    </view>
-  </popup>
-  <goodsAction icons="{{ iconList }}" btns="{{ btns }}" bind:tapLeftBtn="tapLeftBtn" bind:tapRightBtn="tapRightBtn"></goodsAction>
+  <goodsAction icons="{{ iconList }}" btns="{{ btns }}"></goodsAction>
 </view>

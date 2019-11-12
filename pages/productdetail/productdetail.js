@@ -10,6 +10,7 @@ Page({
       '/image/quick2.jpg'
     ],
     show: false,
+    showFlag: false,
     sku: {
       '厚度': ['5MM', '9MM', '12MM', '5MM', '9MM', '12MM'],
       '环保级别': ['5MM', '9MM', '12MM']
@@ -58,14 +59,6 @@ Page({
     this.setData({
       show: false
     })
-  },
-
-  tapLeftBtn () {
-    
-  },
-
-  tapRightBtn () {
-    
   },
 
   onShareAppMessage: function (options) {
