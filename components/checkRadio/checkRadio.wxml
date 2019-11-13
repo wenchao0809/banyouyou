@@ -1,4 +1,6 @@
 <view class="check-raio" catch:tap="handleClick">
     <icon type="success" color="{{ color }}" wx:if="{{checked}}"></icon>
     <icon wx:else type="circle"></icon>
+          <text class="icon icon-youjiantou"></text>
+
 </view>

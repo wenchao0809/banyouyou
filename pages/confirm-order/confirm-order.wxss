@@ -1,0 +1,86 @@
+.confirm-order {
+    width: 100%;
+}
+.confirm-order .header {
+    height: 160rpx;
+    background: #e74030;
+}
+
+.confirm-order .content {
+    position: absolute;
+    top: 0;
+    right:  0rpx;
+    left: 0rpx;
+    padding: 0 30rpx;
+}
+
+.confirm-order .reveive-address .header {
+    height: 80rpx;
+    width: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZ4AAAAoCAYAAAG5n6xFAAAAAXNSR0IArs4c6QAABAZJREFUeAHt3b9u1DAcwHH/HAYGZjaQ2qvKCzCCxAt0AgmegqUIJAoTfwZEF54CJJgZGWDkCarcnaAbMwNDE/PzFaNcXEd3ohY569sliZ1a9sf88uN8SSrmz8/JtHZhfxO3InJUbU+uie/8pg+mOwFS0mD8wGx3dCXsFzeg0xia1Z+MM7c2eYb0glDphaEtKobEmkdFDcj/Cysuhoob0OKi0Mzqt86Zu5t8USix7xcmOyInBVyxS5ycMCa76ek0DKTUbXHX7NImigka+Ywu/pPg++im0xutcR91TeHSyPtcdPdEzGG1vfPAD7K4pZFSZk4/ptriPtGVMjl+HOSdEc8mk8PkjFhgxF0jcpicEQuMuGtEDpMzYoERd+3vCoHvo64S3G6Mez/i/tI1BP6bgAbLcTXZuRo6sAgegiZwsEVgNYHF96N+TVqzzefVfoWzEEAgCFj/ZU44YIsAAqsLWL4FXR2LMxHoCrDU1tVgH4E1BAieNbA4FYGuAMHT1WAfgTUECJ41sDgVga4AwdPVYB+BNQSW7jDwv+ecs+18+krvgN/T/d012uJUBIoS0OD46cR8rZw8lcnkS39wS8HTTOvvunR9pX8SxwggYExl5I4G0YdgcXp7jnPSzKZtKGSLAAJnC+jTie/06cR7vnbxmYfAORuKUgT6Av49LP5eUF9um3n9sH8CxwggkBYITx7w6HXaiBoEkgL6+ecmS9VJHioQSAs04p4RPGkfahBICogz1wmeJA8VCKQF/NMIBE/ahxoEBgUInkEeKhFICxA8aRtqEBgUIHgGeahEIC1A8KRtqEFgUIDgGeShEoG0AMGTtqEGgUEBgmeQh0oE0gIET9qGGgQGBQieQR4qEUgLEDxpG2oQGBRYegy7f6abzy+2prlvWtl3xl3u13OMAAIIIIBAEBAjP4x1h9ZUb2Rr61co72+jxKMvzBF9ec5zfdr0cf9kjhFAAAEEEFhVQF/58dJuTZ6I6DM8nZ+lxNPM6hcknI4OuwgggAAC/yzgE5C+c+ogNHT60ja/pNY2R7ztMLCwRQABBBA4TwFNNsfWVrt+Cc4u3kvdtt9IOudJTFsIIIAAAl0Bn2Nan2v0byHo66nr17q8tt89gX0EEEAAAQRyCOiym958oH+BJ0fjtIkAAggggEAsIHu84T1WoQQBBBBAIKMAD8FlxKVpBBBAAIFYgMQTm1CCAAIIIJBRgMSTEZemEUAAAQRiARJPbEIJAggggEBGARJPRlyaRgABBBCIBUg8sQklCCCAAAIZBUg8GXFpGgEEEEAgFiDxxCaUIIAAAghkFCDxZMSlaQQQQACBWIDEE5tQggACCCCQUYDEkxGXphFAAAEEYgEST2xCCQIIIIBARoHfEMbFAQyqePQAAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.reveive-address .header .title {
+    color: #e74030;
+} 
+
+.reveive-address > .address {
+    padding: 30rpx 20rpx;
+    background: white;
+}
+
+.address .has-address {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.address .has-address .name-and-phone {
+    display: flex;
+    /* justify-content: space-between; */
+}
+.name-and-phone .name {
+    margin-right: 20rpx;
+
+}
+.desc .address {
+    color: #888888;
+}
+.address .has-address .desc {
+    width: 80%;
+}
+
+.content .remark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20rpx;
+    padding: 30rpx 0;
+    padding-left: 20rpx;
+    background: white;
+}
+
+.remark .label {
+    width: 100rpx;
+}
+.remark .input-wrap {
+    width: 100%;
+}
+
+.goods {
+    margin-top: 20rpx;
+    padding-top: 30rpx;
+    padding-bottom: 100rpx;
+    background: white;
+}
+
+.good-list .good-item-wrap {
+    margin-top: 30rpx;
+}
+
+.good-item-wrap:first-child {
+    margin-top: 0;
+}

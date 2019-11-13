@@ -1,0 +1,45 @@
+<view class="confirm-order">
+    <view class="header">
+
+    </view>
+    <view class="content">
+        <view class="reveive-address">
+            <!-- <image src="./image/confrim-order-address-header.png"></image> -->
+            <view class="header">
+                <view class="title">商家配送</view>
+            </view>
+            <view class="address">
+                <view class="has-address">
+                    <text class="icon icon-dizhi"></text>
+                    <view class="desc">
+                        <view class="name-and-phone">
+                            <view class="name">丁</view>
+                            <view class="phone">18664547009</view>
+                        </view>
+                        <view class="address">
+                            广东省深圳市南山区
+                        </view>
+                    </view>
+                    <text class="icon icon-youjiantou"></text>
+                </view>
+                <view class="no-address"></view>
+            </view>
+        </view>
+        <view class="remark">
+            <view class="label">留言:</view>
+            <view class="input-wrap">
+                 <input class="weui-input" auto-focus placeholder="请填写内容"/>
+            </view>
+        </view>
+        <view class="goods">
+            <view class="good-list">
+                <view class="good-item-wrap" wx:for="{{goodList}}">
+                    <goodItem goodInfo="{{item}}" wx:key="index" />
+                </view>
+            </view>
+            <view class="offer"></view>
+            <view class="count-money"></view>
+        </view>
+    </view>
+    <view class="fixed"></view>
+</view>

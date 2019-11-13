@@ -16,7 +16,8 @@
     "pages/add-address/add-address",
     "pages/feedback/feedback",
     "pages/poster/poster",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/confirm-order/confirm-order"
   ],
   "window": {
     "backgroundTextStyle": "light",
