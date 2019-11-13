@@ -7,6 +7,10 @@ Component({
     type: {
       type: String,
       value: 'default'
+    },
+    customStyle: {
+      type: String,
+      value: ''
     }
   },
 

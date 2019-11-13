@@ -17,19 +17,19 @@
         </view>
       </view>
       <view class="divider"></view>
-      <view class="productdetail-sku-desc">
-        <block wx:for="{{sku}}" wx:for-index="title" wx:for-item="list">
-          <view style="padding-top: 20rpx;">{{ title }}</view>
-          <view style="padding: 10rpx 0;">
-            <van-tag wx:for="{{list}}" style="margin-right: 10rpx;">{{item}}</van-tag>
-          </view> 
-        </block>
-      </view>
+      <sku sku="{{sku}}" bind:getSkus="getSkus" />
       <view class="purchase-num">
         <text>购买数量：</text>
         <count/>
       </view>
     </view>
-    <view class="cart-btn">加入购物车</view>
+    <view class="cart-btn-box">
+      <view class="cart-btn" wx:if="{{ btnType === 'addCart' }}">加入购物车</view>
+      <view class="cart-btn" wx:elif="{{ btnType === 'BuyNow' }}">立即购买</view>
+      <view class="cart-doubleBtn" wx:else>
+        <view class="cart-doubleBtn-left">加入购物车</view>
+        <view class="cart-doubleBtn-right">立即购买</view>
+      </view>
+    </view>
   </view>
   </popup>

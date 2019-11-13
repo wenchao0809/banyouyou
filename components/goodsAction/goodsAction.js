@@ -25,7 +25,8 @@ Component({
     showFlag: false,
     showCart: false,
     changeStar: false,
-    iconList: []
+    iconList: [],
+    btnType: ""
   },
 
   /**
@@ -68,12 +69,17 @@ Component({
       })
     },
     onClickBtn (e) {
+      this.setData({
+        showCart: !this.data.showCart
+      })
       if (e.currentTarget.dataset.btn === 'left') {
         this.setData({
-          showCart: !this.data.showCart
+          btnType: 'addCart'
         })
       } else {
-        this.triggerEvent('tapRightBtn', {})
+        this.setData({
+          btnType: 'BuyNow'
+        })
       }
     },
     onClose () {

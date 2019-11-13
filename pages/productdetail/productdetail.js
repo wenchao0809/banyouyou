@@ -61,6 +61,11 @@ Page({
     })
   },
 
+  getSkus (e) {
+    let skus = e.detail
+    console.log(skus)
+  },
+
   onShareAppMessage: function (options) {
   　　// 自定义分享内容
 　　var shareObj = {

@@ -1,4 +1,4 @@
 <!--components/tag/tag.wxml-->
-<view class="tag-container {{ type ? type : 'default' }}">
+<view class="tag-container {{ type ? type : 'default' }}" style="{{ customStyle }}">
   <slot></slot>
 </view>

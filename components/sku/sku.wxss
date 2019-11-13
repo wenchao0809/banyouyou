@@ -1,0 +1,4 @@
+/* components/sku/sku.wxss */
+.productdetail-sku-desc {
+  padding: 0 20rpx 10rpx;
+}

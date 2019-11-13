@@ -65,7 +65,3 @@ button[plain] {
   background: #fff;
   padding: 20rpx;
 }
-
-.productdetail-sku-desc {
-  padding: 0 20rpx 10rpx;
-}

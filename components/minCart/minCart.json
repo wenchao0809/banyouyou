@@ -3,6 +3,6 @@
   "usingComponents": {
     "popup": "/components/popup/popup",
     "count": "/components/count/count",
-    "van-tag": "/miniprogram_npm/vant-weapp/tag/index"
+    "sku": "/components/sku/sku"
   }
 }

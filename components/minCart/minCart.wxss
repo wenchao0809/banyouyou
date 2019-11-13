@@ -61,3 +61,24 @@
 .img-hide {
   top: 0;
 }
+
+.cart-doubleBtn {
+  display: flex;
+  height: 75rpx;
+  line-height: 75rpx;
+  text-align: center;
+}
+
+.cart-doubleBtn-left {
+  flex-basis: 50%;
+  background: #f1ab32;
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.cart-doubleBtn-right {
+  flex-basis: 50%;
+  background: #f04347;
+  color: #fff;
+  font-size: 26rpx;
+}

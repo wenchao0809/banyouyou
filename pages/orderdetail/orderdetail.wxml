@@ -1,0 +1,52 @@
+<!--pages/orderdetail/orderdetail.wxml-->
+<view class="orderdetail-container">
+  <view class="orderdetail-status-box">
+    <view class="orderdetail-status">待支付</view>
+    <view class="orderdetail-time">剩余5：34订单将自动取消</view>
+  </view>
+  <view class="orderdetail-address">
+    <text class="icon icon-shouye1" style="color: #f85158;font-size: 60rpx;"></text>
+    <view class="orderdetail-address-desc">
+      <view class="orderdetail-address-desc-name">
+        <text style="margin-right: 20rpx;">叶文杰</text>
+        <text>1334545656</text>
+      </view>
+      <view class="orderdetail-address-desc-detail">大是大非是否第三方士大夫广东省法发个豆腐干豆腐擦擦端茶倒撒的不豆腐干豆腐</view>
+    </view>
+  </view>
+  <view class="orderdetail-detail">
+    <view class="orderdetail-fare">
+      <text>配送费用</text>
+      <text>￥0.00</text>
+    </view>
+    <view class="dash-divider"></view>
+    <view class="orderdetail-total">
+      <view style="margin-right: 40rpx;">已优惠：￥0.00</view>
+      <view>合计：
+        <text style="color:#f85158;">￥153.00</text>
+      </view>
+    </view>
+  </view>
+  <view class="orderdetail-supplement">
+    <view class="orderdetail-supplement-title">补充信息</view>
+    <view class="orderdetail-supplement-leaveMessage">
+      <text class="color">留言：</text>
+      <text class="orderdetail-supplement-leaveMessage-content">无</text>
+    </view>
+    <view class="orderdetail-information">
+      <view class="orderdetail-information-title">订单信息</view>
+      <view class="orderdetail-information-item">
+        <text class="color">订单编号：</text>
+        <text>323243245345363635643</text>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="contact-merchant" bindtap="contactMerchant">
+      <view class="contact-merchant-btn">
+        <text class="icon icon-dianhua1 color" style="font-size: 28rpx;"></text>
+        <text class="color" style="font-size: 28rpx;">联系商家</text>
+      </view>
+    </view>
+  </view>
+  <view class="orderdetail-blank"></view>
+</view>

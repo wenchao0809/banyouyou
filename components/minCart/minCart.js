@@ -7,6 +7,10 @@ Component({
     show: {
       type: Boolean,
       value: false
+    },
+    btnType: {
+      type: String,
+      value: 'addCart'
     }
   },
 
@@ -26,6 +30,10 @@ Component({
   methods: {
     onClose () {
       this.triggerEvent('onClose', {})
+    },
+    getSkus(e) {
+      let skus = e.detail
+      console.log(skus)
     }
   }
 })

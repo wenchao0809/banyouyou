@@ -1,0 +1,101 @@
+/* pages/orderdetail/orderdetail.wxss */
+.orderdetail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%
+}
+
+.orderdetail-status-box {
+  background: #e74030;
+  padding: 30rpx 20rpx;
+}
+
+.orderdetail-status {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+
+.orderdetail-time {
+  color: #fff;
+}
+
+.orderdetail-address {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.orderdetail-address-desc {
+  padding-left: 20rpx;
+}
+
+.orderdetail-address-desc-detail {
+  color: #868686;
+  line-height: 50rpx;
+}
+
+.orderdetail-detail {
+  padding: 30rpx 20rpx 0;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.orderdetail-fare {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+
+.dash-divider {
+  border-top: 2rpx dashed #f3f3f3;
+  height: 0;
+  width: 100%;
+}
+
+.orderdetail-total {
+  display: flex;
+  justify-content: flex-end;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.orderdetail-supplement {
+  background: #fff;
+  padding: 30rpx 20rpx;
+  line-height: 52rpx;
+}
+
+.orderdetail-supplement-leaveMessage {
+  margin-bottom: 20rpx;
+}
+
+.color {
+  color: #868686;
+}
+
+.contact-merchant {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-merchant-btn {
+  border: 2rpx solid #868686;
+  border-radius: 5rpx;
+  width: 220rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 55rpx;
+}
+
+.orderdetail-blank {
+  background: #fff;
+  flex: 1;
+  /* height: 100rpx; */
+  margin-top: 20rpx;
+}

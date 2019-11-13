@@ -137,6 +137,13 @@
 					"id": -1,
 					"name": "pages/poster",
 					"pathName": "pages/poster/poster",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderdetail",
+					"pathName": "pages/orderdetail/orderdetail",
 					"scene": null
 				}
 			]
