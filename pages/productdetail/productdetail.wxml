@@ -1,40 +1,58 @@
-<view class='detail'>
-  <!-- 图片轮播 -->
-  <view class='mod_slider'>
-    <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#e93b3d" style='width:100%; height: 820rpx;'>
-      <block wx:for="{{partData.loopImgUrl}}" wx:key="index">
-        <swiper-item>
-          <image class="swiper-item" src="{{item}}"/>
-        </swiper-item>
-      </block>
-    </swiper>
+<!--pages/productdetail/productdetail.wxml-->
+<view class="productdetail-container">
+  <view class="productdetail-swiper">
+    <swiper autoplay="{{true}}" style="height: 100%; width: 100%;">
+        <block wx:for="{{imgList}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" style="height: 100%; width: 100%;"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiper-item">
+        {{ '1 / 2' }}
+      </view>
   </view>
-  <!-- 商品信息 -->
-  <view class='buy_area'>
-    <view class='textWrap'>
-      <text>{{partData.title}}</text>
+  <view class="productdetail-desc">
+    <view>
+      <text>3厘全按市场办</text>
+      <view class="productdetail-price">
+        <text class="productdetail-current-price">￥28.00</text>
+        <text class="productdetail-original-price">￥30</text>
+      </view>
+      <view>
+        <text class="productdetail-stock">库存：900</text>
+        <text class="productdetail-sales">销量：3332</text>
+      </view>
     </view>
-    <view class='priceWrap'>
-      <text>¥{{partData.price}}</text>
-    </view>
-    <!-- 支付 -->
-    <detailsCom bind:showLayer="popupLayer" name="{{componentDatas.btName}}" desc="{{componentDatas.btDesc}}"></detailsCom>
-    <!-- 已选 -->
-    <detailsCom bind:showLayer="showSelected" name="{{componentDatas2.selectedName}}" desc="{{componentDatas2.selectedNums}}件"></detailsCom>
-  </view>
-  <!-- 购物车 -->
-  <view class='btn_bar'>
-    <view class='icon_cart' bindtap='gotoCart'>
-      <text class='badge' wx:if='{{badgeCount > 0}}'>{{badgeCount}}</text>
-      <image src='/image/cart.png'></image>
-      <text>购物车</text>
-    </view>
-    <view class='cart_btn'>
-      <button bindtap='addCarts'>加入购物车</button>
+    <view bindtap="showPopup">
+      <text class="icon icon-fenxiang" style="color: #FFA500;font-size: 50rpx;"></text>
+      <view style="font-size: 24rpx;color: #888;margin-top: 10rpx;">分 享</view>
     </view>
   </view>
-  <!-- 支付弹框 -->
-  <iouCom bind:selectedBT="selectChangeFlag" isShowPopup="{{isShowPopup}}" IOUList="{{baitiao}}"></iouCom>
-  <!-- 多选弹窗 -->
-  <selectedNum bind:getCartNum="getCartNums" isShowSelected="{{isShowSelected}}" partData="{{partData}}"></selectedNum>
+  <view class="productdetail-sku">规格</view>
+  <view class="productdetail-sku-desc">
+    <block wx:for="{{sku}}" wx:for-index="title" wx:for-item="list">
+      <view style="padding-top: 20rpx;">{{ title }}</view>
+      <view style="padding: 10rpx 0;">
+        <tag wx:for="{{list}}" style="margin-right: 10rpx;" bindtap="">{{item}}</tag>
+      </view> 
+    </block>
+  </view>
+  <view class="productdetail-imgdesc">
+   <image src=""></image>
+  </view>
+  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;height: 22%;">
+    <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">
+      <button class="productdetail-popup" plain="true" open-type="share">
+        <text class="icon icon-weixin" style="font-size: 70rpx;color: #32CD32;"></text>
+        <text style="font-size: 24rpx;">发送给朋友</text>
+      </button>
+      <view class="productdetail-popup">
+        <text class="icon icon-erweima-copy" style="font-size: 70rpx;color: #1E90FF;"></text>
+        <text style="font-size: 24rpx;">生成海报</text>
+      </view>
+    </view>
+    <button style="width: 100%;" bindtap="cancel">取消</button>
+  </popup>
+  <goodsAction icons="{{ iconList }}" btns="{{ btns }}"></goodsAction>
 </view>

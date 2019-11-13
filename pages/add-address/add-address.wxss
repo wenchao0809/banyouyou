@@ -3,6 +3,11 @@
   height: 100%;
 }
 
+.add-address-form {
+  background: #fff;
+  padding: 20rpx;
+}
+
 .contacts-container {
   display: flex;
 }
@@ -13,5 +18,6 @@
 
 .add-address-btn {
   display: flex;
+  padding: 20rpx;
   justify-content: space-between;
 }

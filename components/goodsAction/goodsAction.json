@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "tag": "/components/tag/tag"
+    "minCart": "/components/minCart/minCart"
   }
 }

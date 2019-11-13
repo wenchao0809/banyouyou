@@ -1,7 +1,4 @@
 // pages/add-address/add-address.js
-const key = 'UKNBZ-A4FL6-N77S2-E3SG7-P6JLT-ZGFKV' //使用在腾讯位置服务申请的key
-const referer = '板优优-小程序' //调用插件的app的名称
-
 Page({
 
   /**
@@ -14,8 +11,8 @@ Page({
   },
 
   getLocaltion () {
-    wx.navigateTo({
-      url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer
+    wx.chooseLocation({
+      
     })
   },
   /**

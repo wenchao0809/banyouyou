@@ -1,0 +1,28 @@
+/* components/popup/popup.wxss */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.popup-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000000;
+  height: 30%;
+  background: #fff;
+  transition: all 0.4s ease;
+  transform: translate(0, 100%);
+}
+
+.popup-closeBtn {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}

@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "addressItem": "/components/addressItem/addressItem",
-    "van-icon": "/miniprogram_npm/vant-weapp/icon/index"
+    "addressItem": "/components/addressItem/addressItem"
   },
   "navigationBarTitleText": "我的地址"
 }

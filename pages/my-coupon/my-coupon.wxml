@@ -1,13 +1,13 @@
 <!--pages/my-coupon/my-coupon.wxml-->
 <view class="coupon-container">
-  <van-tabs active="{{ active }}">
+  <!-- <van-tabs active="{{ active }}">
     <van-tab title="全部"></van-tab>
     <van-tab title="标签 2"></van-tab>
     <van-tab title="标签 3"></van-tab>
     <van-tab title="标签 4"></van-tab>
     <van-tab title="标签 5"></van-tab>
     <van-tab title="标签 6"></van-tab>
-  </van-tabs>
+  </van-tabs> -->
   <view class="coupon-content" wx:if="{{ false }}">
     <couponItem/>
   </view>

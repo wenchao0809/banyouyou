@@ -1,0 +1,66 @@
+/* components/goodsAction/goodsAction.wxss */
+.goodsAction-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* z-index: 100000000; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.goodsAction-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 13%;
+  height: 75rpx;
+  border-right: 1rpx solid #f3f3f3;
+}
+
+.goodsAction-item text {
+  font-size: 26rpx;
+}
+
+.goodsAction-btn {
+  flex: 1;
+  height: 75rpx;
+  text-align: center;
+  line-height: 75rpx;
+  font-size: 26rpx;
+  background: #f1ab32;
+  color: #fff;
+}
+
+.chat-type {
+  position: fixed;
+  height: 80rpx;
+  width: 200rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  bottom: -80rpx;
+  left: 55rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: rotate(0deg) scale(1) translate(0, 0);
+  transition: all 0.4s ease;
+}
+
+.chat-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chat-type-item text {
+  font-size: 26rpx;
+}
+
+.c-state {
+  transform: rotate(0deg) scale(1) translate(0, -170rpx);
+}

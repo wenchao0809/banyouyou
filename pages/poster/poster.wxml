@@ -1,0 +1,8 @@
+<!--pages/poster/poster.wxml-->
+<view class="container">
+  <image src="{{shareImage}}" class="share-image"></image>
+  <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+
+  <button type="warn" bind:tap="eventSave">保存图片</button>
+  <button bind:tap="goHome">返回首页</button>
+</view>

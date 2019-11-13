@@ -1,0 +1,22 @@
+/* components/tag/tag.wxss */
+.tag-container {
+  height: 38rpx;
+  font-size: 20rpx;
+  padding: 0 10rpx;
+  line-height: 38rpx;
+  text-align: center;
+  border: 1rpx solid #24a831;
+  display: inline-block;
+  color: #24a831;
+  border-radius: 6rpx;
+}
+
+.success {
+  border: 1rpx solid #24a831;
+  color: #24a831;
+}
+
+.default {
+  color: #8f8f8f;
+  border: 1rpx solid #8f8f8f;
+}

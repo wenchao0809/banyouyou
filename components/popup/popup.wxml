@@ -1,0 +1,7 @@
+<!--components/popup/popup.wxml-->
+<view class="popup-overlay" style="{{ overlayStyle }}" wx:if="{{ overlay && show }}"></view>
+<view class="popup-content" style="{{ customStyle }}transform: {{ show ?  'translate(0, 0)' : 'translate(0, 100%)' }};">
+  <icon type="clear" size="50rpx" class="popup-closeBtn" wx:if="{{ closeIcon }}" bindtap="onClose"></icon>
+  <slot></slot>
+</view>
+

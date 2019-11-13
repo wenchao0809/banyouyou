@@ -130,13 +130,15 @@
 					"id": -1,
 					"name": "pages/cart/cart",
 					"pathName": "pages/cart/cart",
+					"name": "pages/productdetail",
+					"pathName": "pages/productdetail/productdetail",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/confirm-order/confirm-order",
-					"pathName": "pages/confirm-order/confirm-order",
+					"name": "pages/poster",
+					"pathName": "pages/poster/poster",
 					"scene": null
 				}
 			]

@@ -13,7 +13,7 @@
 
 .address-add-btn {
   margin: 20rpx;
-  background: #7CFC00;
+  background: #18ab1c;
   border-radius: 10rpx;
   color: #fff;
   text-align: center;

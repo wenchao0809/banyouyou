@@ -1,0 +1,23 @@
+<!--components/goodsAction/goodsAction.wxml-->
+<view class="goodsAction-container">
+  <block wx:for="{{ iconList }}">
+  <view class="goodsAction-item" bindtap="onClickIcon" data-icon="{{ item.icon }}">
+    <text class="icon {{item.icon}}" style="font-size: 32rpx;color: {{item.click ? item.clickColor : ''}};"></text>
+    <text style="color: {{item.icon === 'icon-10' && item.click ? item.clickColor : ''}};">{{item.text}}</text>
+  </view>
+  </block>
+  <block wx:for="{{ btns }}">
+    <view class="goodsAction-btn" style="{{item.style}}" data-btn="{{item.btn}}" bindtap="onClickBtn">{{item.text}}</view>
+  </block>
+  <view class="chat-type {{ showFlag ? 'c-state' : '' }}">
+    <view class="chat-type-item" bindtap="phoneCall">
+      <text class="icon icon-dianhua"></text>
+      <text>电话</text>
+    </view>
+    <view class="chat-type-item" bindtap="">
+      <text class="icon icon-conversation_icon"></text>
+      <text>聊天</text>
+    </view>
+  </view>
+  <minCart show="{{ showCart }}" bind:onClose="onClose"/>
+</view>
