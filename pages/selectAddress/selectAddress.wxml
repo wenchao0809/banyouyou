@@ -1,0 +1,11 @@
+<!--pages/selectAddress/selectAddress.wxml-->
+<view class="selectAddress-container">
+  <view class="getWxAddress">
+    <view>
+      <text class="icon icon-dizhi" style="font-size: 30rpx;margin-right: 20rpx;"></text>
+      <text>获取微信收货地址</text>
+    </view>
+    <text class="icon icon-youjiantou" style="font-size: 28rpx;"></text>
+  </view>
+  <selectAddress/>
+</view>

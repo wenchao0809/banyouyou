@@ -144,6 +144,20 @@
 					"id": -1,
 					"name": "pages/orderdetail",
 					"pathName": "pages/orderdetail/orderdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/about",
+					"pathName": "pages/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/selectAddress",
+					"pathName": "pages/selectAddress/selectAddress",
 					"scene": null
 				},
 				{

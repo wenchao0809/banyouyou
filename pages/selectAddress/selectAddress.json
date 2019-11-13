@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "selectAddress": "/components/addressItem/selectAddressItem/selectAddressItem"
+  },
+  "navigationBarTitleText": "选择收获地址"
+}
