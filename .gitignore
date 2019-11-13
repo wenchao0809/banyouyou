@@ -4,3 +4,5 @@ node_modules
 miniprogram_npm
 # .vscode
 /project.config.json
+.DS_Store
+*.lock

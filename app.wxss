@@ -11,7 +11,7 @@ page {
 }
 
 view, text {
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 .divider {

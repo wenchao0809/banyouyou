@@ -1,0 +1,35 @@
+.fixed-submit-order {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: white;
+}
+
+.fixed-submit-order > .money {
+  display: flex;
+  flex-basis: 50%;
+  padding-left: 60rpx;
+}
+
+.fixed-submit-order .money .money {
+  color: #e74030;
+}
+
+.fixed-submit-order .cancel {
+  flex-basis: 25%;
+  text-align: center;
+  color: white;
+  background: #888888;
+}
+
+.fixed-submit-order .submit {
+  flex-basis: 25%;
+  text-align: center;
+  color: white;
+  background: #e74030;
+}

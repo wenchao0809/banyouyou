@@ -128,8 +128,6 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/cart/cart",
-					"pathName": "pages/cart/cart",
 					"name": "pages/productdetail",
 					"pathName": "pages/productdetail/productdetail",
 					"query": "",
@@ -146,6 +144,12 @@
 					"id": -1,
 					"name": "pages/orderdetail",
 					"pathName": "pages/orderdetail/orderdetail",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/confirm-order",
+					"pathName": "pages/confirm-order/confirm-order",
 					"scene": null
 				}
 			]

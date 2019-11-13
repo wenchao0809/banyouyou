@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "确认订单",
     "usingComponents": {
-        "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem"
+        "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
+        "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder"
       }
 }

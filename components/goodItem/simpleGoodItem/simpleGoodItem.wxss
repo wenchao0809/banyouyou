@@ -28,6 +28,9 @@
     padding-left: 20rpx;
 }
 
+.size, .count {
+    color: #888888;
+}
 .single-price-count {
     flex: 0 1 150rpx;
     text-align: right;

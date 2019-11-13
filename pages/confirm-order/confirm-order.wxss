@@ -73,8 +73,12 @@
 .goods {
     margin-top: 20rpx;
     padding-top: 30rpx;
-    padding-bottom: 100rpx;
     background: white;
+}
+
+.good-list {
+    padding-bottom: 100rpx;
+    border-bottom: 1px dashed #888888;
 }
 
 .good-list .good-item-wrap {
@@ -83,4 +87,50 @@
 
 .good-item-wrap:first-child {
     margin-top: 0;
+}
+
+.offer {
+    padding-bottom: 20rpx;
+    border-bottom: 1px dashed #888888;
+}
+.full-reduce, .coupon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.offer .icon {
+    font-size: 40rpx;
+}
+
+.icon-jian {
+    color: red;
+}
+.icon-quan1 {
+    color: green;
+}
+
+.offer .label {
+    display: flex;
+    padding-left: 10rpx;
+    align-items: center;
+}
+.label .icon {
+    margin-right: 10rpx;
+}
+.offer .operate {
+    padding-right: 10rpx;
+    color: #888888;
+}
+
+.count-money {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20rpx 10rpx;
+}
+
+.count-money .count {
+    color: #e74030;
 }

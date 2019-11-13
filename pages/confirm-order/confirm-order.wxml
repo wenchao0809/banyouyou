@@ -28,7 +28,7 @@
         <view class="remark">
             <view class="label">留言:</view>
             <view class="input-wrap">
-                 <input class="weui-input" auto-focus placeholder="请填写内容"/>
+                 <input class="weui-input" placeholder="请填写内容"/>
             </view>
         </view>
         <view class="goods">
@@ -37,9 +37,27 @@
                     <goodItem goodInfo="{{item}}" wx:key="index" />
                 </view>
             </view>
-            <view class="offer"></view>
-            <view class="count-money"></view>
+            <view class="offer">
+                <view class="full-reduce">
+                    <view class="label">
+                        <text class="icon icon-jian"></text>
+                        <view>满减优惠</view>
+                    </view>
+                    <view class="operate">暂无可用</view>
+                </view>
+                <view class="coupon">
+                    <view class="label">
+                        <text class="icon icon-quan1"></text>
+                        <view>优惠券</view>
+                    </view>
+                    <view class="operate">暂无可用</view>
+                </view>
+            </view>
+            <view class="count-money">
+                <view class="label">小计：</view>
+                <view class="count">￥136.80</view>
+            </view>
         </view>
     </view>
-    <view class="fixed"></view>
+    <submitOrder money="{{2700}}" />
 </view>

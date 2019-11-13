@@ -21,7 +21,7 @@ Page({
     wx.getStorage({
       key: 'cartInfo',
       success: (res) => {
-        res.data = res.data || [{
+        res.data = [{
           title: 'HUAWEI P20 Pro 全面屏徕卡三摄游戏手机 6GB+128GB 亮黑色 全网通移动联通电信4G手机 双卡双待',
           price: 4499.00,
           total: 10,

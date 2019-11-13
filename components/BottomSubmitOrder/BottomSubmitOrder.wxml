@@ -1,0 +1,8 @@
+<view class="fixed-submit-order">
+  <view class="money">
+    <view class="label">应付：</view>
+    <view class="money">￥{{ money }}</view>
+  </view>
+  <view  wx:if="{{showCancel}}" class="cancel" bind:tap="cancel">取消订单</view>
+  <view class="submit" bind:tap="submit">提交订单</view>
+</view>
