@@ -1,0 +1,34 @@
+.good-item {
+    display: flex;
+    margin-top: 30rpx;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 30rpx 20rpx;
+    background: #f3f3f3;
+}
+
+.good-item:first-child {
+    margin-top: 0;
+}
+
+.good-item image {
+    height: 200rpx;
+    width: 200rpx;
+}
+
+.single-price-count, .desc {
+    display: flex;
+    /* height: 200rpx; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.desc {
+    flex: 1;
+    padding-left: 20rpx;
+}
+
+.single-price-count {
+    flex: 0 1 150rpx;
+    text-align: right;
+}

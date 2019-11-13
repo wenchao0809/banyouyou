@@ -1,0 +1,13 @@
+ <view class="good-item">
+    <view class="image">
+        <image src="{{goodInfo.image}}"></image>
+    </view>
+    <view class="desc">
+        <view class="title">{{goodInfo.title}}</view>
+        <view class="size" wx:if="{{goodInfo.size}}">{{goodInfo.size}}</view>
+    </view>
+    <view class="single-price-count">
+        <view class="price">￥{{goodInfo.price}}</view>
+        <view class="count">x {{goodInfo.count}}</view>
+    </view>
+</view>
