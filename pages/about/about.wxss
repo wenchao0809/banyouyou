@@ -1,0 +1,5 @@
+/* pages/about/about.wxss */
+.about-container {
+  padding: 20rpx;
+  background: #fff;
+}

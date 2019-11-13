@@ -1,0 +1,23 @@
+<!--components/addressItem/selectAddressItem/selectAddressItem.wxml-->
+<view class="selectAddress-item">
+    <radio-group class="selectAddress-item-group" bindchange="radioChange">
+      <view class="selectAddress-item-radio">
+        <radio value="{{1}}" checked="{{false}}"></radio>
+        <view class="selectAddress-item-content">
+          <view class="selectAddress-item-content-title">
+            <view>
+              <text>李经理 </text>
+              <text>先生 </text>
+              <text>12345564545 </text>
+              <tag type="success">公司</tag>
+            </view>
+            <text class="icon icon-xiepinglun" style="margin-right: 30rpx;font-size: 30rpx;"></text>
+          </view>
+          <view class="selectAddress-item-desc">
+            <text class="selectAddress-item-default">【默认地址】</text>
+            <text style="color: #868686;">发射方式发送给三个法师攻防功放村上春树VS VS是VSVS VS</text>
+          </view>
+        </view>
+      </view>
+    </radio-group>
+  </view>
