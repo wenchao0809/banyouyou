@@ -2,8 +2,7 @@
 .goodItem-container {
   margin: 33rpx 22rpx;
   background: #f9f9f9;
-  height: 442rpx;
-  border-radius: 5rpx;
+  border-radius: 10rpx;
   padding: 20rpx 16rpx;
 }
 
@@ -20,6 +19,7 @@
 
 .goodItem-center {
   display: flex;
+  margin-top: 20rpx;
 }
 
 .goodItem-center-title {
@@ -30,6 +30,7 @@
   text-overflow: ellipsis;
   width: 300rpx;
   font-size: 34rpx;
+  margin-left: 20rpx;
 }
 
 .goodItem-center-price {
@@ -41,11 +42,13 @@
   font-weight: bold;
   font-size: 36rpx;
   color: #656565;
+  margin-top: 20rpx;
 }
 
 .goodItem-bottom {
   display: flex;
   justify-content: flex-end;
+  margin-top: 40rpx;
 }
 
 .goodItem-bottom-btn {
@@ -57,6 +60,7 @@
   text-align: center;
   line-height: 54rpx;
   font-size: 28rpx;
+  margin-left: 20rpx;
 }
 
 .red {

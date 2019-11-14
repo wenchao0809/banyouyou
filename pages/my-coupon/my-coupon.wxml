@@ -8,7 +8,7 @@
     <van-tab title="标签 5"></van-tab>
     <van-tab title="标签 6"></van-tab>
   </van-tabs> -->
-  <view class="coupon-content" wx:if="{{ false }}">
+  <view class="coupon-content" wx:if="{{ true }}">
     <couponItem/>
   </view>
   <view class="coupon-content coupon-blank" wx:else>

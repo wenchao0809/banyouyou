@@ -13,11 +13,28 @@
 }
 
 .add-address-phoneNumber {
-  padding-top: 10rpx;
+  padding: 16rpx 0;
 }
 
 .add-address-btn {
   display: flex;
   padding: 20rpx;
   justify-content: space-between;
+  
+}
+
+.color {
+  color: #868686;
+}
+
+.add-address-sex {
+  padding: 16rpx 0;
+}
+
+.add-address-desc {
+  padding: 10rpx 0;
+}
+
+.add-address-type {
+  padding: 20rpx 0 0;
 }

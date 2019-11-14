@@ -158,12 +158,20 @@
 					"id": -1,
 					"name": "pages/selectAddress",
 					"pathName": "pages/selectAddress/selectAddress",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pages/confirm-order",
 					"pathName": "pages/confirm-order/confirm-order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/set",
+					"pathName": "pages/set/set",
 					"scene": null
 				}
 			]

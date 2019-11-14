@@ -64,3 +64,10 @@
 .c-state {
   transform: rotate(0deg) scale(1) translate(0, -170rpx);
 }
+
+/* button[plain] { 
+  border:0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+} */

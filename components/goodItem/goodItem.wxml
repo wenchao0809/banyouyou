@@ -3,7 +3,7 @@
   <view class="goodItem-top">
     <view style="display: flex;align-items: center;">
        <image src="/image/shop.png" style="width: 39rpx; height: 38rpx;" />
-       <text style="font-weight: bold;">板优优商家</text>
+       <text style="font-weight: bold;margin: 0 20rpx;">板优优商家</text>
        <image src="/image/arrowright.png" style="height: 25rpx;width: 24rpx;"/> 
     </view>
     <view class="goodItem-top-status">买家已收货</view>

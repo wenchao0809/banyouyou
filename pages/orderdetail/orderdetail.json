@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
+    "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder"
+  },
   "navigationBarTitleText": "订单详情"
 }

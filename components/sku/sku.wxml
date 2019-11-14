@@ -3,9 +3,7 @@
   <block wx:for="{{sku}}" wx:for-index="title" wx:for-item="list">
     <view style="padding-top: 20rpx;">{{ title }}</view>
     <view style="padding: 10rpx 0;">
-      <block wx:for="{{list}}">
-        <tag customStyle="margin-right: 10rpx;{{skusActive[title] == index ? 'color: #fff;background: #f54045;border: 0;' : 'color: #000;background: #f2f2f2;'}}" data-skutitle="{{title}}" data-sku="{{item}}" data-index="{{index}}"  bindtap="clickTag">{{item}}</tag>
-      </block>
+      <tags tags="{{list}}" bind:changeValue="changeValue" data-title="{{title}}" />
     </view>
   </block>
 </view>

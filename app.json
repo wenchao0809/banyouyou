@@ -19,7 +19,8 @@
     "pages/orderdetail/orderdetail",
     "pages/confirm-order/confirm-order",
     "pages/about/about",
-    "pages/selectAddress/selectAddress"
+    "pages/selectAddress/selectAddress",
+    "pages/set/set"
   ],
   "window": {
     "backgroundTextStyle": "light",

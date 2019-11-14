@@ -1,30 +1,31 @@
-// pages/orderdetail/orderdetail.js
+// pages/set/set.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goodList: [{
-      title: '5厘米全杨油漆板',
-      price: 4499.00,
-      total: 10,
-      count: 1,
-      image: '/image/quick3.jpg'
-    },
-    {
-      title: '阻燃中纤板',
-      price: 124,
-      count: 10,
-      size: '15mm',
-      image: '/image/quick3.jpg'
-    }]
+
   },
 
-  contactMerchant () {
-    wx.makePhoneCall({
-      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+  getSetting () {
+    wx.openSetting({
+      success(res) {
+        console.log(res.authSetting)
+        // res.authSetting = {
+        //   "scope.userInfo": true,
+        //   "scope.userLocation": true
+        // }
+      }
     })
+  },
+
+  clearStorage () {
+    try {
+      wx.clearStorageSync()
+    } catch (e) {
+      // Do something when catch error
+    }
   },
 
   /**

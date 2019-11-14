@@ -1,0 +1,10 @@
+/* pages/set/set.wxss */
+.set-container {
+  background: #fff;
+}
+
+.set-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 20rpx;
+}

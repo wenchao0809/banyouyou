@@ -15,6 +15,11 @@
     </view>
   </view>
   <view class="orderdetail-detail">
+    <view class="good-list">
+      <view class="good-item-wrap" wx:for="{{goodList}}">
+        <goodItem goodInfo="{{item}}" wx:key="index" />
+      </view>
+    </view>
     <view class="orderdetail-fare">
       <text>配送费用</text>
       <text>￥0.00</text>
@@ -39,6 +44,18 @@
         <text class="color">订单编号：</text>
         <text>323243245345363635643</text>
       </view>
+      <view class="orderdetail-information-item">
+        <text class="color">订单编号：</text>
+        <text>323243245345363635643</text>
+      </view>
+      <view class="orderdetail-information-item">
+        <text class="color">订单编号：</text>
+        <text>323243245345363635643</text>
+      </view>
+      <view class="orderdetail-information-item">
+        <text class="color">订单编号：</text>
+        <text>323243245345363635643</text>
+      </view>
     </view>
     <view class="divider"></view>
     <view class="contact-merchant" bindtap="contactMerchant">
@@ -49,4 +66,5 @@
     </view>
   </view>
   <view class="orderdetail-blank"></view>
+  <submitOrder money="{{2700}}" />
 </view>

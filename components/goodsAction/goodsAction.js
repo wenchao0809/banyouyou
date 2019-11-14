@@ -86,6 +86,10 @@ Component({
       this.setData({
         showCart: false
       })
+    },
+    handleContact (e) {
+      console.log(e.detail.path)
+      console.log(e.detail.query)
     }
   },
   attached () {

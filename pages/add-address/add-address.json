@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "tag": "/components/tag/tag"
+    "tags": "/components/tags/tags"
   },
   "navigationBarTitleText": "新增收货地址"
 }

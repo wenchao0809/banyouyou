@@ -1,10 +1,4 @@
 /* pages/orderdetail/orderdetail.wxss */
-.orderdetail-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%
-}
-
 .orderdetail-status-box {
   background: #e74030;
   padding: 30rpx 20rpx;
@@ -39,7 +33,7 @@
 }
 
 .orderdetail-detail {
-  padding: 30rpx 20rpx 0;
+  padding: 30rpx 0 0;
   background: #fff;
   margin-bottom: 20rpx;
 }
@@ -48,6 +42,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 30rpx;
+  padding: 30rpx 20rpx;
 }
 
 .dash-divider {
@@ -61,6 +56,7 @@
   justify-content: flex-end;
   height: 80rpx;
   line-height: 80rpx;
+  padding: 0 20rpx;
 }
 
 .orderdetail-supplement {
@@ -95,7 +91,15 @@
 
 .orderdetail-blank {
   background: #fff;
-  flex: 1;
-  /* height: 100rpx; */
+  /* flex: 1; */
+  height: 88rpx;
   margin-top: 20rpx;
+}
+
+.good-list .good-item-wrap {
+    margin-top: 10rpx;
+}
+
+.good-item-wrap:first-child {
+    margin-top: 0;
 }

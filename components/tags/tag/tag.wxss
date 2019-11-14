@@ -9,6 +9,7 @@
   display: inline-block;
   color: #24a831;
   border-radius: 6rpx;
+  margin-right: 20rpx;
 }
 
 .success {

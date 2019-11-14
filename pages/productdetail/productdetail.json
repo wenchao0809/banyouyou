@@ -2,7 +2,6 @@
   "usingComponents": {
     "popup": "/components/popup/popup",
     "goodsAction": "/components/goodsAction/goodsAction",
-    "tag": "/components/tag/tag",
     "sku": "/components/sku/sku"
   },
   "navigationBarTitleText": "商品详情"
