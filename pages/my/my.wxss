@@ -1,3 +1,6 @@
+.my {
+  background: white;
+}
 .header .photo image {
   width: 165rpx;
   height: 165rpx;

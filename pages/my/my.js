@@ -8,37 +8,37 @@ Page({
       {
         name: '我的订单',
         icon: 'icon icon-dingdan',
-        path: ''
+        url: '/pages/my-orders/my-orders'
       },
       {
         name: '我的优惠券',
         icon: 'icon icon-quan',
-        path: ''
+        url: '/pages/my-coupon/my-coupon'
       },
       {
         name: '收货地址',
         icon: 'icon icon-dizhi',
-        path: ''
+        url: '/pages/address/address'
       },
       {
         name: '关于我们',
         icon: 'icon icon-xinxi',
-        path: ''
+        url: '/pages/about/about'
       },
       {
         name: '意见反馈',
         icon: 'icon icon-fankuiyijianfankui-xianxing',
-        path: ''
+        url: '/pages/feedback/feedback'
       },
       {
         name: '设置',
         icon: 'icon icon-shezhi',
-        path: ''
+        url: ''
       },
       {
         name: '帮助中心',
         icon: 'icon icon-kefu',
-        path: ''
+        url: ''
       }
     ]
   }

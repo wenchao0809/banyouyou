@@ -113,14 +113,14 @@
 
 .offer .label {
     display: flex;
-    padding-left: 10rpx;
+    padding-left: 20rpx;
     align-items: center;
 }
 .label .icon {
     margin-right: 10rpx;
 }
 .offer .operate {
-    padding-right: 10rpx;
+    padding-right: 20rpx;
     color: #888888;
 }
 
@@ -128,7 +128,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 20rpx 10rpx;
+    padding: 20rpx;
 }
 
 .count-money .count {

@@ -30,7 +30,7 @@
   <view class="my-serve">
     <view class="serve-item" wx:for-items="{{serveItems}}" wx:key="index">
       <text class="{{ item.icon }}"></text>
-      <navigator class="navigator" url="/page/index/index">
+      <navigator class="navigator" hover-class="none" url="{{item.url}}">
        <text class="title">{{ item.name }}</text>
        <text class="icon icon-youjiantou"></text>
       </navigator>
