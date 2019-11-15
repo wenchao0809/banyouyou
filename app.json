@@ -20,12 +20,13 @@
     "pages/confirm-order/confirm-order",
     "pages/about/about",
     "pages/selectAddress/selectAddress",
-    "pages/set/set"
+    "pages/set/set",
+    "pages/distributor/distributor"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#e74030",
-    "navigationBarTitleText": "京东商城",
+    "navigationBarTitleText": "板优优",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
