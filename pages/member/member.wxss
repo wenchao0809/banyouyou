@@ -1,0 +1,63 @@
+/* pages/member/member.wxss */
+.member-card {
+  height: 270rpx;
+  width: 640rpx;
+  background: url(https://i.ibb.co/SPYJX24/o.png);
+  margin: 20rpx auto;
+}
+
+.member-card-grade {
+  color: #fff;
+  padding: 20rpx;
+}
+
+.member-bg {
+  background: url(https://i.ibb.co/nLY7LPR/20191115191720-02.png) no-repeat;
+  background-size: contain;
+  height: 50rpx;
+}
+
+.member-descTab {
+  height: 150rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+}
+
+.member-descTab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.red {
+  color: #e74030;
+}
+
+.white {
+  color: #fff;
+}
+
+.member-desc {
+  padding: 20rpx;
+}
+
+.member-desc-item {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 20rpx;
+}
+
+.member-card-number {
+  text-align: center;
+  margin-top: 20rpx
+}
+
+.member-card-privilege {
+  text-align: right;
+  margin: 70rpx 20rpx;
+}

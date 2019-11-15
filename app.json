@@ -20,7 +20,8 @@
     "pages/confirm-order/confirm-order",
     "pages/about/about",
     "pages/selectAddress/selectAddress",
-    "pages/set/set"
+    "pages/set/set",
+    "pages/member/member"
   ],
   "window": {
     "backgroundTextStyle": "light",

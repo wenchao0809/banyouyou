@@ -1,26 +1,13 @@
-// pages/my-coupon/my-coupon.js
+// pages/member/member.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabIndex: 0
-  },
-
-  tabContent(e) {
-    let tabIndex = e.target.dataset.item
-    this.setData({
-      tabIndex
-    })
 
   },
 
-  changeTabIndex(e) {
-    this.setData({
-      tabIndex: e.detail.current
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

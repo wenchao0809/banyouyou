@@ -1,13 +1,37 @@
 <!--pages/my-coupon/my-coupon.wxml-->
-<view class="coupon-container">
-  <!-- <van-tabs active="{{ active }}">
-    <van-tab title="全部"></van-tab>
-    <van-tab title="标签 2"></van-tab>
-    <van-tab title="标签 3"></van-tab>
-    <van-tab title="标签 4"></van-tab>
-    <van-tab title="标签 5"></van-tab>
-    <van-tab title="标签 6"></van-tab>
-  </van-tabs> -->
+<view class="coupon-box" style="height: 100%;">
+  <view class="coupon-container">
+    <view class="coupon-tab" bindtap="tabContent">
+      <text class="coupon-tab-item {{ tabIndex === 0 && 'coupon-active'}}" data-item="{{0}}">未使用(0)</text>
+      <text class="coupon-tab-item {{ tabIndex === 1 && 'coupon-active'}}" data-item="{{1}}">已使用(0)</text>
+      <text class="coupon-tab-item {{ tabIndex === 2 && 'coupon-active'}}" data-item="{{2}}">已过期(0)</text>
+    </view>
+    <swiper current="{{tabIndex}}" style="flex: 1;" class='coupon-Swiper' duration="200" bindchange="changeTabIndex">
+      <swiper-item>
+        <scroll-view scroll-y="{{true}}" style="height: 100%;">
+          <view class="coupon-content" wx:if="{{ true }}">
+            <couponItem/>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y="{{true}}" style="height: 100%;">
+          <view class="coupon-content" wx:if="{{ true }}">
+            <couponItem/>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view scroll-y="{{true}}" style="height: 100%;">
+          <view class="coupon-content" wx:if="{{ true }}">
+            <couponItem/>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!-- <view class="coupon-container">
   <view class="coupon-content" wx:if="{{ true }}">
     <couponItem/>
   </view>
@@ -15,4 +39,4 @@
     <text class="icon icon-quan" style="font-size: 124rpx;"></text>
     <view class="coupon-blank-text">暂无优惠券</view>
   </view>
-</view>
+</view> -->

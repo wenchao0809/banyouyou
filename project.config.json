@@ -172,6 +172,13 @@
 					"id": -1,
 					"name": "pages/set",
 					"pathName": "pages/set/set",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/member",
+					"pathName": "pages/member/member",
 					"scene": null
 				}
 			]

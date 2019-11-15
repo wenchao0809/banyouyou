@@ -4,7 +4,7 @@
   height: 180rpx;
   margin: 10rpx 35rpx;
   padding: 50rpx;
-  background: url(https://cdn.it120.cc/apifactory/2017/11/27/fadbf4818acc33c0e08a052d3ab3e648.png) 0 0 no-repeat;
+  /* background: url(https://cdn.it120.cc/apifactory/2017/11/27/fadbf4818acc33c0e08a052d3ab3e648.png) 0 0 no-repeat; */
   background-size: 630rpx 250rpx;
   background-position-x: 30rpx;
   background-position-y: 15rpx;

@@ -1,0 +1,43 @@
+<!--pages/member/member.wxml-->
+<view class="member-container">
+  <view class="member-card">
+    <view class="member-card-grade white">会员卡</view>
+    <view class="member-card-number white">NO.1345445564667567</view>
+    <view class="member-card-privilege white">
+      <text>查看会员专属特权</text>
+      <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
+    </view>
+  </view>
+  <view class="member-bg"></view>
+  <view class="member-descTab">
+    <view class="member-descTab-item">
+      <text>优惠券</text>
+      <text class="red">0张</text>
+    </view>
+    <view class="member-descTab-item">
+      <text>额度</text>
+      <text class="red">￥0</text>
+    </view>
+    <view class="member-descTab-item">
+      <text>积分</text>
+      <text class="red">0</text>
+    </view>
+  </view>
+  <view class="member-desc">
+    <view class="member-desc-item">
+      <text>会员资料</text>
+      <view>
+        <text>详情</text>
+        <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="member-desc-item">
+      <text>会员等级介绍</text>
+      <view>
+        <text>详情</text>
+        <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
+      </view>
+    </view>
+  </view>
+</view>

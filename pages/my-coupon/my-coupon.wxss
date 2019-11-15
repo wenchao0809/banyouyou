@@ -18,3 +18,34 @@
   color: #999999;
   margin-top: 10rpx;
 }
+
+
+/* dasf */
+page {
+  background-color: rgba(245, 246, 250, 1);
+  height: 100%;
+}
+
+.coupon-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.coupon-tab {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+.coupon-tab-item {
+  font-size: 14px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+}
+
+.coupon-active {
+  border-bottom: 1px solid #3b98ea;
+  color: #3695EA;
+}
