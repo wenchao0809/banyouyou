@@ -32,3 +32,53 @@
   font-size: 26rpx;
   margin-left: 20rpx;
 }
+
+.memberData-set {
+  padding: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 640rpx;
+  border-radius: 20rpx;
+}
+
+.memberData-set-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.memberData-set-form {
+  width: 100%;
+}
+
+.memberData-set-formBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formBtn-item {
+  flex: 1;
+  font-size: 32rpx;
+}
+
+.form-input {
+  border: 2rpx solid #A9A9A9;
+  border-radius: 5rpx;
+  margin: 60rpx 0;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 60rpx 0;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60rpx 0;
+}

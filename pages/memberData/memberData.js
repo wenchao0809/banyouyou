@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showFlag: false,
+    birthday: "未选择",
+    title: ["设置姓名", "设置性别", "设置生日"],
+    index: 0
+  },
 
+  showModal(e) {
+    // 要去请求后台看看生日设置没，如果设置了就在点击生日选项不弹出modal框
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      showFlag: true,
+      index
+    })
+  },
+
+  cancelModal() {
+    this.setData({
+      showFlag: false
+    })
+  },
+
+  formSubmit: function (e) {
+    // 生日保存成功后就不允许修改
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      birthday: e.detail.value
+    })
   },
 
   /**

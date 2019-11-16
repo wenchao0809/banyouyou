@@ -4,7 +4,7 @@
     <image src="" class="memberData-avatarImg"></image>
   </view>
   <view class="divider"></view>
-  <view class="memberData-name memberData-item">
+  <view class="memberData-name memberData-item" bindtap="showModal" data-index="{{0}}">
     <text>姓名</text>
     <view>
       <text>18687655466</text>
@@ -12,10 +12,18 @@
     </view>
   </view>
   <view class="divider"></view>
-  <view class="memberData-sex memberData-item">
+  <view class="memberData-sex memberData-item" bindtap="showModal" data-index="{{1}}">
     <text>性别</text>
     <view>
       <text>男</text>
+      <text class="icon icon-youjiantou jiantou"></text>
+    </view>
+  </view>
+  <view class="divider"></view>
+  <view class="memberData-phone memberData-item" bindtap="showModal" data-index="{{2}}">
+    <text>生日</text>
+    <view>
+      <text style="color: #A9A9A9;">可享受生日优惠，去设置</text>
       <text class="icon icon-youjiantou jiantou"></text>
     </view>
   </view>
@@ -26,4 +34,32 @@
       <text>186****5466</text>
     </view>
   </view>
+  <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">
+    <view slot="content" class="memberData-set">
+      <view class="memberData-set-title">{{title[index]}}</view>
+      <view class="memberData-set-form">
+        <form bindsubmit="formSubmit">
+          <input wx:if="{{index === 0}}" name="name" class="form-input" placeholder="请输入姓名"></input>
+          <radio-group wx:if="{{index === 1}}" name="sex" class="radio-group" bindchange="radioChange">
+            <radio class="radio" value="{{0}}" checked="{{item.checked}}">
+              <text>男</text>
+            </radio>
+            <radio class="radio" value="{{1}}" checked="{{item.checked}}">
+              <text>女</text>
+            </radio>
+          </radio-group>
+          <picker wx:if="{{index === 2}}" name="birthday" class="date-picker" mode="date" value="{{birthday}}" start="1960-01-01" bindchange="bindDateChange">
+            <view class="picker">
+              当前选择: {{birthday}}
+            </view>
+          </picker>
+          <view class="memberData-set-formBtn">
+            <button class="formBtn-item">取消</button>
+            <view style="width: 30rpx;"></view>
+            <button class="formBtn-item" type="primary" form-type="submit">保存</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </modal>
 </view>

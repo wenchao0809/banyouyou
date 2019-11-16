@@ -2,6 +2,6 @@
 <view class="wx-popup" hidden="{{!showFlag}}">
   <view class='popup-container'>
     <slot name="content"></slot>
-    <icon type="clear" style="width: 80rpx;height: 80rpx;margin-top: 40rpx" bindtap="cancelModal"></icon>
+    <icon type="clear" size="80rpx" style="margin-top: 40rpx" bindtap="cancelModal"></icon>
   </view>  
 </view>
