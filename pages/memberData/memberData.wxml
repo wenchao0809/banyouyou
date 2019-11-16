@@ -1,0 +1,29 @@
+<!--pages/memberData/memberData.wxml-->
+<view class="memberData-container">
+  <view class="memberData-avatar">
+    <image src="" class="memberData-avatarImg"></image>
+  </view>
+  <view class="divider"></view>
+  <view class="memberData-name memberData-item">
+    <text>姓名</text>
+    <view>
+      <text>18687655466</text>
+      <text class="icon icon-youjiantou jiantou"></text>
+    </view>
+  </view>
+  <view class="divider"></view>
+  <view class="memberData-sex memberData-item">
+    <text>性别</text>
+    <view>
+      <text>男</text>
+      <text class="icon icon-youjiantou jiantou"></text>
+    </view>
+  </view>
+  <view class="divider"></view>
+  <view class="memberData-phone memberData-item">
+    <text>手机</text>
+    <view>
+      <text>186****5466</text>
+    </view>
+  </view>
+</view>

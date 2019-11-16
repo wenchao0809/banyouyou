@@ -179,6 +179,20 @@
 					"id": -1,
 					"name": "pages/member",
 					"pathName": "pages/member/member",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memberIntroduction",
+					"pathName": "pages/memberIntroduction/memberIntroduction",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memberData",
+					"pathName": "pages/memberData/memberData",
 					"scene": null
 				}
 			]

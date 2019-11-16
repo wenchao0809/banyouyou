@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "modal": "/components/popup/modal/modal"
+  },
   "navigationBarTitleText": "会员"
 }

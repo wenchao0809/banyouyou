@@ -1,0 +1,5 @@
+/* pages/memberIntroduction/memberIntroduction.wxss */
+.memberIntroduction-container {
+  background: #fff;
+  padding: 20rpx;
+}

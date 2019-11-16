@@ -22,7 +22,9 @@
     "pages/selectAddress/selectAddress",
     "pages/set/set",
     "pages/member/member",
-    "pages/distributor/distributor"
+    "pages/distributor/distributor",
+    "pages/memberIntroduction/memberIntroduction",
+    "pages/memberData/memberData"
   ],
   "window": {
     "backgroundTextStyle": "light",

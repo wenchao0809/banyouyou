@@ -1,6 +1,6 @@
 <!--pages/member/member.wxml-->
 <view class="member-container">
-  <view class="member-card">
+  <view class="member-card" bindtap="showModal">
     <view class="member-card-grade white">会员卡</view>
     <view class="member-card-number white">NO.1345445564667567</view>
     <view class="member-card-privilege white">
@@ -16,14 +16,22 @@
     </view>
     <view class="member-descTab-item">
       <text>额度</text>
-      <text class="red">￥0</text>
+      <text class="red">￥{{quota[privilegeDescIndex]}}</text>
     </view>
     <view class="member-descTab-item">
       <text>积分</text>
-      <text class="red">0</text>
+      <text class="red">{{integral}}</text>
     </view>
   </view>
   <view class="member-desc">
+    <view class="member-desc-grade">
+      <view class="member-desc-grade-title">当前等级：{{currentIntegral.title}}</view>
+      <view class="member-desc-integral">积分距离下一等级：</view>
+      <view>
+        <progress percent="{{currentIntegral.percent}}" active />
+      </view>
+    </view>
+    <view class="divider"></view>
     <view class="member-desc-item">
       <text>会员资料</text>
       <view>
@@ -40,4 +48,16 @@
       </view>
     </view>
   </view>
+  <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">
+    <view slot="content" class="member-card-modal">
+      <view class="member-card">
+        <view class="member-card-grade white">{{currentIntegral.title}}</view>
+        <view class="member-card-number white">NO.1345445564667567</view>
+      </view>
+      <view class="member-card-modal-title">当前特权</view>
+      <view class="member-card-modal-content">
+        <text>1.{{privilegeDesc[privilegeDescIndex]}}</text>
+      </view>
+    </view>
+  </modal>
 </view>

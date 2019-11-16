@@ -1,7 +1,7 @@
 /* pages/member/member.wxss */
 .member-card {
   height: 270rpx;
-  width: 640rpx;
+  width: 620rpx;
   background: url(https://i.ibb.co/SPYJX24/o.png);
   margin: 20rpx auto;
 }
@@ -60,4 +60,34 @@
 .member-card-privilege {
   text-align: right;
   margin: 70rpx 20rpx;
+}
+
+.member-card-modal {
+  background: #fff;
+  width: 640rpx;
+}
+
+.member-card-modal .member-card {
+  margin: 0;
+  width: 100%;
+}
+
+.member-card-modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  padding: 20rpx;
+}
+
+.member-card-modal-content {
+  padding: 0 20rpx 20rpx;
+}
+
+.member-desc-grade {
+  background: #fff;
+  /* height: 100rpx; */
+  padding: 20rpx;
+}
+
+.member-desc-integral {
+  padding: 20rpx 0;
 }
