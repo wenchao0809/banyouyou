@@ -13,7 +13,7 @@
 
 .member-bg {
   background: url(https://i.ibb.co/nLY7LPR/20191115191720-02.png) no-repeat;
-  background-size: contain;
+  background-size: cover;
   height: 50rpx;
 }
 
