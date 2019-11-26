@@ -28,16 +28,16 @@ Page({
     link.showLoading()
 
     // 请求首页数据
-    link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/homepage` }, ({ data: res }) => {
+    // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/homepage` }, ({ data: res }) => {
       // 关闭loading
       link.hideLoading()
 
       // 把请求到的值给轮播图的数组
       this.setData({
-        imgUrls: res.swipers,
-        navList: res.logos,
-        quicks: res.quicks,
-        pageRow: res.pageRow,
+        imgUrls: [{image: '/image/jd1.jpg'}, {image: '/image/jd2.jpg'}],
+        // navList: res.logos,
+        // quicks: res.quicks,
+        // pageRow: res.pageRow,
         newGoods: [{
           image: '/image/quick2.jpg',
           title: '3厘米全案市场板',
@@ -85,7 +85,7 @@ Page({
           count: 260
         }]
       })
-    })
+    // })
   },
   // 监听滚动条改变搜索框背景
   onPageScroll({ scrollTop: val }) {

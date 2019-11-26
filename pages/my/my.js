@@ -33,7 +33,7 @@ Page({
       {
         name: '设置',
         icon: 'icon icon-shezhi',
-        url: ''
+        url: '/pages/set/set'
       },
       {
         name: '帮助中心',

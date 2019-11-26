@@ -21,9 +21,9 @@ Page({
     link.showLoading()
 
     // 请求分类数据
-    link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/productions`},({data:res})=> {
+    // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/productions`},({data:res})=> {
       this.setData({
-        navLeftItems: res.navLeftItems,
+        navLeftItems: ['厚芯板', '阻燃防水板', '家具板', '中迁板', '特价处理', '预定处理', '抢购特惠'],
         navRightItems: [{
           image: '/image/quick2.jpg',
           title: '3厘米全案市场板',
@@ -56,7 +56,7 @@ Page({
       
       // 隐藏loading
       link.hideLoading()
-    })
+    // })
   },
   // 改变tab栏
   currentTabs({currentTarget:{dataset:{index:item}}}){
