@@ -8,7 +8,7 @@
     </view>
     <view class="goodItem-top-status">买家已收货</view>
   </view>
-  <view class="goodItem-center">
+  <view class="goodItem-center" bindtap="goDetail">
      <image src="https://upload.cc/i1/2019/11/06/v5zWam.png" style="width: 183rpx; height: 179rpx;" />
      <view class="goodItem-center-title">班优优3厘米木质好的好烦的</view>
      <view style="flex: 1;text-align: right;">

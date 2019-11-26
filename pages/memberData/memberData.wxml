@@ -7,7 +7,7 @@
   <view class="memberData-name memberData-item" bindtap="showModal" data-index="{{0}}">
     <text>姓名</text>
     <view>
-      <text>18687655466</text>
+      <text>{{name}}</text>
       <text class="icon icon-youjiantou jiantou"></text>
     </view>
   </view>
@@ -15,16 +15,22 @@
   <view class="memberData-sex memberData-item" bindtap="showModal" data-index="{{1}}">
     <text>性别</text>
     <view>
-      <text>男</text>
+      <text>{{sexValue[sex]}}</text>
       <text class="icon icon-youjiantou jiantou"></text>
     </view>
   </view>
   <view class="divider"></view>
-  <view class="memberData-phone memberData-item" bindtap="showModal" data-index="{{2}}">
+  <view wx:if="{{birthday === '未选择'}}" class="memberData-phone memberData-item" bindtap="showModal" data-index="{{2}}">
     <text>生日</text>
     <view>
       <text style="color: #A9A9A9;">可享受生日优惠，去设置</text>
       <text class="icon icon-youjiantou jiantou"></text>
+    </view>
+  </view>
+  <view wx:else class="memberData-phone memberData-item">
+    <text>生日</text>
+    <view>
+      <text style="color: #A9A9A9;">{{ birthday }}</text>
     </view>
   </view>
   <view class="divider"></view>
@@ -54,7 +60,7 @@
             </view>
           </picker>
           <view class="memberData-set-formBtn">
-            <button class="formBtn-item">取消</button>
+            <button class="formBtn-item" bindtap="cancelModal">取消</button>
             <view style="width: 30rpx;"></view>
             <button class="formBtn-item" type="primary" form-type="submit">保存</button>
           </view>

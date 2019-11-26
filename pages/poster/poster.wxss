@@ -6,6 +6,10 @@
   border: 1px solid black;
 }
 
+.poster-btn {
+  padding: 0 20rpx;
+}
+
 button {
   margin-top: 20rpx;
 }

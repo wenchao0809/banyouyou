@@ -10,7 +10,7 @@
   </view>
   <view class="member-bg"></view>
   <view class="member-descTab">
-    <view class="member-descTab-item">
+    <view class="member-descTab-item" bindtap="goCoupon">
       <text>优惠券</text>
       <text class="red">0张</text>
     </view>
@@ -32,7 +32,7 @@
       </view>
     </view>
     <view class="divider"></view>
-    <view class="member-desc-item">
+    <view class="member-desc-item" bindtap="goMemberData">
       <text>会员资料</text>
       <view>
         <text>详情</text>
@@ -40,7 +40,7 @@
       </view>
     </view>
     <view class="divider"></view>
-    <view class="member-desc-item">
+    <view class="member-desc-item" bindtap="goMemberIntroduction">
       <text>会员等级介绍</text>
       <view>
         <text>详情</text>

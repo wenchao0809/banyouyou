@@ -8,6 +8,12 @@ Page({
     
   },
 
+  goAddaddress () {
+    wx.navigateTo({
+      url: '/pages/add-address/add-address'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

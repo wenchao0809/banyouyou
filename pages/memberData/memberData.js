@@ -8,7 +8,10 @@ Page({
     showFlag: false,
     birthday: "未选择",
     title: ["设置姓名", "设置性别", "设置生日"],
-    index: 0
+    index: 0,
+    name: '17887656467',
+    sex: '0',
+    sexValue: ['男', '女']
   },
 
   showModal(e) {
@@ -28,6 +31,13 @@ Page({
 
   formSubmit: function (e) {
     // 生日保存成功后就不允许修改
+    let value = e.detail.value
+    for (let key in value) {
+      this.setData({
+        [key]: value[key]
+      })
+    }
+    this.cancelModal()
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
 

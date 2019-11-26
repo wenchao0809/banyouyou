@@ -9,4 +9,4 @@
      <addressItem title="{{  }}"/>
   </view>
 </view>
-<view class="address-add-btn">+ 新增地址</view>
+<view class="address-add-btn" bindtap="goAddaddress">+ 新增地址</view>

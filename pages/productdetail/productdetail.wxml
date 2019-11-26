@@ -1,7 +1,7 @@
 <!--pages/productdetail/productdetail.wxml-->
 <view class="productdetail-container">
   <view class="productdetail-swiper">
-    <swiper autoplay="{{true}}" style="height: 100%; width: 100%;">
+    <swiper autoplay="{{true}}" style="height: 100%; width: 100%;" bindchange="swiperChange" current="{{index}}">
         <block wx:for="{{imgList}}" wx:key="*this">
           <swiper-item>
             <image src="{{item}}" style="height: 100%; width: 100%;"></image>
@@ -9,7 +9,7 @@
         </block>
       </swiper>
       <view class="swiper-item">
-        {{ '1 / 2' }}
+        {{index + 1}} / 2
       </view>
   </view>
   <view class="productdetail-desc">
@@ -40,7 +40,7 @@
         <text class="icon icon-weixin" style="font-size: 70rpx;color: #32CD32;"></text>
         <text style="font-size: 24rpx;">发送给朋友</text>
       </button>
-      <view class="productdetail-popup">
+      <view class="productdetail-popup" bindtap="goPoster">
         <text class="icon icon-erweima-copy" style="font-size: 70rpx;color: #1E90FF;"></text>
         <text style="font-size: 24rpx;">生成海报</text>
       </view>

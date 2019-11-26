@@ -45,16 +45,16 @@
         <text>323243245345363635643</text>
       </view>
       <view class="orderdetail-information-item">
-        <text class="color">订单编号：</text>
-        <text>323243245345363635643</text>
+        <text class="color">下单时间：</text>
+        <text>2019-11-13 16::54:12</text>
       </view>
       <view class="orderdetail-information-item">
-        <text class="color">订单编号：</text>
-        <text>323243245345363635643</text>
+        <text class="color">配送方式：</text>
+        <text>商家配送</text>
       </view>
       <view class="orderdetail-information-item">
-        <text class="color">订单编号：</text>
-        <text>323243245345363635643</text>
+        <text class="color">支付方式：</text>
+        <text>微信支付</text>
       </view>
     </view>
     <view class="divider"></view>

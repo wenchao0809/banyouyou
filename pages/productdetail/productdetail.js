@@ -20,7 +20,8 @@ Page({
         text: '首页',
         icon: 'icon-shouye',
         click: false,
-        clickColor: '#FFA500'
+        clickColor: '#FFA500',
+        url: '/pages/home/home'
       },
       {
         text: '客服',
@@ -46,7 +47,14 @@ Page({
         text: '立即购买',
         btn: 'right'
       }
-    ]
+    ],
+    index: 0
+  },
+
+  swiperChange (e) {
+    this.setData({
+      index: e.detail.current
+    })
   },
 
   showPopup () {
@@ -97,6 +105,12 @@ Page({
 // 　　}
 　　// 返回shareObj
 　　return shareObj
+  },
+
+  goPoster () {
+    wx.navigateTo({
+      url: '/pages/poster/poster'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

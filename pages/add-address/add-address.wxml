@@ -29,13 +29,13 @@
     <view class="add-address-desc" bindtap="getLocaltion">
       <view style="display: flex;align-items: center;margin-bottom: 16rpx;">
         <text class="color" style="margin-right: 20rpx;">小区/大厦/学校</text>
-        <textarea style="flex: 1;" auto-height disabled></textarea>
+        <textarea style="flex: 1;" auto-height disabled value="{{address}}"></textarea>
         <text class="icon icon-dizhi1" style="font-size: 42rpx;color: #1296db;"></text>
       </view>
       <view class="divider"></view>
       <view style="display: flex;align-items: center;margin-top: 16rpx;">
         <text class="color" style="margin-right: 20rpx;">补充信息</text>
-        <textarea style="flex: 1;" auto-height placeholder="如门牌号等"></textarea>
+        <textarea style="flex: 1;" auto-height placeholder="如门牌号等" value="{{addressName}}"></textarea>
       </view>
     </view>
     <view class="divider"></view>

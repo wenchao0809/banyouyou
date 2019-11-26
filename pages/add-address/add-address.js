@@ -8,12 +8,27 @@ Page({
     array: ['美国', '中国', '巴西', '日本'],
     index: 0,
     sex: ['先生', '女士'],
-    addressType: ['家里', '学校', '公司', '住址', '其他']
+    addressType: ['家里', '学校', '公司', '住址', '其他'],
+    address: '',
+    addressName: ''
+  },
+
+  bindPickerChange (e) {
+    let index = e.detail.value
+    this.setData({
+      index
+    })
   },
 
   getLocaltion () {
+    let that = this
     wx.chooseLocation({
-      
+      success: (res) => {
+        that.setData({
+          address: res.address,
+          addressName: res.name
+        })
+      }
     })
   },
   /**

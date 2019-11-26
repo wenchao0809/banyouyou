@@ -63,6 +63,24 @@ Page({
     })
   },
 
+  goCoupon () {
+    wx.navigateTo({
+      url: '/pages/my-coupon/my-coupon'
+    })
+  },
+
+  goMemberData () {
+    wx.navigateTo({
+      url: '/pages/memberData/memberData'
+    })
+  },
+
+  goMemberIntroduction () {
+    wx.navigateTo({
+      url: '/pages/memberIntroduction/memberIntroduction'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

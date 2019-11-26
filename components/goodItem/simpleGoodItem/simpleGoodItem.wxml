@@ -1,4 +1,4 @@
- <view class="good-item">
+ <view class="good-item" bindtap="goProductdetail">
     <view class="image">
         <image src="{{goodInfo.image}}"></image>
     </view>

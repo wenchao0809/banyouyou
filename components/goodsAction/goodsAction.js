@@ -39,7 +39,13 @@ Component({
         return e.currentTarget.dataset.icon === item.icon
       })
       let item = `iconList[${index}].click`
-      // this.data.iconList = this.properties.icons
+      // console.log(this.data.iconList[index].url)
+      if (this.data.iconList[index].url) {
+        wx.switchTab({
+          url: this.data.iconList[index].url
+        })
+      }
+
       this.setData({
         [item]: !this.data.iconList[index].click
       })
