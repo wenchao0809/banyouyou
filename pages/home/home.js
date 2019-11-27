@@ -20,7 +20,16 @@ Page({
     hotItems: [],
     scrollFlag: false,
     region: ['广东省', '广州市', '海珠区'],
-    customItem: '全部'
+    customItem: '全部',
+    showCart: false,
+    btns: [
+      {
+        text: '加入购物车'
+      },
+      {
+        text: '立即购买'
+      }
+    ]
   },
   // 页面加载
   onLoad(options) {
@@ -109,6 +118,16 @@ Page({
   bindRegionChange(e) {
     this.setData({
       region: e.detail.value
+    })
+  },
+  showMinCart () {
+    this.setData({
+      showCart: true
+    })
+  },
+  onClose () {
+    this.setData({
+      showCart: false
     })
   }
 })

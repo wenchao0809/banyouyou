@@ -91,7 +91,7 @@
                     <view class="count-and-cart">
                         <view class="count">销量：{{ item.count }}</view>
                         <view class="cart">
-                            <text class="icon icon-gouwuche"></text>
+                            <text class="icon icon-gouwuche" bindtap="showMinCart"></text>
                         </view>
                     </view>
                 </view>
@@ -117,7 +117,7 @@
                    </view>
                    <view class="operate">
                        <text class="price">￥{{ item.count }}</text>
-                       <text class="icon icon-gouwuche"></text>
+                       <text class="icon icon-gouwuche" bindtap="showMinCart"></text>
                    </view>
                </view>
                 <view class="border"></view>
@@ -129,4 +129,5 @@
             <image class='page_img' wx:for='{{page}}' wx:key="index" src="{{item}}" mode="aspectFill"></image>
         </view>
     </block> -->
+    <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;"/>
 </view>

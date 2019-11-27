@@ -39,13 +39,11 @@ Page({
     btns: [
       {
         style: '',
-        text: '加入购物车',
-        btn: 'left'
+        text: '加入购物车'
       },
       {
         style: 'background: #f04347;color: #fff;',
-        text: '立即购买',
-        btn: 'right'
+        text: '立即购买'
       }
     ],
     index: 0

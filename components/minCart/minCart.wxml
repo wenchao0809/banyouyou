@@ -1,5 +1,5 @@
 <!--components/minCart/minCart.wxml-->
-<popup show="{{show}}" closeIcon="{{true}}" customStyle="height:55%;" bind:onClose="onClose">
+<popup show="{{show}}" closeIcon="{{true}}" customStyle="{{ style }}height:auto;" bind:onClose="onClose">
 <view style="display: flex;flex-direction: column;height: 100%;">
     <view class="cart-container">
      <view class="cart-desc">
@@ -24,11 +24,11 @@
       </view>
     </view>
     <view class="cart-btn-box">
-      <view class="cart-btn" wx:if="{{ btnType === 'addCart' }}">加入购物车</view>
-      <view class="cart-btn" wx:elif="{{ btnType === 'BuyNow' }}">立即购买</view>
+      <view class="cart-btn" wx:if="{{ btns.length === 1 }}">{{ btns[0].text }}</view>
+      <!-- <view class="cart-btn" wx:elif="{{ btnType === 'BuyNow' }}">立即购买</view> -->
       <view class="cart-doubleBtn" wx:else>
-        <view class="cart-doubleBtn-left">加入购物车</view>
-        <view class="cart-doubleBtn-right">立即购买</view>
+        <view class="cart-doubleBtn-left">{{ btns[0].text }}</view>
+        <view class="cart-doubleBtn-right">{{ btns[1].text }}</view>
       </view>
     </view>
   </view>

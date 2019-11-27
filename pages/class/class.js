@@ -10,7 +10,16 @@ Page({
     navLeftItems:[],  // 左侧导航
     navRightItems:[], // 右侧产品
     orderName: '',
-    curIndex:0
+    curIndex:0,
+    showCart: false,
+    btns: [
+      {
+        text: '加入购物车'
+      },
+      {
+        text: '立即购买'
+      }
+    ]
   },
 
   /**
@@ -75,6 +84,16 @@ Page({
     console.log(e)
     this.setData({
       orderName: e.target.dataset.name
+    })
+  },
+  showMinCart() {
+    this.setData({
+      showCart: true
+    })
+  },
+  onClose() {
+    this.setData({
+      showCart: false
     })
   }
 })

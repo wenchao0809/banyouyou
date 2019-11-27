@@ -7,7 +7,7 @@
   </view>
   </block>
   <block wx:for="{{ btns }}">
-    <view class="goodsAction-btn" style="{{item.style}}" data-btn="{{item.btn}}" bindtap="onClickBtn">{{item.text}}</view>
+    <view class="goodsAction-btn" style="{{item.style}}" data-index="{{index}}" bindtap="onClickBtn">{{item.text}}</view>
   </block>
   <view class="chat-type {{ showFlag ? 'c-state' : '' }}">
     <view class="chat-type-item" bindtap="phoneCall">
@@ -19,5 +19,5 @@
       <text>聊天</text>
     </button>
   </view>
-  <minCart show="{{ showCart }}" bind:onClose="onClose" btnType="{{ btnType }}"/>
+  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btn }}"/>
 </view>

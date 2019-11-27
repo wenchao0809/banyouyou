@@ -32,7 +32,7 @@
                 </view>
                 <view class="operate">
                     <!-- <text class="price">￥{{ item.count }}</text> -->
-                    <text class="icon icon-gouwuche"></text>
+                    <text class="icon icon-gouwuche" bindtap="showMinCart"></text>
                 </view>
                 <view class="image">
                     <image src="{{item.image}}" mode="aspectFill" />
@@ -42,4 +42,5 @@
     </block>
     </scroll-view>
   </view>
+  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;"/>
 </view>

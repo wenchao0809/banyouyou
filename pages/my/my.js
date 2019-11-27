@@ -41,5 +41,10 @@ Page({
         url: ''
       }
     ]
+  },
+  goMember () {
+    wx.navigateTo({
+      url: '/pages/member/member'
+    })
   }
 })

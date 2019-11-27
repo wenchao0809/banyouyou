@@ -9,6 +9,23 @@ Page({
     totalMoney:'0.00',
     totalCount:0,
     selectAll:false,
+    showCart: false,
+    btns: [
+      {
+        text: '确定'
+      }
+    ]
+  },
+
+  showMinCart() {
+    this.setData({
+      showCart: true
+    })
+  },
+  onClose() {
+    this.setData({
+      showCart: false
+    })
   },
 
   /**

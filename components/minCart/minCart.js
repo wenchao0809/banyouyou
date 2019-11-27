@@ -8,9 +8,13 @@ Component({
       type: Boolean,
       value: false
     },
-    btnType: {
+    btns: {
+      type: Array,
+      value: []
+    },
+    style: {
       type: String,
-      value: 'addCart'
+      value: ''
     }
   },
 

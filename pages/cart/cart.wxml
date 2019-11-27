@@ -25,7 +25,7 @@
               <!-- 商品属性 -->
               <view class="good_attr">
                 <text class="desc">i7 16G+512G, 15英寸</text>
-                <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text>
+                <text class="icon icon-arrowBottom" catch:tap="showMinCart"></text>
               </view>
               <view class='good_price'>
                 <text class='price'>{{item.price}}</text>
@@ -49,4 +49,5 @@
       </view>
     </view>
     </view>
+    <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;"/>
   </view>

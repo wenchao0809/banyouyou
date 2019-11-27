@@ -26,7 +26,7 @@ Component({
     showCart: false,
     changeStar: false,
     iconList: [],
-    btnType: ""
+    btn: []
   },
 
   /**
@@ -78,15 +78,20 @@ Component({
       this.setData({
         showCart: !this.data.showCart
       })
-      if (e.currentTarget.dataset.btn === 'left') {
-        this.setData({
-          btnType: 'addCart'
-        })
-      } else {
-        this.setData({
-          btnType: 'BuyNow'
-        })
-      }
+      let index = e.currentTarget.dataset.index
+      let btn = [this.properties.btns[index]]
+      this.setData({
+        btn 
+      })
+      // if (e.currentTarget.dataset.btn === 'left') {
+      //   this.setData({
+      //     btnType: 'addCart'
+      //   })
+      // } else {
+      //   this.setData({
+      //     btnType: 'BuyNow'
+      //   })
+      // }
     },
     onClose () {
       this.setData({

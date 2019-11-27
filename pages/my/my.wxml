@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="my">
-  <view class="header">
+  <view class="header" bindtap="goMember">
     <view class="photo">
         <image src="/image/jd2.jpg"></image>
     </view>

@@ -2,6 +2,7 @@
     "navigationBarTitleText": "购物车",
     "usingComponents": {
       "count": "/components/count/count",
-      "checkRadio": "/components/checkRadio/checkRadio"
+      "checkRadio": "/components/checkRadio/checkRadio",
+      "minCart": "/components/minCart/minCart"
     }
 }
