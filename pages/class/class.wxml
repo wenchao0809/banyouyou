@@ -19,7 +19,7 @@
         <view class="good-item-wrap">
             <view class="good-item">
               <view class="desc">
-                <view class="title">{{ item.title }}</view>
+                <view class="title" bind:tap="gotoProductDetail">{{ item.title }}</view>
                   <view class="count">销量：{{ item.count }}</view>
                   <view class="price">
                     <view class="cur">
@@ -34,7 +34,7 @@
                     <!-- <text class="price">￥{{ item.count }}</text> -->
                     <text class="icon icon-gouwuche" bindtap="showMinCart"></text>
                 </view>
-                <view class="image">
+                <view class="image" bind:tap="gotoProductDetail">
                     <image src="{{item.image}}" mode="aspectFill" />
                 </view>
             </view>
@@ -42,5 +42,5 @@
     </block>
     </scroll-view>
   </view>
-  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;"/>
+  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;" toastText="添加购物车成功"/>
 </view>

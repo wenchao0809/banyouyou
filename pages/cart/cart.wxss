@@ -88,11 +88,12 @@
  flex-direction: row;
 }
 .goods .good_img{
-  width: 30%;
+  margin-right: 20rpx;
+  width: 200rpx;
   height: 200rpx;
 }
 .good_info{
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -23,12 +23,12 @@
         <count/>
       </view>
     </view>
-    <view class="cart-btn-box">
-      <view class="cart-btn" wx:if="{{ btns.length === 1 }}">{{ btns[0].text }}</view>
+    <view class="cart-btn-box" bindtap="clickBtn">
+      <view class="cart-btn" wx:if="{{ btns.length === 1 }}" data-btnIndex="0">{{ btns[0].text }}</view>
       <!-- <view class="cart-btn" wx:elif="{{ btnType === 'BuyNow' }}">立即购买</view> -->
       <view class="cart-doubleBtn" wx:else>
-        <view class="cart-doubleBtn-left">{{ btns[0].text }}</view>
-        <view class="cart-doubleBtn-right">{{ btns[1].text }}</view>
+        <view class="cart-doubleBtn-left" data-btnIndex="0">{{ btns[0].text }}</view>
+        <view class="cart-doubleBtn-right" data-btnIndex="1">{{ btns[1].text }}</view>
       </view>
     </view>
   </view>

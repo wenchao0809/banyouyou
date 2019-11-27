@@ -43,7 +43,8 @@ Page({
       },
       {
         style: 'background: #f04347;color: #fff;',
-        text: '立即购买'
+        text: '立即购买',
+        url: '/pages/confirm-order/confirm-order'
       }
     ],
     index: 0

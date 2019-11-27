@@ -17,7 +17,8 @@ Page({
         text: '加入购物车'
       },
       {
-        text: '立即购买'
+        text: '立即购买',
+        url: '/pages/confirm-order/confirm-order'
       }
     ]
   },
@@ -76,7 +77,8 @@ Page({
   // 去往列表页
   gotoProductDetail({ currentTarget: { dataset:{product:name}} }){
     wx.navigateTo({
-      url: `/pages/productlist/productlist?name=${name}`
+      url: `/pages/productdetail/productdetail`
+      // url: `/pages/productlist/productlist?name=${name}`
     })
   },
   // order change

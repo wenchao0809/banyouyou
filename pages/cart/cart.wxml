@@ -17,18 +17,18 @@
             catch:change="selectProduct" 
             checked="{{ item.select }}" /> 
           <view class='goods'>
-            <image class='good_img' src='/image/quick3.jpg'></image>
+            <image class='good_img' src='/image/quick2.jpg'></image>
             <view class='good_info'>
               <view class='good_title'>
                 <text>{{item.title}}</text>
               </view>
               <!-- 商品属性 -->
-              <view class="good_attr">
-                <text class="desc">i7 16G+512G, 15英寸</text>
-                <text class="icon icon-arrowBottom" catch:tap="showMinCart"></text>
+              <view class="good_attr" catchtap="showMinCart">
+                <text class="desc">厚度：5mm 环保等级：E0</text>
+                <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text>
               </view>
               <view class='good_price'>
-                <text class='price'>{{item.price}}</text>
+                <text class='price'>￥{{item.price}}</text>
                 <!-- 商品数量 -->
                 <count bind:getSelectNum="getCartCount" data-index="{{index}}" count="{{item.total}}" bind:addEvent="addNums" bind:subEvent="subNums" />
               </view>
@@ -44,10 +44,10 @@
         <text>合计:</text>
         <text class='money'>¥{{totalMoney}}</text>
       </view>
-      <view class='btn_amount'>
+      <view class='btn_amount' bind:tap="tapToConfirmOrder">
         <button>去结算({{totalCount}})</button>
       </view>
     </view>
     </view>
-    <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;"/>
+    <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" style="margin-bottom: 200rpx;" toastText="修改成功"/>
   </view>

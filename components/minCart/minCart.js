@@ -15,6 +15,10 @@ Component({
     style: {
       type: String,
       value: ''
+    },
+    toastText: {
+      type: String,
+      value: ''
     }
   },
 
@@ -38,6 +42,25 @@ Component({
     getSkus(e) {
       let skus = e.detail
       console.log(skus)
+    },
+    clickBtn (e) {
+      // console.log(this.properties.btns, e.target.dataset.btnIndex)
+      let that = this
+      let index = e.target.dataset.btnindex
+      if (this.properties.btns[index].url) {
+        wx.navigateTo({
+          url: this.properties.btns[index].url,
+          success: () => {
+            that.onClose()
+          }
+        })
+      } else {
+        wx.showToast({
+          title: this.properties.toastText,
+          icon: 'success',
+          duration: 2000
+        })
+      }
     }
   }
 })

@@ -14,5 +14,8 @@ Page({
             size: '15mm',
             image: '/image/quick3.jpg'
           }]
+    },
+    toSelectAddress() {
+      wx.navigateTo({ url: '/pages/selectAddress/selectAddress' })
     }
 })

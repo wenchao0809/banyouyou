@@ -27,7 +27,8 @@ Page({
         text: '加入购物车'
       },
       {
-        text: '立即购买'
+        text: '立即购买',
+        url: '/pages/confirm-order/confirm-order'
       }
     ]
   },
@@ -43,7 +44,7 @@ Page({
 
       // 把请求到的值给轮播图的数组
       this.setData({
-        imgUrls: [{image: '/image/jd1.jpg'}, {image: '/image/jd2.jpg'}],
+        imgUrls: [{image: '/image/banner1.jpg'}, {image: '/image/banner2.jpg'}],
         // navList: res.logos,
         // quicks: res.quicks,
         // pageRow: res.pageRow,
@@ -128,6 +129,11 @@ Page({
   onClose () {
     this.setData({
       showCart: false
+    })
+  },
+  gotoDetail() {
+    wx.navigateTo({
+      url: `/pages/productdetail/productdetail`,
     })
   }
 })

@@ -8,7 +8,7 @@
             <view class="header">
                 <view class="title">商家配送</view>
             </view>
-            <view class="address">
+            <view class="address" bind:tap="toSelectAddress">
                 <view class="has-address">
                     <text class="icon icon-dizhi"></text>
                     <view class="desc">
