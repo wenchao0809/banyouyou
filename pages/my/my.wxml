@@ -2,7 +2,7 @@
 <view class="my">
   <view class="header">
     <view class="photo">
-        <image src="/image/jd2.jpg"></image>
+        <image src="/image/banner2.jpg"></image>
     </view>
     <view class="name-and-phone">
       <view class="name">板优优</view>

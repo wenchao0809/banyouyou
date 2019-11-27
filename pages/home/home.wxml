@@ -76,10 +76,10 @@
         <scroll-view class='hot-list' scroll-x="true">
             <block wx:for-items="{{hotItems}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
-                    <view class="image">
+                    <view class="image" bind:tap="gotoDetail">
                         <image src="{{item.image}}" mode="aspectFill" />
                     </view>
-                    <view class="title">{{ item.title }}</view>
+                    <view class="title" bind:tap="gotoDetail">{{ item.title }}</view>
                     <view class="price">
                         <view class="cur">
                             <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
@@ -107,7 +107,7 @@
        <scroll-view class="new-list" scroll-y>
            <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
-                   <view class="image">
+                   <view class="image" bind:tap="gotoDetail">
                         <image src="{{item.image}}" mode="aspectFill" />
                    </view>
                    <view class="desc">
@@ -115,7 +115,7 @@
                        <view class="price">￥{{ item.price }}</view>
                        <view class="count">销量：{{ item.count }}</view>
                    </view>
-                   <view class="operate">
+                   <view class="operate" bind:tap="gotoDetail">
                        <text class="price">￥{{ item.count }}</text>
                        <text class="icon icon-gouwuche"></text>
                    </view>

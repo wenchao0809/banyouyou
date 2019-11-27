@@ -34,7 +34,7 @@ Page({
 
       // 把请求到的值给轮播图的数组
       this.setData({
-        imgUrls: [{image: '/image/jd1.jpg'}, {image: '/image/jd2.jpg'}],
+        imgUrls: [{image: '/image/banner1.jpg'}, {image: '/image/banner2.jpg'}],
         // navList: res.logos,
         // quicks: res.quicks,
         // pageRow: res.pageRow,
@@ -109,6 +109,11 @@ Page({
   bindRegionChange(e) {
     this.setData({
       region: e.detail.value
+    })
+  },
+  gotoDetail() {
+    wx.navigateTo({
+      url: `/pages/productdetail/productdetail`,
     })
   }
 })

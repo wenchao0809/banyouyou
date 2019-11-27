@@ -67,7 +67,8 @@ Page({
   // 去往列表页
   gotoProductDetail({ currentTarget: { dataset:{product:name}} }){
     wx.navigateTo({
-      url: `/pages/productlist/productlist?name=${name}`
+      url: `/pages/productdetail/productdetail`
+      // url: `/pages/productlist/productlist?name=${name}`
     })
   },
   // order change
