@@ -1,5 +1,5 @@
 import { HOST, TOKEN } from '../config/index.js'
-import HeaderConfig from './header_config.js'
+// import HeaderConfig from './header_config.js'
 
 class Token {
   constructor () {
@@ -18,7 +18,7 @@ class Token {
 
   async _veirfyFromServer (token) {
     let that = this
-    let config = await HeaderConfig()
+    // let config = await HeaderConfig()
     wx.request({
       url: that.verifyUrl,
       method: 'POST',
@@ -36,7 +36,7 @@ class Token {
 
   async getTokenFromServer (callBack) {
     let that = this
-    let config = await HeaderConfig()
+    // let config = await HeaderConfig()
     wx.login().then(res => {
       wx.request({
         url: that.tokenUrl,

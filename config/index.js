@@ -1,4 +1,4 @@
-const HOST = 'https://app-test.haina.com'
+const HOST = 'https://47.112.144.130/web/api'
 const TOKEN = 'token'
 // const OFFSETTIMESTAMPKEY = 'offset-timestamp-key'
 

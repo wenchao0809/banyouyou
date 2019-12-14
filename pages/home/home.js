@@ -1,11 +1,12 @@
 // pages/home/home.js
-const link = require('../../utils/common')
+import { getBanners } from '../../api/index.js'
+// const link = require('../../utils/common')
 const app = getApp()
 var swiperHeight;
 
 Page({
   data: {
-    imgUrls: [],
+    banners: [],
     indicatorDots: true,
     circular: true,
     autoplay: true,
@@ -35,16 +36,25 @@ Page({
   // 页面加载
   onLoad(options) {
     // 显示loading
-    link.showLoading()
-
+    // link.showLoading()
+    getBanners()
+      .then(res => {
+        console.log(res)
+        debugger
+        this.setData({ banners: res })
+      })
+      .catch(error => {
+        debugger
+        console.log(error)
+      })
     // 请求首页数据
     // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/homepage` }, ({ data: res }) => {
       // 关闭loading
-      link.hideLoading()
+      // link.hideLoading()
 
       // 把请求到的值给轮播图的数组
       this.setData({
-        imgUrls: [{image: '/image/banner1.jpg'}, {image: '/image/banner2.jpg'}],
+        // banners: [{image: '/image/banner1.jpg'}, {image: '/image/banner2.jpg'}],
         // navList: res.logos,
         // quicks: res.quicks,
         // pageRow: res.pageRow,

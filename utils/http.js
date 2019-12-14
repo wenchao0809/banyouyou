@@ -1,12 +1,14 @@
-import HeaderConfig from './header_config.js'
+// import HeaderConfig from './header_config.js'
 import { HOST, TOKEN } from '../config/index.js'
 import Token from '../models/token'
 
-class HTTP {
+const HTTP = {
   _request (url, option = {}, fn = 'request') {
     let that = this
+    option.method = 'Post'
     return new Promise(async function (resolve, reject) {
-      let config = await HeaderConfig()
+      // let config = await HeaderConfig()
+      let config = {}
       wx[fn]({
         ...option,
         url: HOST + url,
@@ -22,7 +24,7 @@ class HTTP {
         that._show_error(1)
       })
     })
-  }
+  },
 
   getToken () {
     let token = ''
@@ -32,13 +34,13 @@ class HTTP {
       console.log(`[HTTP获取登录态失败]，${JSON.stringify(e)}`)
     }
     return token
-  }
+  },
 
   statusCOdeHandle (res, resolve, reject, option) {
     let that = this
-    let Code = res.data.code.toString()
+    let Code = res.statusCode.toString()
     if (Code.startsWith('2')) {
-      resolve(res.data.data)
+      resolve(res.data)
     } else if (Code === '403') {
       // token过期，刷新token且重发请求
       that._refetch(option)
@@ -46,14 +48,14 @@ class HTTP {
       reject(res)
       that._show_error(Code)
     }
-  }
+  },
 
   _refetch (option) {
     let token = new Token()
     token.getTokenFromServer((token) => {
       this._request(...option)
     })
-  }
+  },
 
   _show_error (error_code) {
     let tip = this.errorTips(error_code)
@@ -63,7 +65,7 @@ class HTTP {
       mask: true,
       duration: 2000
     })
-  }
+  },
 
   errorTips (error_code) {
     switch (error_code) {
@@ -72,7 +74,7 @@ class HTTP {
       default:
         return '网络异常，请重试'
     }
-  }
+  },
 }
 
 module.exports = HTTP
