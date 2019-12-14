@@ -9,15 +9,15 @@
         </block>
       </swiper>
       <view class="swiper-item">
-        {{index + 1}} / 2
+        {{index + 1}} / {{imgList.length}}
       </view>
   </view>
   <view class="productdetail-desc">
     <view>
-      <text>3厘全按市场办</text>
+      <text>{{ title }}</text>
       <view class="productdetail-price">
-        <text class="productdetail-current-price">￥28.00</text>
-        <text class="productdetail-original-price">￥30</text>
+        <text class="productdetail-current-price">￥{{min_price}} ~ ￥{{max_price}}</text>
+        <text wx:if="{{original_price}}" class="productdetail-original-price">￥{{original_price}}</text>
       </view>
       <view>
         <text class="productdetail-stock">库存：900</text>
@@ -32,7 +32,7 @@
   <view class="productdetail-sku">规格</view>
   <sku sku="{{sku}}" bind:getSkus="getSkus" />
   <view class="productdetail-imgdesc">
-   <image src=""></image>
+   <image wx:for="{{content_pic_list}}" wx:key="*this" src="{{item}}" style="width: 100%;"></image>
   </view>
   <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;height: 22%;">
     <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">

@@ -5,7 +5,7 @@ import Token from '../models/token'
 const HTTP = {
   _request (url, option = {}, fn = 'request') {
     let that = this
-    option.method = 'Post'
+    // option.method = 'Post'
     return new Promise(async function (resolve, reject) {
       // let config = await HeaderConfig()
       let config = {}
@@ -38,10 +38,10 @@ const HTTP = {
 
   statusCOdeHandle (res, resolve, reject, option) {
     let that = this
-    let Code = res.statusCode.toString()
-    if (Code.startsWith('2')) {
+    let Code = res.data.code
+    if (Code === 0) {
       resolve(res.data)
-    } else if (Code === '403') {
+    } else if (Code === 10001) {
       // token过期，刷新token且重发请求
       that._refetch(option)
     } else {

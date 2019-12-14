@@ -7,15 +7,12 @@ wxKeys.forEach(key => {
       get() {
         return (option = {}) => {
           return new Promise((resolve, reject) => {
-            option.complete = res => {
+            option.success = res => {
               resolve(res)
             }
-            // option.success = res => {
-            //   resolve(res)
-            // }
-            // option.fail = res => {
-            //   reject(res)
-            // }
+            option.fail = res => {
+              reject(res)
+            }
             wxKeyFn(option)
           })
         }

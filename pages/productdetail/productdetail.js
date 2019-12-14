@@ -1,14 +1,18 @@
 // pages/productdetail/productdetail.js
+import { getGoodInfo } from '../../api/index.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [
-      '/image/quick2.jpg',
-      '/image/quick2.jpg'
-    ],
+    title: '',
+    min_price: '',
+    max_price: '',
+    original_price: '',
+    imgList: [],
+    content_pic_list: [],
     show: false,
     showFlag: false,
     sku: {
@@ -115,7 +119,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = 1
+    getGoodInfo({ id }).then(res => {
+      let original_price = res.original_price ? res.original_price : ''
+      this.setData({
+        title: res.title,
+        min_price: res.min_price,
+        max_price: res.max_price,
+        original_price,
+        imgList: JSON.parse(res.top_pic_list),
+        content_pic_list: JSON.parse(res.content_pic_list)
+      })
+    })
   },
 
   /**
