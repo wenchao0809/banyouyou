@@ -1,5 +1,5 @@
 // pages/home/home.js
-import { getBanners } from '../../api/index.js'
+import { getBanners, getHotGoods, getNewGoods } from '../../api/index.js'
 // const link = require('../../utils/common')
 const app = getApp()
 var swiperHeight;
@@ -37,15 +37,23 @@ Page({
   onLoad(options) {
     // 显示loading
     // link.showLoading()
-    getBanners()
-      .then(res => {
-        console.log(res)
-        debugger
-        this.setData({ banners: res })
-      })
-      .catch(error => {
-        debugger
-        console.log(error)
+    Promise.all([getBanners(), getHotGoods(), getNewGoods()])
+      .then(([banners, hotItems, newGoods]) => {
+        hotItems = hotItems.map(item => {
+          item.ContentPicList = item.ContentPicList && JSON.parse(item.ContentPicList) || []
+          item.TopPicList = item.TopPicList && JSON.parse(item.TopPicList) || []
+          return item
+        })
+        newGoods = newGoods.map(item => {
+          item.ContentPicList = item.ContentPicList && JSON.parse(item.ContentPicList) || []
+          item.TopPicList = item.TopPicList && JSON.parse(item.TopPicList) || []
+          return item
+        })
+        this.setData({
+          banners,
+          hotItems,
+          newGoods
+        })
       })
     // 请求首页数据
     // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/homepage` }, ({ data: res }) => {

@@ -77,16 +77,16 @@
             <block wx:for-items="{{hotItems}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
                     <view class="image" catch:tap="gotoDetail">
-                        <image src="{{item.image}}" mode="aspectFill" />
+                        <image src="{{item.TopPicList[0]}}" mode="aspectFill" />
                     </view>
                     <view class="title" catch:tap="gotoDetail">{{ item.title }}</view>
                     <view class="price">
                         <view class="cur">
                             <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
                             <text class="money">￥</text>
-                            <text class="num"> {{ item.curPrice }}</text>
+                            <text class="num"> {{ item.MinPrice }}</text>
                         </view>
-                        <view class="old">￥{{ item.oldPrice }}</view>
+                        <view class="old">￥{{ item.MaxPrice }}</view>
                     </view>
                     <view class="count-and-cart">
                         <view class="count">销量：{{ item.count }}</view>
@@ -108,11 +108,11 @@
            <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
                    <view class="image" catch:tap="gotoDetail">
-                        <image src="{{item.image}}" mode="aspectFill" />
+                        <image src="{{ item.TopPicList[0] }}" mode="aspectFill" />
                    </view>
                    <view class="desc">
-                       <view class="title">{{ item.title }}</view>
-                       <view class="price">￥{{ item.price }}</view>
+                       <view class="title">{{ item.Title }}</view>
+                       <view class="price">￥{{ item.MinPrice }}</view>
                        <view class="count">销量：{{ item.count }}</view>
                    </view>
                    <view class="operate">
