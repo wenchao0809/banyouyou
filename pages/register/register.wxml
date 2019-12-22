@@ -3,28 +3,28 @@
         <form action="">
             <view class="form-item">
                 <text class="icon icon-yonghu"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" />
+                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱"  data-name="nameOrEmail"  bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-shouji"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请输入手机号" />
+                <input type="text" placeholder-class="placeholder" placeholder="请输入手机号" data-name="phone"  bindinput="inputChange" />
             </view>
             <view class="form-item sms">
                 <text class="icon icon-pinglun"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" />
-                <view class="send-sms">发送验证码</view>
+                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" data-name="smsCode"  bindinput="inputChange" />
+                <view class="send-sms" bind:tap="sendSms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" />
+                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password"  bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请重复输入密码" />
+                <input type="text" placeholder-class="placeholder" placeholder="请重复输入密码" data-name="checkPassword"  bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-credentials_icon"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="身份证号码" />
+                <input type="text" placeholder-class="placeholder" placeholder="身份证号码" data-name="IDNo"  bindinput="inputChange" />
             </view>
         </form>
         <view class="form-error">
@@ -41,6 +41,6 @@
     </view>
     <view class="to-login">
         <text>已有账号，</text>
-        <text class="link">去登录</text>
+        <text class="link" bind:tap="tologin">去登录</text>
     </view>
 </view>

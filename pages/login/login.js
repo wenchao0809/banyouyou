@@ -4,4 +4,7 @@ Page({
     data: {
         
     },
+    toRegister() {
+        wx.navigateTo({ url: '/pages/register/register' })
+    }
 })

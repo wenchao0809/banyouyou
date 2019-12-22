@@ -10,7 +10,7 @@ export function login(data) {
     .then(res => res.data)
 }
 
-export function codeLogin(data) {
+export function codeRegisterAndLogin(data) {
   return http._request('/user/login/check/code', { data })
     .then(res => res.data)
 }

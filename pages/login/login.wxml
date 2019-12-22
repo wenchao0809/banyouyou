@@ -18,10 +18,10 @@
         </form>
     </view>
      <view class="button-wrap">
-        <view class="button">注册</view>
+        <view class="button">登录</view>
     </view>
     <view class="to-register">
         <text>没有账号？</text>
-        <text class="link">立即注册板优优</text>
+        <text class="link" bind:tap="toRegister">立即注册板优优</text>
     </view>
 </view>
