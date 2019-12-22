@@ -1,4 +1,6 @@
 // pages/selectAddress/selectAddress.js
+import { getCouponList } from '../../api/index.js'
+
 Page({
 
   /**

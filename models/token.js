@@ -7,16 +7,17 @@ class Token {
     this.tokenUrl = HOST + 'token'
   }
 
-  verify () {
+  verify (callBack) {
     var token = wx.getStorageSync(TOKEN)
     if (!token) {
-      this.getTokenFromServer()
+      this.getTokenFromServer(callBack)
     } else {
-      this._veirfyFromServer(token)
+      // 看具体需求，没有校验token接口，下一次请求token失效后，也会自动刷新token
+      this._veirfyFromServer(token, callBack)
     }
   }
 
-  async _veirfyFromServer (token) {
+  async _veirfyFromServer (token, callBack) {
     let that = this
     // let config = await HeaderConfig()
     wx.request({
@@ -29,7 +30,9 @@ class Token {
     }).then(res => {
       let valid = res.data.isValid
       if (!valid) {
-        that.getTokenFromServer()
+        that.getTokenFromServer(callBack)
+      } else {
+        callBack && callBack(null)
       }
     })
   }

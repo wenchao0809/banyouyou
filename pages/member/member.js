@@ -1,4 +1,6 @@
 // pages/member/member.js
+let app = getApp()
+
 Page({
 
   /**
@@ -85,7 +87,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let integralArr = []
+    let arr = Object.keys(this.data.integrals)
+    arr.forEach(item => {
+      integralArr.push(this.data.integrals[item])
+    })
+    let VIPLevel = app.globalData.userInfo.VIPLevel
+    let Points = app.globalData.userInfo.Points
+    let integral = integralArr[VIPLevel] + Points
+    this.setData({
+      integral
+    })
   },
 
   /**

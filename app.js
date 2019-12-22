@@ -1,5 +1,7 @@
 //app.js
 import './utils/toPromise'
+// import { Token } from './models/token'
+// import { getUserInfo } from './api/index.js'
 
 App({
   onLaunch: function () {
@@ -9,11 +11,12 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    // const token = new Token()
+    // token.verify((token) => {
+    //   getUserInfo().then(res => {
+    //     this.globalData.userInfo = res
+    //   })
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -36,6 +39,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: {
+      VIPLevel: 1,
+      Points: 20,
+      Name: 'sasas',
+      Phone: '18987675748'
+    }
   }
 })
