@@ -1,4 +1,6 @@
 // pages/class/class.js
+import { getCategoryList, getCategoryGoodList } from '../../api/index.js'
+
 const app = getApp();
 const link = require('../../utils/common.js')
 Page({
@@ -9,7 +11,13 @@ Page({
   data: {
     navLeftItems:[],  // 左侧导航
     navRightItems:[], // 右侧产品
-    orderName: '',
+    query: {
+      limit: 20,
+      offset: 0,
+      sortType: 0 //排序方式: 0:综合排序. 1: 价格从高到低, 2: 价格从低到高, 3: 按销量
+    },
+    orderName: 'bysum',
+    curItem: {},
     curIndex:0,
     showCart: false,
     btns: [
@@ -32,8 +40,13 @@ Page({
 
     // 请求分类数据
     // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/productions`},({data:res})=> {
+      getCategoryList()
+        .then(res => {
+          this.setData({
+            navLeftItems: res
+          })
+        })
       this.setData({
-        navLeftItems: ['厚芯板', '阻燃防水板', '家具板', '中迁板', '特价处理', '预定处理', '抢购特惠'],
         navRightItems: [{
           image: '/image/quick2.jpg',
           title: '3厘米全案市场板',
@@ -69,10 +82,14 @@ Page({
     // })
   },
   // 改变tab栏
-  currentTabs({currentTarget:{dataset:{index:item}}}){
+  currentTabs({currentTarget:{dataset:{index:index}}}){
     this.setData({
-      curIndex:item
+      curIndex: index,
+      curItem: this.data.navLeftItems[index]
     })
+    let curItem = this.data.curItem
+    getCategoryGoodList({ Id:  curItem.Id, ...this.query })
+      .then(res => this.setData({ navRightItems: res }))
   },
   // 去往列表页
   gotoProductDetail({ currentTarget: { dataset:{product:name}} }){

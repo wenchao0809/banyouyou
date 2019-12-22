@@ -5,6 +5,7 @@ import Token from '../models/token'
 const HTTP = {
   _request (url, option = {}, fn = 'request') {
     let that = this
+    option.method = option.method || 'POST'
     // option.method = 'Post'
     return new Promise(async function (resolve, reject) {
       // let config = await HeaderConfig()
