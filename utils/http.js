@@ -46,8 +46,8 @@ const HTTP = {
       // token过期，刷新token且重发请求
       that._refetch(option)
     } else {
-      reject(res)
-      that._show_error(Code)
+      reject(res.data)
+      that._show_error(res.data.msg)
     }
   },
 
@@ -58,10 +58,10 @@ const HTTP = {
     })
   },
 
-  _show_error (error_code) {
-    let tip = this.errorTips(error_code)
+  _show_error (msg) {
+    // let tip = this.errorTips(error_code)
     wx.showToast({
-      title: tip,
+      title: msg,
       icon: 'none',
       mask: true,
       duration: 2000

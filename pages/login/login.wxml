@@ -9,16 +9,26 @@
         <form action="">
             <view class="form-item">
                 <text class="icon icon-yonghu"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" />
+                <input 
+                type="text" 
+                placeholder-class="placeholder" 
+                placeholder="用户名/邮箱" 
+                data-name="phone" 
+                bind:input="inputChange" />
             </view>
              <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" />
+                <input 
+                    type="password" 
+                    placeholder-class="placeholder" 
+                    data-name="password"
+                    bind:input="inputChange"
+                    placeholder="字母+字数,至少八位数密码" />
             </view>
         </form>
     </view>
-     <view class="button-wrap">
-        <view class="button">注册</view>
+     <view class="button-wrap" bind:tap="login">
+        <view class="button">登录</view>
     </view>
     <view class="to-register">
         <text>没有账号？</text>

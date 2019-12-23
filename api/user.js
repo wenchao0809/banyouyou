@@ -90,3 +90,9 @@ export function orderInfo(data) {
   return http._request('/user/order/info', { data })
     .then(res => res.data)
 }
+
+export function uploadImage(data) {
+  return http._request('/user/upload/image', data, 'uploadFile')
+    .then(res => res.data)
+}
+
