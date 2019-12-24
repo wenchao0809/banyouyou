@@ -1,4 +1,7 @@
 export * from './home'
 export * from './goodDetail'
+export * from './coupon'
 export * from './category'
 export * from './user'
+export * from './user'
+export * from './address'

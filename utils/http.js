@@ -2,7 +2,7 @@
 import { HOST, TOKEN } from '../config/index.js'
 import Token from '../models/token'
 
-const HTTP = {
+export const http = {
   _request (url, option = {}, fn = 'request') {
     let that = this
     option.method = option.method || 'POST'
@@ -15,7 +15,7 @@ const HTTP = {
         url: HOST + url,
         header: {
           'content-type': 'application/json',
-          token: that.getToken(),
+          'Authorization': `${getToken()}`,
           ...config
         }
       }).then(res => {
@@ -27,27 +27,18 @@ const HTTP = {
     })
   },
 
-  getToken () {
-    let token = ''
-    try {
-      token = wx.getStorageSync(TOKEN)
-    } catch (e) {
-      console.log(`[HTTP获取登录态失败]，${JSON.stringify(e)}`)
-    }
-    return token
-  },
-
   statusCOdeHandle (res, resolve, reject, option) {
     let that = this
     let Code = res.data.code
     if (Code === 0) {
       resolve(res.data)
-    } else if (Code === 10001) {
-      // token过期，刷新token且重发请求
-      that._refetch(option)
+    } else if (Code === 100004) {
+      // token过期，重新登录
+      that._show_error(res.data.msg)
+      wx.navigateTo('/pages/login/login')
     } else {
-      reject(res)
-      that._show_error(Code)
+      reject(res.data)
+      that._show_error(res.data.msg)
     }
   },
 
@@ -58,10 +49,10 @@ const HTTP = {
     })
   },
 
-  _show_error (error_code) {
-    let tip = this.errorTips(error_code)
+  _show_error (msg) {
+    // let tip = this.errorTips(error_code)
     wx.showToast({
-      title: tip,
+      title: msg,
       icon: 'none',
       mask: true,
       duration: 2000
@@ -78,4 +69,12 @@ const HTTP = {
   },
 }
 
-module.exports = HTTP
+export const getToken = function () {
+  let token = ''
+  try {
+    token = wx.getStorageSync(TOKEN)
+  } catch (e) {
+    console.log(`[HTTP获取登录态失败]，${JSON.stringify(e)}`)
+  }
+  return token
+}

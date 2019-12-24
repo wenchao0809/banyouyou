@@ -37,7 +37,7 @@
   <view class="memberData-phone memberData-item">
     <text>手机</text>
     <view>
-      <text>186****5466</text>
+      <text>{{ phone }}</text>
     </view>
   </view>
   <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">

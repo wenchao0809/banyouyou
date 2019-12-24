@@ -1,4 +1,4 @@
-const http = require('../utils/http')
+import { http } from '../utils/http'
 
 export function getBanners() {
   return http._request('/banner/list')

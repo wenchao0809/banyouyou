@@ -5,10 +5,10 @@
         <image src="/image/banner2.jpg"></image>
     </view>
     <view class="name-and-phone">
-      <view class="name">板优优</view>
+      <view class="name">{{ user.Name }}</view>
       <view class="phone">
         <text class="icon icon-shouji2"></text>
-        <text class="number">1664547009</text>
+        <text class="number">{{ user.Phone }}</text>
       </view>
     </view>
     <view class="to-user-detail">

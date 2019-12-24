@@ -88,7 +88,7 @@ Page({
       curItem: this.data.navLeftItems[index]
     })
     let curItem = this.data.curItem
-    getCategoryGoodList({ Id:  curItem.Id, ...this.query })
+    getCategoryGoodList({ id:  curItem.Id, ...this.data.query })
       .then(res => this.setData({ navRightItems: res }))
   },
   // 去往列表页

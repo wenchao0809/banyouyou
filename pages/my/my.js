@@ -1,5 +1,9 @@
 //index.js
 //获取应用实例
+import { getToken } from '../../utils/http'
+import  { getUserInfo } from '../../api/index'
+import { connect, extract } from 'mobx-wxapp'
+import { user } from '../../store/index'
 const app = getApp()
 
 Page({
@@ -40,7 +44,25 @@ Page({
         icon: 'icon icon-kefu',
         url: ''
       }
-    ]
+    ],
+    user: {}
+  },
+  onLoad() {
+    connect(this, () => ({
+      user: { ...extract(user) }
+    }))
+  },
+  onShow() {
+    console.log('show my page')
+    let token = getToken()
+    if (token) {
+      getUserInfo()
+        .then(res => {
+          user.changeUser(res)
+        })
+    } else {
+      wx.navigateTo('/pages/login//login')
+    }
   },
   goMember () {
     wx.navigateTo({

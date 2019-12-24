@@ -1,4 +1,6 @@
 // pages/memberData/memberData.js
+let app = getApp()
+
 Page({
 
   /**
@@ -9,9 +11,10 @@ Page({
     birthday: "未选择",
     title: ["设置姓名", "设置性别", "设置生日"],
     index: 0,
-    name: '17887656467',
+    name: '',
     sex: '0',
-    sexValue: ['男', '女']
+    sexValue: ['男', '女'],
+    phone: ''
   },
 
   showModal(e) {
@@ -52,7 +55,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let Name = app.globalData.userInfo.Name
+    let Phone = app.globalData.userInfo.Phone
+    this.setData({
+      name: Name,
+      phone: Phone
+    })
   },
 
   /**

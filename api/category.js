@@ -1,4 +1,4 @@
-const http = require('../utils/http')
+import { http } from '../utils/http'
 
 export function getCategoryList() {
   return http._request('/category/list')

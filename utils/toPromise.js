@@ -1,4 +1,4 @@
-let wxKeys = ["request", "login", "getWeRunData"]
+let wxKeys = ["request", "login", "getWeRunData", 'uploadFile']
 
 wxKeys.forEach(key => {
   const wxKeyFn = wx[key]

@@ -1,4 +1,6 @@
 // pages/orderdetail/orderdetail.js
+import { newOrder } from '../../api/index.js'
+
 Page({
 
   /**

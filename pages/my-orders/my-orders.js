@@ -1,4 +1,6 @@
 // pages/my-orders/my-orders.js
+import { getOrderList } from '../../api/index.js'
+
 Page({
 
   /**

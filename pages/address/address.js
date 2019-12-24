@@ -1,11 +1,17 @@
 // pages/address/address.js
+import { getUserAddress } from '../../api/index'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    query: {
+      limit: 20,
+      offset: 0
+    },
+    addressList: []
   },
 
   goAddaddress () {
@@ -18,9 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    getUserAddress(this.data.query)
+    .then(res => this.setData({ addressList: res }))
   },
-
+  onShow() {
+    console.log('show address page')
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

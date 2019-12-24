@@ -1,4 +1,4 @@
-const http = require('../utils/http')
+import { http } from '../utils/http'
 
 export function getUserInfo(data) {
   return http._request('/user/info', { data })
@@ -90,3 +90,9 @@ export function orderInfo(data) {
   return http._request('/user/order/info', { data })
     .then(res => res.data)
 }
+
+export function uploadImage(data) {
+  return http._request('/user/upload/image', data, 'uploadFile')
+    .then(res => res.data)
+}
+
