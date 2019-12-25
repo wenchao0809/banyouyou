@@ -3,6 +3,12 @@ import { getCategoryList, getCategoryGoodList } from '../../api/index.js'
 
 const app = getApp();
 const link = require('../../utils/common.js')
+const sortMap = {
+  bysum: 0,
+  priceDesc: 1,
+  priceAsc: 2,
+  count: 3
+}
 Page({
 
   /**
@@ -101,8 +107,13 @@ Page({
   // order change
   handleOrderChange(e) {
     console.log(e)
+    let orderName = e.target.dataset.name || e.currentTarget.dataset.name
+    if (orderName === 'byprice') {
+      // 默认升序
+      orderName = this.data.orderName === 'priceAsc' ? 'priceDesc' : 'priceAsc'
+    }
     this.setData({
-      orderName: e.target.dataset.name
+      orderName: orderName
     })
   },
   showMinCart() {

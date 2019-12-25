@@ -10,8 +10,12 @@
     <scroll-view class='nav_right' scroll-y>
       <view class="order-header" bindtap="handleOrderChange">
         <view class="by-sum {{ orderName === 'bysum' ? 'active' : '' }}" data-name="bysum">综合排序</view>
-        <view class="by-price {{ orderName === 'byprice' ? 'active' : '' }}" data-name="byprice">
-          按价格
+        <view class="by-price" data-name="byprice"  catch:tap="handleOrderChange">
+          <view class="desc {{ orderName === 'priceAsc' || orderName === 'priceDesc' ? 'active' : '' }}">按价格</view>
+          <view class="icon">
+            <text class="icon icon-arrowTop-fill {{ orderName === 'priceAsc' ? 'active' : '' }}"></text>
+            <text class="icon icon-arrowBottom {{ orderName === 'priceDesc' ? 'active' : '' }}"></text>
+          </view>
         </view>
         <view class="by-count {{ orderName === 'bycount' ? 'active' : '' }}" data-name="bycount">按销量</view>
       </view>

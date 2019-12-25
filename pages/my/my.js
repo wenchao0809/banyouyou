@@ -51,9 +51,14 @@ Page({
     connect(this, () => ({
       user: { ...extract(user) }
     }))
+    console.log('show my page')
+    this.getUserInfo()
   },
   onShow() {
     console.log('show my page')
+    this.getUserInfo()
+  },
+  getUserInfo() {
     let token = getToken()
     if (token) {
       getUserInfo()
@@ -61,7 +66,7 @@ Page({
           user.changeUser(res)
         })
     } else {
-      wx.navigateTo('/pages/login//login')
+      wx.navigateTo({ url: '/pages/login/login' })
     }
   },
   goMember () {

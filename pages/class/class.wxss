@@ -22,6 +22,16 @@
   left: 0;
   width: 100%;
 }
+.by-price {
+  display: flex;
+  align-items: center;
+}
+.by-price .icon {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rpx;
+  font-size: 24rpx;
+}
 .nav_left{
   background: #f8f8f8;
   width: 24%;
