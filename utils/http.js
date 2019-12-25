@@ -10,6 +10,9 @@ export const http = {
     return new Promise(async function (resolve, reject) {
       // let config = await HeaderConfig()
       let config = {}
+      wx.showLoading({
+        title: ''
+      });
       wx[fn]({
         ...option,
         url: HOST + url,
@@ -23,6 +26,9 @@ export const http = {
       }).catch(e => {
         reject(e)
         that._show_error(1)
+      })
+      .finally(() => {
+        wx.hideLoading();
       })
     })
   },

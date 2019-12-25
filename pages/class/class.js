@@ -3,7 +3,7 @@ import { getCategoryList, getCategoryGoodList } from '../../api/index.js'
 
 const app = getApp();
 const link = require('../../utils/common.js')
-const sortMap = {
+const sortTypeMap = {
   bysum: 0,
   priceDesc: 1,
   priceAsc: 2,
@@ -41,68 +41,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 显示loading
-    link.showLoading()
-
     // 请求分类数据
-    // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/productions`},({data:res})=> {
       getCategoryList()
         .then(res => {
           this.setData({
             navLeftItems: res
           })
+          this.getNavRightItems()
+          wx.hideLoading()
         })
-      this.setData({
-        navRightItems: [{
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        }]
-      })
-      
       // 隐藏loading
-      link.hideLoading()
-    // })
   },
   // 改变tab栏
   currentTabs({currentTarget:{dataset:{index:index}}}){
     this.setData({
-      curIndex: index,
-      curItem: this.data.navLeftItems[index]
+      curIndex: index
     })
-    let curItem = this.data.curItem
-    getCategoryGoodList({ id:  curItem.Id, ...this.data.query })
-      .then(res => this.setData({ navRightItems: res }))
+    this.getNavRightItems()
   },
-  // 去往列表页
+  getNavRightItems() {
+    let { query, orderName, navLeftItems } = this.data
+    let curItem = navLeftItems[this.data.curIndex]
+    query.sortType = sortTypeMap[orderName]
+    getCategoryGoodList({ id:  curItem.Id, ...this.data.query })
+      .then(res => {
+        res.map(item => {
+          item.ContentPicList = JSON.parse(item.ContentPicList)
+          item.TopPicList = JSON.parse(item.TopPicList)
+          return item
+        })
+        this.setData({ navRightItems: res })
+      })
+  },
+   // 去往列表页
   gotoProductDetail({ currentTarget: { dataset:{product:name}} }){
     wx.navigateTo({
       url: `/pages/productdetail/productdetail`
       // url: `/pages/productlist/productlist?name=${name}`
     })
+  },
+  parse(data) {
+    return JSON.parse(data)
   },
   // order change
   handleOrderChange(e) {
@@ -115,6 +94,7 @@ Page({
     this.setData({
       orderName: orderName
     })
+    this.getNavRightItems()
   },
   showMinCart() {
     this.setData({
