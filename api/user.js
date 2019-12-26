@@ -42,7 +42,14 @@ export function getUserAddress(data) {
   return http._request('/user/address/list', { data })
     .then(res => res.data)
 }
-
+/**
+ * 
+ * @param {name} data 
+ */
+export function opearteAddress(data) {
+  return http._request('/user/address/edit', data)
+    .then(res => res.data)
+}
 
 /**
  * 申请分销商

@@ -19,6 +19,10 @@ Component({
     toastText: {
       type: String,
       value: ''
+    },
+    goodInfo: {
+      type: Object,
+      value: {}
     }
   },
 

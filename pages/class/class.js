@@ -1,5 +1,5 @@
 // pages/class/class.js
-import { getCategoryList, getCategoryGoodList } from '../../api/index.js'
+import { getCategoryList, getCategoryGoodList, getGoodInfo } from '../../api/index.js'
 
 const app = getApp();
 const link = require('../../utils/common.js')
@@ -26,6 +26,7 @@ Page({
     curItem: {},
     curIndex:0,
     showCart: false,
+    miniCartGoodInfo: {},
     btns: [
       {
         text: '加入购物车'
@@ -96,7 +97,11 @@ Page({
     })
     this.getNavRightItems()
   },
-  showMinCart() {
+  showMinCart({currentTarget: { dataset: { goodid: id } }}) {
+    getGoodInfo({ id })
+      .then(res => {
+        console.log(res)
+      })
     this.setData({
       showCart: true
     })

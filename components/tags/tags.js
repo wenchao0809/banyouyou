@@ -16,9 +16,9 @@ Component({
       type: String,
       value: 'color: #fff;background: #f54045;border: 0;'
     },
-    defaultIndex: {
-      type: Number,
-      value: ''
+    activeItem: {
+      type: String,
+      value: '先生'
     }
   },
 
