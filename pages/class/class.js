@@ -75,9 +75,9 @@ Page({
       })
   },
    // 去往列表页
-  gotoProductDetail({ currentTarget: { dataset:{product:name}} }){
+  gotoProductDetail({ currentTarget: { dataset:{ goodid: id }} }){
     wx.navigateTo({
-      url: `/pages/productdetail/productdetail`
+      url: `/pages/productdetail/productdetail?id=${id}`
       // url: `/pages/productlist/productlist?name=${name}`
     })
   },

@@ -1,5 +1,5 @@
 // pages/address/address.js
-import { getUserAddress } from '../../api/index'
+import { getUserAddress, opearteAddress } from '../../api/index'
 
 Page({
 
@@ -20,12 +20,30 @@ Page({
     })
   },
 
+  editAddress({ detail: address }) {
+    let { Id, Address, Phone, Category, IsDefault, Other, Person, PhoneRegion, Sex  } = address
+    wx.navigateTo({ 
+      url: `/pages/add-address/add-address?id=${Id}&address=${Address}&phone=${Phone}&` +
+           `category=${Category}&is_default=${IsDefault}&other=${Other}&person=${Person}` +
+           `&phone_region=${PhoneRegion}&sex=${Sex}`
+    })
+  },
+  deleteAddress({ detail: id }) {
+    opearteAddress({ id, is_delete: true })
+      .then(res => {
+        this.getAddressList()
+        wx.showToast({ title: '删除成功' })
+      })
+  },
+  getAddressList() {
+    getUserAddress(this.data.query)
+    .then(res => this.setData({ addressList: res }))
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getUserAddress(this.data.query)
-    .then(res => this.setData({ addressList: res }))
+    this.getAddressList()
   },
   onShow() {
     console.log('show address page')

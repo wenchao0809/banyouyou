@@ -119,7 +119,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = 1
+
+    let id = parseInt(options.id)
     getGoodInfo({ id }).then(res => {
       let original_price = res.original_price ? res.original_price : ''
       this.setData({

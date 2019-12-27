@@ -1,12 +1,16 @@
 <!--pages/address/address.wxml-->
 <view class="address-container">
-  <view class="address-blank" wx:if="{{ false }}">
+  <view class="address-blank" wx:if="{{ addressList.length === 0 }}">
     <text class="icon icon-dizhi1" style="font-size: 124rpx;color: #18ab1c;"></text>
     <text style="margin: 20rpx 0;font-size: 36rpx;">没有收获地址</text>
     <text style="font-size: 28rpx;">点击新增按钮即可添加地址</text>
   </view>
   <view class="address-list" wx:else>
-     <addressItem title="{{  }}"/>
+     <addressItem 
+      wx:for="{{ addressList }}" 
+      addressInfo="{{ item }}"
+      bind:edit="editAddress"
+      bind:delete="deleteAddress" />
   </view>
 </view>
 <view class="address-add-btn" bindtap="goAddaddress">+ 新增地址</view>

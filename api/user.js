@@ -47,7 +47,7 @@ export function getUserAddress(data) {
  * @param {name} data 
  */
 export function opearteAddress(data) {
-  return http._request('/user/address/edit', data)
+  return http._request('/user/address/edit', { data })
     .then(res => res.data)
 }
 

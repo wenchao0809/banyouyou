@@ -23,7 +23,7 @@
         <view class="good-item-wrap">
             <view class="good-item">
               <view class="desc">
-                <view class="title" bind:tap="gotoProductDetail">{{ item.Title }}</view>
+                <view class="title" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">{{ item.Title }}</view>
                   <view class="count">销量：{{ item.OrderNumber }}</view>
                   <view class="price">
                     <view class="cur">
@@ -38,7 +38,7 @@
                     <!-- <text class="price">￥{{ item.count }}</text> -->
                     <text class="icon icon-gouwuche"></text>
                 </view>
-                <view class="image" bind:tap="gotoProductDetail">
+                <view class="image" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">
                     <image src="{{ item.TopPicList[0] }}" mode="aspectFill" />
                 </view>
             </view>
