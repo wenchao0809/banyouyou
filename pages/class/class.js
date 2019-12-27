@@ -66,11 +66,6 @@ Page({
     query.sortType = sortTypeMap[orderName]
     getCategoryGoodList({ id:  curItem.Id, ...this.data.query })
       .then(res => {
-        res.map(item => {
-          item.ContentPicList = JSON.parse(item.ContentPicList)
-          item.TopPicList = JSON.parse(item.TopPicList)
-          return item
-        })
         this.setData({ navRightItems: res })
       })
   },

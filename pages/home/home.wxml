@@ -38,27 +38,25 @@
     <view class="nav-list">
         <block>
             <view class="nav-row1">
-                <view class="nav-item">
-                    <view class="title">市场板</view>
-                    <view class="desc">最高立减￥500</view>
+                <view wx:for="{{ categorysOne }}" class="nav-item">
+                    <image src="{{ item.Pic }}"></image>
+                    <view class="text-desc">
+                        <view class="title">{{ item.Name }}</view>
+                        <view class="desc">{{ item.Desc }}</view>
+                    </view>
                 </view>
-               <view class="nav-item">
-                   <view class="title">厚芯板</view>
+               <!-- <view class="nav-item"> -->
+                   <!-- <view class="title">厚芯板</view>
                    <view class="desc">限量第二人免单</view>
-               </view>
+               </view> -->
             </view>
-            <view class="nav-row2">
-                <view class="nav-item">
-                    <view class="title">中迁板</view>
-                    <view class="desc">最高立减700</view>
-                </view>
-                <view class="nav-item">
-                    <view class="title">免漆板</view>
-                    <view class="desc">限量￥200</view>
-                </view>
-                <view class="nav-item">
-                    <view class="title">家具板</view>
-                    <view class="desc">独家品牌质量100%</view>
+            <view wx:if="{{ categorysTwo.length > 0 }}" class="nav-row2">
+                 <view wx:for="{{ categorysTwo }}" class="nav-item">
+                    <image src="{{ item.Pic }}"></image>
+                    <view class="text-desc">
+                        <view class="title">{{ item.Name }}</view>
+                        <view class="desc">{{ item.Desc }}</view>
+                    </view>
                 </view>
             </view>
         </block>
@@ -77,16 +75,16 @@
             <block wx:for-items="{{hotItems}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
                     <view class="image" catch:tap="gotoDetail">
-                        <image src="{{item.TopPicList[0]}}" mode="aspectFill" />
+                        <image src="{{item.top_pic_list[0]}}" mode="aspectFill" />
                     </view>
                     <view class="title" catch:tap="gotoDetail">{{ item.title }}</view>
                     <view class="price">
                         <view class="cur">
                             <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
                             <text class="money">￥</text>
-                            <text class="num"> {{ item.MinPrice }}</text>
+                            <text class="num"> {{ item.min_price }}</text>
                         </view>
-                        <view class="old">￥{{ item.MaxPrice }}</view>
+                        <view class="old">￥{{ item.max_price }}</view>
                     </view>
                     <view class="count-and-cart">
                         <view class="count">销量：{{ item.count }}</view>
@@ -108,11 +106,11 @@
            <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
                    <view class="image" catch:tap="gotoDetail">
-                        <image src="{{ item.TopPicList[0] }}" mode="aspectFill" />
+                        <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
                    </view>
                    <view class="desc">
-                       <view class="title">{{ item.Title }}</view>
-                       <view class="price">￥{{ item.MinPrice }}</view>
+                       <view class="title">{{ item.title }}</view>
+                       <view class="price">￥{{ item.min_price }}</view>
                        <view class="count">销量：{{ item.count }}</view>
                    </view>
                    <view class="operate">

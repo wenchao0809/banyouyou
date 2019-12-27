@@ -1,7 +1,7 @@
 import { http } from '../utils/http'
 
-export function getCategoryList() {
-  return http._request('/category/list')
+export function getCategoryList(data) {
+  return http._request('/category/list', {data})
   .then(res => res.data)
 }
 

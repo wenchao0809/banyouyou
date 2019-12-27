@@ -23,15 +23,15 @@
         <view class="good-item-wrap">
             <view class="good-item">
               <view class="desc">
-                <view class="title" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">{{ item.Title }}</view>
+                <view class="title" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">{{ item.title }}</view>
                   <view class="count">销量：{{ item.OrderNumber }}</view>
                   <view class="price">
                     <view class="cur">
                           <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
                         <text class="money">￥</text>
-                        <text class="num"> {{ item.MinPrice }}</text>
+                        <text class="num"> {{ item.min_price }}</text>
                     </view>
-                    <view class="old">￥{{ item.MaxPrice }}</view>
+                    <view class="old">￥{{ item.max_price }}</view>
                   </view>
                 </view>
                 <view class="operate" bind:tap="showMinCart" data-goodid="{{ item.Id }}">
@@ -39,7 +39,7 @@
                     <text class="icon icon-gouwuche"></text>
                 </view>
                 <view class="image" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">
-                    <image src="{{ item.TopPicList[0] }}" mode="aspectFill" />
+                    <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
                 </view>
             </view>
         </view>

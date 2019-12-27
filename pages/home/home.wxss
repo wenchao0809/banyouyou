@@ -112,23 +112,45 @@
   margin-bottom: 20rpx;
   color: white;
   border-radius: 3px;
-  background: #d96526;
+  /* background: #d96526; */
 }
 .nav-item .desc {
   font-size: 20rpx;
 }
 .nav-row1 .nav-item {
-  padding-top: 40rpx;
-  padding-left: 28rpx;
+  position: relative;
+  /* padding-top: 40rpx;
+  padding-left: 28rpx; */
   width: 340rpx;
   height: 190rpx;
 }
+.nav-row1 .nav-item .text-desc {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx
+}
+.nav-row1 .nav-item image {
+  width: 340rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+}
 .nav-row2 .nav-item {
-  padding-top: 20rpx;
-  padding-left: 18rpx;
+  /* padding-top: 20rpx;
+  padding-left: 18rpx; */
   width: 225rpx;
   height: 145rpx;
 }
+.nav-row2 .nav-item image {
+  width: 225rpx;
+  height: 145rpx;
+  border-radius: 5rpx;
+}
+.nav-row1 .nav-item .text-desc {
+  position: absolute;
+  top: 20rpx;
+  left: 18rpx
+}
+
 .page-margin{
   box-sizing: border-box;
   padding: 20rpx;

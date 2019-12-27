@@ -1,5 +1,5 @@
 // pages/home/home.js
-import { getBanners, getHotGoods, getNewGoods } from '../../api/index.js'
+import { getBanners, getHotGoods, getNewGoods, getCategoryList } from '../../api/index.js'
 // const link = require('../../utils/common')
 const app = getApp()
 var swiperHeight;
@@ -14,7 +14,8 @@ Page({
     duration: 500,
     ctrlColor: 'rgba(255,255,255,.5)',
     ctrlCurrentColor: 'white',
-    navList: [],
+    categorysOne: [],
+    categorysTwo: [],
     pageRow: [],
     newGoods: [],
     // 热品
@@ -37,83 +38,19 @@ Page({
   onLoad(options) {
     // 显示loading
     // link.showLoading()
-    Promise.all([getBanners(), getHotGoods(), getNewGoods()])
-      .then(([banners, hotItems, newGoods]) => {
-        hotItems = hotItems.map(item => {
-          item.ContentPicList = item.ContentPicList && JSON.parse(item.ContentPicList) || []
-          item.TopPicList = item.TopPicList && JSON.parse(item.TopPicList) || []
-          return item
-        })
-        newGoods = newGoods.map(item => {
-          item.ContentPicList = item.ContentPicList && JSON.parse(item.ContentPicList) || []
-          item.TopPicList = item.TopPicList && JSON.parse(item.TopPicList) || []
-          return item
-        })
+    Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
+      .then(([banners, hotItems, newGoods, categorys]) => {
+        // 分类
+        let categorysOne = categorys.slice(0, 2)
+        let categorysTwo = categorys.slice(2)
         this.setData({
           banners,
           hotItems,
-          newGoods
+          newGoods,
+          categorysOne,
+          categorysTwo
         })
       })
-    // 请求首页数据
-    // link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/homepage` }, ({ data: res }) => {
-      // 关闭loading
-      // link.hideLoading()
-
-      // 把请求到的值给轮播图的数组
-      this.setData({
-        // banners: [{image: '/image/banner1.jpg'}, {image: '/image/banner2.jpg'}],
-        // navList: res.logos,
-        // quicks: res.quicks,
-        // pageRow: res.pageRow,
-        newGoods: [{
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          price: 120,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          price: 120,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          price: 120,
-          count: 260
-        }],
-        hotItems: [{
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        },
-        {
-          image: '/image/quick2.jpg',
-          title: '3厘米全案市场板',
-          curPrice: 120,
-          oldPrice: 180,
-          count: 260
-        }]
-      })
-    // })
   },
   // 监听滚动条改变搜索框背景
   onPageScroll({ scrollTop: val }) {
