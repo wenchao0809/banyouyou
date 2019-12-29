@@ -16,6 +16,10 @@ Component({
       type: String,
       value: 'color: #fff;background: #f54045;border: 0;'
     },
+    disableStyle: {
+      type: String,
+      value: 'color: #98999a;background: #f4f5f6;'
+    },
     activeItem: {
       type: String,
       value: '先生'
@@ -39,6 +43,17 @@ Component({
         activeIndex: index
       })
       this.triggerEvent('changeValue', this.properties.tags[this.data.activeIndex])
+    },
+    computeStyle(tag) {
+      debugger
+      let { customStyle, activeStyle, disableStyle } = this.properties
+      let style = customStyle
+      if (tag.disable) {
+        style = disableStyle
+      } else if(tag.selected) {
+        style = activeStyle
+      }
+      return style
     }
   },
   attached () {

@@ -1,5 +1,7 @@
 // pages/productdetail/productdetail.js
 import { getGoodInfo } from '../../api/index.js'
+import { generateSku  } from '../../utils/index'
+import PriceManage from '../../utils/price-manage'
 
 Page({
 
@@ -13,12 +15,9 @@ Page({
     original_price: '',
     imgList: [],
     content_pic_list: [],
+    price_list: [],
     show: false,
     showFlag: false,
-    sku: {
-      '厚度': ['5MM', '9MM', '12MM', '5MM', '9MM', '12MM'],
-      '环保级别': ['5MM', '9MM', '12MM']
-    },
     iconList: [
       {
         text: '首页',
@@ -53,7 +52,6 @@ Page({
     ],
     index: 0
   },
-
   swiperChange (e) {
     this.setData({
       index: e.detail.current
@@ -115,21 +113,30 @@ Page({
       url: '/pages/poster/poster'
     })
   },
+  sizeChange ({ detail: size }) {
+    this.priceMange
+      .setSelectedSize(size)
+      .connect(this)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     let id = parseInt(options.id)
     getGoodInfo({ id }).then(res => {
       let original_price = res.original_price ? res.original_price : ''
+      // let sku = generateSku(res.price_list)
+      this.priceMange = new PriceManage(res.price_list)
+      this.priceMange.connect(this)
       this.setData({
         title: res.title,
         min_price: res.min_price,
         max_price: res.max_price,
         original_price,
-        imgList: JSON.parse(res.top_pic_list),
-        content_pic_list: JSON.parse(res.content_pic_list)
+        imgList: res.top_pic_list,
+        content_pic_list: res.content_pic_list,
+        price_list: res.price_list,
+        current_price: res.price_list[0]
       })
     })
   },

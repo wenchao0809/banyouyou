@@ -86,9 +86,9 @@ Page({
       showCart: false
     })
   },
-  gotoDetail() {
+  gotoDetail( { currentTarget: { dataset: { goodid: id } } } ) {
     wx.navigateTo({
-      url: `/pages/productdetail/productdetail`,
+      url: `/pages/productdetail/productdetail?id=${id}`,
     })
   }
 })

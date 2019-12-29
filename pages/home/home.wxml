@@ -74,10 +74,10 @@
         <scroll-view class='hot-list' scroll-x="true">
             <block wx:for-items="{{hotItems}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
-                    <view class="image" catch:tap="gotoDetail">
+                    <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
                         <image src="{{item.top_pic_list[0]}}" mode="aspectFill" />
                     </view>
-                    <view class="title" catch:tap="gotoDetail">{{ item.title }}</view>
+                    <view class="title" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">{{ item.title }}</view>
                     <view class="price">
                         <view class="cur">
                             <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
@@ -105,7 +105,7 @@
        <scroll-view class="new-list" scroll-y>
            <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
-                   <view class="image" catch:tap="gotoDetail">
+                   <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
                         <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
                    </view>
                    <view class="desc">

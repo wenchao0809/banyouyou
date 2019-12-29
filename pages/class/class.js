@@ -43,7 +43,7 @@ Page({
    */
   onLoad: function (options) {
     // 请求分类数据
-      getCategoryList()
+      getCategoryList({ limit: 100, offset: 0 })
         .then(res => {
           this.setData({
             navLeftItems: res

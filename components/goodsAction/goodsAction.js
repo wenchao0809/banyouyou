@@ -15,6 +15,10 @@ Component({
     btns: {
       type: Array,
       value: []
+    },
+    cartInfo: {
+      type: Object,
+      value: {}
     }
   },
 
@@ -101,6 +105,10 @@ Component({
     handleContact (e) {
       console.log(e.detail.path)
       console.log(e.detail.query)
+    },
+    // 选择商品属性发声改变
+    sizeChange(e) {
+      this.triggerEvent('sizeChange', e.detail)
     }
   },
   attached () {

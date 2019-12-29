@@ -16,12 +16,13 @@
     <view>
       <text>{{ title }}</text>
       <view class="productdetail-price">
-        <text class="productdetail-current-price">￥{{min_price}} ~ ￥{{max_price}}</text>
+        <text wx:if="{{ curPrice.Id }}" class="productdetail-current-price">￥ {{ curPrice.Price }}</text>
+          <text wx:else class="productdetail-current-price">￥{{min_price}} ~ ￥{{max_price}}</text>
         <text wx:if="{{original_price}}" class="productdetail-original-price">￥{{original_price}}</text>
       </view>
       <view>
-        <text class="productdetail-stock">库存：900</text>
-        <text class="productdetail-sales">销量：3332</text>
+        <text class="productdetail-stock">库存：{{ curPrice.Inventory }}</text>
+        <text class="productdetail-sales">销量：{{ curPrice.Number }}</text>
       </view>
     </view>
     <view bindtap="showPopup">
@@ -30,7 +31,7 @@
     </view>
   </view>
   <view class="productdetail-sku">规格</view>
-  <sku sku="{{sku}}" bind:getSkus="getSkus" />
+  <sku sku="{{sizes}}" bind:changeValue="sizeChange" />
   <view class="productdetail-imgdesc">
    <image wx:for="{{content_pic_list}}" wx:key="*this" src="{{item}}" style="width: 100%;"></image>
   </view>
@@ -47,5 +48,9 @@
     </view>
     <button style="width: 100%;" bindtap="cancel">取消</button>
   </popup>
-  <goodsAction icons="{{ iconList }}" btns="{{ btns }}"></goodsAction>
+  <goodsAction 
+    icons="{{ iconList }}" 
+    btns="{{ btns }}" 
+    bind:sizeChange="sizeChange"
+    cartInfo="{{ { sizes, price: curPrice } }}" />
 </view>

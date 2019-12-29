@@ -1,6 +1,6 @@
 <!--components/tags/tags.wxml-->
 <view class="tags-container">
   <block wx:for="{{tags}}">
-    <tag customStyle="{{activeItem === item ? activeStyle : customStyle}}" data-index="{{index}}" bindtap="clickTag">{{item}}</tag>
+    <tag customStyle="{{activeItem === item || item.selected ? activeStyle : '' || item.disable ? disableStyle: '' || customStyle}} " data-index="{{index}}" bindtap="clickTag">{{item.name || item}}</tag>
   </block>
 </view>

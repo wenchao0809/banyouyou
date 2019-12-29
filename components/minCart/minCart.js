@@ -23,6 +23,14 @@ Component({
     goodInfo: {
       type: Object,
       value: {}
+    },
+    sku: {
+      type: Object,
+      value: []
+    },
+    price: {
+      type: Object,
+      value: {}
     }
   },
 
@@ -30,10 +38,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    sku: {
-      '厚度': ['5MM', '9MM', '12MM', '5MM', '9MM', '12MM'],
-      '环保级别': ['5MM', '9MM', '12MM']
-    }
   },
 
   /**
@@ -46,6 +50,9 @@ Component({
     getSkus(e) {
       let skus = e.detail
       console.log(skus)
+    },
+    sizeChange(e) {
+      this.triggerEvent('sizeChange', e.detail)
     },
     clickBtn (e) {
       // console.log(this.properties.btns, e.target.dataset.btnIndex)

@@ -7,17 +7,17 @@
         <view>
           <text>3厘全按市场办</text>
           <view class="productdetail-price">
-            <text class="productdetail-current-price">￥28.00</text>
-            <text class="productdetail-original-price">￥30</text>
+            <text class="productdetail-current-price">{{ price.Price }}</text>
+            <!-- <text class="productdetail-original-price"></text> -->
           </view>
           <view>
-            <text class="productdetail-stock">库存：900</text>
-            <text class="productdetail-sales">销量：3332</text>
+            <text class="productdetail-stock">库存：{{ price.Inventory }}</text>
+            <text class="productdetail-sales">销量：{{ price.Number }}</text>
           </view>
         </view>
       </view>
       <view class="divider"></view>
-      <sku sku="{{sku}}" bind:getSkus="getSkus" />
+      <sku sku="{{sku}}" bind:changeValue="sizeChange" />
       <view class="purchase-num">
         <text>购买数量：</text>
         <count/>
