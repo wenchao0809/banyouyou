@@ -1,5 +1,6 @@
 // pages/class/class.js
 import { getCategoryList, getCategoryGoodList, getGoodInfo } from '../../api/index.js'
+import PriceManage from '../../utils/price-manage'
 
 const app = getApp();
 const link = require('../../utils/common.js')
@@ -95,11 +96,28 @@ Page({
   showMinCart({currentTarget: { dataset: { goodid: id } }}) {
     getGoodInfo({ id })
       .then(res => {
-        console.log(res)
+        let miniCartGoodInfo = {}
+        let priceManage = new PriceManage(res.price_list)
+        miniCartGoodInfo.priceManage = priceManage
+        miniCartGoodInfo.goodInfo = { title: res.title }
+        this.setData({ miniCartGoodInfo })
+        this.setMiniCartGoodInfo()
       })
     this.setData({
       showCart: true
     })
+  },
+  sizeChange(e) {
+    let priceManage = this.data.miniCartGoodInfo.priceManage
+    priceManage.setSelectedSize(e.detail)
+    this.setMiniCartGoodInfo()
+  },
+  setMiniCartGoodInfo() {
+    let priceManage = this.data.miniCartGoodInfo.priceManage
+    let miniCartGoodInfo = { ...this.data.miniCartGoodInfo }
+    miniCartGoodInfo.sizes = priceManage.sizes
+    miniCartGoodInfo.curPrice = priceManage.curPrice
+    this.setData({ miniCartGoodInfo })
   },
   onClose() {
     this.setData({

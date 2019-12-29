@@ -52,5 +52,5 @@
     icons="{{ iconList }}" 
     btns="{{ btns }}" 
     bind:sizeChange="sizeChange"
-    cartInfo="{{ { sizes, price: curPrice } }}" />
+    cartInfo="{{ { goodInfo: { title }, sizes, price: curPrice } }}" />
 </view>

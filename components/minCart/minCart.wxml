@@ -5,7 +5,7 @@
      <view class="cart-desc">
        <image src="https://i.ibb.co/yVV5WHk/20191112161220-03.png" class="cart-img {{!show ? 'img-hide' : ''}}"></image>
         <view>
-          <text>3厘全按市场办</text>
+          <text>{{ goodInfo.title }}</text>
           <view class="productdetail-price">
             <text class="productdetail-current-price">{{ price.Price }}</text>
             <!-- <text class="productdetail-original-price"></text> -->
