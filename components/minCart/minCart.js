@@ -42,6 +42,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    count: 1
   },
 
   /**
@@ -58,23 +59,16 @@ Component({
     sizeChange(e) {
       this.triggerEvent('sizeChange', e.detail)
     },
+    // 获取数量
+    getSelectNum({ detail: count }) {
+      this.setData({ count })
+    },
     clickBtn (e) {
-      // console.log(this.properties.btns, e.target.dataset.btnIndex)
-      let that = this
-      let index = e.target.dataset.btnindex
-      if (this.properties.btns[index].url) {
-        wx.navigateTo({
-          url: this.properties.btns[index].url,
-          success: () => {
-            that.onClose()
-          }
-        })
-      } else {
-        wx.showToast({
-          title: this.properties.toastText,
-          icon: 'success',
-          duration: 2000
-        })
+      let name = e.target.dataset.name
+      if (name === '加入购物车') {
+        this.triggerEvent('addCart', this.data.count)
+      } else if (name === '立即购买') {
+        this.triggerEvent('toBuy', this.data.count)
       }
     }
   }

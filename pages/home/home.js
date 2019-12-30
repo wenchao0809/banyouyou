@@ -1,6 +1,8 @@
 // pages/home/home.js
-import { getBanners, getHotGoods, getNewGoods, getCategoryList } from '../../api/index.js'
+import { getBanners, getHotGoods, getNewGoods, getCategoryList, getGoodInfo } from '../../api/index.js'
 // const link = require('../../utils/common')
+import PriceManage from '../../utils/price-manage'
+
 const app = getApp()
 var swiperHeight;
 
@@ -76,10 +78,31 @@ Page({
       region: e.detail.value
     })
   },
-  showMinCart () {
+  showMinCart ({ currentTarget: { dataset: { goodid: id } } }) {
+    getGoodInfo({ id })
+      .then(res => {
+        let miniCartGoodInfo = {}
+        let priceManage = new PriceManage(res.price_list)
+        miniCartGoodInfo.priceManage = priceManage
+        miniCartGoodInfo.goodInfo = { title: res.title }
+        this.setData({ miniCartGoodInfo })
+        this.setMiniCartGoodInfo()
+      })
     this.setData({
       showCart: true
     })
+  },
+  sizeChange(e) {
+    let priceManage = this.data.miniCartGoodInfo.priceManage
+    priceManage.setSelectedSize(e.detail)
+    this.setMiniCartGoodInfo()
+  },
+  setMiniCartGoodInfo() {
+    let priceManage = this.data.miniCartGoodInfo.priceManage
+    let miniCartGoodInfo = { ...this.data.miniCartGoodInfo }
+    miniCartGoodInfo.sizes = priceManage.sizes
+    miniCartGoodInfo.curPrice = priceManage.curPrice
+    this.setData({ miniCartGoodInfo })
   },
   onClose () {
     this.setData({

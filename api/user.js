@@ -102,4 +102,19 @@ export function uploadImage(data) {
   return http._request('/user/upload/image', data, 'uploadFile')
     .then(res => res.data)
 }
-
+/**
+ * 添加购物车
+ * @param {}} data 
+ */
+export function addCart(data) {
+  return http._request('/user/cart/add', { data })
+    .then(res => res.data)
+}
+/**
+ * 删除
+ * @param {} data 
+ */
+export function cartDel(data) {
+  return http._request('/user/cart/del', { data })
+    .then(res => res.data)
+}

@@ -109,6 +109,12 @@ Component({
     // 选择商品属性发声改变
     sizeChange(e) {
       this.triggerEvent('sizeChange', e.detail)
+    },
+    addCart(e) {
+      this.triggerEvent('addCart', e.detail)
+    },
+    toBuy(e) {
+      this.triggerEvent('toBuy', e.detail)
     }
   },
   attached () {
