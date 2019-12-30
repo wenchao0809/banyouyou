@@ -7,10 +7,11 @@
   </view>
   <view class="address-list" wx:else>
      <addressItem 
-      wx:for="{{ addressList }}" 
-      addressInfo="{{ item }}"
+      addressList="{{ addressList }}" 
       bind:edit="editAddress"
-      bind:delete="deleteAddress" />
+      bind:delete="deleteAddress"
+      bind:change="selectDefatultAddress"
+      />
   </view>
 </view>
 <view class="address-add-btn" bindtap="goAddaddress">+ 新增地址</view>

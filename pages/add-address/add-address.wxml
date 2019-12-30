@@ -21,7 +21,7 @@
     </view>
     <view class="divider"></view>
     <view class="add-address-phoneNumber">
-      <view style="display: flex;">
+      <view style="display: flex;align-items: center;">
         <text class="color" style="margin-right: 20rpx;">电话</text>
         <picker bindchange="bindPickerChange" value="{{ index }}" range="{{ phoneRegion_array }}">
           <view class="picker color">
@@ -29,7 +29,7 @@
           </view>
         </picker>
         <input 
-          style="flex: 1;margin: -6rpx 0 0 10rpx;" 
+          style="flex: 1;margin-left: 10rpx;" 
           placeholder="请输入您的手机号码" 
           bind:input="inputChange" 
           data-name="phone">

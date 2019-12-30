@@ -2,6 +2,7 @@
 .address-container {
   height: 90%;
   background: #F8F8FF;
+  overflow: auto;
 }
 
 .address-blank {

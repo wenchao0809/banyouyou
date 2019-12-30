@@ -39,6 +39,9 @@ Page({
     getUserAddress(this.data.query)
     .then(res => this.setData({ addressList: res }))
   },
+  selectDefatultAddress({ detail: address }) {
+    console.log(address)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
