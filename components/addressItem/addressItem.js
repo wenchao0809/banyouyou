@@ -8,9 +8,9 @@ Component({
   },
 
   properties: {
-    addressInfo: {
-      type: Object,
-      value: {}
+    addressList: {
+      type: Array,
+      value: []
     }
   },
 
@@ -25,13 +25,14 @@ Component({
    */
   methods: {
     radioChange: function (e) {
+      this.triggerEvent('change', e.detail.value)
       console.log('radio发生change事件，携带value值为：', e.detail.value)
     },
-    editAddress() {
-      this.triggerEvent('edit', this.properties.addressInfo)
+    editAddress(item) {
+      this.triggerEvent('edit', item)
     },
-    deleteAddress() {
-      this.triggerEvent('delete', this.properties.addressInfo.Id)
+    deleteAddress(item) {
+      this.triggerEvent('delete', item.Id)
     }
   }
 })
