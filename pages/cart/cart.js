@@ -1,4 +1,6 @@
 // pages/cart/cart.js
+import { cartList } from '../../api/index'
+
 Page({
 
   /**
@@ -35,35 +37,39 @@ Page({
 
   },
   getList(){
-    wx.getStorage({
-      key: 'cartInfo',
-      success: (res) => {
-        res.data = [{
-          title: '3厘米全案市场板',
-          price: 4499.00,
-          total: 10,
-          count: 1,
-          loopImgUrl: ['/image/quick2.png']
-        }, 
-        {
-          title: '3厘米全案市场板',
-          price: 124,
-          total: 10,
-          image: ''
-        }]
-        res.data.forEach(item => {
-          item.select = false
-        })
+    // wx.getStorage({
+    //   key: 'cartInfo',
+    //   success: (res) => {
+    //     res.data = [{
+    //       title: '3厘米全案市场板',
+    //       price: 4499.00,
+    //       total: 10,
+    //       count: 1,
+    //       loopImgUrl: ['/image/quick2.png']
+    //     }, 
+    //     {
+    //       title: '3厘米全案市场板',
+    //       price: 124,
+    //       total: 10,
+    //       image: ''
+    //     }]
+    //     res.data.forEach(item => {
+    //       item.select = false
+    //     })
 
-        this.setData({
-          cartList: res.data
-        })
-        // 显示tabBar的图标
-        this.data.cartList.length > 0 ?
-          wx.setTabBarBadge({ index: 2, text: String(this.data.cartList.length) }) :
-          wx.removeTabBarBadge({ index: 2 })
-      },
-    })
+    //     this.setData({
+    //       cartList: res.data
+    //     })
+    //     // 显示tabBar的图标
+    //     this.data.cartList.length > 0 ?
+    //       wx.setTabBarBadge({ index: 2, text: String(this.data.cartList.length) }) :
+    //       wx.removeTabBarBadge({ index: 2 })
+    //   },
+    // })
+    cartList({})
+      .then(res => {
+        console.log(res)
+      })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {
     this.data.cartList[index].total = detail;

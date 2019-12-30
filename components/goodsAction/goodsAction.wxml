@@ -28,6 +28,6 @@
     sku="{{ cartInfo.sizes }}"
     price="{{ cartInfo.price }}"
     bind:addCart="addCart"
-    bind:toBuy="tobuy"
+    bind:toBuy="toBuy"
     bind:sizeChange="sizeChange" />
 </view>

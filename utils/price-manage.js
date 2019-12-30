@@ -5,6 +5,7 @@ export default class PriceMange {
     this.curPrice = priceList[0]
     this.sizes = this._generateSizes(priceList)
     this.keys = Object.keys(this.sizes)
+    this.desc = this._computedDescStr()
      // 剩余可选的规格的key
      this.reaminKeys = []
      // 标识所有规格都已选
@@ -62,6 +63,7 @@ export default class PriceMange {
     this.reaminKeys.length = 0
     if (this.done) {
       this.curPrice = this._computedPrice()[0]
+      this.desc = this._computedDescStr()
     } else {
       // 还有规格未选
       for (let key of keys) {
@@ -91,6 +93,15 @@ export default class PriceMange {
       prices = disablePrices
     }
     return prices
+  }
+  _computedDescStr(descObj) {
+    descObj = descObj || this.curPrice.Description
+    let { keys } = this
+    let desc = ''
+    for (let key of keys) {
+      desc += `${key}：${descObj[key]} `
+    }
+    return desc.trim()
   }
   // 设置选中状态
   setSelectStatus() {
@@ -134,14 +145,15 @@ export default class PriceMange {
   }
   // connect
   connect(vm) {
-    let { curPrice, selectedSize, sizes, } = this
+    let { curPrice, selectedSize, sizes, desc } = this
     // curPrice = JSON.parse(JSON.stringify(curPrice))
     // selectedSize = JSON.parse(JSON.stringify(selectedSize))
     // sizes = JSON.parse(JSON.stringify(sizes))
     vm.setData({
       curPrice,
       selectedSize,
-      sizes
+      sizes,
+      desc
     })
   }
 }

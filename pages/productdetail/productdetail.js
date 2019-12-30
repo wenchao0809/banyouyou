@@ -1,7 +1,8 @@
 // pages/productdetail/productdetail.js
-import { getGoodInfo } from '../../api/index.js'
+import { getGoodInfo, addCart } from '../../api/index.js'
 import { generateSku  } from '../../utils/index'
 import PriceManage from '../../utils/price-manage'
+import { confirmOrder } from '../../store/index'
 
 Page({
 
@@ -9,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id: '',
     title: '',
     min_price: '',
     max_price: '',
@@ -119,17 +121,28 @@ Page({
       .connect(this)
   },
   addCart(e) {
-    debugger
-    console.log(e)
+    let materials_id = this.data.id
+    let number = e.detail
+    let price_id = this.data.curPrice.Id
+    addCart({ materials_id, number, price_id })
+      .then(res => {
+        wx.showToast({ title: '添加成功' })
+      })
   },
   toBuy(e) {
-
+    let title = this.data.title
+    let price = this.data.curPrice.Price
+    let sizeDesc = this.data.desc
+    let image = this.data.imgList[0]
+    confirmOrder.changeGoodList([{title, image, price, sizeDesc, count: e.detail}])
+    wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let id = parseInt(options.id)
+    this.setData({ id })
     getGoodInfo({ id }).then(res => {
       let original_price = res.original_price ? res.original_price : ''
       // let sku = generateSku(res.price_list)

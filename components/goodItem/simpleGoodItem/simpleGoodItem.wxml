@@ -4,7 +4,7 @@
     </view>
     <view class="desc">
         <view class="title">{{goodInfo.title}}</view>
-        <view class="size" wx:if="{{goodInfo.size}}">{{goodInfo.size}}</view>
+        <view class="size" wx:if="{{goodInfo.sizeDesc}}">{{goodInfo.sizeDesc}}</view>
     </view>
     <view class="single-price-count">
         <view class="price">￥{{goodInfo.price}}</view>

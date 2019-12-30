@@ -118,3 +118,13 @@ export function cartDel(data) {
   return http._request('/user/cart/del', { data })
     .then(res => res.data)
 }
+/**
+ *购物车列表
+ *
+ * @export
+ * @param {*} data
+ */
+export function cartList(data) {
+  return http._request('/user/cart/list', { data })
+  .then(res => res.data)
+}
