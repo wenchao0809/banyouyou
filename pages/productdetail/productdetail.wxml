@@ -54,5 +54,5 @@
     bind:sizeChange="sizeChange"
     bind:addCart="addCart"
     bind:toBuy="toBuy"
-    cartInfo="{{ { goodInfo: { title }, sizes, price: curPrice } }}" />
+    cartInfo="{{ { goodInfo: {  materials_id: id, title, image: imgList[0] }, sizes, price: curPrice } }}" />
 </view>

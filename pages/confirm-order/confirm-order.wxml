@@ -13,11 +13,11 @@
                     <text class="icon icon-dizhi"></text>
                     <view class="desc">
                         <view class="name-and-phone">
-                            <view class="name">丁</view>
-                            <view class="phone">18664547009</view>
+                            <view class="name">{{ address.Person }}</view>
+                            <view class="phone">{{ address.Phone }}</view>
                         </view>
                         <view class="address">
-                            广东省深圳市南山区
+                            {{ address.Address }}
                         </view>
                     </view>
                     <text class="icon icon-youjiantou"></text>
@@ -55,7 +55,7 @@
             </view>
             <view class="count-money">
                 <view class="label">小计：</view>
-                <view class="count">￥136.80</view>
+                <view class="count">￥ {{ totalMoney }}</view>
             </view>
         </view>
     </view>

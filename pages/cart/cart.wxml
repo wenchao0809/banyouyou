@@ -24,7 +24,7 @@
               </view>
               <!-- 商品属性 -->
               <view class="good_attr" catchtap="showMinCart">
-                <text class="desc">厚度：5mm 环保等级：E0</text>
+                <text class="desc">{{ item.description }}</text>
                 <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text>
               </view>
               <view class='good_price'>

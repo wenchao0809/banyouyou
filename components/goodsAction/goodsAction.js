@@ -20,6 +20,7 @@ Component({
       type: Object,
       value: {}
     }
+    
   },
 
   /**

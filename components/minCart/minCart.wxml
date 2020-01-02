@@ -28,7 +28,7 @@
       <!-- <view class="cart-btn" wx:elif="{{ btnType === 'BuyNow' }}">立即购买</view> -->
       <view class="cart-doubleBtn" wx:else>
         <view class="cart-doubleBtn-left" data-name="{{ btns[0].text }}">{{ btns[0].text }}</view>
-        <view class="cart-doubleBtn-right" data-btnIndex="{{ btns[1].text }}">{{ btns[1].text }}</view>
+        <view class="cart-doubleBtn-right" data-name="{{ btns[1].text }}">{{ btns[1].text }}</view>
       </view>
     </view>
   </view>

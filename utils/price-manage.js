@@ -6,6 +6,7 @@ export default class PriceMange {
     this.sizes = this._generateSizes(priceList)
     this.keys = Object.keys(this.sizes)
     this.desc = this._computedDescStr()
+    this.curPrice.desc = this.desc
      // 剩余可选的规格的key
      this.reaminKeys = []
      // 标识所有规格都已选
@@ -64,6 +65,7 @@ export default class PriceMange {
     if (this.done) {
       this.curPrice = this._computedPrice()[0]
       this.desc = this._computedDescStr()
+      this.curPrice.desc = this.desc
     } else {
       // 还有规格未选
       for (let key of keys) {

@@ -66,7 +66,7 @@ Page({
           user.changeUser(res)
         })
     } else {
-      wx.navigateTo({ url: '/pages/login/login' })
+      wx.redirectTo({ url: '/pages/login/login' })
     }
   },
   goMember () {

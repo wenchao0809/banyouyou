@@ -84,7 +84,7 @@ Page({
         let miniCartGoodInfo = {}
         let priceManage = new PriceManage(res.price_list)
         miniCartGoodInfo.priceManage = priceManage
-        miniCartGoodInfo.goodInfo = { title: res.title }
+        miniCartGoodInfo.goodInfo = { title: res.title, materials_id: res.Id, image: res.top_pic_list[0]  }
         this.setData({ miniCartGoodInfo })
         this.setMiniCartGoodInfo()
       })

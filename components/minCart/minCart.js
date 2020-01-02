@@ -1,4 +1,7 @@
 // components/minCart/minCart.js
+import { addCart } from '../../api/index'
+import { CONFRIMORDERGOODLIST } from '../../utils/constant'
+
 Component({
   /**
    * 组件的属性列表
@@ -63,12 +66,42 @@ Component({
     getSelectNum({ detail: count }) {
       this.setData({ count })
     },
+    addCart() {
+      let { goodInfo, price } = this.properties
+      let materials_id = goodInfo.materials_id
+      let number = this.data.count
+      let price_id = price.Id
+      addCart({ materials_id, number, price_id })
+        .then(res => {
+          wx.showToast({ title: '添加成功' })
+          this.onClose()
+        })
+    },
+    toBuy() {
+      wx.setStorage('confirmOrderGoodList', [{  }])
+      let { goodInfo, price } = this.properties
+      let { title, image } = goodInfo
+      let { desc, Price, Id } = price
+      let count = this.data.count
+      wx.setStorage({ 
+        key: CONFRIMORDERGOODLIST, 
+        data: [{
+          id: Id,
+          title, image,
+          sizeDesc: desc,
+          price: Price,
+          count
+        }] })
+      wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
+    },
     clickBtn (e) {
       let name = e.target.dataset.name
       if (name === '加入购物车') {
         this.triggerEvent('addCart', this.data.count)
+        this.addCart()
       } else if (name === '立即购买') {
         this.triggerEvent('toBuy', this.data.count)
+        this.toBuy()
       }
     }
   }

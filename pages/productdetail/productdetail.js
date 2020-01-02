@@ -121,13 +121,7 @@ Page({
       .connect(this)
   },
   addCart(e) {
-    let materials_id = this.data.id
-    let number = e.detail
-    let price_id = this.data.curPrice.Id
-    addCart({ materials_id, number, price_id })
-      .then(res => {
-        wx.showToast({ title: '添加成功' })
-      })
+    // 在miniCart中统一处理
   },
   toBuy(e) {
     let title = this.data.title

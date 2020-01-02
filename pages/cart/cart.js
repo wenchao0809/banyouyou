@@ -68,7 +68,8 @@ Page({
     // })
     cartList({})
       .then(res => {
-        console.log(res)
+        let totalMoney = res.reduce((p, n) => p + n.price, 0)
+        this.setData({ cartList: res, totalMoney })
       })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {

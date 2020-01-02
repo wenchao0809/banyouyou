@@ -38,7 +38,7 @@ export function getUserCoupon(data) {
  * 拉取收货地址
  * @param {} data 
  */
-export function getUserAddress(data) {
+export function getUserAddress(data = { limit: 20, offset: 0 }) {
   return http._request('/user/address/list', { data })
     .then(res => res.data)
 }

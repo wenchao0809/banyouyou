@@ -37,7 +37,20 @@ Page({
   },
   getAddressList() {
     getUserAddress(this.data.query)
-    .then(res => this.setData({ addressList: res }))
+    .then(res => {
+      let defaultAddress
+      for (let item of res) {
+        if (item.IsDefault) {
+          defaultAddress = item
+          break
+        }
+      }
+      wx.setStorage({
+        key: "defaultReceiveAddress",
+        data: defaultAddress
+      })
+      this.setData({ addressList: res })
+    })
   },
   selectDefatultAddress({ detail: address }) {
     console.log(address)
