@@ -1,5 +1,6 @@
 // pages/selectAddress/selectAddress.js
-import { getCouponList } from '../../api/index.js'
+import { getUserAddress } from '../../api/index.js'
+import { saveConfirmOrderAddress } from '../../utils/index'
 
 Page({
 
@@ -7,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    curSelectAddressId: '',
+    addressList: []
   },
 
   getWxAddress () {
@@ -24,12 +26,38 @@ Page({
       }
     })
   },
-
+  selectAddress(e) {
+    let address = this._findAddressById(parseInt(e.detail))
+    saveConfirmOrderAddress(address)
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  _findAddressById(id) {
+    let address
+    for (let item of this.data.addressList) {
+      if (item.Id === id) {
+        address = item
+        break
+      }
+    }
+    return address
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = parseInt(options.id)
+    getUserAddress()
+      .then(res => {
+        for (let item of res) {
+          if (item.Id === id) {
+            item.selected = true
+            break
+          }
+        }
+        this.setData({ addressList: res })
+      })
   },
 
   /**

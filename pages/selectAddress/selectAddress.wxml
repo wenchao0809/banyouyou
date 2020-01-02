@@ -7,5 +7,5 @@
     </view>
     <text class="icon icon-youjiantou" style="font-size: 28rpx;"></text>
   </view>
-  <selectAddressItem/>
+  <selectAddressItem addressList="{{ addressList }}" bind:selectAddress="selectAddress" />
 </view>

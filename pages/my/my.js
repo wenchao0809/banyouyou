@@ -48,6 +48,7 @@ Page({
     user: {}
   },
   onLoad() {
+    console.log('load my page')
     connect(this, () => ({
       user: { ...extract(user) }
     }))

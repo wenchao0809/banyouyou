@@ -1,21 +1,21 @@
 <!--components/addressItem/selectAddressItem/selectAddressItem.wxml-->
 <view class="selectAddress-item">
     <radio-group class="selectAddress-item-group" bindchange="radioChange">
-      <view class="selectAddress-item-radio">
-        <radio value="{{1}}" checked="{{false}}"></radio>
+      <view class="selectAddress-item-radio" wx:for="{{ addressList  }}" wx:key="{{ item.Id }}">
+        <radio value="{{ item.Id }}" checked="{{item.selected}}"></radio>
         <view class="selectAddress-item-content">
           <view class="selectAddress-item-content-title">
             <view>
-              <text>李经理 </text>
-              <text>先生 </text>
-              <text>12345564545 </text>
-              <tag type="success">公司</tag>
+              <text>{{ item.Person }} </text>
+              <text>{{ item.Sex }} </text>
+              <text>{{ item.Phone }} </text>
+              <tag type="success">{{ item.Category }}</tag>
             </view>
-            <text class="icon icon-xiepinglun" style="margin-right: 30rpx;font-size: 30rpx;"></text>
+            <text class="icon icon-xiepinglun" style="margin-right: 30rpx;font-size: 30rpx;" bind:tap="editAddress"></text>
           </view>
           <view class="selectAddress-item-desc">
-            <text class="selectAddress-item-default">【默认地址】</text>
-            <text style="color: #868686;">发射方式发送给三个法师攻防功放村上春树VS VS是VSVS VS</text>
+            <text class="selectAddress-item-default" wx:if="{{ item.IsDefault }}">【默认地址】</text>
+            <text style="color: #868686;">{{ item.Address + item.Other }}</text>
           </view>
         </view>
       </view>

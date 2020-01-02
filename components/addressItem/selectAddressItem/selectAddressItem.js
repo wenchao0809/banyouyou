@@ -7,7 +7,10 @@ Component({
     addGlobalClass: true
   },
   properties: {
-
+    addressList: {
+      type: Array,
+      value: [{}, {}]
+    }
   },
 
   /**
@@ -22,7 +25,8 @@ Component({
    */
   methods: {
     radioChange: function (e) {
-      console.log('radio发生change事件，携带value值为：', e.detail.value)
+      this.triggerEvent('selectAddress', parseInt(e.detail.value))
+      // console.log('radio发生change事件，携带value值为：', e)
     }
   }
 })

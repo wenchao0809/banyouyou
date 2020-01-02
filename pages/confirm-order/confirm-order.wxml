@@ -41,7 +41,7 @@
                 <view class="full-reduce">
                     <view class="label">
                         <text class="icon icon-jian"></text>
-                        <view>满减优惠</view>
+                        <view>会员折扣</view>
                     </view>
                     <view class="operate">暂无可用</view>
                 </view>
