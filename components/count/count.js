@@ -23,24 +23,16 @@ Component({
   methods: {
     changeNum({detail:{value}}){
       value > 0 ? value : wx.showToast({title: '你输入的数量不能为空，且不能小于0',icon:"none"});
-      this.setData({
-        count: value
-      })
-      this.triggerEvent('getSelectNum', value) 
+      this.triggerEvent('changeNum', value) 
     },
     subtract(){
-      let nums = this.data.count > 0 ? this.data.count : wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
-      this.setData({
-        count: --nums
-      })
-      this.triggerEvent('getSelectNum', nums) 
+      if(this.properties.count === 0) {
+        wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
+        return
+      }
       this.triggerEvent('subEvent')
     },
     add(){
-      this.setData({
-        count: ++this.data.count
-      })
-      this.triggerEvent('getSelectNum', this.data.count)
       this.triggerEvent('addEvent') 
     }
   }

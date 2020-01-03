@@ -1,6 +1,7 @@
 // components/minCart/minCart.js
 import { addCart } from '../../api/index'
 import { CONFRIMORDERGOODLIST } from '../../utils/constant'
+import { setConfirmGoodList } from '../../utils/index'
 
 Component({
   /**
@@ -63,7 +64,17 @@ Component({
       this.triggerEvent('sizeChange', e.detail)
     },
     // 获取数量
-    getSelectNum({ detail: count }) {
+    changeNum({ detail: count }) {
+      this.setData({ count })
+    },
+    subCount() {
+      let count = this.data.count
+      --count
+      this.setData({ count })
+    },
+    addCount() {
+      let count = this.data.count
+      ++count
       this.setData({ count })
     },
     addCart() {
@@ -78,20 +89,17 @@ Component({
         })
     },
     toBuy() {
-      wx.setStorage('confirmOrderGoodList', [{  }])
       let { goodInfo, price } = this.properties
       let { title, image } = goodInfo
       let { desc, Price, Id } = price
       let count = this.data.count
-      wx.setStorage({ 
-        key: CONFRIMORDERGOODLIST, 
-        data: [{
-          id: Id,
-          title, image,
-          sizeDesc: desc,
-          price: Price,
-          count
-        }] })
+      setConfirmGoodList([{
+        priceId: Id,
+        title, image,
+        sizeDesc: desc,
+        price: Price,
+        count
+      }])
       wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
     },
     clickBtn (e) {

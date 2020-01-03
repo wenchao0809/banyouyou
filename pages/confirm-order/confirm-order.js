@@ -1,13 +1,19 @@
 
 import { getUserCoupon } from '../../api/index'
 import { getConfirmOrderAddress } from '../../utils/index'
-import { CONFRIMORDERGOODLIST, CONFIRMORDERADDRESS, MAXCOUNT } from '../../utils/constant'
+import { CONFRIMORDERGOODLIST, CONFIRMORDERADDRESS, MAXCOUNT, USERINFO } from '../../utils/constant'
 
 
 Page({
     data: {
       address: {},
+      userInfo: {},
+      // 订单总金额
       totalMoney: 0,
+      // 优惠金额
+      discountMoney: 0,
+      // 应付金额
+      orderMoney: 0,
       couponList: [],
       goodList: []
     },
@@ -24,9 +30,11 @@ Page({
       let address = await getConfirmOrderAddress()
       try {
         var goodList = wx.getStorageSync(CONFRIMORDERGOODLIST)
+        var userInfo = wx.getStorageSync(USERINFO)
         if (goodList) {
           let totalMoney = goodList.reduce((p, n) => p + n.price, 0)
           this.setData({
+            userInfo,
             address,
             goodList,
             totalMoney

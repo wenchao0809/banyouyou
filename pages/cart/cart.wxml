@@ -9,7 +9,7 @@
       <text class="icon icon-shanchu"></text>
     </view>
     <block wx:for='{{cartList}}' wx:key="index">
-      <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" catchtap='gotoProductDetail' data-index="{{index}}"bindtouchstart="touchstart" bindtouchmove="touchmove">
+      <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}"  data-index="{{index}}">
         <view class='content'>
           <checkRadio 
             class="select-single"
@@ -17,25 +17,30 @@
             catch:change="selectProduct" 
             checked="{{ item.select }}" /> 
           <view class='goods'>
-            <image class='good_img' src='/image/quick2.jpg'></image>
-            <view class='good_info'>
+            <image class='good_img' src='/image/quick2.jpg' catchtap='gotoProductDetail' data-index="{{index}}"></image>
+            <view class='good_info' catchtap='gotoProductDetail' data-index="{{index}}">
               <view class='good_title'>
-                <text>{{item.title}}</text>
+                <text>{{item.Title}}</text>
               </view>
               <!-- 商品属性 -->
-              <view class="good_attr" catchtap="showMinCart">
-                <text class="desc">{{ item.description }}</text>
-                <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text>
+              <view class="good_attr">
+                <text class="desc">{{ item.Desc }}</text>
+                <!-- <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text> -->
               </view>
               <view class='good_price'>
-                <text class='price'>￥{{item.price}}</text>
+                <text class='price'>￥{{item.Price}}</text>
                 <!-- 商品数量 -->
-                <count bind:getSelectNum="getCartCount" data-index="{{index}}" count="{{item.total}}" bind:addEvent="addNums" bind:subEvent="subNums" />
+                <count 
+                  bind:changeNum="getCartCount" 
+                  data-index="{{index}}" 
+                  count="{{item.Number}}" 
+                  bind:addEvent="addNums" 
+                  bind:subEvent="subNums" />
               </view>
             </view>
           </view>
           <!-- 删除 -->
-          <view class='del' catchtap="del" data-index="{{index}}">删除</view>
+          <!-- <view class='del' catchtap="del" data-index="{{index}}">删除</view> -->
         </view>
       </view>
     </block>

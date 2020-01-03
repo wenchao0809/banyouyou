@@ -1,5 +1,6 @@
 // pages/cart/cart.js
 import { cartList } from '../../api/index'
+import { objectToString, setConfirmGoodList } from '../../utils/index'
 
 Page({
 
@@ -37,51 +38,27 @@ Page({
 
   },
   getList(){
-    // wx.getStorage({
-    //   key: 'cartInfo',
-    //   success: (res) => {
-    //     res.data = [{
-    //       title: '3厘米全案市场板',
-    //       price: 4499.00,
-    //       total: 10,
-    //       count: 1,
-    //       loopImgUrl: ['/image/quick2.png']
-    //     }, 
-    //     {
-    //       title: '3厘米全案市场板',
-    //       price: 124,
-    //       total: 10,
-    //       image: ''
-    //     }]
-    //     res.data.forEach(item => {
-    //       item.select = false
-    //     })
-
-    //     this.setData({
-    //       cartList: res.data
-    //     })
-    //     // 显示tabBar的图标
-    //     this.data.cartList.length > 0 ?
-    //       wx.setTabBarBadge({ index: 2, text: String(this.data.cartList.length) }) :
-    //       wx.removeTabBarBadge({ index: 2 })
-    //   },
-    // })
     cartList({})
       .then(res => {
-        let totalMoney = res.reduce((p, n) => p + n.price, 0)
-        this.setData({ cartList: res, totalMoney })
+        // let totalMoney = res.reduce((p, n) => p + n.price, 0)
+        let list = res.map(item => {
+          let Desc = objectToString(item.DescriptionJson)
+          item.Desc = Desc
+          return item
+        })
+        this.setData({ cartList: list })
       })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {
-    this.data.cartList[index].total = detail;
-
+    this.data.cartList[index].Number = detail;
     this.setData({
       cartList: this.data.cartList
     })
   },
   gotoProductDetail({ currentTarget: { dataset: { index } }}){
+    let id = this.data.cartList[index].MaterialsId
     wx.navigateTo({
-      url: `/pages/productdetail/productdetail?id=${this.data.cartList[index].id}`,
+      url: `/pages/productdetail/productdetail?id=${id}`,
     })
   },
   selectProduct({currentTarget:{dataset:{index}}}) {
@@ -94,10 +71,10 @@ Page({
     cartList[index].select = !cartList[index].select
 
     if (cartList[index].select) {
-      totalMoney += Number(cartList[index].price * cartList[index].total);
+      totalMoney += cartList[index].Price * cartList[index].Number;
       totalCount++;
     }else {
-      totalMoney -= Number(cartList[index].price * cartList[index].total);
+      totalMoney -= cartList[index].Price * cartList[index].Number;
       totalCount--;
       selectAll = false
     }
@@ -126,7 +103,7 @@ Page({
       cart.select = selectAll
       // 计算总金额和商品个数
       if (cart.select) { // 如果选中计算
-        totalMoney += Number(cart.price) * cart.total
+        totalMoney += Number(cart.Price) * cart.Number
         totalCount++
       } else {// 全不选中置为0
         totalMoney = 0
@@ -146,9 +123,9 @@ Page({
 
     let totalMoney = Number(this.data.totalMoney),
         cartList = this.data.cartList;
-
+    ++cartList[index].Number
     if (cartList[index].select) {
-      totalMoney += Number(cartList[index].price);
+      totalMoney += cartList[index].Price;
     }
 
     this.setData({
@@ -161,9 +138,9 @@ Page({
 
     let totalMoney = Number(this.data.totalMoney),
         cartList = this.data.cartList;
-
+    --cartList[index].Number
     if (cartList[index].select) {
-      totalMoney -= Number(cartList[index].price);
+      totalMoney -= cartList[index].price;
     }
 
     this.setData({
@@ -173,85 +150,12 @@ Page({
 
   },
   tapToConfirmOrder() {
+    let { cartList } = this.data
+    let goods = cartList.filter(item => item.select)
+    if (goods.length === 0) return 
+    debugger
+    setConfirmGoodList(goods)
     wx.navigateTo({ url: '/pages/confirm-order/confirm-order' })
-  },
-
-  touchstart: function (e) {
-    //开始触摸时 重置所有删除
-    this.data.cartList.forEach(function (v, i) {
-      if (v.isTouchMove)//只操作为true的
-        v.isTouchMove = false;
-    })
-    this.setData({
-      startX: e.touches[0].clientX,
-      startY: e.touches[0].clientY,
-      cartList: this.data.cartList
-    })
-  },
-  /**
-   * 滑动事件处理
-  */
-  touchmove: function (e) {
-    var that = this,
-      index = e.currentTarget.dataset.index,//当前索引
-      startX = that.data.startX,//开始X坐标
-      startY = that.data.startY,//开始Y坐标
-      touchMoveX = e.changedTouches[0].clientX,//滑动变化坐标
-      touchMoveY = e.changedTouches[0].clientY,//滑动变化坐标
-      //获取滑动角度
-      angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
-
-    this.data.cartList.forEach(function (v, i) {
-      v.isTouchMove = false
-      //滑动超过30度角 return
-      if (Math.abs(angle) > 30) return;
-      if (i == index) {
-        if (touchMoveX > startX) //右滑
-          v.isTouchMove = false
-        else //左滑
-          v.isTouchMove = true
-      }
-    })
-
-    //更新数据
-    that.setData({
-      cartList: that.data.cartList
-    })
-  },
-  /**
-   * 计算滑动角度
-  */
-  angle: function (start, end) {
-    var _X = end.X - start.X,
-      _Y = end.Y - start.Y
-    //返回角度 /Math.atan()返回数字的反正切值
-    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
-  },
-
-  /**
-   * 删除事件
-  */
-  del: function (e) {
-    var index = e.currentTarget.dataset.index
-    var self = this
-
-    // 删除storage
-    wx.getStorage({
-      key: 'cartInfo',
-      success: function (res) {
-        const partData = res.data
-        partData.forEach((cart, i) => {
-          if (cart.title == self.data.cartList[index].title) {
-            partData.splice(i, 1)
-          }
-        })
-        wx.setStorage({
-          key: 'cartInfo',
-          data: partData
-        })
-        self.update(index)
-      }
-    })
   },
   update: function (index) {
     var cartList = this.data.cartList
@@ -259,7 +163,7 @@ Page({
     let totalCount = this.data.totalCount
     // 计算价格和数量
     if (cartList[index].select) {
-      totalMoney -= Number(cartList[index].price) * cartList[index].total
+      totalMoney -= cartList[index].Price * cartList[index].Number
       totalCount--
     }
     // 删除

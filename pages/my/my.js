@@ -4,6 +4,8 @@ import { getToken } from '../../utils/http'
 import  { getUserInfo } from '../../api/index'
 import { connect, extract } from 'mobx-wxapp'
 import { user } from '../../store/index'
+import { USERINFO } from '../../utils/constant'
+
 const app = getApp()
 
 Page({
@@ -65,6 +67,7 @@ Page({
       getUserInfo()
         .then(res => {
           user.changeUser(res)
+          wx.setStorageSync(USERINFO, res)
         })
     } else {
       wx.redirectTo({ url: '/pages/login/login' })
