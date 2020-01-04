@@ -2,6 +2,7 @@
     "navigationBarTitleText": "确认订单",
     "usingComponents": {
         "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
-        "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder"
+        "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder",
+        "couponSelector": "/components/selectCoupon/selectCoupon"
       }
 }

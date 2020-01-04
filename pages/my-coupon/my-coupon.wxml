@@ -10,21 +10,21 @@
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
           <view class="coupon-content" wx:if="{{ true }}">
-            <couponItem/>
+            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
           </view>
         </scroll-view>
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
           <view class="coupon-content" wx:if="{{ true }}">
-            <couponItem/>
+            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
           </view>
         </scroll-view>
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
           <view class="coupon-content" wx:if="{{ true }}">
-            <couponItem/>
+            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
           </view>
         </scroll-view>
       </swiper-item>

@@ -80,6 +80,7 @@ Page({
     console.log('test pages', options)
     options.is_default = options.is_default === 'false' ? false : true
     if (options.id) {
+      options.id = parseInt(options.id)
       this.setData({ ...options })
       wx.setNavigationBarTitle({ title: '编辑收货地址' })
     }

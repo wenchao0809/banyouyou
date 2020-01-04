@@ -1,4 +1,8 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {
+      "popup": "/components/popup/popup",
+      "tabs": "/components/tabs/tabs",
+      "couponItem": "/components/couponItem/couponItem"
+    }
   }

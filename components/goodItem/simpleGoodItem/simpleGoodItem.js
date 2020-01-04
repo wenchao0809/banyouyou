@@ -4,6 +4,10 @@ Component({
      * 组件的属性列表
      */
     properties: {
+      disableToDetail: {
+        type: Boolean,
+        value: false
+      },
         goodInfo: {
             type: Object,
             value: {}
@@ -22,6 +26,7 @@ Component({
      */
     methods: {
       goProductdetail () {
+        if (this.properties.disableToDetail) return
         wx.navigateTo({
           url: '/pages/productdetail/productdetail'
         })

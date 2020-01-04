@@ -1,5 +1,5 @@
 <!--components/couponItem/couponItem.wxml-->
-<view class="couponsItem-container">
+<!-- <view class="couponsItem-container">
   <view class='coupons-money'>
     <text > ￥\n 200 </text>
   </view>
@@ -10,5 +10,21 @@
     <text style='font-size:20rpx;'>元使用 \n</text>
     <text style='font-size:28rpx;color:green;' > 2012-11-08 00:00:00 </text>
     <text style='font-size:20rpx;'> 前有效\n </text>
+  </view>
+</view> -->
+<view class="couponsItem-container">
+  <view class="money">
+    <text class="symbol">￥</text>
+    <text class="number">{{ couponInfo.Price }}</text>
+  </view>
+  <view class="desc {{ disableSelect ? 'desc-no-select' : '' }}">
+    <view class="user-condition">满{{ couponInfo.FullPrice }}可用</view>
+    <view class="use-date">过期时间2020.11.11</view>
+  </view>
+  <view class="select" wx:if="{{ !disableSelect }}">
+     <!-- <radio class="radio"  value="{{ couponInfo.UUID }}" checked="{{item.checked}}">
+        <text>{{item.value}}</text>
+      </radio> -->
+      <checkRadio checked="{{ checked }}" bind:change="valueChange"></checkRadio>
   </view>
 </view>

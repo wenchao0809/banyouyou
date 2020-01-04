@@ -1,8 +1,13 @@
 import { http } from '../utils/http'
+import { USERINFO } from '../utils/constant'
 
 export function getUserInfo(data) {
   return http._request('/user/info', { data })
-    .then(res => res.data)
+    .then(res => {
+      let data = res.data
+      wx.setStorageSync(USERINFO, data)
+      return data
+    })
 }
 
 export function login(data) {
@@ -31,7 +36,15 @@ export function initUser(data) {
  */
 export function getUserCoupon(data) {
   return http._request('/user/coupon/list', { data })
-    .then(res => res.data)
+    .then(res => {
+      let data = res.data
+      data = data.map(item => ({
+        ...item,
+        Price: item.Price / 100,
+        FullPrice: item.FullPrice / 100
+      }))
+      return data
+    })
 }
 
 /**

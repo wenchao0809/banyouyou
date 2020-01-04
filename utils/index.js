@@ -51,12 +51,13 @@ export const objectToString = function(o) {
  */
 export const setConfirmGoodList = function(goods) {
     goods = goods.map(item => {
-        let { Title, Number, desc, Price, Id, TopPic  } = item
-        let { title, count, sizeDesc, price, priceId, image } = item
+        let { Title, Desc, Price, Id, TopPic  } = item
+        let count = item.Number || item.count
+        let { title, sizeDesc, price, priceId, image } = item
         let data = {
             title: Title || title,
-            count: Number || count,
-            sizeDesc: desc || sizeDesc,
+            count: count,
+            sizeDesc: Desc || sizeDesc,
             price: Price || price,
             priceId: priceId || Id,
             image: image || TopPic

@@ -11,13 +11,13 @@
     <view class="address-item-desc">{{ item.Address + item.Other }}</view>
     <view class="divider"></view>
     <view class="address-item-footer">
-      <radio checked="{{ item.IsDefault }}" style="color: #757575;font-size: 28rpx;" value="{{item}}">设为默认</radio>
+      <radio checked="{{ item.IsDefault }}" style="color: #757575;font-size: 28rpx;"  value="{{index}}">设为默认</radio>
       <view class="address-item-footerRight">
-        <view style="width: 140rpx;" bind:tap="editAddress(item)">
+        <view style="width: 140rpx;" bind:tap="editAddress" data-item="{{ item }}">
           <text class="icon icon-xiepinglun"></text>
           <text> 编辑</text>
         </view>
-        <view bind:tap="deleteAddress(item)">
+        <view bind:tap="deleteAddress" data-item="{{ item }}">
           <text class="icon icon-shanchu"></text>
           <text> 删除</text>
         </view>

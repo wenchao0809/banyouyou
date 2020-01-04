@@ -22,7 +22,7 @@ Page({
       tabIndex
     })
     getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
-      console.log(res)
+      this.setData({ couponList: res })
     })
   },
 
@@ -36,8 +36,7 @@ Page({
    */
   onLoad: function (options) {
     getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
-      console.log(res)
-    })
+      this.setData({ couponList: res })    })
   },
 
   /**

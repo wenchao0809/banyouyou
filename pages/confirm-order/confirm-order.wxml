@@ -34,7 +34,7 @@
         <view class="goods">
             <view class="good-list">
                 <view class="good-item-wrap" wx:for="{{goodList}}">
-                    <goodItem goodInfo="{{item}}" wx:key="index" />
+                    <goodItem goodInfo="{{item}}" wx:key="index" disableToDetail="true" />
                 </view>
             </view>
             <view class="offer">
@@ -43,14 +43,16 @@
                         <text class="icon icon-zhekou"></text>
                         <view>会员折扣</view>
                     </view>
-                    <view class="operate">暂无可用</view>
+                    <view class="operate" wx:if="{{ userInfo.Discount }}">{{ userInfo.Discount / 1000 }}</view>
+                    <view class="operate" wx:else>暂无可用</view>
                 </view>
                 <view class="coupon">
                     <view class="label">
                         <text class="icon icon-quan1"></text>
                         <view>优惠券</view>
                     </view>
-                    <view class="operate">暂无可用</view>
+                    <view class="operate" wx:if="{{ curCoupon.UUID }}" bind:tap="showCouponSelector">优惠 {{ curCoupon.Price }}元</view>
+                    <view class="operate" wx:else>暂无可用</view>
                 </view>
             </view>
             <view class="count-money">
@@ -59,5 +61,13 @@
             </view>
         </view>
     </view>
-    <submitOrder money="{{ totalMoney }}" />
+    <couponSelector 
+        show="{{ showCouponSelector }}" 
+        availableCouponList="{{ orderAvailableCouponList }}" 
+        bind:onClose="closeCouponSelector"
+        curSelectCouponUUID="{{ curCoupon.UUID }}"
+        bind:selectCoupon="selectCoupon"
+        unavailableCouponList="{{ orderUnavailableCouponList }}">
+    </couponSelector>
+    <submitOrder money="{{ orderMoney }}"  bind:tap="submitOrder" />
 </view>

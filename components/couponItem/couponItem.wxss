@@ -1,10 +1,9 @@
 /* components/couponItem/couponItem.wxss */
-.couponsItem-container {
+/* .couponsItem-container {
   width: 580rpx;
   height: 180rpx;
   margin: 10rpx 35rpx;
   padding: 50rpx;
-  /* background: url(https://cdn.it120.cc/apifactory/2017/11/27/fadbf4818acc33c0e08a052d3ab3e648.png) 0 0 no-repeat; */
   background-size: 630rpx 250rpx;
   background-position-x: 30rpx;
   background-position-y: 15rpx;
@@ -29,4 +28,55 @@
   padding-left: 80rpx;
   padding-top: 15rpx;
   text-align: center;
+} */
+
+.couponsItem-container {
+  display: flex;
+  width: calc(100% - 40rpx);
+  height: 150rpx;
+  margin-bottom: 20rpx;
+  background: white;
+}
+
+.couponsItem-container .money {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  background: red;
+  color: white;
+}
+
+.couponsItem-container .money .symbol {
+  font-size: 20rpx;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.couponsItem-container .money .number {
+  font-size: 40rpx;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.couponsItem-container .desc {
+  padding-top: 20rpx;
+  margin-left: 20rpx;
+  width: 60%;
+}
+
+.couponsItem-container .desc .use-date {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+}
+
+.couponsItem-container .select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+
+.couponsItem-container .desc-no-select {
+  width: 70%;
 }

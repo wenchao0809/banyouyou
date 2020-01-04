@@ -10,7 +10,7 @@
       addressList="{{ addressList }}" 
       bind:edit="editAddress"
       bind:delete="deleteAddress"
-      bind:change="selectDefatultAddress"
+      bind:setDefault="selectDefatultAddress"
       />
   </view>
 </view>

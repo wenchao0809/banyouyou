@@ -1,0 +1,17 @@
+.tabs {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+.tab-item {
+  flex: 1;
+}
+
+.tab-item .text {
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.active {
+  border-bottom: 2px solid red;
+}

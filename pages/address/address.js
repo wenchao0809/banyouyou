@@ -52,7 +52,13 @@ Page({
       this.setData({ addressList: res })
     })
   },
-  selectDefatultAddress({ detail: address }) {
+  selectDefatultAddress({ detail: id }) {
+    id = parseInt(id)
+    opearteAddress({ id, is_default: true })
+    .then(res => {
+      this.getAddressList()
+      wx.showToast({ title: '设置成功' })
+    })
     console.log(address)
   },
   /**

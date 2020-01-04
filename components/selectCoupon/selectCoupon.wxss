@@ -1,0 +1,21 @@
+.select-coupon {
+
+  /* margin-top: 40rpx; */
+}
+.select-coupon .header {
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+  background: white;
+}
+.select-coupon .header .title {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.counpon-list {
+  height: 700rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-top: 10rpx;
+}

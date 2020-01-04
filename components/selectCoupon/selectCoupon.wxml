@@ -1,0 +1,19 @@
+<popup show="{{ show }}" customStyle="background: #f3f3f3; height: 60%;" closeIcon="{{ true }}" bind:onClose="onClose">
+  <view class="select-coupon">
+    <view class="header">
+      <view class="title">选择优惠券</view>
+      <tabs tabsData="{{ tabs }}" activeIndex="{{ activeTabIndex }}" bind:changeTab="changeTab"></tabs>
+    </view>
+    <scroll-view scroll-y="true" class="counpon-list" wx:if="{{ activeTabIndex === 0 }}">
+      <couponItem
+        bind:checkedChange="selectCoupon"
+        wx:for="{{ availableCouponList }}" 
+        checked="{{ curSelectCouponUUID === item.UUID }}"
+        couponInfo="{{ item }}">
+      </couponItem>
+    </scroll-view>
+    <scroll-view scroll-y="true"  class="counpon-list" wx:else>
+      <couponItem wx:for="{{ unavailableCouponList }}" couponInfo="{{ item }}" disableSelect="{{ true }}"></couponItem>
+    </scroll-view>
+  </view>
+</popup>

@@ -1,5 +1,5 @@
 // pages/cart/cart.js
-import { cartList } from '../../api/index'
+import { cartList, cartDel } from '../../api/index'
 import { objectToString, setConfirmGoodList } from '../../utils/index'
 
 Page({
@@ -184,7 +184,19 @@ Page({
         index: 2,
       })
   },
-  
+  /**
+   *批量删除
+   */
+  deleteSelect() {
+    let { cartList } = this.data
+    let goods = cartList.filter(item => item.select)
+    let goodIds = goods.map(item => item.Id)
+    cartDel({ id: goodIds })
+      .then(res => {
+        debugger
+        console.log(res)
+      })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
