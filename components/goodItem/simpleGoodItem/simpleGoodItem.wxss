@@ -4,7 +4,6 @@
     justify-content: space-between;
     /* align-items: center; */
     padding: 30rpx 20rpx;
-    background: #f3f3f3;
 }
 
 .good-item:first-child {

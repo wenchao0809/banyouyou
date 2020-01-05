@@ -36,15 +36,7 @@ export function initUser(data) {
  */
 export function getUserCoupon(data) {
   return http._request('/user/coupon/list', { data })
-    .then(res => {
-      let data = res.data
-      data = data.map(item => ({
-        ...item,
-        Price: item.Price / 100,
-        FullPrice: item.FullPrice / 100
-      }))
-      return data
-    })
+    .then(res => res.data)
 }
 
 /**

@@ -1,0 +1,21 @@
+<view class="order-item">
+  <view class="header">
+    <view class="order-no">订单号：{{ orderInfo.id }}</view>
+    <view class="order-status">{{ orderStatusMap[orderInfo.status] }}</view>
+  </view>
+  <view class="content">
+    <goodItem 
+    class="good-item" 
+    customeStyle="margin-bottom: 20rpx; background: #f3f3f3"
+    wx:for="{{ orderInfo.order_item }}" 
+    goodInfo="{{ item }}" />
+  </view>
+  <view class="footer">
+    <view class="money">
+      订单金额：<text class="number">￥{{ orderInfo.total_price / 100 }}</text>
+    </view>
+    <view class="delete">
+      <text class="icon icon-shanchu"></text>
+    </view>
+  </view>
+</view>

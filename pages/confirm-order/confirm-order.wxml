@@ -43,7 +43,7 @@
                         <text class="icon icon-zhekou"></text>
                         <view>会员折扣</view>
                     </view>
-                    <view class="operate" wx:if="{{ userInfo.Discount }}">{{ userInfo.Discount / 1000 }}</view>
+                    <view class="operate" wx:if="{{ userInfo.Discount }}">减 {{ vipDiscountMoney / 100 }}元</view>
                     <view class="operate" wx:else>暂无可用</view>
                 </view>
                 <view class="coupon">
@@ -51,13 +51,13 @@
                         <text class="icon icon-quan1"></text>
                         <view>优惠券</view>
                     </view>
-                    <view class="operate" wx:if="{{ curCoupon.UUID }}" bind:tap="showCouponSelector">优惠 {{ curCoupon.Price }}元</view>
+                    <view class="operate" wx:if="{{ discountMoney > 0 }}" bind:tap="showCouponSelector">减 {{ discountMoney / 100 }}元</view>
                     <view class="operate" wx:else>暂无可用</view>
                 </view>
             </view>
             <view class="count-money">
                 <view class="label">小计：</view>
-                <view class="count">￥ {{ totalMoney }}</view>
+                <view class="count">￥ {{ totalMoney / 100 }}</view>
             </view>
         </view>
     </view>
@@ -69,5 +69,5 @@
         bind:selectCoupon="selectCoupon"
         unavailableCouponList="{{ orderUnavailableCouponList }}">
     </couponSelector>
-    <submitOrder money="{{ orderMoney }}"  bind:tap="submitOrder" />
+    <submitOrder money="{{ orderMoney / 100 }}"  bind:tap="submitOrder" />
 </view>

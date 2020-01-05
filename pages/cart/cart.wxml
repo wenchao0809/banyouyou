@@ -28,7 +28,7 @@
                 <!-- <text class="icon icon-arrowBottom" catch:tap="selectGoodAttr"></text> -->
               </view>
               <view class='good_price'>
-                <text class='price'>￥{{item.Price}}</text>
+                <text class='price'>￥{{item.Price / 100}}</text>
                 <!-- 商品数量 -->
                 <count 
                   bind:changeNum="getCartCount" 
@@ -47,7 +47,7 @@
     <view class='fixBar'>
       <view class='total'>
         <text>合计:</text>
-        <text class='money'>¥{{totalMoney}}</text>
+        <text class='money'>¥{{ totalMoney / 100}}</text>
       </view>
       <view class='btn_amount' bind:tap="tapToConfirmOrder">
         <button>去结算({{totalCount}})</button>

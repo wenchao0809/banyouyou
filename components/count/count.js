@@ -22,8 +22,12 @@ Component({
    */
   methods: {
     changeNum({detail:{value}}){
-      value > 0 ? value : wx.showToast({title: '你输入的数量不能为空，且不能小于0',icon:"none"});
-      this.triggerEvent('changeNum', value) 
+      let curCount = this.properties.count
+      if (!value || value <=0) {
+        wx.showToast({title: '你输入的数量不能为空，且不能小于0',icon:"none"});
+        value = curCount
+      }
+      this.triggerEvent('changeNum', parseInt(value)) 
     },
     subtract(){
       if(this.properties.count === 0) {

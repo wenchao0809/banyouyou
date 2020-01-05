@@ -11,6 +11,10 @@ Component({
         goodInfo: {
             type: Object,
             value: {}
+        },
+        customeStyle: {
+          type: String,
+          value: 'background: #f3f3f3'
         }
     },
   

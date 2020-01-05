@@ -40,19 +40,22 @@ Page({
   onLoad(options) {
     // 显示loading
     // link.showLoading()
+   
+  },
+  onShow() {
     Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
-      .then(([banners, hotItems, newGoods, categorys]) => {
-        // 分类
-        let categorysOne = categorys.slice(0, 2)
-        let categorysTwo = categorys.slice(2)
-        this.setData({
-          banners,
-          hotItems,
-          newGoods,
-          categorysOne,
-          categorysTwo
-        })
+    .then(([banners, hotItems, newGoods, categorys]) => {
+      // 分类
+      let categorysOne = categorys.slice(0, 2)
+      let categorysTwo = categorys.slice(2)
+      this.setData({
+        banners,
+        hotItems,
+        newGoods,
+        categorysOne,
+        categorysTwo
       })
+    })
   },
   // 监听滚动条改变搜索框背景
   onPageScroll({ scrollTop: val }) {

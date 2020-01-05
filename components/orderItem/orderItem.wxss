@@ -1,0 +1,45 @@
+.order-item {
+  background: white;
+  margin-bottom: 30rpx;
+}
+
+.order-item .header {
+  display: flex;
+  padding: 0 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+.order-item .header .order-status {
+  color: #e4393c;
+}
+.order-item .content {
+  background: white;
+}
+
+.order-item .footer {
+  display: flex;
+  padding: 0 20rpx;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-top: 1px solid lightgray;
+}
+
+
+
+.order-item .content .good-item {
+  margin-bottom: 20rpx;
+}
+
+.icon-shanchu {
+  /* margin-right: 20rpx; */
+  font-size: 40rpx;
+  color: #e4393c;
+}
+.order-item .footer .money .number {
+  color: #e4393c;
+}

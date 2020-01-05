@@ -14,7 +14,7 @@ Page({
       {
         name: '我的订单',
         icon: 'icon icon-dingdan',
-        url: '/pages/my-orders/my-orders'
+        url: '/pages/myorders/myorders'
       },
       {
         name: '我的优惠券',

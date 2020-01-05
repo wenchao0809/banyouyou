@@ -30,8 +30,8 @@ Component({
    */
   methods: {
     valueChange(e) {
-      if (!e.detail) return
       let data = this.properties.couponInfo
+      data.checked = e.detail
       this.triggerEvent('checkedChange', data)
     }
   }

@@ -100,7 +100,7 @@ Component({
         price: Price,
         count
       }])
-      wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
+      wx.navigateTo({url: '/pages/confirm-order/confirm-order?type=1'})
     },
     clickBtn (e) {
       let name = e.target.dataset.name

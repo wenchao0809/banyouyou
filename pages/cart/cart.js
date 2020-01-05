@@ -1,5 +1,5 @@
 // pages/cart/cart.js
-import { cartList, cartDel } from '../../api/index'
+import { cartList, cartDel, addCart } from '../../api/index'
 import { objectToString, setConfirmGoodList } from '../../utils/index'
 
 Page({
@@ -41,19 +41,20 @@ Page({
     cartList({})
       .then(res => {
         // let totalMoney = res.reduce((p, n) => p + n.price, 0)
-        let list = res.map(item => {
-          let Desc = objectToString(item.DescriptionJson)
-          item.Desc = Desc
-          return item
-        })
-        this.setData({ cartList: list })
+        let curList = this.data.cartList
+        for (let i = 0; i < res.length; i++) {
+          let item = res[i]
+          item.Desc = objectToString(item.DescriptionJson)
+          if (curList)
+          item.select = curList[i] &&  curList[i].select
+        }
+        this.setData({ cartList: res })
       })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {
-    this.data.cartList[index].Number = detail;
-    this.setData({
-      cartList: this.data.cartList
-    })
+    let data = this.data.cartList[index]
+    data.Number = detail;
+    this.updateCart(data)
   },
   gotoProductDetail({ currentTarget: { dataset: { index } }}){
     let id = this.data.cartList[index].MaterialsId
@@ -149,15 +150,25 @@ Page({
     })
 
   },
+  updateCart(data) {
+    let { MaterialsId, Number, PriceId } = data
+    let params = { materials_id: MaterialsId, number: Number, price_id: PriceId }
+    params.is_update = true
+    addCart(params)
+      .then(res => {
+        this.getList()
+      })
+  },
   tapToConfirmOrder() {
     let { cartList } = this.data
     let goods = cartList.filter(item => item.select)
     if (goods.length === 0) return 
     debugger
     setConfirmGoodList(goods)
-    wx.navigateTo({ url: '/pages/confirm-order/confirm-order' })
+    wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=2' })
   },
   update: function (index) {
+    debugger
     var cartList = this.data.cartList
     let totalMoney = Number(this.data.totalMoney)
     let totalCount = this.data.totalCount

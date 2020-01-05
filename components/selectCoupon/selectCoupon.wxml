@@ -8,7 +8,7 @@
       <couponItem
         bind:checkedChange="selectCoupon"
         wx:for="{{ availableCouponList }}" 
-        checked="{{ curSelectCouponUUID === item.UUID }}"
+        checked="{{ item.checked }}"
         couponInfo="{{ item }}">
       </couponItem>
     </scroll-view>

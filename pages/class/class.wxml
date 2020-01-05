@@ -29,9 +29,9 @@
                     <view class="cur">
                           <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
                         <text class="money">￥</text>
-                        <text class="num"> {{ item.min_price }}</text>
+                        <text class="num"> {{ item.min_price / 100 }}</text>
                     </view>
-                    <view class="old">￥{{ item.max_price }}</view>
+                    <!-- <view class="old">￥{{ item.max_price }}</view> -->
                   </view>
                 </view>
                 <view class="operate" bind:tap="showMinCart" data-goodid="{{ item.Id }}">

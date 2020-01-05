@@ -7,7 +7,7 @@
         <view>
           <text>{{ goodInfo.title }}</text>
           <view class="productdetail-price">
-            <text class="productdetail-current-price">{{ price.Price }}</text>
+            <text class="productdetail-current-price">{{ price.Price / 100 }}</text>
             <!-- <text class="productdetail-original-price"></text> -->
           </view>
           <view>

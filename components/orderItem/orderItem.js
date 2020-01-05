@@ -1,10 +1,12 @@
-// components/goodItem/goodItem.js
+// components/sku/sku.js
+import { ORDERSTATUS } from '../../utils/constant'
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    goodInfo: {
+    orderInfo: {
       type: Object,
       value: {}
     }
@@ -14,17 +16,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    orderStatusMap: ORDERSTATUS
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    goDetail () {
-      wx.navigateTo({
-        url: '/pages/orderdetail/orderdetail'
-      })
-    }
   }
 })

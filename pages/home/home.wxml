@@ -65,13 +65,13 @@
     <view class='page-margin'>
         <view class="page-row">
             <text>热品推荐</text>
-             <view class='theme_more'>
+             <!-- <view class='theme_more'>
                <text class="icon icon-youjiantou"></text>
-            </view>
+            </view> -->
             <!-- <image class='theme_img' src="/image/bej.png" mode="aspectFill" /> -->
            
         </view>
-        <scroll-view class='hot-list' scroll-x="true">
+        <scroll-view class='hot-list' scroll-x="true" style="width: 100%">
             <block wx:for-items="{{hotItems}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
                     <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
@@ -82,9 +82,9 @@
                         <view class="cur">
                             <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
                             <text class="money">￥</text>
-                            <text class="num"> {{ item.min_price }}</text>
+                            <text class="num"> {{ item.min_price / 100 }}</text>
                         </view>
-                        <view class="old">￥{{ item.max_price }}</view>
+                        <!-- <view class="old">￥{{ item.max_price }}</view> -->
                     </view>
                     <view class="count-and-cart">
                         <view class="count">销量：{{ item.count }}</view>
@@ -110,7 +110,7 @@
                    </view>
                    <view class="desc">
                        <view class="title">{{ item.title }}</view>
-                       <view class="price">￥{{ item.min_price }}</view>
+                       <view class="price">￥{{ item.min_price / 100 }}</view>
                        <view class="count">销量：{{ item.count }}</view>
                    </view>
                    <view class="operate">
