@@ -1,38 +1,38 @@
 <view class="container">
     <!-- 头部 -->
-    <view class="swiper-container">
-        <view class="search-container {{scrollFlag ? 'active' : ''}}">
-            <!-- <view class="search-icon">
-                <image class="search-img" src="/image/ai3.png" />
-            </view> -->
-            <!-- <view class="location">
-                <view class="province">
-                    {{ region[0] }}
-                </view>
-                <picker class="region-picker"  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-                    <view class="city">
-                        {{region[1]}}
-                    </view>
-                </picker>
-            </view> -->
-            <view class="search-input">
-                <!-- <i>
-                    <image src="/image/ati.png" />
-                </i> -->
-                <input 
-                    type="text"
-                    bindinput="searchChange"
-                    bindconfirm="toGoodList"
-                    value="{{ searchText }}"
-                    placeholder-class="place-holder"
-                    confirm-type="search"
-                    placeholder="请输入您要搜索的商品" />
-                <text class="icon icon-sousuo" catchtap="toGoodList"></text>
+    <view class="search-container {{scrollFlag ? 'active' : ''}}">
+        <!-- <view class="search-icon">
+            <image class="search-img" src="/image/ai3.png" />
+        </view> -->
+        <!-- <view class="location">
+            <view class="province">
+                {{ region[0] }}
             </view>
-            <!-- <view class="search-icon">
-                <image class="search-img" src="/image/ahw.png" />
-            </view> -->
+            <picker class="region-picker"  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="city">
+                    {{region[1]}}
+                </view>
+            </picker>
+        </view> -->
+        <view class="search-input">
+            <!-- <i>
+                <image src="/image/ati.png" />
+            </i> -->
+            <input 
+                type="text"
+                bindinput="searchChange"
+                bindconfirm="toGoodList"
+                value="{{ searchText }}"
+                placeholder-class="place-holder"
+                confirm-type="search"
+                placeholder="请输入您要搜索的商品" />
+            <text class="icon icon-sousuo" catchtap="toGoodList"></text>
         </view>
+        <!-- <view class="search-icon">
+            <image class="search-img" src="/image/ahw.png" />
+        </view> -->
+    </view>
+    <view class="swiper-container">
         <!-- 轮播图 -->
         <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color='{{ctrlColor}}' indicator-active-color="{{ctrlCurrentColor}}">
             <block wx:for="{{banners}}" wx:key="index">

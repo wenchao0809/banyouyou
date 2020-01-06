@@ -29,6 +29,11 @@ Component({
     methods: {
       cancelModal() {
         this.triggerEvent('onCancel', {})
+      },
+      clickModal(e) {
+          if (e.target.id !== 'image') {
+            this.triggerEvent('close')
+          }
       }
     }
   })

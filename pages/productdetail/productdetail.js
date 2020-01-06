@@ -52,6 +52,8 @@ Page({
         url: '/pages/confirm-order/confirm-order'
       }
     ],
+    previewImageList: [],
+    showPreview: false,
     index: 0
   },
   swiperChange (e) {
@@ -65,7 +67,13 @@ Page({
       show: true
     })
   },
-
+  previewImage({ currentTarget: { dataset: { key: key } } }) {
+    let data = this.data[key]
+    this.setData({ previewImageList: data, showPreview: true })
+  },
+  closePreview() {
+    this.setData({ showPreview: false })
+  },
   cancel () {
     this.setData({
       show: false
