@@ -15,3 +15,9 @@ export function getNewGoods() {
   return http._request('/new/list')
     .then(res => res.data)
 }
+
+// 搜索商品
+export function searchGoods(data) {
+  return http._request('/info/list/like', { data})
+    .then(res => res.data)
+}

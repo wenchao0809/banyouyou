@@ -70,7 +70,7 @@ Page({
         this.setData({ navRightItems: res })
       })
   },
-   // 去往列表页
+   // 去详情页
   gotoProductDetail({ currentTarget: { dataset:{ goodid: id }} }){
     wx.navigateTo({
       url: `/pages/productdetail/productdetail?id=${id}`

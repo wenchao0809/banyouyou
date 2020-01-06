@@ -24,7 +24,8 @@
     "pages/member/member",
     "pages/distributor/distributor",
     "pages/memberIntroduction/memberIntroduction",
-    "pages/memberData/memberData"
+    "pages/memberData/memberData",
+    "pages/good-list/good-list"
   ],
   "window": {
     "backgroundTextStyle": "light",

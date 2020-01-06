@@ -10,6 +10,10 @@ Component({
     showFlag: {
       type: Boolean,
       value: false
+    },
+    showCancel: {
+      type: Boolean,
+      value: true
     }
   },
 

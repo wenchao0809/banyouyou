@@ -1,12 +1,4 @@
-<view class="caregory-wrap">
-  <view class='caregory'>
-    <scroll-view class="nav_left" scroll-y>
-      <block wx:for="{{navLeftItems}}" wx:key="index">
-        <view class="nav_left_items {{curIndex == index ? 'nav_left_item-active' : ''}}" data-index="{{index}}" bindtap="currentTabs">
-        {{item.Name}}
-        </view>
-      </block>
-    </scroll-view>
+<view class="good-list">
     <scroll-view class='nav_right' scroll-y>
       <view class="order-header" bindtap="handleOrderChange">
         <view class="by-sum {{ orderName === 'bysum' ? 'active' : '' }}" data-name="bysum">综合排序</view>
@@ -19,7 +11,7 @@
         </view>
         <view class="by-count {{ orderName === 'bycount' ? 'active' : '' }}" data-name="bycount">按销量</view>
       </view>
-      <block wx:for-items="{{navRightItems}}" wx:key="index">
+      <block wx:for-items="{{goodList}}" wx:key="index">
         <view class="good-item-wrap">
             <view class="good-item">
               <view class="desc">
@@ -45,8 +37,7 @@
         </view>
     </block>
     </scroll-view>
-  </view>
-  <minCart 
+    <minCart 
     show="{{ showCart }}" 
     bind:onClose="onClose" 
     btns="{{ btns }}"

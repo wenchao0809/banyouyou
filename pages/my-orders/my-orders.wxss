@@ -5,9 +5,13 @@
 
 .orders-tabBar-top {
   display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+  background: white;
   justify-content: space-around;
   font-size: 32rpx;
-  margin: 36rpx 0; 
+  /* margin: 36rpx 0;  */
 }
 
 .orders-tabBar-item {
@@ -40,3 +44,8 @@
   text-align: center;
   line-height: 60rpx;
 }
+
+.orders-tabBar-top  .active {
+  color: #e4393c;
+  border-bottom: 2rpx solid #e4393c;
+} 

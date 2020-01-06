@@ -105,8 +105,8 @@ Page({
         var userInfo = wx.getStorageSync(USERINFO)
         if (goodList) {
           let totalMoney = goodList.reduce((p, n) => p + n.price * n.count, 0)
-          let vipTotalMoney = Math.ceil(totalMoney * (userInfo.Discount / 1000))
-          let vipDiscountMoney = Math.floor(parseInt(totalMoney * (1 - userInfo.Discount / 1000)))
+          let vipTotalMoney = Math.floor(totalMoney * (userInfo.Discount / 1000))
+          let vipDiscountMoney = Math.ceil(parseInt(totalMoney * (1 - userInfo.Discount / 1000)))
           this.setCouponList(vipTotalMoney)
           this.setData({
             userInfo,

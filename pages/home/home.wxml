@@ -5,7 +5,7 @@
             <!-- <view class="search-icon">
                 <image class="search-img" src="/image/ai3.png" />
             </view> -->
-            <view class="location">
+            <!-- <view class="location">
                 <view class="province">
                     {{ region[0] }}
                 </view>
@@ -14,12 +14,20 @@
                         {{region[1]}}
                     </view>
                 </picker>
-            </view>
+            </view> -->
             <view class="search-input">
-                <i>
+                <!-- <i>
                     <image src="/image/ati.png" />
-                </i>
-                <input type="text" placeholder-class="place-holder" placeholder="请输入您要搜索的商品" />
+                </i> -->
+                <input 
+                    type="text"
+                    bindinput="searchChange"
+                    bindconfirm="toGoodList"
+                    value="{{ searchText }}"
+                    placeholder-class="place-holder"
+                    confirm-type="search"
+                    placeholder="请输入您要搜索的商品" />
+                <text class="icon icon-sousuo" catchtap="toGoodList"></text>
             </view>
             <!-- <view class="search-icon">
                 <image class="search-img" src="/image/ahw.png" />
@@ -87,7 +95,7 @@
                         <!-- <view class="old">￥{{ item.max_price }}</view> -->
                     </view>
                     <view class="count-and-cart">
-                        <view class="count">销量：{{ item.count }}</view>
+                        <view class="count">销量：{{ item.sale_count }}</view>
                         <view class="cart">
                             <text class="icon icon-gouwuche" catchtap="showMinCart" data-goodid="{{ item.Id }}"></text>
                         </view>
@@ -111,7 +119,7 @@
                    <view class="desc">
                        <view class="title">{{ item.title }}</view>
                        <view class="price">￥{{ item.min_price / 100 }}</view>
-                       <view class="count">销量：{{ item.count }}</view>
+                       <view class="count">销量：{{ item.sale_count }}</view>
                    </view>
                    <view class="operate">
                        <text class="price">￥{{ item.count }}</text>

@@ -48,6 +48,7 @@
     </view>
     <button style="width: 100%;" bindtap="cancel">取消</button>
   </popup>
+  <previewImage show="{{ true }}" imageList="{{ content_pic_list }}"></previewImage>
   <goodsAction 
     icons="{{ iconList }}" 
     btns="{{ btns }}" 

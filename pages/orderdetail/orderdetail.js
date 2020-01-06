@@ -1,5 +1,7 @@
 // pages/orderdetail/orderdetail.js
-import { newOrder } from '../../api/index.js'
+import { orderInfo } from '../../api/index.js'
+import { ORDERSTATUS } from '../../utils/constant'
+import { objectToString, formateDate } from '../../utils/index'
 
 Page({
 
@@ -20,7 +22,10 @@ Page({
       count: 10,
       size: '15mm',
       image: '/image/quick3.jpg'
-    }]
+    }],
+    id: '',
+    orderInfo: {},
+    orderStatusMap: ORDERSTATUS
   },
 
   contactMerchant () {
@@ -33,7 +38,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = parseInt(options.id)
+    this.setData({ id  })
+    orderInfo({ id })
+      .then(res => {
+        res.createDateStr = formateDate(res.CreatedAt)
+        res.order_item = res.order_item.map(item => {
+          item.sizeDesc = objectToString(item.description)
+          return item
+        })
+        this.setData({ orderInfo: res })
+      })
   },
 
   /**
@@ -82,6 +97,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
   }
 })

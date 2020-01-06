@@ -23,5 +23,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goOrderDetail() {
+      let Id = this.properties.orderInfo.id
+      this.triggerEvent('goOrderDetail', Id)
+    }
   }
 })

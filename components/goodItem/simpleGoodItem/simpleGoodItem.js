@@ -31,8 +31,9 @@ Component({
     methods: {
       goProductdetail () {
         if (this.properties.disableToDetail) return
+        let id = this.properties.goodInfo.materials_id
         wx.navigateTo({
-          url: '/pages/productdetail/productdetail'
+          url: `/pages/productdetail/productdetail?id=${id}`
         })
       }
     }

@@ -26,6 +26,7 @@ Page({
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
     showCart: false,
+    searchText: '',
     btns: [
       {
         text: '加入购物车'
@@ -58,22 +59,29 @@ Page({
     })
   },
   // 监听滚动条改变搜索框背景
-  onPageScroll({ scrollTop: val }) {
-    wx.createSelectorQuery()
-      .selectAll('.swiper-item')
-      .boundingClientRect(rect => {
-        swiperHeight = rect[0].height
-      }).exec()
+  // onPageScroll({ scrollTop: val }) {
+  //   wx.createSelectorQuery()
+  //     .selectAll('.swiper-item')
+  //     .boundingClientRect(rect => {
+  //       swiperHeight = rect[0].height
+  //     }).exec()
 
-    if (val >= swiperHeight) {
-      this.setData({
-        scrollFlag: true
-      })
-    } else {
-      this.setData({
-        scrollFlag: false
-      })
-    }
+  //   if (val >= swiperHeight) {
+  //     this.setData({
+  //       scrollFlag: true
+  //     })
+  //   } else {
+  //     this.setData({
+  //       scrollFlag: false
+  //     })
+  //   }
+  // },
+  searchChange(e) {
+    this.setData({ searchText: e.detail.value })
+  },
+  toGoodList() {
+    let text = this.data.searchText
+    wx.navigateTo({ url: `/pages/good-list/good-list?likeName=${text}` })
   },
   // 选择地区
   bindRegionChange(e) {

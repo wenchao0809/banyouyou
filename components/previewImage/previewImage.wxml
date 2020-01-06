@@ -1,0 +1,10 @@
+<modal showFlag="{{ show }}" showCancel="{{ false }}">
+    <!-- <view slot="content">test modal</view> -->
+     <swiper slot="content" style="width: 750rpx; height: 950rpx;">
+        <block wx:for="{{ imageList }}" wx:key="index">
+          <swiper-item>
+           <image slot="content" src="{{ item }}" mode="widthFix" style="width: 750rpx;height: 950rpx;"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+</modal>

@@ -1,5 +1,5 @@
 // pages/my-orders/my-orders.js
-import { getOrderList } from '../../api/index.js'
+import { orderList } from '../../api/index.js'
 
 Page({
 
@@ -10,21 +10,27 @@ Page({
     tabBar: [
       {
         num: 0,
-        text: '待付款'
+        text: '全部'
       },
       {
         num: 0,
-        text: '待发货'
+        text: '待确认'
       },
       {
         num: 0,
-        text: '待收获'
+        text: '已确认发货'
       },
       {
         num: 0,
-        text: '退款 / 售后'
+        text: '已收货'
+      },
+      {
+        num: 0,
+        text: '已完成'
       }
     ],
+    orderList: [],
+    curActiveTabIndex: 0,
     adImg: 'http://chuantu.xyz/t6/703/1573008573x992245926.png'
   },
 
@@ -36,15 +42,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  getOrderList() {
+    let type = this.data.curActiveTabIndex
+    orderList({ limit: 20, offset: 0, type })
+      .then(res => {
+        this.setData({ orderList: res })
+      })
   },
-
+  clickTab({ currentTarget: { dataset: { index: index } } }) {
+    this.setData({ curActiveTabIndex: index })
+    this.getOrderList()
+  },
+  goOrderDetail(e) {
+    wx.navigateTo({ url: `/pages/orderdetail/orderdetail?id=${e.detail}` })
+  },
+  onLoad: function (options) {
+    this.getOrderList()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
