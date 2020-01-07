@@ -122,7 +122,7 @@
                        <view class="count">销量：{{ item.sale_count }}</view>
                    </view>
                    <view class="operate">
-                       <text class="price">￥{{ item.count }}</text>
+                       <text class="price">￥{{ item.min_price / 100 }}</text>
                        <text class="icon icon-gouwuche" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></text>
                    </view>
                </view>

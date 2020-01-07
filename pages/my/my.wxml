@@ -15,14 +15,14 @@
       <text class="icon icon-youjiantou"></text>
     </view>
   </view>
-  <view class="my-distribute">
+  <view class="my-distribute" bind:tap="toDistribute">
     <view class="wrap">
         <view class="left">
           <text class="icon icon-VIP"></text>
           <text>我的分销1</text>
         </view>
         <view class="right">
-          <text class="desc">联系我们加入分销商</text>
+          <text class="desc" wx:if="{{ user.IsDistribution === 0 }}">联系我们加入分销商</text>
           <text class="icon icon-youjiantou"></text>
         </view>
     </view>

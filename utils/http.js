@@ -35,6 +35,7 @@ export const http = {
 
   statusCOdeHandle (res, resolve, reject, option) {
     let that = this
+    if (typeof res.data === 'string') res.data = JSON.parse(res.data)
     let Code = res.data.code
     if (Code === 0) {
       resolve(res.data)

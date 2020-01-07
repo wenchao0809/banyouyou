@@ -1,8 +1,7 @@
-.header {
+/* .header {
     width: 750rpx;
     height: 380rpx;
     margin-bottom: 80rpx;
-    /* background-image: url('../image/jd2.jpg') */
 }
 
 .form-wrap, .button-wrap {
@@ -11,7 +10,6 @@
 
 
 .form-item {
-    /* display: flex; */
     width: 100%;
     padding: 40rpx 0 10rpx 0;
     border-bottom: 1px solid gray;
@@ -58,4 +56,62 @@
     border-radius: 50rpx;
     color: white;
     background: #e9452c;
+} */
+
+.register-distributor {
+    position: fixed;
+    bottom: 0;
+    height: 80rpx;
+    width: 100%;
+    line-height: 80rpx;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: #302e43;
+}
+
+.rule-desc {
+    padding: 20rpx 0;
+    background: white;
+    line-height: 1.5;
+}
+
+.reviewing .header {
+    height: 150rpx;
+    width: 100%;
+    padding-top: 20rpx;
+    padding-left: 30rpx;
+    color: white;
+    background: #302e43;
+}
+.header .title {
+    margin-bottom: 10rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+.distribute-order-list .tab {
+    display: flex;
+    padding: 0 20rpx;
+    height: 80rpx;
+    margin-bottom: 20rpx;
+    align-items: center;
+    border-bottom: 1rpx solid gray;
+}
+
+.distribute-order-list .tab .tab-item {
+    flex: 1;
+    text-align: center;
+}
+
+.distribute-order-list .order-list .order-item {
+    padding: 0 20rpx;
+    display: flex;
+}
+
+.distribute-order-list .order-list .order-item .order-item-item {
+    flex: 1;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid gray;
+    text-align: center;
 }

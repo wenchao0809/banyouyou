@@ -1,4 +1,4 @@
-<view class="distributor">
+<!-- <view class="distributor">
     <view class="header"></view>
     <view class="form-wrap">
         <form action="">
@@ -19,5 +19,54 @@
     </view>
     <view class="button-wrap">
         <view class="button">申请</view>
+    </view>
+</view> -->
+
+<view class="distributor">
+    
+   <view wx:if="{{ status === 0 }}">
+        <view class="register-distributor" bind:tap="apply">
+        分销商申请
+        </view>
+        <view class="rule-desc">
+            申请成为分销商以后转发或者分享图片给其他客户,
+            其他客户购买成功后则分销商享受订单的1%座位提成奖励，
+            提成奖励将在7天后自动到账。
+        </view>
+   </view>
+    <view class="reviewing" wx:elif="{{ status === 1 || status === 2 }}">
+        <view class="header">
+            <view class="title">
+                {{ status === 1 ? '审核中...' : '申请失败' }}
+            </view>
+            <view class="desc">
+                请随时关注本页面，等待审核完毕
+            </view>
+        </view>
+        <view class="rule-desc">
+        申请成为分销商以后转发或者分享图片给其他客户,
+        其他客户购买成功后则分销商享受订单的1%座位提成奖励，
+        提成奖励将在7天后自动到账。
+        </view>
+    </view>
+    <view class="distribute-order-list" wx:else>
+        <view class="tab">
+            <view class="tab-item">
+                订单id
+            </view>
+            <view class="tab-item">
+                提成奖励
+            </view>
+            <view class="tab-item">
+                是否发放
+            </view>
+        </view>
+        <view class="order-list">
+            <view class="order-item" wx:for="{{ rewardList }}">
+                <view class="order-item-item">{{ item.Id }}</view>
+                <view class="order-item-item">{{ item.DistributionPrice }}</view>
+                <view class="order-item-item">{{ item.DistributionStatus === 1 ? '未获取' : '已获取' }}</view>
+            </view>
+        </view>
     </view>
 </view>

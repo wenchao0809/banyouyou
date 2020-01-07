@@ -3,7 +3,7 @@
         <form action="">
             <view class="form-item">
                 <text class="icon icon-yonghu"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" data-name="name" bindinput="inputChange" />
+                <input type="text" placeholder-class="placeholder" placeholder="用户名" data-name="name" bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-shouji"></text>
@@ -27,27 +27,32 @@
                 <input type="text" placeholder-class="placeholder" placeholder="身份证号码" data-name="china_id" bindinput="inputChange" />
             </view>
         </form>
-        <view class="form-error">错误文案</view>
+        <!-- <view class="form-error">错误文案</view> -->
     </view>
     <!-- 营业执照 -->
     <view class="bussiness-photo">
         <!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
-        <view class="photo">
+      <view wx:if="{{ !form.company_pic }}">
+            <view class="photo">
             <text class="icon icon-zhaoxiangji" bindtap="takePhoto"></text>
         </view>
         <view class="desc1">这里上传你的营业执照</view>
         <view class="desc2">拍照时请确保身份证边框完整、自己清晰、亮度均衡</view>
+      </view>
+      <view class="" bind:tap="takePhoto" wx:else>
+          <image src="{{ form.company_pic }}"></image>
+      </view>
     </view>
     <!-- 是否对公 -->
-    <view class="is-public">
+    <!-- <view class="is-public">
         <view>是否有对公账户</view>
         <view>
             <switch checked bindchange="switch1Change" />
         </view>
-    </view>
+    </view> -->
     <!-- 隐私政策 -->
     <view class="private-policy">
-        <icon type="success" size="20" color="{{policyStatus}}"/>
+        <icon type="success" size="20" color="{{policyStatus}}" bind:tap="tagglePolicyStatus"/>
         <text class="desc">我已知晓并同意</text>
         <text class="link">《板优优账号说明/隐私政策》</text>
     </view>

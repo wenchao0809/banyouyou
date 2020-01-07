@@ -31,7 +31,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#e74030",
     "navigationBarTitleText": "板优优",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#5c5e6b",

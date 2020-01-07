@@ -77,5 +77,8 @@ Page({
     wx.navigateTo({
       url: '/pages/member/member'
     })
+  },
+  toDistribute() {
+    wx.navigateTo({ url: '/pages/distributor/distributor' })
   }
 })
