@@ -43,8 +43,8 @@ Page({
     // link.showLoading()
    
   },
-  onShow() {
-    Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
+  async initData() {
+    await Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
     .then(([banners, hotItems, newGoods, categorys]) => {
       // 分类
       let categorysOne = categorys.slice(0, 2)
@@ -57,6 +57,9 @@ Page({
         categorysTwo
       })
     })
+  },
+  onShow() {
+    this.initData()
   },
   // 监听滚动条改变搜索框背景
   // onPageScroll({ scrollTop: val }) {
@@ -124,5 +127,9 @@ Page({
     wx.navigateTo({
       url: `/pages/productdetail/productdetail?id=${id}`,
     })
+  },
+  onPullDownRefresh: async function () {
+    await this.initData()
+    wx.stopPullDownRefresh()
   }
 })

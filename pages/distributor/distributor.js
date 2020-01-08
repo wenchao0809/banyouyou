@@ -47,7 +47,7 @@ Page({
         wx.stopPullDownRefresh()
     },
     onReachBottom() {
-        
+        this.pullUpRefresh()
     },
     apply() {
         registerDistributor()

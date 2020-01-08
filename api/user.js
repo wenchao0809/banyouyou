@@ -90,7 +90,7 @@ export function orderList(data) {
  * @param {} data 
  */
 export function distributeOrderList(data) {
-  return http._request('/user/order/list', { data })
+  return http._request('/user/order/distribution', { data })
     .then(res => res.data)
 }
 
@@ -131,5 +131,10 @@ export function cartDel(data) {
  */
 export function cartList(data) {
   return http._request('/user/cart/list', { data })
+  .then(res => res.data)
+}
+
+export function getMappQrCode(data) {
+  return http._request('/user/getwxacodeunlimit', { data })
   .then(res => res.data)
 }

@@ -3,6 +3,7 @@
   width: 600rpx;
   height: 888rpx;
   margin: 0 75rpx;
+  margin-top: 100rpx;
   border: 1px solid black;
 }
 

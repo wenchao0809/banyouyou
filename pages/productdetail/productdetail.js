@@ -88,8 +88,8 @@ Page({
   onShareAppMessage: function (options) {
   　　// 自定义分享内容
 　　var shareObj = {
-　　　  title: "转发的标题",        // 小程序的名称
-       path: '/pages/productdetail/productdetail',  // 默认是当前页面，必须是以‘/’开头的完整路径
+　　　  title: "板优优",        // 小程序的名称
+       path: `/pages/productdetail/productdetail?id=${this.data.id}`,  // 默认是当前页面，必须是以‘/’开头的完整路径
 // 　　　　imgUrl: '',     //自定义图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
 　　　　success: function (res) {
 　　　　　　// 转发成功之后的回调
@@ -119,8 +119,10 @@ Page({
   },
 
   goPoster () {
+    let { title, imgList } = this.data
+    let goodImage = imgList[0]
     wx.navigateTo({
-      url: '/pages/poster/poster'
+      url: `/pages/poster/poster?title=${title}&goodImage=${goodImage}`
     })
   },
   sizeChange ({ detail: size }) {
@@ -139,28 +141,31 @@ Page({
     confirmOrder.changeGoodList([{title, image, price, sizeDesc, count: e.detail}])
     wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
   },
+  async initData() {
+    let id = this.data.id
+    let res = await getGoodInfo({ id })
+    let original_price = res.original_price ? res.original_price : ''
+    // let sku = generateSku(res.price_list)
+    this.priceMange = new PriceManage(res.price_list)
+    this.priceMange.connect(this)
+    this.setData({
+      title: res.title,
+      min_price: res.min_price,
+      max_price: res.max_price,
+      original_price,
+      imgList: res.top_pic_list,
+      content_pic_list: res.content_pic_list,
+      price_list: res.price_list,
+      current_price: res.price_list[0]
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let id = parseInt(options.id)
     this.setData({ id })
-    getGoodInfo({ id }).then(res => {
-      let original_price = res.original_price ? res.original_price : ''
-      // let sku = generateSku(res.price_list)
-      this.priceMange = new PriceManage(res.price_list)
-      this.priceMange.connect(this)
-      this.setData({
-        title: res.title,
-        min_price: res.min_price,
-        max_price: res.max_price,
-        original_price,
-        imgList: res.top_pic_list,
-        content_pic_list: res.content_pic_list,
-        price_list: res.price_list,
-        current_price: res.price_list[0]
-      })
-    })
+    this.initData()
   },
 
   /**
@@ -194,8 +199,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh: async function () {
+    await this.initData()
+    wx.stopPullDownRefresh()
   },
 
   /**

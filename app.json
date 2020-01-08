@@ -28,7 +28,7 @@
     "pages/good-list/good-list"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#e74030",
     "navigationBarTitleText": "板优优",
     "navigationBarTextStyle": "white",
