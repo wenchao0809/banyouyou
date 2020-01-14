@@ -57,8 +57,9 @@ Page({
       let cpTotalMoney = totalMoney
       getUserCoupon({ limit: MAXCOUNT, offset: 0, type: 0 })
       .then(res => {
-        res = res.map(item => ({ ...item, checked: false }))
-        let availableCouponList = res.filter(item => item.Status === 1)
+        let list = res.list
+        list = list.map(item => ({ ...item, checked: false }))
+        let availableCouponList = list.filter(item => item.Status === 1)
         let orderAvailableCouponList = availableCouponList.filter(item => totalMoney >= item.FullPrice)
         let orderUnavailableCouponList = availableCouponList.filter(item => totalMoney < item.FullPrice)
         // set checked

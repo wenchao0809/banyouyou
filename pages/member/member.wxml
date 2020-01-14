@@ -12,33 +12,33 @@
   <view class="member-descTab">
     <view class="member-descTab-item" bindtap="goCoupon">
       <text>优惠券</text>
-      <text class="red">0张</text>
+      <text class="red">{{userInfo.CouponCount}}张</text>
     </view>
     <view class="member-descTab-item">
       <text>额度</text>
-      <text class="red">￥{{quota[privilegeDescIndex]}}</text>
+      <text class="red">￥{{userInfo.CashLimit / 100}}</text>
     </view>
     <view class="member-descTab-item">
       <text>积分</text>
-      <text class="red">{{integral}}</text>
+      <text class="red">{{ userInfo.Points }}</text>
     </view>
   </view>
   <view class="member-desc">
     <view class="member-desc-grade">
-      <view class="member-desc-grade-title">当前等级：{{currentIntegral.title}}</view>
-      <view class="member-desc-integral">积分距离下一等级：</view>
-      <view>
-        <progress percent="{{currentIntegral.percent}}" active />
+      <view class="member-desc-grade-title">当前等级： {{vipLevelStr}}</view>
+      <view class="member-desc-integral" wx:if="{{ userInfo.VipLevel < 11 }}">积分距离下一等级：</view>
+      <view  wx:if="{{ userInfo.VipLevel < 11 }}">
+        <progress percent="{{percent}}" active />
       </view>
     </view>
     <view class="divider"></view>
-    <view class="member-desc-item" bindtap="goMemberData">
+    <!-- <view class="member-desc-item" bindtap="goMemberData">
       <text>会员资料</text>
       <view>
         <text>详情</text>
         <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
       </view>
-    </view>
+    </view> -->
     <view class="divider"></view>
     <view class="member-desc-item" bindtap="goMemberIntroduction">
       <text>会员等级介绍</text>
@@ -56,7 +56,7 @@
       </view>
       <view class="member-card-modal-title">当前特权</view>
       <view class="member-card-modal-content">
-        <text>1.{{privilegeDesc[privilegeDescIndex]}}</text>
+        <text>1.{{privilegeDesc[userInfo.VipLevel]}}</text>
       </view>
     </view>
   </modal>

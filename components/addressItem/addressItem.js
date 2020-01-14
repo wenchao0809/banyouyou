@@ -25,8 +25,7 @@ Component({
    */
   methods: {
     radioChange: function (e) {
-      debugger
-      this.triggerEvent('setDefault', e.detail.value)
+      this.triggerEvent('setDefault', this.properties.addressList[e.detail.value])
     },
     editAddress({ currentTarget: { dataset: { item: item } } }) {
       this.triggerEvent('edit', item)

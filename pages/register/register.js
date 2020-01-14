@@ -10,7 +10,7 @@ Page({
         form: {
             name: '',
             phone: '',
-            smsCode: '',
+            code: '',
             password: '',
             checkPassword: '',
             type: 1,
@@ -30,9 +30,10 @@ Page({
         sendSmsCode({ phone })
             .then(res => {
                 this.setData({ time: 60 })
+                let that = this
                 function timer() {
-                    this.setData({ time: --this.data.time })
-                    if (this.data.time > 0) {
+                    that.setData({ time: --that.data.time })
+                    if (that.data.time > 0) {
                         setTimeout(timer, 1000)
                     }
                 }

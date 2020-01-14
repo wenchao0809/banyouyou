@@ -1,4 +1,34 @@
 // pages/member/member.js
+import { USERINFO } from '../../utils/constant'
+const vipLevelMapStr = {
+  '0': 'VIP0',
+  '1': 'VIP1',
+  '2': 'VIP2',
+  '3': 'VIP3',
+  '4': 'VIP4',
+  '5': 'VIP5',
+  '6': 'VIP6',
+  '7': 'VIP白银',
+  '8': 'VIP黄金',
+  '9': 'VIP白金',
+  '10': 'VIP钻石',
+  '11': 'VIP至尊'
+}
+const integrals = {
+  "VIP0": 0,
+  "VIP1": 500,
+  "VIP2": 1000,
+  "VIP3": 2000,
+  "VIP4": 5000,
+  "VIP5": 10000,
+  "VIP6": 20000,
+  "VIP白银": 50000,
+  "VIP黄金": 80000,
+  "VIP白金": 100000,
+  "VIP钻石": 200000,
+  "VIP至尊": 500000
+}
+
 let app = getApp()
 
 Page({
@@ -8,35 +38,19 @@ Page({
    */
   data: {
     showFlag: false,
-    integrals: {
-      "VIP0": 0,
-      "VIP1": 500,
-      "VIP2": 2000,
-      "VIP3": 5000,
-      "VIP4": 10000,
-      "VIP5": 30000,
-      "VIP6": 50000,
-      "VIP黄金": 80000,
-      "VIP白金": 100000,
-      "VIP钻石": 200000,
-      "max": Infinity
-    },
-    currentIntegral: {
-      title: "",
-      percent: 0
-    },
-    integral: 6000,
     privilegeDesc: [
-      "全场99折！",
-      "享受产品98折，获5000元平台支持额度。账期30天后支付。同时获得5张100元购物券。有效期30天。注册用户生日或营业执照注册日当天享全场商品97折！只接受现金。",
-      "享受产品97折，获2万元平台支持额度。账期30天后支付。同时获得20张100元购物券。有效期45天。注册用户生日或营业执照注册日当天享全场商品96折！只接受现金。",
-      "享受产品96折，获5万元平台支持额度。账期45天后支付。同时获得50张100元购物券。有效期60天。注册用户生日或营业执照注册日当天享全场商品95折！只接受现金。",
-      "享受产品95折，获10万元平台支持额度。账期50天后支付。同时获得100张100元购物券。有效期90天注册用户生日或营业执照注册日当天享全场商品94折！限额15万。只接受现金。",
-      "享受产品94折，获30万元平台支持额度。账期60天后支付。同时获得300张100元购物券。有效期120天。注册用户生日或营业执照注册日当天享全场商品93折！限额20万。只接受现金。",
-      "享受产品93折，获50万平台支持额度。账期90天后支付。同时获得500张100元购物券。有效期150天。注册用户生日或营业执照注册日当天享全场商品92折！限额25万。只接受现金。",
-      "享受产品92折，获80万平台支持额度。账期120天后支付。同时获得800张100元购物券。有效期180天。注册用户生日或营业执照注册日当天享全场商品91折！限额30万，只接受现金。",
-      "享受产品91折，获100万平台支持额度。账期150天后支付。同时获得1000张100元购物券。有效期240天。注册用户生日或营业执照注册日当天享全场商品9折！限额45万，只接受现金。",
-      "享受产品9折，获200万平台支持额度。账期180天后支付。同时获得2000张100元购物券。有效期360天。注册用户生日或营业执照注册日当天享全场商品88折！限额60万，只接受现金。"
+      '',
+      "全场99折！同时获得5张100元抵扣券。（抵扣券有效期30天）。注册用户生日或营业执照注册日当天享全场商品985折！只限现金交易。",
+      "享受产品985折，获1万元平台支持额度。账期30天后支付。同时获得10张100元抵扣券。（抵扣券有效期45天）注册用户生日或营业执照注册日当天享全场商品98折！只接受现金。",
+      "享受产品98折，获2万元平台支持额度。账期35天后支付。同时获得20张100元抵扣券。（抵扣券有效期60天）。注册用户生日或营业执照注册日当天享全场商品975折！只接受现金。",
+      "享受产品975折，获5万元平台支持额度。账期40天后支付。同时获得50张100元抵扣券。（抵扣券有效期75天）注册用户生日或营业执照注册日当天享全场商品97折！（购货限额15万元）只接受现金。",
+      "享受产品97折，获10万元平台支持额度。账期45天后支付。同时获得100张100元抵扣券。（抵扣券有效期90天）。注册用户生日或营业执照注册日当天享全场商品965折！（购货限额20万）。只接受现金。",
+      "享受产品965折，获20万平台支持额度。账期50天后支付。同时获得200张100元抵扣券。（抵扣券有效期105天）。注册用户生日或营业执照注册日当天享全场商品96折！（购货限额25万）。只接受现金。",
+      "享受产品96折，获50万平台支持额度。账60天后支付。同时获得500张100元抵扣券。（抵扣券有效期120天）。注册用户生日或营业执照注册日当天享全场商品955折！（购货限额30万）。只接受现金。",
+      "享受产品955折，获80万平台支持额度。账期80天后支付。同时获得800张100元抵扣券。（抵扣券有效期135天）。注册用户生日或营业执照注册日当天享全场商品95折！（购货限额35万）。只接受现金。",
+      "享受产品95折，获100万平台支持额度。账期100天后支付。同时获得1000张100元抵扣券。（抵扣券有效期150天）。注册用户生日或营业执照注册日当天享全场商品945折！（购货限额40万）。只接受现金。",
+      "天后支付。同时获得2000张100元抵扣券。（抵扣券有效期165天）。注册用户生日或营业执照注册日当天享全场商品94折！（购货限额45万）。只接受现金。",
+      "享受产品94折，获500万平台支持额度。账期140天后支付。同时获得5000张100元抵扣券。（抵扣券有效期180天）。注册用户生日或营业执照注册日当天享全场商品935折！（购货限额50万）。只接受现金。"
     ],
     quota: [
       "0",
@@ -50,7 +64,8 @@ Page({
       "1000000",
       "2000000"
     ],
-    privilegeDescIndex: 0
+    percent: 0,
+    nextPoints: 0
   },
 
   showModal () {
@@ -87,17 +102,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let integralArr = []
-    let arr = Object.keys(this.data.integrals)
-    arr.forEach(item => {
-      integralArr.push(this.data.integrals[item])
-    })
-    let VIPLevel = app.globalData.userInfo.VIPLevel
-    let Points = app.globalData.userInfo.Points
-    let integral = integralArr[VIPLevel] + Points
-    this.setData({
-      integral
-    })
+    let userInfo = wx.getStorageSync(USERINFO)
+    let vipLevelStr = vipLevelMapStr[userInfo.VipLevel]
+    let nextPoints,
+        percent
+
+    if (userInfo.VipLevel < 11) {
+      let nextLevel = userInfo.VipLevel + 1
+      let nextLevelStr = vipLevelMapStr[nextLevel]
+      let curPoints = userInfo.Points
+      let curLevelPoints = integrals[vipLevelStr]
+      nextPoints = integrals[nextLevelStr]
+      let donePoints = curPoints - curLevelPoints
+      percent = donePoints / (nextPoints - curLevelPoints)
+    }
+    this.setData({ userInfo, percent, nextPoints, vipLevelStr })
   },
 
   /**
@@ -111,28 +130,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let integrals = this.data.integrals
-    let integral = this.data.integral
-    let arr = Object.keys(integrals)
-    for (let i = 0, len = arr.length; i < len; i++) {
-      if (integrals[arr[i]] <= integral && integrals[arr[i + 1]] > integral) {
-        let currentIntegral = {}
-        let percent = 0
-        if (integrals[arr[i]] === integrals["VIP钻石"]) {
-          percent = 100
-        } else {
-          let diffValueMax = integrals[arr[i + 1]] - integrals[arr[i]]
-          let diffValue = integral - integrals[arr[i]]
-          percent = ((diffValue / diffValueMax) * 100).toFixed(2)
-        }
-        currentIntegral.title = arr[i]
-        currentIntegral.percent = percent
-        this.setData({
-          currentIntegral,
-          privilegeDescIndex: i
-        })
-      }
-    }
   },
 
   /**

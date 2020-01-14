@@ -2,30 +2,40 @@
 <view class="coupon-box" style="height: 100%;">
   <view class="coupon-container">
     <view class="coupon-tab" bindtap="tabContent">
-      <text class="coupon-tab-item {{ tabIndex === 0 && 'coupon-active'}}" data-item="{{0}}">未使用(0)</text>
-      <text class="coupon-tab-item {{ tabIndex === 1 && 'coupon-active'}}" data-item="{{1}}">已使用(0)</text>
-      <text class="coupon-tab-item {{ tabIndex === 2 && 'coupon-active'}}" data-item="{{2}}">已过期(0)</text>
+      <text class="coupon-tab-item {{ tabIndex === 0 && 'coupon-active'}}" data-item="{{0}}">未使用({{ Status1Total }})</text>
+      <text class="coupon-tab-item {{ tabIndex === 1 && 'coupon-active'}}" data-item="{{1}}">已使用({{ Status2Total }})</text>
+      <text class="coupon-tab-item {{ tabIndex === 2 && 'coupon-active'}}" data-item="{{2}}">已过期({{ Status3Total }})</text>
     </view>
     <swiper current="{{tabIndex}}" style="flex: 1;" class='coupon-Swiper' duration="200" bindchange="changeTabIndex">
       <swiper-item>
-        <scroll-view scroll-y="{{true}}" style="height: 100%;">
-          <view class="coupon-content" wx:if="{{ true }}">
+        <scroll-view scroll-y="{{true}}" style="height: 100%;" bindscrolltoupper="refreshData" bindscrolltolower="loadMore">
+          <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
             <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
+            <text class="load-text">{{ loadMoreText }}</text>
           </view>
+          <view class="none-data" wx:else>暂无更多数据</view>
         </scroll-view>
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
-          <view class="coupon-content" wx:if="{{ true }}">
-            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
+          <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
+            <couponItem 
+              wx:for="{{ couponList }}" 
+              couponInfo="{{ item }}"
+              customeStyle="background: gray;"
+              disableSelect="true" />
+            <text class="load-text">{{ loadMoreText }}</text>
           </view>
+          <view class="none-data" wx:else>暂无更多数据</view>
         </scroll-view>
       </swiper-item>
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
-          <view class="coupon-content" wx:if="{{ true }}">
+          <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
             <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
+            <text class="load-text">{{ loadMoreText }}</text>
           </view>
+          <view class="none-data" wx:else>暂无更多数据</view>
         </scroll-view>
       </swiper-item>
     </swiper>

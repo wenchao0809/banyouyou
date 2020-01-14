@@ -1,6 +1,7 @@
 // pages/cart/cart.js
 import { cartList, cartDel, addCart } from '../../api/index'
 import { objectToString, setConfirmGoodList } from '../../utils/index'
+import { MAXCOUNT } from '../../utils/constant'
 
 Page({
 
@@ -38,7 +39,7 @@ Page({
 
   },
   getList(){
-    cartList({})
+    cartList({limit: MAXCOUNT, offset: 0})
       .then(res => {
         // let totalMoney = res.reduce((p, n) => p + n.price, 0)
         let curList = this.data.cartList
