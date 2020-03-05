@@ -42,7 +42,7 @@ export const http = {
     } else if (Code === 100004) {
       // token过期，重新登录
       // that._show_error(res.data.msg)
-      wx.navigateTo({url: '/pages/login/login'})
+      wx.redirectTo({url: '/pages/login/login'})
     } else {
       reject(res.data)
       that._show_error(res.data.msg)
