@@ -15,6 +15,10 @@ Component({
     checked: {
       type: Boolean,
       value: false
+    },
+    customeStyle: {
+      type: String,
+      value: 'background: red;'
     }
   },
 

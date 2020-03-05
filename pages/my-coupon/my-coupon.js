@@ -11,9 +11,42 @@ Page({
    */
   data: {
     tabIndex: 0,
-    couponList: []
+    Status1Total: 0,
+    Status2Total: 0,
+    Status3Total: 0,
+    couponList: [],
+    loadMore: '正在加载...'
   },
 
+  getList(type = 'load') {
+    getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
+      let data = res.list
+      let { Status1Total, Status2Total, Status3Total } = res
+      if (type === 'load') {
+        let curData = this.data.couponList
+        data = curData.concat(res.list)
+      }
+      this.setData({ couponList: data, Status1Total, Status2Total, Status3Total })
+    })
+  },
+  loadMore() {
+    let { couponList, totalCount } = this.data
+    this.setData({ loadMoreText: '正在加载...' })
+    if (couponList.length ===  totalCount) {
+        let that = this
+        that.setData({ loadMoreText: '没有更多数据' })
+        setTimeout(() => {
+          that.setData({ loadMoreText: '' })
+        }, 1000);
+        return
+    }
+    this.pageIndex++
+    this.getList()
+  },
+  refreshData() {
+    this.pageIndex = 1
+    this.getList('refresh')
+  },
   tabContent(e) {
     let tabIndex = e.target.dataset.item
     this.type = tabIndex + 1
@@ -21,29 +54,28 @@ Page({
     this.setData({
       tabIndex
     })
-    getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
-      this.setData({ couponList: res })
-    })
+    this.getList('refresh')
   },
 
   changeTabIndex(e) {
+    this.type = e.detail.current + 1,
     this.setData({
       tabIndex: e.detail.current
     })
+    this.getList('refresh')
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
-      this.setData({ couponList: res })    })
+    this.getList()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

@@ -43,7 +43,6 @@
   justify-content: center;
   align-items: center;
   width: 30%;
-  background: red;
   color: white;
 }
 

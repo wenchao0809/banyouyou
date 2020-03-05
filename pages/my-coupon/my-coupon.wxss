@@ -51,3 +51,8 @@ page {
   border-bottom: 1px solid #3b98ea;
   color: #3695EA;
 }
+.none-data {
+  margin-top: 100rpx;
+  text-align: center;
+  color: gray;
+}

@@ -134,12 +134,12 @@ Page({
     // 在miniCart中统一处理
   },
   toBuy(e) {
-    let title = this.data.title
-    let price = this.data.curPrice.Price
-    let sizeDesc = this.data.desc
-    let image = this.data.imgList[0]
-    confirmOrder.changeGoodList([{title, image, price, sizeDesc, count: e.detail}])
-    wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
+    // let title = this.data.title
+    // let price = this.data.curPrice.Price
+    // let sizeDesc = this.data.desc
+    // let image = this.data.imgList[0]
+    // confirmOrder.changeGoodList([{title, image, price, sizeDesc, count: e.detail}])
+    // wx.navigateTo({url: '/pages/confirm-order/confirm-order'})
   },
   async initData() {
     let id = this.data.id

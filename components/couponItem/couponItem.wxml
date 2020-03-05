@@ -13,7 +13,7 @@
   </view>
 </view> -->
 <view class="couponsItem-container">
-  <view class="money">
+  <view class="money" style="{{ customeStyle }}">
     <text class="symbol">￥</text>
     <text class="number">{{ couponInfo.Price }}</text>
   </view>

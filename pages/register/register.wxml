@@ -11,12 +11,12 @@
             </view>
             <view class="form-item sms">
                 <text class="icon icon-pinglun"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" data-name="smsCode"  bindinput="inputChange" />
+                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" data-name="code"  bindinput="inputChange" />
                 <view class="send-sms" bind:tap="sendSms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password"  bindinput="inputChange" />
+                <input type="password" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password"  bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
@@ -24,7 +24,7 @@
             </view>
             <view class="form-item">
                 <text class="icon icon-credentials_icon"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="身份证号码" data-name="china_id"  bindinput="inputChange" />
+                <input type="password" placeholder-class="placeholder" placeholder="身份证号码" data-name="china_id"  bindinput="inputChange" />
             </view>
         </form>
         <!-- <view class="form-error">
