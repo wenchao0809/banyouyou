@@ -16,11 +16,11 @@
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password" bindinput="inputChange" />
+                <input type="password" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password" bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-mima"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请重复输入密码" data-name="checkPassword" bindinput="inputChange" />
+                <input type="password" placeholder-class="placeholder" placeholder="请重复输入密码" data-name="checkPassword" bindinput="inputChange" />
             </view>
             <view class="form-item">
                 <text class="icon icon-credentials_icon"></text>
