@@ -18,6 +18,7 @@ Page({
     ctrlCurrentColor: 'white',
     categorysOne: [],
     categorysTwo: [],
+    categorys: [],
     pageRow: [],
     newGoods: [],
     // 热品
@@ -47,12 +48,13 @@ Page({
     await Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
     .then(([banners, hotItems, newGoods, categorys]) => {
       // 分类
-      let categorysOne = categorys.slice(0, 2)
-      let categorysTwo = categorys.slice(2)
+      let categorysOne = categorys.slice(0, 4)
+      let categorysTwo = categorys.slice(4)
       this.setData({
         banners,
         hotItems,
         newGoods,
+        categorys,
         categorysOne,
         categorysTwo
       })

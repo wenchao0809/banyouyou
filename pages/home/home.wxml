@@ -50,7 +50,7 @@
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
                         <view class="title">{{ item.Name }}</view>
-                        <view class="desc">{{ item.Desc }}</view>
+                        <!-- <view class="desc">{{ item.Desc }}</view> -->
                     </view>
                 </view>
                <!-- <view class="nav-item"> -->
@@ -63,7 +63,7 @@
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
                         <view class="title">{{ item.Name }}</view>
-                        <view class="desc">{{ item.Desc }}</view>
+                        <!-- <view class="desc">{{ item.Desc }}</view> -->
                     </view>
                 </view>
             </view>
@@ -72,7 +72,9 @@
     <!-- 热品推荐 -->
     <view class='page-margin'>
         <view class="page-row">
-            <text>热品推荐</text>
+            <text class="icon icon-zhixianbolangleft"></text>
+            <text class="title">新品推荐</text>
+            <text class="icon icon-zhixianbolangright"></text>
              <!-- <view class='theme_more'>
                <text class="icon icon-youjiantou"></text>
             </view> -->
@@ -80,7 +82,7 @@
            
         </view>
         <scroll-view class='hot-list' scroll-x="true" style="width: 100%">
-            <block wx:for-items="{{hotItems}}" wx:key="index">
+            <block wx:for-items="{{newGoods}}" wx:key="index">
                 <view class="hot-item" style="display: inline-block;">
                     <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
                         <image src="{{item.top_pic_list[0]}}" mode="aspectFill" />
@@ -94,12 +96,12 @@
                         </view>
                         <!-- <view class="old">￥{{ item.max_price }}</view> -->
                     </view>
-                    <view class="count-and-cart">
+                    <!-- <view class="count-and-cart">
                         <view class="count">销量：{{ item.sale_count }}</view>
                         <view class="cart">
-                            <text class="icon icon-gouwuche" catchtap="showMinCart" data-goodid="{{ item.Id }}"></text>
+                            <text class="icon icon-cart" catchtap="showMinCart" data-goodid="{{ item.Id }}"></text>
                         </view>
-                    </view>
+                    </view> -->
                 </view>
             </block>
         </scroll-view>
@@ -107,11 +109,16 @@
     <!-- 新品推荐 -->
      <view class='page-margin'>
         <view class="page-row">
-            <text>新品推荐</text>          
+            <text class="icon icon-zhixianbolangleft"></text>
+            <view class="title-wrap">
+                <view class="title">精选</view>
+                <view class="desc">热卖好货</view>
+            </view>
+            <text class="icon icon-zhixianbolangright"></text>
         </view>
-        <view class="border"></view>
+        <!-- <view class="border"></view> -->
        <scroll-view class="new-list" scroll-y>
-           <block wx:for-items="{{newGoods}}" wx:key="index">
+           <!-- <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
                    <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
                         <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
@@ -123,11 +130,26 @@
                    </view>
                    <view class="operate">
                        <text class="price">￥{{ item.min_price / 100 }}</text>
-                       <text class="icon icon-gouwuche" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></text>
+                       <text class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></text>
                    </view>
                </view>
                 <view class="border"></view>
-           </block>
+           </block> -->
+            <view class="hot-list-wrap">
+               <view class="good-item" wx:for-items="{{hotItems}}" wx:key="index">
+                   <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
+                        <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
+                   </view>
+                   <view class="desc-wrap">
+                       <view class="title">{{ item.title }}</view>
+                        <view class="price">￥{{ item.min_price / 100 }}</view>
+                        <view class="count-and-operate">
+                            <view class="count">销量：{{ item.sale_count }}</view>
+                            <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>
+                        </view>
+                   </view>
+               </view>
+           </view>
        </scroll-view>
     </view>
     <!-- <block wx:for='{{pageRow}}' wx:for-item="page" wx:key="index">
