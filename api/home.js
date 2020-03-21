@@ -18,6 +18,11 @@ export function getNewGoods() {
 
 // 搜索商品
 export function searchGoods(data) {
-  return http._request('/info/list/like', { data})
+  return http._request('/info/list/like', {data})
+    .then(res => res.data)
+}
+// 公告
+export function getAdvertising(data) {
+  return http._request('/advertising', {data})
     .then(res => res.data)
 }

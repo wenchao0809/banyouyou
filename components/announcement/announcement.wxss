@@ -1,0 +1,47 @@
+.announcement {
+    margin-top: 20rpx;
+    padding: 20rpx;
+    background-color: #fff;
+}
+.announcement .announcement-swiper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 40rpx;
+}
+.announcement .icon {
+    font-size: 36rpx;
+}
+.announcement .icon-gonggao {
+    color: #d41c12;
+}
+.announcement-image image {
+    width: 100%;
+    height: 300rpx;
+}
+.announcement-pop .wrapper {
+    position: absolute;
+    top: 500rpx;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+}
+
+.announcement-pop .wrapper .title {
+    height: 80rpx;
+    width: 100%;
+    background: #e74030;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    line-height: 80rpx;
+}
+.announcement-pop .wrapper .announcement-list {
+    padding: 20rpx;
+    line-height: 2;
+    background-color: white;
+}

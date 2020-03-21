@@ -100,15 +100,17 @@
   background-color: #fff;
 }
 
-.nav-list .nav-row1, .nav-row2 {
-  display: flex;
-  justify-content: space-between;
+.nav-list .nav-row1 {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
 }
 .nav-item {
+  display: inline-block;
+  text-align: center;
   box-sizing: border-box;
   color: white;
   border-radius: 3px;
-  /* background: #d96526; */
 }
 .nav-item .desc {
   font-size: 20rpx;
@@ -126,8 +128,8 @@
 }
 .nav-row1 .nav-item image {
   width: 100rpx;
-height: 100rpx;
-border-radius: 50rpx
+  height: 100rpx;
+  border-radius: 75rpx
 }
 .nav-row2 .nav-item {
   /* padding-top: 20rpx;

@@ -1,5 +1,11 @@
 // pages/home/home.js
-import { getBanners, getHotGoods, getNewGoods, getCategoryList, getGoodInfo } from '../../api/index.js'
+import { 
+  getBanners, 
+  getHotGoods, 
+  getNewGoods, 
+  getCategoryList, 
+  getGoodInfo,
+  getAdvertising } from '../../api/index.js'
 // const link = require('../../utils/common')
 import PriceManage from '../../utils/price-manage'
 
@@ -21,6 +27,8 @@ Page({
     categorys: [],
     pageRow: [],
     newGoods: [],
+    // 公告
+    advertising: {},
     // 热品
     hotItems: [],
     scrollFlag: false,
@@ -45,8 +53,14 @@ Page({
    
   },
   async initData() {
-    await Promise.all([getBanners(), getHotGoods(), getNewGoods(), getCategoryList({ limit: 5, offset: 0 })])
-    .then(([banners, hotItems, newGoods, categorys]) => {
+    await Promise.all([
+      getBanners(), 
+      getHotGoods(), 
+      getNewGoods(), 
+      getCategoryList({ limit: 5, offset: 0 }),
+      getAdvertising()
+    ])
+    .then(([banners, hotItems, newGoods, categorys, advertising]) => {
       // 分类
       let categorysOne = categorys.slice(0, 4)
       let categorysTwo = categorys.slice(4)
@@ -56,12 +70,18 @@ Page({
         newGoods,
         categorys,
         categorysOne,
-        categorysTwo
+        categorysTwo,
+        advertising
       })
     })
   },
   onShow() {
     this.initData()
+  },
+  toClass(e) {
+    // app.globalData.classId = e.currentTarget.dataset.classid
+    let url = `/pages/class/class?id=${e.currentTarget.dataset.classid}`
+    wx.reLaunch({ url })
   },
   // 监听滚动条改变搜索框背景
   // onPageScroll({ scrollTop: val }) {

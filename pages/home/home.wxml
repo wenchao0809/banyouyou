@@ -42,31 +42,31 @@
             </block>
         </swiper>
     </view>
+    <announcement advertising="{{advertising}}"></announcement>
     <!-- 导航 -->
     <view class="nav-list">
         <block>
-            <view class="nav-row1">
-                <view wx:for="{{ categorysOne }}" class="nav-item">
+            <scroll-view class='nav-row1' scroll-x="true" style="width: 100%">
+                <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
                         <view class="title">{{ item.Name }}</view>
-                        <!-- <view class="desc">{{ item.Desc }}</view> -->
                     </view>
                 </view>
+            </scroll-view>
+            <!-- <view class="nav-row1">
+                <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
+                    <image src="{{ item.Pic }}"></image>
+                    <view class="text-desc">
+                        <view class="title">{{ item.Name }}</view> -->
+                        <!-- <view class="desc">{{ item.Desc }}</view> -->
+                    <!-- </view>
+                </view> -->
                <!-- <view class="nav-item"> -->
                    <!-- <view class="title">厚芯板</view>
                    <view class="desc">限量第二人免单</view>
                </view> -->
-            </view>
-            <view wx:if="{{ categorysTwo.length > 0 }}" class="nav-row2">
-                 <view wx:for="{{ categorysTwo }}" class="nav-item">
-                    <image src="{{ item.Pic }}"></image>
-                    <view class="text-desc">
-                        <view class="title">{{ item.Name }}</view>
-                        <!-- <view class="desc">{{ item.Desc }}</view> -->
-                    </view>
-                </view>
-            </view>
+            <!-- </view> -->
         </block>
     </view>
     <!-- 热品推荐 -->

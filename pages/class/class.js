@@ -43,21 +43,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 分类id
+    let id = parseInt(options.id)
     // 请求分类数据
       getCategoryList({ limit: 100, offset: 0 })
         .then(res => {
           this.setData({
             navLeftItems: res
           })
-          this.getNavRightItems()
+          let index = 0
+          if (id) {
+            for (let i = 0; i < res.length; i++) {
+              if (res[i].Id === id) {
+                index = i
+              }
+            }
+          } 
+          this.currentTabs(index)          
           wx.hideLoading()
         })
       // 隐藏loading
   },
   // 改变tab栏
-  currentTabs({currentTarget:{dataset:{index:index}}}){
+  currentTabs(e){
     this.setData({
-      curIndex: index
+      curIndex: (e.currentTarget && e.currentTarget.dataset.index) || e
     })
     this.getNavRightItems()
   },
