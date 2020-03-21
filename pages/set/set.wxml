@@ -9,4 +9,9 @@
     <text class="icon icon-qingchuhuancun" style="margin-right: 20rpx;"></text>
     <text>清除缓存</text>
   </view>
+  <view class="divider"></view>
+  <view class="set-item" bindtap="logout">
+    <text>退出登录</text>
+  </view>
+  <view class="divider"></view>
 </view>

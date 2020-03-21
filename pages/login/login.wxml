@@ -32,6 +32,7 @@
     </view>
     <view class="to-register">
         <text>没有账号？</text>
-        <text class="link" bind:tap="toRegister">立即注册板优优</text>
+        <text class="link" bind:tap="toRegister">注册个人账号</text>
+        <text class="link" bind:tap="toBusinessRegister" style="margin-left: 10rpx">注册企业账号</text>
     </view>
 </view>

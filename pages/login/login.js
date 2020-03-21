@@ -19,6 +19,9 @@ Page({
     toRegister() {
         wx.navigateTo({ url: '/pages/register/register' })
     },
+    toBusinessRegister() {
+        wx.navigateTo({ url: '/pages/bussiness-register/register' })
+    },
     login() {
         wx.showLoading({
             title: '加载中',
