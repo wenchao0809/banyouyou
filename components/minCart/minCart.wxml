@@ -3,7 +3,7 @@
 <view style="display: flex;flex-direction: column;height: 100%;">
     <view class="cart-container">
      <view class="cart-desc">
-       <image src="https://i.ibb.co/yVV5WHk/20191112161220-03.png" class="cart-img {{!show ? 'img-hide' : ''}}"></image>
+       <image src="{{goodInfo.TopPic}}" class="cart-img {{!show ? 'img-hide' : ''}}"></image>
         <view>
           <text>{{ goodInfo.title }}</text>
           <view class="productdetail-price">

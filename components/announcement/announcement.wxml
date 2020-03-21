@@ -1,0 +1,28 @@
+<view class="announcement">
+  <view class="announcement-swiper">
+    <text class="icon icon-gonggao"></text>
+    <swiper class="swiper" style="height: 40rpx; width: 80%;" circular="{{circular}}" autoplay="{{autoplay}}" vertical="{{true}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper-item  wx:for="{{advertising.content}}" wx:key="*this">
+      <view class="swiper-item">
+        <text >{{ item }}</text>
+      </view>
+      </swiper-item>
+    </swiper>
+    <text class="icon icon-youjiantou" bindtap = "showPop"></text>
+  </view>
+  <view class="announcement-image">
+    <image src="{{advertising.pic}}"></image>
+  </view>
+  <view class="announcement-pop">
+    <van-overlay show="{{ showPop }}" bind:click="onClickHide">
+      <view class="wrapper">
+        <view class="title">公告</view>
+        <view class="announcement-list">
+          <view  wx:for="{{advertising.content}}" wx:key="*this">
+            {{index + 1}}. {{item}}
+          </view>
+        </view>
+      </view>
+    </van-overlay>
+  </view>
+</view>

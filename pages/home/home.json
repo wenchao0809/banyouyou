@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "minCart": "/components/minCart/minCart"
+    "minCart": "/components/minCart/minCart",
+    "announcement": "/components/announcement/announcement"
   }
 }

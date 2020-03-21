@@ -35,10 +35,6 @@ Component({
     price: {
       type: Object,
       value: {}
-    },
-    goodInfo: {
-      type: Object,
-      value: {}
     }
   },
 

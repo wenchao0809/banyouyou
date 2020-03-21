@@ -11,7 +11,7 @@
   </view>
   <view class="divider"></view>
   <view class="set-item" bindtap="logout">
+    <text class="icon icon-tuichudenglu" style="margin-right: 20rpx;"></text>
     <text>退出登录</text>
   </view>
-  <view class="divider"></view>
 </view>
