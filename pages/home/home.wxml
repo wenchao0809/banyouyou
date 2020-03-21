@@ -46,14 +46,32 @@
     <!-- 导航 -->
     <view class="nav-list">
         <block>
-            <scroll-view class='nav-row1' scroll-x="true" style="width: 100%">
+            <swiper indicator-dots="{{indicatorDots}}"  style="height: 370rpx;"  indicator-color='{{gray}}' indicator-active-color="{{black}}">
+                <block wx:for="{{categorys}}" wx:key="index">
+                    <swiper-item class="swiper-item">
+                        <view class="nav-row1">
+                            <view wx:for="{{ item[0] }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
+                                <image src="{{ item.Pic }}"></image>
+                                <view class="title">{{ item.Name }}</view>
+                            </view>
+                        </view>
+                        <view class="nav-row2">
+                            <view wx:for="{{ item[1] }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
+                                <image src="{{ item.Pic }}"></image>
+                                <view class="title">{{ item.Name }}</view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <!-- <scroll-view class='nav-row1' scroll-x="true" style="width: 100%">
                 <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
                         <view class="title">{{ item.Name }}</view>
                     </view>
                 </view>
-            </scroll-view>
+            </scroll-view> -->
             <!-- <view class="nav-row1">
                 <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
                     <image src="{{ item.Pic }}"></image>

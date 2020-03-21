@@ -100,19 +100,20 @@
   background-color: #fff;
 }
 
-.nav-list .nav-row1 {
-  /* display: flex;
+.nav-list .nav-row1, .nav-row2 {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; */
+  justify-content: space-between;
 }
 .nav-item {
+  flex-basis: 120rpx;
   display: inline-block;
   text-align: center;
   box-sizing: border-box;
-  color: white;
+  color: black;
   border-radius: 3px;
 }
-.nav-item .desc {
+.nav-item .title {
   font-size: 20rpx;
   color: black;
 }

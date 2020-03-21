@@ -57,23 +57,31 @@ Page({
       getBanners(), 
       getHotGoods(), 
       getNewGoods(), 
-      getCategoryList({ limit: 5, offset: 0 }),
+      getCategoryList({ limit: 100, offset: 0 }),
       getAdvertising()
     ])
     .then(([banners, hotItems, newGoods, categorys, advertising]) => {
       // 分类
-      let categorysOne = categorys.slice(0, 4)
-      let categorysTwo = categorys.slice(4)
+      categorys = this.formateCategorys(categorys)
       this.setData({
         banners,
         hotItems,
         newGoods,
         categorys,
-        categorysOne,
-        categorysTwo,
         advertising
       })
     })
+  },
+  formateCategorys(categorys) {
+    let pre = 0,  next = 10
+    let results = []
+    while(next < categorys.length) {
+      let re = categorys.slice(pre, next)
+      results.push([re.slice(0, 5), re.slice(5, 10)])
+      pre = next
+      next += 10
+    }
+    return results
   },
   onShow() {
     this.initData()
