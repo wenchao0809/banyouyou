@@ -15,6 +15,23 @@
       <text class="icon icon-youjiantou"></text>
     </view>
   </view>
+  <view class="my-order" >
+    <view class="title">
+      <view>我的订单</view>
+      <view>
+        <text>查看全部</text>
+        <text class="icon icon-gengduo"></text>
+      </view>
+    </view>
+    <view class="nav-items">
+      <view wx:for="{{orderNavItems}}" class="nav-item" bind:tap="toMyorder" data-url="{{ item.url }}">
+        <view>
+          <text class="{{ item.icon }}"></text>
+        </view>
+        <view>{{ item.name }}</view>
+      </view>
+    </view>
+  </view>
   <view class="my-distribute" bind:tap="toDistribute">
     <view class="wrap">
         <view class="left">

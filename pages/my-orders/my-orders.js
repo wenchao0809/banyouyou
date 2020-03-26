@@ -1,6 +1,9 @@
 // pages/my-orders/my-orders.js
 import { orderList } from '../../api/index.js'
 
+const nameMapIndex =  {
+  all: 0
+}
 Page({
 
   /**
@@ -9,28 +12,28 @@ Page({
   data: {
     tabBar: [
       {
-        num: 0,
+        tabName: 'all',
         text: '全部'
       },
       {
-        num: 0,
-        text: '待确认'
+        tabName: 'confirming',
+        text: '待发货'
       },
       {
-        num: 0,
-        text: '已确认发货'
+        tabName: 'confirmed',
+        text: '待收货'
       },
       {
-        num: 0,
-        text: '已收货'
+        tabName: 'received',
+        text: '待付款'
       },
       {
-        num: 0,
+        tabName: 'done',
         text: '已完成'
       }
     ],
     orderList: [],
-    curActiveTabIndex: 0,
+    curActiveTabName: 'all',
     adImg: 'http://chuantu.xyz/t6/703/1573008573x992245926.png'
   },
 
@@ -43,20 +46,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   getOrderList() {
-    let type = this.data.curActiveTabIndex
+    let type = nameMapIndex[this.data.curActiveTabName]
     orderList({ limit: 20, offset: 0, type })
       .then(res => {
         this.setData({ orderList: res })
       })
   },
-  clickTab({ currentTarget: { dataset: { index: index } } }) {
-    this.setData({ curActiveTabIndex: index })
+  clickTab({ currentTarget: { dataset: { tabName: tabName } } }) {
+    this.setData({ curActiveTabName: tabName })
     this.getOrderList()
   },
   goOrderDetail(e) {
     wx.navigateTo({ url: `/pages/orderdetail/orderdetail?id=${e.detail}` })
   },
   onLoad: function (options) {
+    if (options.tabName) {
+      this.setData({ curActiveTabName: options.tabName })
+    }
     this.getOrderList()
   },
   /**

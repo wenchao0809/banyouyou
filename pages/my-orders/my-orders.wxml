@@ -2,8 +2,8 @@
 <view class="my-orders-container">
   <view class="orders-tabBar-top">
     <view 
-      class="orders-tabBar-item {{ curActiveTabIndex === index ? 'active' : '' }}" wx:for="{{ tabBar }}" 
-      bind:tap="clickTab" data-index="{{ index}}">
+      class="orders-tabBar-item {{ curActiveTabName === item.tabName ? 'active' : '' }}" wx:for="{{ tabBar }}" 
+      bind:tap="clickTab" data-tab-name="{{ item.tabName}}">
       <!-- <text>{{ item.num }}</text> -->
       <text style="font-weight: bold;margin-top: 10rpx;">{{ item.text }}</text>
     </view>

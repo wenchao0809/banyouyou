@@ -1,6 +1,6 @@
-.my {
+/* .my {
   background: white;
-}
+} */
 .header .photo image {
   width: 165rpx;
   height: 165rpx;
@@ -131,4 +131,37 @@
   line-height: 36rpx;
   font-weight: 700;
   color: rgba(26, 34, 79, 1);
+}
+
+.my-order {
+  padding: 0 20rpx;
+}
+.my-order .title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.my-order .title text {
+  font-size: 20rpx;
+}
+.my-order .title .icon-gengduo {
+  margin-left: 5rpx;
+}
+.my-order .nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  background-color: white;
+}
+
+.my-order .nav-items .nav-item {
+  text-align: center;
+}
+.my-order .nav-items .nav-item .icon {
+  font-size: 60rpx;
+  color: #f53b2a;
 }

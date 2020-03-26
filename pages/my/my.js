@@ -10,6 +10,28 @@ const app = getApp()
 
 Page({
   data: {
+    orderNavItems: [
+      {
+        name: '待付款',
+        icon: 'icon icon-daifukuan',
+        url: '/pages/my-orders/my-orders?tabName=received'
+      },
+      {
+        name: '待发货',
+        icon: 'icon icon-daifahuo',
+        url: '/pages/my-orders/my-orders?tabName=confirming'
+      },
+      {
+        name: '待收货',
+        icon: 'icon icon-daishouhuo',
+        url: '/pages/my-orders/my-orders?tabName=confirmed'
+      }, 
+      {
+        name: '退款/售后',
+        icon: 'icon icon-tuikuan',
+        url: '/pages/my-orders/my-orders?tabName=confirmed'
+      }
+    ],
     serveItems: [
       {
         name: '我的订单',
@@ -77,6 +99,9 @@ Page({
     wx.navigateTo({
       url: '/pages/member/member'
     })
+  },
+  toMyorder({currentTarget: { dataset: { url: url } }}) {
+    wx.navigateTo({ url})
   },
   toDistribute() {
     wx.navigateTo({ url: '/pages/distributor/distributor' })
