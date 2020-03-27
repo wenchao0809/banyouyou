@@ -103,6 +103,10 @@ Page({
   toMyorder({currentTarget: { dataset: { url: url } }}) {
     wx.navigateTo({ url})
   },
+  logout() {
+    wx.removeStorageSync('token')
+    wx.navigateTo({ url: '/pages/login/login' })
+  },
   toDistribute() {
     wx.navigateTo({ url: '/pages/distributor/distributor' })
   }
