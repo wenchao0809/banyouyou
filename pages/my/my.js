@@ -12,11 +12,6 @@ Page({
   data: {
     orderNavItems: [
       {
-        name: '待付款',
-        icon: 'icon icon-daifukuan',
-        url: '/pages/my-orders/my-orders?tabName=received'
-      },
-      {
         name: '待发货',
         icon: 'icon icon-daifahuo',
         url: '/pages/my-orders/my-orders?tabName=confirming'
@@ -25,19 +20,24 @@ Page({
         name: '待收货',
         icon: 'icon icon-daishouhuo',
         url: '/pages/my-orders/my-orders?tabName=confirmed'
-      }, 
+      },
+      {
+        name: '结算明细',
+        icon: 'icon icon-daifukuan',
+        url: '/pages/my-orders/my-orders?tabName=received'
+      },
       {
         name: '退款/售后',
         icon: 'icon icon-tuikuan',
-        url: '/pages/my-orders/my-orders?tabName=confirmed'
+        url: '/pages/my-orders/my-orders?tabName=refund'
       }
     ],
     serveItems: [
-      {
-        name: '我的订单',
-        icon: 'icon icon-dingdan',
-        url: '/pages/my-orders/my-orders'
-      },
+      // {
+      //   name: '我的订单',
+      //   icon: 'icon icon-dingdan',
+      //   url: '/pages/my-orders/my-orders'
+      // },
       {
         name: '我的优惠券',
         icon: 'icon icon-quan',

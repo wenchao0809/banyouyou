@@ -18,7 +18,7 @@
   <view class="my-order" >
     <view class="title">
       <view>我的订单</view>
-      <view>
+      <view bind:tap="toMyorder" data-url="/pages/my-orders/my-orders?tabName=all">
         <text>查看全部</text>
         <text class="icon icon-gengduo"></text>
       </view>
@@ -54,4 +54,11 @@
     </view>
   </view>
   <view class="my-helper"></view>
+  <button 
+    class="logout-button"
+    type="default" 
+    size="{{mini}}" 
+    bindtap="logout"> 
+    退出登录 
+    </button>
 </view>

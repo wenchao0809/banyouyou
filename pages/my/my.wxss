@@ -74,11 +74,16 @@
   margin-left: 10rpx;
 }
 
+.my-serve {
+  padding: 0 20rpx;
+}
 .serve-item {
   display: flex;
   justify-content: space-between;
-  align-items: top;
-  margin-bottom: 60rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  background-color: white;
 }
 .serve-item .icon {
   display: inline-block;
@@ -114,8 +119,9 @@
 .serve-item .navigator {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  padding-bottom: 30rpx;
+  align-items: center;
+  /* padding-bottom: 30rpx; */
+  height: 100rpx;
   width: 708rpx;
   border-bottom: rgb(238, 239, 240) 0.5rpx solid;
 }
@@ -164,4 +170,14 @@
 .my-order .nav-items .nav-item .icon {
   font-size: 60rpx;
   color: #f53b2a;
+}
+
+.logout-button {
+  margin: 30rpx 20px;
+  height: 100rpx;
+  border-radius: 50rpx;
+  border: 1rpx solid #d5d6d7;
+  background-color: white !important;
+  /* height: 120rpx; */
+  /* width: 80%; */
 }

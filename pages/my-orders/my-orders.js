@@ -1,8 +1,12 @@
 // pages/my-orders/my-orders.js
 import { orderList } from '../../api/index.js'
 
-const nameMapIndex =  {
-  all: 0
+const nameMapOrderType =  {
+  all: 0,
+  confirming: 1,
+  confirmed: 2,
+  received: 3,
+  refund: -1
 }
 Page({
 
@@ -25,12 +29,16 @@ Page({
       },
       {
         tabName: 'received',
-        text: '待付款'
+        text: '结算明细'
       },
       {
-        tabName: 'done',
-        text: '已完成'
+        tabName: 'refund',
+        text: '退款/售后'
       }
+      // {
+      //   tabName: 'done',
+      //   text: '已完成'
+      // }
     ],
     orderList: [],
     curActiveTabName: 'all',
@@ -46,7 +54,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   getOrderList() {
-    let type = nameMapIndex[this.data.curActiveTabName]
+    let type = nameMapOrderType[this.data.curActiveTabName]
     orderList({ limit: 20, offset: 0, type })
       .then(res => {
         this.setData({ orderList: res })
