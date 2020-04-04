@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import { getToken } from '../../utils/http'
-import  { getUserInfo } from '../../api/index'
+import { getUserInfo, uploadImage } from '../../api/index'
 import { connect, extract } from 'mobx-wxapp'
 import { user } from '../../store/index'
 import { USERINFO } from '../../utils/constant'
@@ -69,9 +69,12 @@ Page({
         url: ''
       }
     ],
-    user: {}
+    user: {},
+    couponCount: 0
   },
   onLoad() {
+    let userInfo = wx.getStorageSync(USERINFO)
+    this.setData({ couponCount: userInfo.CouponCount })
     console.log('load my page')
     connect(this, () => ({
       user: { ...extract(user) }
@@ -98,6 +101,29 @@ Page({
   goMember () {
     wx.navigateTo({
       url: '/pages/member/member'
+    })
+  },
+  goCoupon() {
+    wx.navigateTo({
+      url: '/pages/my-coupon/my-coupon'
+    })
+  },
+  takePhoto() {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        console.log(res)
+        const tempFilePaths = res.tempFilePaths
+        uploadImage({ filePath: tempFilePaths[0], name: 'file' })
+          .then(res => {
+            console.log('headerPic', res)
+            user.changeUser({ HeaderPic: res })
+          })
+      }
     })
   },
   toMyorder({currentTarget: { dataset: { url: url } }}) {

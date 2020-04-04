@@ -1,19 +1,40 @@
 <!-- index.wxml -->
 <view class="my">
-  <view class="header" bindtap="goMember">
-    <view class="photo">
-        <image src="/image/banner2.jpg"></image>
-    </view>
-    <view class="name-and-phone">
-      <view class="name">{{ user.Name }}</view>
-      <view class="phone">
-        <text class="icon icon-shouji2"></text>
-        <text class="number">{{ user.Phone }}</text>
+  <view class="header-bg">
+    <view class="header">
+      <view class="header-top">
+        <view class="photo" bind:tap="takePhoto">
+          <image src="{{ user.HeaderPic || '/image/banner2.jpg' }}"></image>
+        </view>
+        <view class="header-detail">
+          <view class="detail-top">
+            <view class="top-left">
+              <text class="detail-name">{{ user.Name }}</text>
+              <!-- <text class="detail-memberDesc">黄金会员</text> -->
+              <text class="detail-rank">{{ user.VipLevelStr }}</text>
+            </view>
+            <text class="detail-rankDesc">会员等级升级</text>
+          </view>
+          <text class="detail-number">{{ user.Phone }}</text>
+        </view>
       </view>
-    </view>
-    <view class="to-user-detail">
-      <text class="icon icon-youjiantou"></text>
-    </view>
+      <view class="header-tabbar">
+        <view class="tab-item">
+          <text class="number">5</text>
+          <text class="desc">收藏夹</text>
+        </view>
+        <view class="tab-item" bindtap="goCoupon">
+          <text class="number">{{ couponCount }}</text>
+          <text class="desc">优惠券</text>
+        </view>
+        <view class="tab-item">
+          <text class="number">{{ user.Points }}</text>
+          <text class="desc">我的积分</text>
+        </view>
+      </view>
+  </view>
+  <view class="header-btn" bindtap="goMember">进入会员中心</view>
+  <view class="header-mask"></view>
   </view>
   <view class="my-order" >
     <view class="title">
