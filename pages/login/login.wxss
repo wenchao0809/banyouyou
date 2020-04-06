@@ -1,24 +1,79 @@
 .login-wrap {
-    padding: 0 70rpx;
+    height: 100vh;
+    background-color: white;
 }
 
+.login-wrap .wrap {
+    /* width: 80%; */
+    padding-bottom: 40rpx;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    /* border: 0.5rpx solid gray;
+     */
+    box-shadow:  0rpx 1rpx 2rpx 2rpx #c2c2c2;
+    border-radius: 10rpx;
+}
+
+
+
+.tab {
+    display: flex;
+    margin-bottom: 60rpx;
+}
+
+.tab-item {
+    flex: 50%;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fead41;
+    text-align: center;
+    border-radius: 5rpx;
+}
+.tab-item.active {
+    color: white;
+    background-color: #e9452c;
+}
+.sms-form, .password-form {
+    text-align: center;
+}
 .form-item {
     /* display: flex; */
-    width: 100%;
-    padding: 40rpx 0 10rpx 0;
-    border-bottom: 1px solid gray;
-    vertical-align: middle;
+    /* width: 100%; */
+    /* padding: 40rpx 0 10rpx 0; */
+    /* border-bottom: 1px solid gray; */
+    /* vertical-align: middle;
+     */
+     height: 60rpx;
+     border: 1px solid #fead41;
+     margin-bottom: 20rpx;
     color: #c2c2c2;
-}
-.form-item text, view, input {
-    display: inline-block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30rpx;
     vertical-align: middle;
 }
-
 .form-item input {
-    width: 500rpx;
+    /* display: inline-block; */
+    /* width: 500rpx; */
+    height: 60rpx;
+}
+.form-item-sms  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-item-sms input {
+    flex: 1;
+    display: inline-block;
+}
+.form-item-sms .send-sms {
+    display: inline-block;
+    margin-right: 10rpx;
+    color: #fead41;
 }
 .form-item .icon {
+    display: inline-block;
     margin-right: 35rpx;
     font-size: 40rpx;
 }
@@ -34,11 +89,12 @@
     margin: 0 auto;
 }
 .button-wrap .button {
-    margin-top: 110rpx;
     text-align: center;
     line-height: 90rpx;
     height: 90rpx;
-    width: 600rpx;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 110rpx;
     border-radius: 50rpx;
     color: white;
     background: #e9452c;
@@ -46,6 +102,7 @@
 
 .to-register {
     margin-top: 20rpx;
+    /* margin-bottom: 40rpx; */
     width: 100%;
     text-align: center;
     color: #e9452c;

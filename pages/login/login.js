@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
     data: {
+        activeTab: 1,
         form: {
             phone: '',
             password: ''
@@ -33,5 +34,8 @@ Page({
                 wx.setStorage({ key: 'token', data: res })
                 wx.switchTab({ url: '/pages/home/home', fail: function(error) { console.log(error) } })
             })
+    },
+    handleClickTab(e) {
+       this.setData({ activeTab:  e.currentTarget.dataset.index }) 
     }
 })

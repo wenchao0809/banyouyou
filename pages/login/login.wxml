@@ -5,28 +5,59 @@
         </view>
         <view>板优优</view>
     </view>
-    <view class="form">
-        <form action="">
-            <view class="form-item">
-                <text class="icon icon-yonghu"></text>
-                <input 
-                type="text" 
-                placeholder-class="placeholder" 
-                placeholder="用户名/邮箱" 
-                data-name="phone" 
-                bind:input="inputChange" />
+    <view class="wrap">
+        <view class="tab">
+            <view class="tab-item {{ activeTab === 1 ? 'active' : '' }}" data-index="{{1}}" bind:tap="handleClickTab">
+                验证码登录
             </view>
-             <view class="form-item">
-                <text class="icon icon-mima"></text>
-                <input 
-                    type="password" 
+            <view class="tab-item {{ activeTab === 2 ? 'active' : '' }}" data-index="{{2}}" bind:tap="handleClickTab">
+                账号密码登录
+            </view>
+        </view>
+        <view class="sms-form" wx:if="{{ activeTab === 1 }}">
+            <form action="">
+                <view class="form-item">
+                    <!-- <text class="icon icon-yonghu"></text> -->
+                    <input 
+                    type="text" 
                     placeholder-class="placeholder" 
-                    data-name="password"
-                    bind:input="inputChange"
-                    placeholder="字母+字数,至少八位数密码" />
-            </view>
-        </form>
-    </view>
+                    placeholder="已验证手机号码" 
+                    data-name="phone" 
+                    bind:input="inputChange" />
+                </view>
+                <view class="form-item form-item-sms">
+                    <!-- <text class="icon icon-mima"></text> -->
+                    <input 
+                        placeholder-class="placeholder" 
+                        data-name="password"
+                        bind:input="inputChange"
+                        placeholder="请输入验证码" />
+                    <view class="send-sms" bind:tap="sendSms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
+                </view>
+            </form>
+        </view>
+        <view class="password-form" wx:if="{{ activeTab === 2 }}">
+            <form action="">
+                <view class="form-item">
+                    <!-- <text class="icon icon-yonghu"></text> -->
+                    <input 
+                    type="text" 
+                    placeholder-class="placeholder" 
+                    placeholder="用户名/邮箱" 
+                    data-name="phone" 
+                    bind:input="inputChange" />
+                </view>
+                <view class="form-item">
+                    <!-- <text class="icon icon-mima"></text> -->
+                    <input 
+                        type="password" 
+                        placeholder-class="placeholder" 
+                        data-name="password"
+                        bind:input="inputChange"
+                        placeholder="字母+字数,至少八位数密码" />
+                </view>
+            </form>
+        </view>
     <view class="button-wrap" bind:tap="login">
         <view class="button">登录</view>
     </view>
@@ -34,5 +65,6 @@
         <text>没有账号？</text>
         <text class="link" bind:tap="toRegister">注册个人账号</text>
         <text class="link" bind:tap="toBusinessRegister" style="margin-left: 10rpx">注册企业账号</text>
+    </view>
     </view>
 </view>

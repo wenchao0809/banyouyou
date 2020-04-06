@@ -3,6 +3,7 @@
   height: 270rpx;
   width: 620rpx;
   background: url(https://i.ibb.co/SPYJX24/o.png);
+  background-size: cover;
   margin: 20rpx auto;
 }
 
