@@ -19,3 +19,14 @@ view, text {
   width: 100%;
   background: #f3f3f3;
 }
+
+input {
+  margin-left: 20rpx;
+  text-align: left;
+}
+
+.placeholder {
+  margin-left: 20rpx;
+  text-align: left;
+  color: #c2c2c2;
+}

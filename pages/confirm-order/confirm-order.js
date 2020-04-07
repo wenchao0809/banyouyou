@@ -106,9 +106,10 @@ Page({
         var userInfo = wx.getStorageSync(USERINFO)
         if (goodList) {
           let totalMoney = goodList.reduce((p, n) => p + n.price * n.count, 0)
+          // 服务端保存折扣是乘1000, 比如 997就是0.997
           let vipTotalMoney = Math.floor(totalMoney * (userInfo.Discount / 1000))
           let vipDiscountMoney = Math.ceil(parseInt(totalMoney * (1 - userInfo.Discount / 1000)))
-          this.setCouponList(vipTotalMoney)
+          this.setCouponList(totalMoney)
           this.setData({
             userInfo,
             address,

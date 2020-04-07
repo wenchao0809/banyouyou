@@ -161,10 +161,12 @@ Page({
       })
   },
   tapToConfirmOrder() {
+    if (this.data.totalCount === 0) {
+      wx.showToast({title: '你还没有选择商品哦',icon:"none"});
+    }
     let { cartList } = this.data
     let goods = cartList.filter(item => item.select)
     if (goods.length === 0) return 
-    debugger
     setConfirmGoodList(goods)
     wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=2' })
   },

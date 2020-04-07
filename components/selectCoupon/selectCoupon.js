@@ -20,6 +20,11 @@ Component({
       type: Array,
       value: []
     },
+     // 订单总金额
+     totalMoney: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**
@@ -41,7 +46,14 @@ Component({
       this.setData({ activeTabIndex: e.detail })
     },
     selectCoupon(e) {
-      this.triggerEvent('selectCoupon', e.detail)
+      // 总金额减去已优惠金额
+      let checkedList = this.properties.availableCouponList.filter((item) => item.checked)
+      let availableMoney = totalMoney - checkedList.reduce((p, n) => p + n.FullPrice)
+      if (availableMoney > e.detail.FullPrice) {
+        this.triggerEvent('selectCoupon', e.detail)
+      } else {
+        wx.showToast({title: '请先取消勾选其他优惠券',icon:"none"});
+      }
     }
   }
 })

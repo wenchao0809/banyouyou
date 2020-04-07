@@ -46,12 +46,12 @@
                     <view class="operate" wx:if="{{ userInfo.Discount }}">减 {{ vipDiscountMoney / 100 }}元</view>
                     <view class="operate" wx:else>暂无可用</view>
                 </view>
-                <view class="coupon">
+                <view class="coupon" bind:tap="showCouponSelector">
                     <view class="label">
                         <text class="icon icon-quan1"></text>
                         <view>优惠券</view>
                     </view>
-                    <view class="operate" wx:if="{{ discountMoney > 0 }}" bind:tap="showCouponSelector">减 {{ discountMoney / 100 }}元</view>
+                    <view class="operate" wx:if="{{ discountMoney > 0 }}">减 {{ discountMoney / 100 }}元</view>
                     <view class="operate" wx:else>暂无可用</view>
                 </view>
             </view>

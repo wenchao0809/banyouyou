@@ -62,6 +62,10 @@ Page({
     ])
     .then(([banners, hotItems, newGoods, categorys, advertising]) => {
       // 分类
+      banners = banners.map(item => {
+        item.Info = JSON.parse(item.Info)
+        return item
+      })
       categorys = this.formateCategorys(categorys)
       this.setData({
         banners,
