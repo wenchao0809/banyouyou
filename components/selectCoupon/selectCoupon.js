@@ -47,12 +47,16 @@ Component({
     },
     selectCoupon(e) {
       // 总金额减去已优惠金额
-      let checkedList = this.properties.availableCouponList.filter((item) => item.checked)
-      let availableMoney = totalMoney - checkedList.reduce((p, n) => p + n.FullPrice)
-      if (availableMoney > e.detail.FullPrice) {
+      if (!e.detail.checked) {
         this.triggerEvent('selectCoupon', e.detail)
       } else {
-        wx.showToast({title: '请先取消勾选其他优惠券',icon:"none"});
+        let checkedList = this.properties.availableCouponList.filter((item) => item.checked)
+        let availableMoney = this.properties.totalMoney - checkedList.reduce((p, n) => p + n.FullPrice, 0)
+        if (availableMoney >= e.detail.FullPrice) {
+          this.triggerEvent('selectCoupon', e.detail)
+        } else {
+          wx.showToast({title: '请先取消勾选其他优惠券',icon:"none"});
+        }
       }
     }
   }

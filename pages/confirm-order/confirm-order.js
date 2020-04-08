@@ -91,7 +91,8 @@ Page({
         }
       }
       orderAvailableCouponList.splice(i, 1, curCoupon)
-      let discountMoney = orderAvailableCouponList.reduce((p, n) => p + n.Price, 0)
+      let checkedCouponList = orderAvailableCouponList.filter(item => item.checked)
+      let discountMoney = checkedCouponList.reduce((p, n) => p + n.Price, 0)
       this.setData({ orderAvailableCouponList, discountMoney, orderMoney: totalMoney - (vipDiscountMoney + discountMoney)  })
     },
     onLoad(options) {

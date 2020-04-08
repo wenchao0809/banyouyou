@@ -61,7 +61,8 @@
             </view>
         </view>
     </view>
-    <couponSelector 
+    <couponSelector
+        totalMoney="{{ totalMoney }}"
         show="{{ showCouponSelector }}" 
         availableCouponList="{{ orderAvailableCouponList }}" 
         bind:onClose="closeCouponSelector"
