@@ -14,6 +14,7 @@
                 </view>
             </picker>
         </view> -->
+        <image class="logo" src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-14/7346a58c-b209-41b0-8c0a-83034f5479f4.png" />
         <view class="search-input">
             <!-- <i>
                 <image src="/image/ati.png" />

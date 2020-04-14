@@ -15,13 +15,15 @@
     z-index: 1;
     transition:all .5s;
 }
-
+.search-container .logo {
+  height: 60rpx;
+}
 .search-container .search-input {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 60rpx;
-  border-radius: 5rpx;
+  border-radius: 30rpx;
 }
 .search-container input {
   display: inline-block;
