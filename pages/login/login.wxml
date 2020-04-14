@@ -1,9 +1,8 @@
 <view class="login-wrap">
     <view class="nick-and-photo">
         <view class="photo">
-            <view>头像</view>
+            <image src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg"></image>
         </view>
-        <view>板优优</view>
     </view>
     <view class="wrap">
         <view class="tab">
@@ -23,14 +22,14 @@
                     placeholder-class="placeholder" 
                     placeholder="已验证手机号码" 
                     data-name="phone" 
-                    bind:input="inputChange" />
+                    bind:input="smsInputChange" />
                 </view>
                 <view class="form-item form-item-sms">
                     <!-- <text class="icon icon-mima"></text> -->
                     <input 
                         placeholder-class="placeholder" 
-                        data-name="password"
-                        bind:input="inputChange"
+                        data-name="code"
+                        bind:input="smsInputChange"
                         placeholder="请输入验证码" />
                     <view class="send-sms" bind:tap="sendSms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
                 </view>

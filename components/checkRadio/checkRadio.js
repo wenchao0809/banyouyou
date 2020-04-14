@@ -3,6 +3,7 @@ Component({
     /**
      * 组件的属性列表
      */
+    externalClasses: ['check-raio'],
     properties: {
       color: { // 选中颜色
         type: String,

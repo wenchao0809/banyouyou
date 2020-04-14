@@ -4,7 +4,7 @@
     <view class="header">
       <view class="header-top">
         <view class="photo" bind:tap="takePhoto">
-          <image src="{{ user.HeaderPic || '/image/banner2.jpg' }}"></image>
+          <image src="{{ user.HeaderPic || 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg' }}"></image>
         </view>
         <view class="header-detail">
           <view class="detail-top">
@@ -19,10 +19,10 @@
         </view>
       </view>
       <view class="header-tabbar">
-        <view class="tab-item">
+        <!-- <view class="tab-item">
           <text class="number">5</text>
           <text class="desc">收藏夹</text>
-        </view>
+        </view> -->
         <view class="tab-item" bindtap="goCoupon">
           <text class="number">{{ couponCount }}</text>
           <text class="desc">优惠券</text>

@@ -7,7 +7,15 @@
   margin-bottom: 10rpx;
   background: #fff;
 }
-
+.header .check {
+  display: inline-block;
+  vertical-align: middle;
+}
+.header image {
+  width: 84px;
+  height: 32px;
+  vertical-align: middle;
+}
 .header .select-all {
   padding-left: 20rpx;
 }

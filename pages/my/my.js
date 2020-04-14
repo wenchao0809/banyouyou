@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import { getToken } from '../../utils/http'
-import { getUserInfo, uploadImage } from '../../api/index'
+import { getUserInfo, uploadImage, updateHeadPic } from '../../api/index'
 import { connect, extract } from 'mobx-wxapp'
 import { user } from '../../store/index'
 import { USERINFO } from '../../utils/constant'
@@ -121,7 +121,10 @@ Page({
         uploadImage({ filePath: tempFilePaths[0], name: 'file' })
           .then(res => {
             console.log('headerPic', res)
-            user.changeUser({ HeaderPic: res })
+            updateHeadPic({ url: res })
+              .then(userInfo => {
+                user.changeUser({ HeaderPic: res })
+              })
           })
       }
     })

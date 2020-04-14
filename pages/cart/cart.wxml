@@ -5,7 +5,10 @@
   </view>
   <view wx:else class='section'>
     <view class="header">
-      <checkRadio class="select-all" catch:change="selectAll" checked="{{selectAll}}"></checkRadio>
+      <view class="left">
+        <checkRadio check-raio="check" class="select-all" catch:change="selectAll" checked="{{selectAll}}"></checkRadio>
+        <image src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-13/bcc07c4d-b8e4-4d02-a2d0-41b796a889bd.png"></image>
+      </view>
       <text class="icon icon-shanchu" bind:tap="deleteSelect"></text>
     </view>
     <block wx:for='{{cartList}}' wx:key="index">

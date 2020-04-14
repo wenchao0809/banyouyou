@@ -138,3 +138,8 @@ export function getMappQrCode(data) {
   return http._request('/user/getwxacodeunlimit', { data })
   .then(res => res.data)
 }
+
+export function updateHeadPic(data) {
+  return http._request('/user/update/header', { data})
+    .then(res => res.data)
+}

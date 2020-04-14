@@ -82,6 +82,8 @@
     width: 300rpx;
 }
 .placeholder {
+    margin-left: 20rpx;
+    text-align: left;
     color: #c2c2c2;
 }
 
