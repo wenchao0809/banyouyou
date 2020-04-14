@@ -3,20 +3,21 @@
 .search-container {
     position: fixed;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     box-sizing: border-box;
     padding: 20rpx 0;
     padding-right: 20rpx;
     width: 100%;
     left: 50%;
     top: 0;
-    background: #c40200;
+    background: #d72205;
     transform: translateX(-50%);
     z-index: 1;
     transition:all .5s;
 }
 .search-container .logo {
   height: 60rpx;
+  width: 150rpx;
 }
 .search-container .search-input {
   display: flex;
