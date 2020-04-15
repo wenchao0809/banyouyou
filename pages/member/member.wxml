@@ -1,15 +1,36 @@
 <!--pages/member/member.wxml-->
 <view class="member-container">
-  <view class="member-card" bindtap="showModal">
-    <view class="member-card-grade white">会员卡</view>
-    <view class="member-card-number white">NO.1345445564667567</view>
-    <view class="member-card-privilege white">
-      <text>查看会员专属特权</text>
-      <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
+  <view class="bg-top">
+    <view class="member-card">
+      <view class="integral-privilege" bindtap="showModal">积分特权</view>
+      <view class="member-desc-top">
+        <image src="{{ user.HeaderPic || 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg' }}"></image>
+        <view class="member-detail">
+          <view class="detail-top">
+            <view class="top-left">
+              <text class="detail-number">{{ user.Phone }}</text>
+              <!-- <text class="detail-memberDesc">黄金会员</text> -->
+              <text class="detail-rank">{{ vipLevelStr }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style="display: flex;" wx:if="{{ userInfo.VipLevel < 11 }}">
+        <progress style="width: 380rpx;" border-radius="20rpx" activeColor="#fff" backgroundColor="#ac8c53" stroke-width="7" percent="{{percent}}" active />
+        <text style="margin-left: 20rpx;font-size: 24rpx;color: #fff;">{{ userInfo.Points }}/{{nextPoints}} 积分</text>
+      </view>
+      <view style="font-size: 24rpx;color: #fff;">当前积分距离下一等级还差 {{ nextPoints - userInfo.Points }} 积分</view>
+      <view style="font-size: 24rpx;color: #fff;">下一等级：{{nextLevelStr}}</view>
     </view>
   </view>
-  <view class="member-bg"></view>
-  <view class="member-descTab">
+  <view class="member-coupon">
+    <view>已享有优惠券</view>
+  </view>
+  <view class="member-illustrate">
+    <view style="font-size: 30rpx;">会员说明：</view>
+    <view></view>
+  </view>
+  <!-- <view class="member-descTab">
     <view class="member-descTab-item" bindtap="goCoupon">
       <text>优惠券</text>
       <text class="red">{{userInfo.CouponCount}}张</text>
@@ -22,8 +43,8 @@
       <text>积分</text>
       <text class="red">{{ userInfo.Points }}</text>
     </view>
-  </view>
-  <view class="member-desc">
+  </view> -->
+  <!-- <view class="member-desc">
     <view class="member-desc-grade">
       <view class="member-desc-grade-title">当前等级： {{vipLevelStr}}</view>
       <view class="member-desc-integral" wx:if="{{ userInfo.VipLevel < 11 }}">积分距离下一等级：</view>
@@ -31,7 +52,7 @@
         <progress percent="{{percent}}" active />
       </view>
     </view>
-    <view class="divider"></view>
+    <view class="divider"></view> -->
     <!-- <view class="member-desc-item" bindtap="goMemberData">
       <text>会员资料</text>
       <view>
@@ -39,7 +60,7 @@
         <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
       </view>
     </view> -->
-    <view class="divider"></view>
+    <!-- <view class="divider"></view>
     <view class="member-desc-item" bindtap="goMemberIntroduction">
       <text>会员等级介绍</text>
       <view>
@@ -47,13 +68,13 @@
         <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
       </view>
     </view>
-  </view>
+  </view> -->
   <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">
     <view slot="content" class="member-card-modal">
-      <view class="member-card">
+      <!-- <view class="member-card">
         <view class="member-card-grade white">{{currentIntegral.title}}</view>
         <view class="member-card-number white">NO.1345445564667567</view>
-      </view>
+      </view> -->
       <view class="member-card-modal-title">当前特权</view>
       <view class="member-card-modal-content">
         <text>1.{{privilegeDesc[userInfo.VipLevel]}}</text>

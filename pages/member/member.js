@@ -1,5 +1,7 @@
 // pages/member/member.js
 import { USERINFO } from '../../utils/constant'
+import { connect, extract } from 'mobx-wxapp'
+import { user } from '../../store/index'
 const vipLevelMapStr = {
   '0': 'VIP0',
   '1': 'VIP1',
@@ -65,7 +67,9 @@ Page({
       "2000000"
     ],
     percent: 0,
-    nextPoints: 0
+    nextPoints: 0,
+    nextLevelStr: '',
+    user: {}
   },
 
   showModal () {
@@ -102,21 +106,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    connect(this, () => ({
+      user: { ...extract(user) }
+    }))
     let userInfo = wx.getStorageSync(USERINFO)
     let vipLevelStr = vipLevelMapStr[userInfo.VipLevel]
     let nextPoints,
         percent
 
-    if (userInfo.VipLevel < 11) {
-      let nextLevel = userInfo.VipLevel + 1
-      let nextLevelStr = vipLevelMapStr[nextLevel]
-      let curPoints = userInfo.Points
-      let curLevelPoints = integrals[vipLevelStr]
-      nextPoints = integrals[nextLevelStr]
-      let donePoints = curPoints - curLevelPoints
-      percent = donePoints / (nextPoints - curLevelPoints)
-    }
-    this.setData({ userInfo, percent, nextPoints, vipLevelStr })
+    // if (userInfo.VipLevel < 11) {
+    //   let nextLevel = userInfo.VipLevel + 1
+    //   let nextLevelStr = vipLevelMapStr[nextLevel]
+    //   let curPoints = userInfo.Points
+    //   let curLevelPoints = integrals[vipLevelStr]
+    //   nextPoints = integrals[nextLevelStr]
+    //   let donePoints = curPoints - curLevelPoints
+    //   percent = donePoints / (nextPoints - curLevelPoints)
+    // }
+    let nextLevel = userInfo.VipLevel < 11 ? userInfo.VipLevel + 1 : userInfo.VipLevel
+    let nextLevelStr = vipLevelMapStr[nextLevel]
+    let curPoints = userInfo.Points
+    let curLevelPoints = integrals[vipLevelStr]
+    nextPoints = integrals[nextLevelStr]
+    let donePoints = curPoints - curLevelPoints
+    percent = donePoints / (nextPoints - curLevelPoints)
+    this.setData({ userInfo, percent, nextPoints, vipLevelStr, nextLevelStr })
   },
 
   /**
