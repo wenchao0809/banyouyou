@@ -15,7 +15,8 @@ Page({
     Status2Total: 0,
     Status3Total: 0,
     couponList: [],
-    loadMore: '正在加载...'
+    loadMore: '正在加载...',
+    couponCustomStyle: `background-image: url("https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-15/363f5fe1-5f4a-4e26-978f-9d4d0b086e99.jpeg"); background-size: cover`
   },
 
   getList(type = 'load') {

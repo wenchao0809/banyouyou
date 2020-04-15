@@ -1,4 +1,40 @@
 <view class="caregory-wrap">
+  <view class="search-container {{scrollFlag ? 'active' : ''}}">
+        <!-- <view class="search-icon">
+            <image class="search-img" src="/image/ai3.png" />
+        </view> -->
+        <!-- <view class="location">
+            <view class="province">
+                {{ region[0] }}
+            </view>
+            <picker class="region-picker"  mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="city">
+                    {{region[1]}}
+                </view>
+            </picker>
+        </view> -->
+        <view class="search-input">
+            <!-- <i>
+                <image src="/image/ati.png" />
+            </i> -->
+            <input 
+                type="text"
+                bindinput="searchChange"
+                bindconfirm="toGoodList"
+                value="{{ searchText }}"
+                placeholder-class="place-holder"
+                confirm-type="search"
+                placeholder="请输入您要搜索的商品" />
+            <text class="icon icon-sousuo" catchtap="toGoodList"></text>
+        </view>
+        <button class="chat-type-item" bindcontact="handleContact" plain open-type="contact">
+        <text class="icon icon-conversation_icon"></text>
+          <!-- <text>聊天</text> -->
+        </button>
+        <!-- <view class="search-icon">
+            <image class="search-img" src="/image/ahw.png" />
+        </view> -->
+    </view>
   <view class='caregory'>
     <scroll-view class="nav_left" scroll-y>
       <block wx:for="{{navLeftItems}}" wx:key="index">

@@ -10,7 +10,11 @@
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;" bindscrolltoupper="refreshData" bindscrolltolower="loadMore">
           <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
-            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
+            <couponItem 
+              wx:for="{{ couponList }}" 
+              customeStyle="{{couponCustomStyle}}"
+              couponInfo="{{ item }}" 
+              disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
           <view class="none-data" wx:else>暂无更多数据</view>
@@ -22,7 +26,7 @@
             <couponItem 
               wx:for="{{ couponList }}" 
               couponInfo="{{ item }}"
-              customeStyle="background: gray;"
+              customeStyle="{{couponCustomStyle}}"
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
@@ -32,7 +36,11 @@
       <swiper-item>
         <scroll-view scroll-y="{{true}}" style="height: 100%;">
           <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
-            <couponItem wx:for="{{ couponList }}" couponInfo="{{ item }}" disableSelect="true" />
+            <couponItem 
+              wx:for="{{ couponList }}" 
+              couponInfo="{{ item }}" 
+              customeStyle="{{couponCustomStyle}}"
+              disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
           <view class="none-data" wx:else>暂无更多数据</view>

@@ -162,3 +162,77 @@
 .good-item .operate .icon {
   font-size: 60rpx;
 }
+
+.search-container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+  /* padding-right: 20rpx; */
+  width: 100%;
+  left: 50%;
+  top: 0;
+  background: #d72205;
+  transform: translateX(-50%);
+  z-index: 1;
+  transition:all .5s;
+}
+.search-container .logo {
+height: 60rpx;
+width: 150rpx;
+}
+.search-container .search-input {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+height: 60rpx;
+border-radius: 30rpx;
+}
+.search-container input {
+display: inline-block;
+width: 80%;
+margin-right: 10rpx;
+color: gray;
+font-weight: bold;
+}
+
+.active .search-input {
+  border: 1rpx solid #ccc;
+}
+
+
+
+.search-container .icon-sousuo{
+  display: inline-block;
+  color: gray;
+  font-weight: bold;
+}
+
+.search-container .search-input {
+  position: relative;
+  background-color: white;
+  padding-right: 10rpx;
+  font-size: 24rpx;
+  width: 60%;
+  color:white;
+}
+.search-container  .location {
+flex: 1;
+}
+.chat-type-item {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; */
+}
+.search-container button {
+  margin: 0;
+  border: none;
+}
+
+.chat-type-item text {
+  font-size: 26rpx;
+  color: white;
+}

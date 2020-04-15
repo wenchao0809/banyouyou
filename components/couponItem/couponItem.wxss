@@ -39,11 +39,13 @@
 }
 
 .couponsItem-container .money {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+  width: 40%;
+  padding-top: 30rpx;
   color: white;
+  text-align: center;
 }
 
 .couponsItem-container .money .symbol {

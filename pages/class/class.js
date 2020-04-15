@@ -129,6 +129,17 @@ Page({
     miniCartGoodInfo.curPrice = priceManage.curPrice
     this.setData({ miniCartGoodInfo })
   },
+  searchChange(e) {
+    this.setData({ searchText: e.detail.value })
+  },
+  toGoodList() {
+    let text = this.data.searchText
+    wx.navigateTo({ url: `/pages/good-list/good-list?likeName=${text}` })
+  },
+  handleContact (e) {
+    console.log(e.detail.path)
+    console.log(e.detail.query)
+  },
   onClose() {
     this.setData({
       showCart: false
