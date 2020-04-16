@@ -129,7 +129,7 @@ Page({
     let curLevelPoints = integrals[vipLevelStr]
     nextPoints = integrals[nextLevelStr]
     let donePoints = curPoints - curLevelPoints
-    percent = donePoints / (nextPoints - curLevelPoints)
+    percent = userInfo.VipLevel < 11 ? (donePoints / (nextPoints - curLevelPoints)) : 100
     this.setData({ userInfo, percent, nextPoints, vipLevelStr, nextLevelStr })
   },
 

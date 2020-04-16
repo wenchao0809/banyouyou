@@ -2,7 +2,7 @@
 <view class="member-container">
   <view class="bg-top">
     <view class="member-card">
-      <view class="integral-privilege" bindtap="showModal">积分特权</view>
+      <view class="integral-privilege" bindtap="goMemberIntroduction">积分特权</view>
       <view class="member-desc-top">
         <image src="{{ user.HeaderPic || 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg' }}"></image>
         <view class="member-detail">
@@ -24,61 +24,35 @@
     </view>
   </view>
   <view class="member-coupon">
-    <view>已享有优惠券</view>
+    <view class="red-line">已享有优惠券</view>
+    <view class="coupon-box">
+      <view class="coupon-item">
+        <text>{{userInfo.CouponCount}}张</text>
+        <view class="coupon-btn" bindtap="goCoupon">立即查看</view>
+      </view>
+    </view>
   </view>
   <view class="member-illustrate">
-    <view style="font-size: 30rpx;">会员说明：</view>
-    <view></view>
+    <view class="black-line" style="font-size: 30rpx;margin-bottom: 20rpx;">会员说明：</view>
+    <text>1.注册即可成为VIP会员，获得电子会员卡一张，会员可参加购物获取会员积分，积分规则线上现金100元积1分，并根据会员积分升级会员级别（可从会员卡右上角'积分特权'进入查看详细积分等级说明）；
+        2.成为会员即可获得10张100元抵扣券，购物满一万元即可用一张，（抵扣券永久有效）同时享受全场995折！
+        3.注册用户生日或营业执照注册日当天特价促销商品抵扣券不可以使用，但可额外享受板优优赠送给您的专属折扣优惠，仅限当天使用；
+        4.会员每升一个VIP等级皆可享受更大折扣优惠，同时获得多张100元抵扣券（实际张数根据会员等级发放），此折扣券可转送给他人使用（转送客户需关注小程序注册后方可使用）不可提现；
+        5.当你通过获得积分累积达到升级标准而立刻升级后，最终你进行了退款/退货的情况下，您从该订单获得的积分将被扣除，同时VIP等级也将降为原来等级；
+        6.会员达到最高VIP等级后，您将获得由板优优赠送的神秘大礼一份；
+        7.VIP会员卡的最终解释权归板优优所有。
+      </text>
   </view>
-  <!-- <view class="member-descTab">
-    <view class="member-descTab-item" bindtap="goCoupon">
-      <text>优惠券</text>
-      <text class="red">{{userInfo.CouponCount}}张</text>
-    </view>
-    <view class="member-descTab-item">
-      <text>额度</text>
-      <text class="red">￥{{userInfo.CashLimit / 100}}</text>
-    </view>
-    <view class="member-descTab-item">
-      <text>积分</text>
-      <text class="red">{{ userInfo.Points }}</text>
-    </view>
-  </view> -->
-  <!-- <view class="member-desc">
-    <view class="member-desc-grade">
-      <view class="member-desc-grade-title">当前等级： {{vipLevelStr}}</view>
-      <view class="member-desc-integral" wx:if="{{ userInfo.VipLevel < 11 }}">积分距离下一等级：</view>
-      <view  wx:if="{{ userInfo.VipLevel < 11 }}">
-        <progress percent="{{percent}}" active />
-      </view>
-    </view>
-    <view class="divider"></view> -->
-    <!-- <view class="member-desc-item" bindtap="goMemberData">
-      <text>会员资料</text>
-      <view>
-        <text>详情</text>
-        <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
-      </view>
-    </view> -->
-    <!-- <view class="divider"></view>
-    <view class="member-desc-item" bindtap="goMemberIntroduction">
-      <text>会员等级介绍</text>
-      <view>
-        <text>详情</text>
-        <text class="icon icon-youjiantou" style="font-size: 26rpx;margin-left: 20rpx;"></text>
-      </view>
-    </view>
-  </view> -->
-  <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">
+  <!-- <modal showFlag="{{ showFlag }}" bind:onCancel="cancelModal">
     <view slot="content" class="member-card-modal">
-      <!-- <view class="member-card">
+      <view class="member-card">
         <view class="member-card-grade white">{{currentIntegral.title}}</view>
         <view class="member-card-number white">NO.1345445564667567</view>
-      </view> -->
+      </view>
       <view class="member-card-modal-title">当前特权</view>
       <view class="member-card-modal-content">
         <text>1.{{privilegeDesc[userInfo.VipLevel]}}</text>
       </view>
     </view>
-  </modal>
+  </modal> -->
 </view>
