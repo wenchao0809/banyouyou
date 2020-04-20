@@ -225,6 +225,12 @@
 					"pathName": "pages/good-list/good-list",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my-distributor",
+					"pathName": "pages/my-distributor/my-distributor",
+					"scene": null
 				}
 			]
 		}

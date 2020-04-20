@@ -1,4 +1,4 @@
-/* pages/member/member.wxss */
+pages/member/member.wxss
 .bg-top {
   height: 230rpx;
   background: #e74030;

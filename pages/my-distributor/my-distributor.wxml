@@ -1,0 +1,8 @@
+<view>
+<view class="distribute-overview">
+  <view class="num">{{ overview.total }}</view>
+  <view class="title">账户余额(元)</view>
+</view>
+<view class="distribute-detail"></view>
+<view class="nav"></view>
+</view>

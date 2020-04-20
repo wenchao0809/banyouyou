@@ -22,10 +22,12 @@ export const http = {
           ...config
         }
       }).then(res => {
+        wx.hideLoading();
         that.statusCOdeHandle(res, resolve, reject, { url, option, fn })
       }).catch(e => {
         reject(e)
         that._show_error(1)
+        wx.hideLoading();
       })
       .finally(() => {
         wx.hideLoading();

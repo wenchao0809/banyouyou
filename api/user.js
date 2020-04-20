@@ -143,3 +143,8 @@ export function updateHeadPic(data) {
   return http._request('/user/update/header', { data})
     .then(res => res.data)
 }
+
+export function distributeOverview(data) {
+  return http._request('/user/order/distribution_total', { data})
+    .then(res => res.data)
+}
