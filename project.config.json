@@ -230,6 +230,20 @@
 					"id": -1,
 					"name": "pages/my-distributor",
 					"pathName": "pages/my-distributor/my-distributor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/distribute-withdraw/distribute-withdraw",
+					"pathName": "pages/distribute-withdraw/distribute-withdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/distribue-qrcode/distribue-qrcode",
+					"pathName": "pages/distribue-qrcode/distribue-qrcode",
 					"scene": null
 				}
 			]

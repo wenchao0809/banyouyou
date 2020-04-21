@@ -1,8 +1,34 @@
-<view>
-<view class="distribute-overview">
-  <view class="num">{{ overview.total }}</view>
-  <view class="title">账户余额(元)</view>
-</view>
-<view class="distribute-detail"></view>
-<view class="nav"></view>
+<view class="my-distribute">
+  <view class="distribute-overview">
+    <view class="num">{{ overview.getMoney }}</view>
+    <view class="title">账户余额(元)</view>
+  </view>
+  <view class="distribute-detail">
+    <view class="item">
+      <view class="num">{{ overview.total }}</view>
+      <view class="title">累计收益</view>
+    </view>
+    <view class="item">
+      <view class="num">{{ overview.count }}</view>
+      <view class="title">累计分销</view>
+    </view>
+    <view class="item" style="border: none;">
+      <view class="num">{{ overview.willGet }}</view>
+      <view class="title">未结算</view>
+    </view>
+  </view>
+  <view class="nav">
+    <navigator class="navigator" hover-class="none" url="/pages/distributor/distributor">
+      <text class="icon icon-youjiantou"></text>
+      <text class="title">分销记录</text>
+    </navigator>
+    <navigator class="navigator" hover-class="none" url="/pages/distribute-withdraw/distribute-withdraw">
+      <text class="icon icon-youjiantou"></text>
+      <text class="title">提现记录</text>
+    </navigator>
+       <navigator class="navigator" hover-class="none" url="/pages/distribue-qrcode/distribue-qrcode">
+      <text class="icon icon-youjiantou"></text>
+      <text class="title">分销二维码</text>
+    </navigator>
+  </view>
 </view>

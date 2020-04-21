@@ -137,6 +137,6 @@ Page({
     wx.navigateTo({ url: '/pages/login/login' })
   },
   toDistribute() {
-    wx.navigateTo({ url: '/pages/distributor/distributor' })
+    wx.navigateTo({ url: '/pages/my-distributor/my-distributor' })
   }
 })

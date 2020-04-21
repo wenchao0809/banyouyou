@@ -1,0 +1,48 @@
+.my-distribute .distribute-overview {
+  padding-top: 70rpx;
+  height: 280rpx;
+  text-align: center;
+  background-color: #312e43;
+  color: white;
+}
+
+.my-distribute .distribute-overview .num {
+  margin-bottom: 10rpx;
+  font-size: 80rpx;
+  color: #e8ba3c;
+}
+.my-distribute  .distribute-detail {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  background-color: white;
+}
+.my-distribute  .distribute-detail .item {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #c8c8c8;
+}
+.my-distribute  .distribute-detail .item .num {
+  margin-bottom: 10rpx;
+  color: #e8ba3c;
+}
+
+.my-distribute  .distribute-detail .item .title {
+  color: #c8c8c8;
+}
+
+.my-distribute .nav {
+  margin-top: 20rpx;
+  background-color: white;
+}
+
+.my-distribute .nav .navigator {
+  padding: 30rpx;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.my-distribute .nav .navigator .icon-youjiantou {
+  margin-right: 5rpx;
+  font-size: 24rpx;
+  color: #c8c8c8;
+}

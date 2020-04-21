@@ -26,7 +26,9 @@
     "pages/memberIntroduction/memberIntroduction",
     "pages/memberData/memberData",
     "pages/good-list/good-list",
-    "pages/my-distributor/my-distributor"
+    "pages/my-distributor/my-distributor",
+    "pages/distribue-qrcode/distribue-qrcode",
+    "pages/distribute-withdraw/distribute-withdraw"
   ],
   "window": {
     "backgroundTextStyle": "dark",
