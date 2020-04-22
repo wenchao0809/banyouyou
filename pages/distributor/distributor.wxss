@@ -103,15 +103,28 @@
     flex: 1;
     text-align: center;
 }
-
+.distribute-order-list .order-list {
+    margin-top: 20rpx;
+}
 .distribute-order-list .order-list .order-item {
-    padding: 0 20rpx;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+    background-color: white;
+    border-bottom: 1px solid #dbdbdb;
 }
 
-.distribute-order-list .order-list .order-item .order-item-item {
-    flex: 1;
-    padding: 20rpx 0;
-    border-bottom: 1rpx solid gray;
+.distribute-order-list .order-list .order-item .name {
+    margin-bottom: 20rpx;
+    color: #2655a5;
+}
+.distribute-order-list .order-list .order-item .order-money, .order-status, .order-create-date {
+    margin-bottom: 20rpx;
+    color: #959595;
+}
+
+.distribute-order-list .order-list .order-item .get-money {
     text-align: center;
+    color: #e6b841;
 }

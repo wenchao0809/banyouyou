@@ -1,29 +1,4 @@
-<!-- <view class="distributor">
-    <view class="header"></view>
-    <view class="form-wrap">
-        <form action="">
-            <view class="form-item">
-                <text class="icon icon-yonghu"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="用户名/邮箱" />
-            </view>
-            <view class="form-item">
-                <text class="icon icon-shouji"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请输入手机号" />
-            </view>
-            <view class="form-item sms">
-                <text class="icon icon-pinglun"></text>
-                <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" />
-                <view class="send-sms">发送验证码</view>
-            </view>
-        </form>
-    </view>
-    <view class="button-wrap">
-        <view class="button">申请</view>
-    </view>
-</view> -->
-
 <view class="distributor">
-    
    <view wx:if="{{ status === 0 }}">
         <view class="register-distributor" bind:tap="apply">
         分销商申请
@@ -50,7 +25,7 @@
         </view>
     </view>
     <view class="distribute-order-list" wx:else>
-        <view class="tab">
+        <!-- <view class="tab">
             <view class="tab-item">
                 订单id
             </view>
@@ -60,12 +35,19 @@
             <view class="tab-item">
                 是否发放
             </view>
-        </view>
+        </view> -->
         <view class="order-list">
             <view class="order-item" wx:for="{{ rewardList }}">
-                <view class="order-item-item">{{ item.Id }}</view>
-                <view class="order-item-item">{{ item.DistributionPrice }}</view>
-                <view class="order-item-item">{{ item.DistributionStatus === 1 ? '未获取' : '已获取' }}</view>
+                <view class="left">
+                    <view class="name">{{item.Name}}</view>
+                    <view class="order-money">订单金额：{{item.TotalPrice}}</view>
+                    <view class="order-create-date">下单时间：{{item.CreateAt}}</view>
+                    <view class="order-status" style="{{ item.statusStyle }}">订单状态：{{item.Status}}</view>
+                </view>
+                <view class="right">
+                    <view class="get-money-title">预计收益</view>
+                    <view class="get-money">{{item.DistributionPrice}}</view>
+                </view>
             </view>
         </view>
     </view>

@@ -14,12 +14,13 @@
 
 .caregory{
   display: flex;
+  margin-top: 100rpx;
   flex-direction: row;
   height: 100%;
-  position: absolute;
-  /* top: 80rpx; */
-  bottom: 0;
-  left: 0;
+  /* position: absolute; */
+  /* top: 120rpx; */
+  /* bottom: 0; */
+  /* left: 0; */
   width: 100%;
 }
 .by-price {
@@ -169,13 +170,13 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 20rpx;
+  padding: 10rpx;
   /* padding-right: 20rpx; */
   width: 100%;
-  left: 50%;
+  /* left: 50%; */
   top: 0;
   background: #d72205;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   z-index: 1;
   transition:all .5s;
 }

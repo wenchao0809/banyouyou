@@ -16,8 +16,8 @@ Page({
     distributeOverview()
       .then(res => {
         res.total = (res.total / 1000).toFixed(2)
-       res.getMoney = (res.getMoney / 1000).toFixed(2)
-       res.willGet = (res.getMoney / 1000).toFixed(2)
+        res.getMoney = (res.getMoney / 1000).toFixed(2)
+        res.willGet = (res.getMoney / 1000).toFixed(2)
         this.setData({ overview: res })
       })
   },
