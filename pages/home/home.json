@@ -2,5 +2,6 @@
   "usingComponents": {
     "minCart": "/components/minCart/minCart",
     "announcement": "/components/announcement/announcement"
-  }
+  },
+  "enablePullDownRefresh": true
 }

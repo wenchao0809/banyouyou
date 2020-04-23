@@ -2,5 +2,6 @@
   "usingComponents": {
     "couponItem": "/components/couponItem/couponItem"
   },
-  "navigationBarTitleText": "我的优惠券"
+  "navigationBarTitleText": "我的优惠券",
+  "enablePullDownRefresh": true
 }

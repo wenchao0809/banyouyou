@@ -25,7 +25,7 @@ Page({
     })
     getMappQrCode({ scene: `?distribution_id=${userInfo.Id}` })
       .then(res => {
-        debugger
+        // debugger
         // wx.showLoading({
         //   title: '12121',
         //   mask: true

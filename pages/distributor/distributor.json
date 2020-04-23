@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "BUU板优优"
+    "navigationBarTitleText": "BUU板优优",
+    "enablePullDownRefresh": true
 }
