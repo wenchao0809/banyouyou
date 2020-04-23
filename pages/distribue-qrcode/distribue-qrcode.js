@@ -1,58 +1,76 @@
-import { registerDistributor, distributeOrderList, getUserInfo } from '../../api/index'
+import { getMappQrCode } from '../../api/index'
+import { USERINFO } from '../../utils/constant'
 
 const app = getApp()
 
+// pages/set/set.js
 Page({
+
+    /**
+     * 页面的初始数据
+     */
     data: {
-        //  0: 不是, 1: 正在申请, 2: 申请失败, 3: 是分销者
-        status: 3,
-        query: { limit: 10, offset: 0, status: 0 },
-        rewardList: [
-            { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 },
-            { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 }
-        ]
+        userInfo: {},
+        qrCode: ''
     },
-    getList() {
-        let query = this.data.query
-        distributeOrderList(query)
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        let userInfo = wx.getStorageSync(USERINFO)
+        this.setData({ userInfo })
+        getMappQrCode({ scene: `?distribution_id=${userInfo.Id}` })
             .then(res => {
-                this.setData({ rewardList: res })
+                this.setData({ qrCode: res })
             })
     },
-    pullUpRefresh() {
-        let query = this.data.query
-        ++query.offset
-        this.setData({ query })
-        distributeOrderList(query)
-        .then(res => {
-            let curList = this.data.rewardList
-            let list = curList.concat(res)
-            this.setData({ rewardList: list })
-        })
+  
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+  
     },
-    async initData() {
-        let userInfo = await getUserInfo()
-        let status = userInfo.IsDistribution
-        if (status === 3) {
-            this.getList()
-        }
-        this.setData({ status })
+  
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+  
     },
-    onLoad(options) {
-       this.initData()
+  
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+  
     },
-    async onPullDownRefresh(){
-        this.setData({ query: { limit: 10, offset: 0, status: 0 } })
-        await this.initData()
-        wx.stopPullDownRefresh()
+  
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+  
     },
-    onReachBottom() {
-        this.pullUpRefresh()
+  
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+  
     },
-    apply() {
-        registerDistributor()
-            .then(res => {
-                this.setData({ status: 1 })
-            })
+  
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+  
+    },
+  
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+  
     }
-})
+  })

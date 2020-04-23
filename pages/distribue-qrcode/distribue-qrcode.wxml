@@ -1,4 +1,9 @@
 <view>
-  分销二维码
+  <view class="qrcode-image">
+      <image src="{{qrCode}}" style="width: 320px; height: 320px;"></image>
+      <button>保存图片</button>
+  </view>
+  <view class="rule">
+  </view>
 </view>
   

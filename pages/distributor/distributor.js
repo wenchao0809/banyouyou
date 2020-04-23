@@ -1,5 +1,6 @@
 import { registerDistributor, distributeOrderList, getUserInfo } from '../../api/index'
 import { formateDate } from '../../utils/index'
+
 const app = getApp()
 function formateOrderData(res) {
     return res.map(item => {
@@ -23,6 +24,8 @@ Page({
         //  0: 不是, 1: 正在申请, 2: 申请失败, 3: 是分销者
         status: 3,
         query: { limit: 30, offset: 0, status: 0 },
+        // 标识上拉是否还有数据继续加载
+        pullUpDone: false,
         rewardList: [
             { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 },
             { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 }
@@ -32,6 +35,9 @@ Page({
         let query = this.data.query
         distributeOrderList(query)
             .then(res => {
+                if (res.length < query.limit) {
+                    this.setData({ pullUpDone: true })
+                }
                 res = formateOrderData(res)
                 this.setData({ rewardList: res })
             })
@@ -60,11 +66,12 @@ Page({
        this.initData()
     },
     async onPullDownRefresh(){
-        this.setData({ query: { limit: 30, offset: 0, status: 0 } })
+        this.setData({ query: { limit: 30, offset: 0, status: 0 }, pullUpDone: false })
         await this.initData()
         wx.stopPullDownRefresh()
     },
     onReachBottom() {
+        if (pullUpDone) return
         this.pullUpRefresh()
     },
     apply() {
