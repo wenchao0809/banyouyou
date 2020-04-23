@@ -1,34 +1,61 @@
 <view class="my-distribute">
-  <view class="distribute-overview">
-    <view class="num">{{ overview.getMoney }}</view>
-    <view class="title">账户余额(元)</view>
-  </view>
-  <view class="distribute-detail">
-    <view class="item">
-      <view class="num">{{ overview.total }}</view>
-      <view class="title">累计收益</view>
+ <view wx:if="{{ status === 0 }}">
+    <view class="register-distributor" bind:tap="apply">
+    分销商申请
     </view>
-    <view class="item">
-      <view class="num">{{ overview.count }}</view>
-      <view class="title">累计分销</view>
+    <view class="rule-desc">
+        申请成为分销商以后转发或者分享图片给其他客户,
+        其他客户购买成功后则分销商享受订单的1%座位提成奖励，
+        提成奖励将在7天后自动到账。
     </view>
-    <view class="item" style="border: none;">
-      <view class="num">{{ overview.willGet }}</view>
-      <view class="title">未结算</view>
+   </view>
+    <view class="reviewing" wx:elif="{{ status === 1 || status === 2 }}">
+        <view class="header">
+            <view class="title">
+                {{ status === 1 ? '审核中...' : '申请失败' }}
+            </view>
+            <view class="desc">
+                请随时关注本页面，等待审核完毕
+            </view>
+        </view>
+        <view class="rule-desc">
+        申请成为分销商以后转发或者分享图片给其他客户,
+        其他客户购买成功后则分销商享受订单的1%座位提成奖励，
+        提成奖励将在7天后自动到账。
+        </view>
     </view>
-  </view>
-  <view class="nav">
-    <navigator class="navigator" hover-class="none" url="/pages/distributor/distributor">
-      <text class="icon icon-youjiantou"></text>
-      <text class="title">分销记录</text>
-    </navigator>
-    <navigator class="navigator" hover-class="none" url="/pages/distribute-withdraw/distribute-withdraw">
-      <text class="icon icon-youjiantou"></text>
-      <text class="title">提现记录</text>
-    </navigator>
-       <navigator class="navigator" hover-class="none" url="/pages/distribue-qrcode/distribue-qrcode">
-      <text class="icon icon-youjiantou"></text>
-      <text class="title">分销二维码</text>
-    </navigator>
+  <view wx:else>
+    <view class="distribute-overview">
+      <view class="num">{{ overview.getMoney }}</view>
+      <view class="title">账户余额(元)</view>
+    </view>
+    <view class="distribute-detail">
+      <view class="item">
+        <view class="num">{{ overview.total }}</view>
+        <view class="title">累计收益</view>
+      </view>
+      <view class="item">
+        <view class="num">{{ overview.count }}</view>
+        <view class="title">累计分销</view>
+      </view>
+      <view class="item" style="border: none;">
+        <view class="num">{{ overview.willGet }}</view>
+        <view class="title">未结算</view>
+      </view>
+    </view>
+    <view class="nav">
+      <navigator class="navigator" hover-class="none" url="/pages/distributor/distributor">
+        <text class="icon icon-youjiantou"></text>
+        <text class="title">分销记录</text>
+      </navigator>
+      <navigator class="navigator" hover-class="none" url="/pages/distribute-withdraw/distribute-withdraw">
+        <text class="icon icon-youjiantou"></text>
+        <text class="title">提现记录</text>
+      </navigator>
+        <navigator class="navigator" hover-class="none" url="/pages/distribue-qrcode/distribue-qrcode">
+        <text class="icon icon-youjiantou"></text>
+        <text class="title">分销二维码</text>
+      </navigator>
+    </view>
   </view>
 </view>

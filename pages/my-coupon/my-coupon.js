@@ -16,6 +16,7 @@ Page({
     Status3Total: 0,
     couponList: [],
     loadMore: '正在加载...',
+    loadDone: false,
     couponCustomStyle: `background-image: url("https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-15/363f5fe1-5f4a-4e26-978f-9d4d0b086e99.jpeg"); background-size: cover`
   },
 
@@ -69,7 +70,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    this.getList('refresh')
   },
 
   /**

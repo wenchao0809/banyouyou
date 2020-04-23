@@ -53,7 +53,7 @@ Page({
     showCouponSelector() {
       this.setData({ showCouponSelector: true })
     },
-    setCouponList(totalMoney) {
+    setCouponList(totalMoney, vipDiscountMoney) {
       let cpTotalMoney = totalMoney
       getUserCoupon({ limit: MAXCOUNT, offset: 0, type: 0 })
       .then(res => {
@@ -74,7 +74,7 @@ Page({
         })
         this.setData({
           discountMoney,
-          orderMoney: cpTotalMoney - discountMoney,
+          orderMoney: cpTotalMoney - discountMoney - vipDiscountMoney,
           availableCouponList,
           orderAvailableCouponList,
           orderUnavailableCouponList
@@ -110,7 +110,7 @@ Page({
           // 服务端保存折扣是乘1000, 比如 997就是0.997
           let vipTotalMoney = Math.floor(totalMoney * (userInfo.Discount / 1000))
           let vipDiscountMoney = Math.ceil(parseInt(totalMoney * (1 - userInfo.Discount / 1000)))
-          this.setCouponList(totalMoney)
+          this.setCouponList(totalMoney, vipDiscountMoney)
           this.setData({
             userInfo,
             address,

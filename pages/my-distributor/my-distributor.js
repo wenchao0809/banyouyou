@@ -1,25 +1,36 @@
 // pages/set/set.js
-import { distributeOverview } from '../../api/index'
+import { distributeOverview, getUserInfo, registerDistributor } from '../../api/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    status: 0,
     overview: {}
   },
-
+  apply() {
+    registerDistributor()
+      .then(res => {
+        this.setData({ status: 1 })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    distributeOverview()
-      .then(res => {
-        res.total = (res.total / 1000).toFixed(2)
-        res.getMoney = (res.getMoney / 1000).toFixed(2)
-        res.willGet = (res.getMoney / 1000).toFixed(2)
-        this.setData({ overview: res })
-      })
+  onLoad: async function (options) {
+    let userInfo = await getUserInfo()
+    let status = userInfo.IsDistribution
+    if (status === 3) {
+      distributeOverview()
+        .then(res => {
+          res.total = (res.total / 1000).toFixed(2)
+          res.getMoney = (res.getMoney / 1000).toFixed(2)
+          res.willGet = (res.getMoney / 1000).toFixed(2)
+          this.setData({ overview: res })
+        })
+    }
+    this.setData({ status })
   },
 
   /**

@@ -1,0 +1,5 @@
+.none-data {
+  margin-top: 100rpx;
+  text-align: center;
+  color: gray;
+}

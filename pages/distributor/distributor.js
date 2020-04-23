@@ -55,12 +55,7 @@ Page({
         })
     },
     async initData() {
-        let userInfo = await getUserInfo()
-        let status = userInfo.IsDistribution
-        if (status === 3) {
-            this.getList()
-        }
-        this.setData({ status })
+       this.getList()
     },
     onLoad(options) {
        this.initData()
@@ -73,11 +68,5 @@ Page({
     onReachBottom() {
         if (pullUpDone) return
         this.pullUpRefresh()
-    },
-    apply() {
-        registerDistributor()
-            .then(res => {
-                this.setData({ status: 1 })
-            })
     }
 })

@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "minCart": "/components/minCart/minCart"
+        "minCart": "/components/minCart/minCart",
+        "noneData": "/components/noneData/noneData"
     },
     "navigationBarTitleText": "商品列表"
   }

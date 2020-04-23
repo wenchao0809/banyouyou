@@ -17,7 +17,7 @@
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
-          <view class="none-data" wx:else>暂无更多数据</view>
+          <noneData  wx:else></noneData>
         </scroll-view>
       </swiper-item>
       <swiper-item>
@@ -30,7 +30,7 @@
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
-          <view class="none-data" wx:else>暂无更多数据</view>
+          <noneData  wx:else></noneData>
         </scroll-view>
       </swiper-item>
       <swiper-item>
@@ -43,7 +43,8 @@
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
-          <view class="none-data" wx:else>暂无更多数据</view>
+          <noneData  wx:else></noneData>
+          <!-- <view class="none-data" wx:else>暂无更多数据</view> -->
         </scroll-view>
       </swiper-item>
     </swiper>

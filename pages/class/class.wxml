@@ -55,8 +55,8 @@
         </view>
         <view class="by-count {{ orderName === 'bycount' ? 'active' : '' }}" data-name="bycount">按销量</view>
       </view>
-      <block wx:for-items="{{navRightItems}}" wx:key="index">
-        <view class="good-item-wrap">
+      <block wx:if="{{ navRightItems.length > 0 }}">
+        <view class="good-item-wrap" wx:for-items="{{navRightItems}}" wx:key="index">
             <view class="good-item">
               <view class="desc">
                 <view class="title" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">{{ item.title }}</view>
@@ -80,6 +80,7 @@
             </view>
         </view>
     </block>
+    <noneData wx:else></noneData>
     </scroll-view>
   </view>
   <minCart 
