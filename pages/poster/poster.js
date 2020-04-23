@@ -48,7 +48,7 @@ Page({
             views: [
               {
                 type: 'image',
-                url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531103986231.jpeg',
+                url: 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-23/becadaad-7195-4a6e-90d8-041c607040a1.png',
                 top: 0,
                 left: 0,
                 width: 375,
@@ -64,7 +64,7 @@ Page({
               },
               {
                 type: 'image',
-                url: 'https://hybrid.xiaoying.tv/miniprogram/viva-ad/1/1531401349117.jpeg',
+                url: 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-23/3ca60c8d-214f-4c2a-82ed-556704b8d325.png',
                 top: 27.5,
                 left: 29,
                 width: 55,
