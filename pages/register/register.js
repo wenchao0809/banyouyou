@@ -70,8 +70,9 @@ Page({
             let { name, phone, code, type, password, china_id} = this.data.form
             codeRegisterAndLogin({ name, phone, code, password, china_id, type })
                 .then(res => {
+                    wx.setStorage({ key: 'token', data: res })
                     wx.showToast({ title: '注册成功即将跳转', })
-                    wx.navigateTo({ url: '/pages/home/home' })
+                    wx.switchTab({ url: '/pages/home/home' })
                 })
         }
     },

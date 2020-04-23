@@ -15,8 +15,8 @@
 <view class="couponsItem-container">
   <view class="money" style="{{ customeStyle }}">
     <text class="symbol">￥</text>
-    <text class="number">{{ couponInfo.Price }}</text>
-    <view class="user-condition">满{{ couponInfo.FullPrice }}可用</view>
+    <text class="number">{{ couponInfo.Price / 100 }}</text>
+    <view class="user-condition">满{{ couponInfo.FullPrice / 100 }}可用</view>
   </view>
   <view class="desc {{ disableSelect ? 'desc-no-select' : '' }}">
     <view>板优优购物专享优惠券</view>

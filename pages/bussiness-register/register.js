@@ -66,8 +66,9 @@ Page({
           delete params.checkPassword
           codeRegisterAndLogin(params)
           .then(res => {
+            wx.setStorage({ key: 'token', data: res })
             wx.showToast({ title: '注册成功即将跳转', })
-            wx.navigateTo({ url: '/pages/home/home' })
+            wx.switchTab({ url: '/pages/home/home' })
           })
         }
       },

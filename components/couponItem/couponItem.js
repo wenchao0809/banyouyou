@@ -18,7 +18,7 @@ Component({
     },
     customeStyle: {
       type: String,
-      value: 'background: red;'
+      value: ''
     }
   },
 
@@ -26,7 +26,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-
   },
 
   /**

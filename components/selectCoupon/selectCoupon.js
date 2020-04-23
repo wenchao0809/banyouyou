@@ -32,7 +32,8 @@ Component({
    */
   data: {
     activeTabIndex: 0,
-    tabs: [{ name: '可用优惠券', id: 1 }, { name: '不可用优惠券', id: 2 }]
+    tabs: [{ name: '可用优惠券', id: 1 }, { name: '不可用优惠券', id: 2 }],
+    couponCustomStyle: `background-image: url("https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-15/363f5fe1-5f4a-4e26-978f-9d4d0b086e99.jpeg"); background-size: cover`
   },
 
   /**

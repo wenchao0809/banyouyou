@@ -9,11 +9,16 @@
         bind:checkedChange="selectCoupon"
         wx:for="{{ availableCouponList }}" 
         checked="{{ item.checked }}"
-        couponInfo="{{ item }}">
+        couponInfo="{{ item }}"
+        customeStyle="{{couponCustomStyle}}">
       </couponItem>
     </scroll-view>
     <scroll-view scroll-y="true"  class="counpon-list" wx:else>
-      <couponItem wx:for="{{ unavailableCouponList }}" couponInfo="{{ item }}" disableSelect="{{ true }}"></couponItem>
+      <couponItem 
+      wx:for="{{ unavailableCouponList }}" 
+      couponInfo="{{ item }}"
+       disableSelect="{{ true }}">
+       </couponItem>
     </scroll-view>
   </view>
 </popup>
