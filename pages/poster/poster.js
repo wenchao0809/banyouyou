@@ -14,11 +14,21 @@ Page({
     let { title, goodImage } = options
     let userInfo = wx.getStorageSync(USERINFO)
     this.setData({ title, goodImage, userInfo })
-    this.eventDraw(title, goodImage, userInfo)
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('getPrice', data => {
+      const { price, min_price, max_price } = data
+      let money = ''
+      if (price) {
+        money = `￥${price}`
+      } else {
+        money = `￥${min_price} ~ ￥${max_price}`
+      }
+      this.eventDraw(title, goodImage, userInfo, money)
+    })
   },
-  eventDraw(title, goodImage, userInfo) {
+  eventDraw(title, goodImage, userInfo, money) {
     // let { title, goodImage, userInfo } = this.data
-    let Name = userInfo.Name
+    let { Name, HeaderPic } = userInfo
     wx.showLoading({
       title: '绘制分享图片中',
       mask: true
@@ -46,7 +56,7 @@ Page({
               },
               {
                 type: 'image',
-                url: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epJEPdPqQVgv6D8bojGT4DrGXuEC4Oe0GXs5sMsN4GGpCegTUsBgL9SPJkN9UqC1s0iakjQpwd4h4A/132',
+                url: HeaderPic,
                 top: 27.5,
                 left: 29,
                 width: 55,
@@ -111,7 +121,7 @@ Page({
               },
               {
                 type: 'text',
-                content: '￥0.00',
+                content: money,
                 fontSize: 19,
                 color: '#E62004',
                 textAlign: 'left',
