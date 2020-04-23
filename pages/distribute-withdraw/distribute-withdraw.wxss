@@ -1,0 +1,33 @@
+.distribute-withdraw .order-list {
+    margin-top: 20rpx;
+}
+.distribute-withdraw .order-list .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+    background-color: white;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.distribute-withdraw .order-list .order-item .name {
+    margin-bottom: 20rpx;
+    color: #2655a5;
+}
+.distribute-withdraw .order-item .order-money, .order-status, .order-create-date {
+    margin-bottom: 20rpx;
+    color: #959595;
+}
+
+.distribute-withdraw .get-money {
+    text-align: center;
+    color: #e6b841;
+}
+.distribute-withdraw .right .status-button {
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: #e70014;
+    color: white;
+    font-size: 20rpx;
+}

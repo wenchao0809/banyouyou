@@ -53,24 +53,24 @@ Page({
         icon: 'icon icon-xinxi',
         url: '/pages/about/about'
       },
-      {
-        name: '意见反馈',
-        icon: 'icon icon-fankuiyijianfankui-xianxing',
-        url: '/pages/feedback/feedback'
-      },
+      // {
+      //   name: '意见反馈',
+      //   icon: 'icon icon-fankuiyijianfankui-xianxing',
+      //   url: '/pages/feedback/feedback'
+      // },
       {
         name: '设置',
         icon: 'icon icon-shezhi',
         url: '/pages/set/set'
       },
-      {
-        name: '帮助中心',
-        icon: 'icon icon-kefu',
-        url: ''
-      }
+      // {
+      //   name: '帮助中心',
+      //   icon: 'icon icon-kefu',
+      //   url: ''
+      // }
     ],
     user: {},
-    couponCount: 0
+    couponCount: 1
   },
   onLoad() {
     let userInfo = wx.getStorageSync(USERINFO)

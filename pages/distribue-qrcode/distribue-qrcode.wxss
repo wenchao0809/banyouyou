@@ -1,10 +1,16 @@
 .qrcode-image {
     margin-top: 40rpx;
+    padding-bottom: 30rpx;
     text-align: center;
+    background-color: white;
 }
 .qrcode-image button {
     margin-top: 20rpx;
     width: 80%;
     background: #32ac19;
     color: white;
+}
+
+.rule {
+    padding: 20rpx 30rpx;
 }

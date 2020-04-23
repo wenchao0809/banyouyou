@@ -1,9 +1,19 @@
 <view>
   <view class="qrcode-image">
       <image src="{{qrCode}}" style="width: 320px; height: 320px;"></image>
-      <button>保存图片</button>
+      <button bind:tap="saveCodeImage">保存图片</button>
   </view>
   <view class="rule">
+    <view class="title">
+      <text class="icon icon-xinxi"></text>
+      <text>分销规则</text>
+    </view>
+    <view class="desc">
+      <text>
+              申请成为分销商以后转发或者分享给其他客户，其他客户购买成功后则分销商享受成交的订单的1%座位提成奖励，
+              提成奖励将在7天后自动到账。
+      </text>
+    </view>
   </view>
 </view>
   

@@ -13,6 +13,25 @@ Page({
         userInfo: {},
         qrCode: ''
     },
+    saveCodeImage() {
+        wx.getImageInfo({
+            src: this.data.qrCode,
+            success: function (sres) {
+                debugger
+              console.log(sres.path);
+              wx.saveImageToPhotosAlbum({
+                filePath: sres.path,
+                success: function (fres) {
+                    wx.showToast({
+                        title: '保存图片成功',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }
+              })
+            }
+          })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

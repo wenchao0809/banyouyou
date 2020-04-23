@@ -30,7 +30,7 @@ export default class User {
       let keys = Object.keys(data)
       for(let key of keys) {
         this[key] = data[key]
-        if (key === 'VIPLevel') {
+        if (key === 'VipLevel') {
           this.changeVipLevelStr(data[key])
         }
       }
@@ -45,7 +45,7 @@ decorate(User, {
     Name: observable,
     HeaderPic: observable,
     Phone: observable,
-    VIPLevel: observable,
+    VipLevel: observable,
     Points: observable,
     ChinaId: observable,
     Type: observable,

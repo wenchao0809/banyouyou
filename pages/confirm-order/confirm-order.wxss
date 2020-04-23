@@ -8,10 +8,12 @@
 
 .confirm-order .content {
     position: absolute;
+    bottom: 88rpx;
     top: 0;
     right:  0rpx;
     left: 0rpx;
     padding: 0 30rpx;
+    overflow: scroll;
 }
 
 .confirm-order .reveive-address .header {

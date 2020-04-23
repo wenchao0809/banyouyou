@@ -1,3 +1,15 @@
-<view>
-  <view>提现记录</view>
+<view class="distribute-withdraw">
+  <view class="order-list">
+    <view class="order-item" wx:for="{{ rewardList }}">
+        <view class="left">
+            <view class="order-create-date">提现时间：{{item.CreateAt}}</view>
+            <view class="order-create-date">订单金额：{{item.DistributionPrice}}</view>
+        </view>
+        <view class="right">
+          <button class="status-button">已到账</button>
+            <!-- <view class="get-money-title">预计收益</view>
+            <view class="get-money">{{item.DistributionPrice}}</view> -->
+        </view>
+    </view>
+  </view>
 </view>
