@@ -119,10 +119,19 @@ Page({
   },
 
   goPoster () {
-    let { title, imgList } = this.data
+    let { title, imgList, curPrice, min_price, max_price } = this.data
+    let params = {}
+    if (curPrice.Id) {
+      params = { price: curPrice.Price }
+    } else {
+      params = { min_price, max_price }
+    }
     let goodImage = imgList[0]
     wx.navigateTo({
-      url: `/pages/poster/poster?title=${title}&goodImage=${goodImage}`
+      url: `/pages/poster/poster?title=${title}&goodImage=${goodImage}`,
+      success: function (res) {
+        res.eventChannel.emit('getPrice', params)
+      }
     })
   },
   sizeChange ({ detail: size }) {
