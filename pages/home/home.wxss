@@ -106,10 +106,11 @@
 .nav-list .nav-row1, .nav-row2 {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .nav-item {
   flex-basis: 120rpx;
+  margin-left: 10px;
   display: inline-block;
   text-align: center;
   box-sizing: border-box;
@@ -316,8 +317,8 @@ border-radius: 50rpx
 }
 
 .good-item .image image {
-  width: 350rpx;
-  height: 350rpx;
+  width: 360rpx;
+  height: 360rpx;
   /* height: 170rpx; */
   vertical-align: middle;
 }

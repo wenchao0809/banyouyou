@@ -10,6 +10,7 @@ Page({
    */
   data: {
     cartList:[],
+    selectedIds: [],
     totalMoney:'0.00',
     totalCount:0,
     selectAll:false,
@@ -36,20 +37,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
   getList(){
     cartList({limit: MAXCOUNT, offset: 0})
       .then(res => {
         // let totalMoney = res.reduce((p, n) => p + n.price, 0)
-        let curList = this.data.cartList
+        let totalMoney = 0
         for (let i = 0; i < res.length; i++) {
           let item = res[i]
           item.Desc = objectToString(item.DescriptionJson)
-          if (curList)
-          item.select = curList[i] &&  curList[i].select
+          item.select = this.data.selectedIds.includes(item.Id)
+         if (item.select) {
+          totalMoney += item.Price * item.Number
+         }
         }
-        this.setData({ cartList: res })
+        this.setData({ cartList: res, totalMoney: totalMoney })
       })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {
@@ -73,9 +75,12 @@ Page({
     cartList[index].select = !cartList[index].select
 
     if (cartList[index].select) {
+      this.data.selectedIds.push(cartList[index].Id)
       totalMoney += cartList[index].Price * cartList[index].Number;
       totalCount++;
     }else {
+      let i = this.data.selectedIds.indexOf(cartList[index].Id)
+      this.data.selectedIds.splice(i,)
       totalMoney -= cartList[index].Price * cartList[index].Number;
       totalCount--;
       selectAll = false
@@ -99,7 +104,7 @@ Page({
     let selectAll = this.data.selectAll
 
     selectAll = !selectAll // 全选按钮置反
-
+    this.dta.selectedIds = cartList.map(item => item.Id)
     cartList.forEach(cart => {
       // 设置选中或不选中状态 每个商品的选中状态和全选按钮一致
       cart.select = selectAll
@@ -207,8 +212,7 @@ Page({
     let goodIds = goods.map(item => item.Id)
     cartDel({ id: goodIds })
       .then(res => {
-        debugger
-        console.log(res)
+        this.getList()
       })
   },
   /**
