@@ -29,6 +29,7 @@
         </view>
         <button class="chat-type-item" bindcontact="handleContact" plain open-type="contact">
         <text class="icon icon-conversation_icon"></text>
+        <view style="font-size: 20rpx; line-height: 0; color: white;">消息</view>
           <!-- <text>聊天</text> -->
         </button>
         <!-- <view class="search-icon">

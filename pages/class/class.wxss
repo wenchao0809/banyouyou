@@ -34,7 +34,7 @@
   font-size: 24rpx;
 }
 .nav_left{
-  background: #f8f8f8;
+  /* background: #f8f8f8; */
   width: 24%;
   height: 100%;
   white-space: nowrap;
@@ -230,11 +230,17 @@ flex: 1;
   justify-content: space-around; */
 }
 .search-container button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
+  /* line-height: 0; */
+  height: 100rpx;
   border: none;
 }
 
 .chat-type-item text {
-  font-size: 26rpx;
+  /* margin-bottom: 10rpx; */
+  font-size: 30rpx;
   color: white;
 }

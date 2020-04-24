@@ -79,7 +79,7 @@ Page({
   formateCategorys(categorys) {
     let pre = 0,  next = 10
     let results = []
-    while(next < categorys.length) {
+    while(pre === 0 || next < categorys.length) {
       let re = categorys.slice(pre, next)
       results.push([re.slice(0, 5), re.slice(5, 10)])
       pre = next
