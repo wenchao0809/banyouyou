@@ -13,7 +13,7 @@
               <!-- <text class="detail-memberDesc">黄金会员</text> -->
               <text class="detail-rank">{{ user.VipLevelStr }}</text>
             </view>
-            <text class="detail-rankDesc">会员等级升级</text>
+            <text class="detail-rankDesc">板优优会员</text>
           </view>
           <text class="detail-number">{{ user.Phone }}</text>
         </view>

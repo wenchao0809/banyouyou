@@ -43,7 +43,6 @@
             </block>
         </swiper>
     </view>
-    <announcement advertising="{{advertising}}"></announcement>
     <!-- 导航 -->
     <view class="nav-list">
         <block>
@@ -88,6 +87,7 @@
             <!-- </view> -->
         </block>
     </view>
+    <announcement advertising="{{advertising}}"></announcement>
     <!-- 热品推荐 -->
     <view class='page-margin'>
         <view class="page-row">

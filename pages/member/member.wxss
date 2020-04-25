@@ -155,9 +155,9 @@ page {
 }
 
 .member-illustrate {
-  width: 640rpx;
+  width: 700rpx;
   margin: 0 auto;
-  padding: 20rpx 30rpx;
+  padding: 20rpx 0rpx;
 }
 
 .coupon-box {
