@@ -127,7 +127,7 @@ Page({
     })
   },
   addNums({currentTarget:{dataset:{index}}}){
-
+    
     let totalMoney = Number(this.data.totalMoney),
         cartList = this.data.cartList;
     ++cartList[index].Number
@@ -142,12 +142,11 @@ Page({
 
   },
   subNums({ currentTarget: { dataset: { index } } }){
-
     let totalMoney = Number(this.data.totalMoney),
         cartList = this.data.cartList;
     --cartList[index].Number
     if (cartList[index].select) {
-      totalMoney -= cartList[index].price;
+      totalMoney -= cartList[index].Price;
     }
 
     this.setData({
