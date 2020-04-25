@@ -127,14 +127,21 @@ Page({
     })
   },
   addNums({currentTarget:{dataset:{index}}}){
-    
+
     let totalMoney = Number(this.data.totalMoney),
         cartList = this.data.cartList;
     ++cartList[index].Number
+    
     if (cartList[index].select) {
       totalMoney += cartList[index].Price;
     }
-
+    let { MaterialsId, PriceId } = cartList[index]
+    let number = cartList[index].Number
+    let params = { materials_id: MaterialsId, number, price_id: PriceId, is_update: true }
+    addCart(params)
+    .then(res => {
+      this.getList()
+    })
     this.setData({
       cartList,
       totalMoney: String(totalMoney.toFixed(2))
@@ -143,12 +150,18 @@ Page({
   },
   subNums({ currentTarget: { dataset: { index } } }){
     let totalMoney = Number(this.data.totalMoney),
-        cartList = this.data.cartList;
+    cartList = this.data.cartList;
     --cartList[index].Number
     if (cartList[index].select) {
       totalMoney -= cartList[index].Price;
     }
-
+    let { MaterialsId, PriceId } = cartList[index]
+    let number = cartList[index].Number
+    let params = { materials_id: MaterialsId, number, price_id: PriceId, is_update: true }
+    addCart(params)
+    .then(res => {
+      this.getList()
+    })
     this.setData({
       cartList,
       totalMoney: String(totalMoney.toFixed(2))
@@ -175,7 +188,6 @@ Page({
     wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=2' })
   },
   update: function (index) {
-    debugger
     var cartList = this.data.cartList
     let totalMoney = Number(this.data.totalMoney)
     let totalCount = this.data.totalCount
