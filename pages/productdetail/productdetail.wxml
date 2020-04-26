@@ -8,6 +8,7 @@
               bind:tap="previewImage" 
               src="{{item}}"
               data-key="imgList"
+              data-item="{{item}}"
               bindload="imgHeight"
               mode="widthFix"
               style="width: 100%;">
@@ -45,6 +46,7 @@
     src="{{ item }}"
     bind:tap="previewImage"
     data-key="content_pic_list"
+    data-item="{{item}}"
     wx:key="*this" src="{{item}}" 
     mode="widthFix"
     style="width: 100%;">
