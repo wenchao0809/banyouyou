@@ -70,6 +70,7 @@ Page({
   },
   previewImage({ currentTarget: { dataset: { key: key, item } } }) {
     let data = this.data[key]
+    debugger
     wx.previewImage({
       current: item,
       urls: data

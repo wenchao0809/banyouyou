@@ -37,7 +37,7 @@
       <view style="font-size: 24rpx;color: #888;margin-top: 10rpx;">分 享</view>
     </view>
   </view>
-  <view class="productdetail-sku">规格</view>
+  <!-- <view class="productdetail-sku">规格</view> -->
   <!-- <sku sku="{{sizes}}" bind:changeValue="sizeChange" /> -->
   <view class="productdetail-imgdesc">
    <image 

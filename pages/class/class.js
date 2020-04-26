@@ -67,7 +67,7 @@ Page({
   // 改变tab栏
   currentTabs(e){
     this.setData({
-      curIndex: e.currentTarget.dataset.index
+      curIndex: e.currentTarget && e.currentTarget.dataset.index || e
     })
     this.getNavRightItems()
   },
