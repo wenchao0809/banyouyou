@@ -21,7 +21,6 @@ Page({
   },
 
   editAddress({ detail: address }) {
-    debugger
     let { Id, Address, Phone, Category, IsDefault, Other, Person, PhoneRegion, Sex  } = address
     wx.navigateTo({ 
       url: `/pages/add-address/add-address?id=${Id}&address=${Address}&phone=${Phone}&` +

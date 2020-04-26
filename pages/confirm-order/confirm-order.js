@@ -37,8 +37,8 @@ Page({
       let price_list = this.data.goodList.map(item => ({ id: item.priceId, number: item.count }))
       newOrder({ address_id, coupon_list, total_price, price_list })
         .then(res => {
-          debugger
           if (this.data.type === '2') {
+            // 从购物车跳过来的
             let cartGoodIds = this.data.goodList.map(item => item.cartId)
             // 删除购物车
             cartDel({ id: cartGoodIds })

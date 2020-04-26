@@ -35,11 +35,6 @@ Page({
     })
     getMappQrCode({ scene: `?distribution_id=${userInfo.Id}` })
       .then(res => {
-        // debugger
-        // wx.showLoading({
-        //   title: '12121',
-        //   mask: true
-        // })
         this.setData({
           painting: {
             width: 375,

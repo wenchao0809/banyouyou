@@ -45,7 +45,6 @@ Component({
       this.triggerEvent('changeValue', this.properties.tags[this.data.activeIndex])
     },
     computeStyle(tag) {
-      debugger
       let { customStyle, activeStyle, disableStyle } = this.properties
       let style = customStyle
       if (tag.disable) {
