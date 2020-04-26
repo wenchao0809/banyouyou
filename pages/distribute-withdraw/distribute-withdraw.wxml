@@ -1,5 +1,5 @@
 <view class="distribute-withdraw">
-  <view class="order-list">
+  <view class="order-list" wx:if="{{ rewardList.length > 0 }}">
     <view class="order-item" wx:for="{{ rewardList }}">
         <view class="left">
             <view class="order-create-date">提现时间：{{item.CreateAt}}</view>
@@ -12,4 +12,5 @@
         </view>
     </view>
   </view>
+  <noneData wx:else></noneData>
 </view>

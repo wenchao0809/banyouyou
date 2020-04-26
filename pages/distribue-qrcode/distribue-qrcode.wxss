@@ -1,5 +1,5 @@
 .qrcode-image {
-    margin-top: 40rpx;
+    /* margin-top: 40rpx; */
     padding-bottom: 30rpx;
     text-align: center;
     background-color: white;

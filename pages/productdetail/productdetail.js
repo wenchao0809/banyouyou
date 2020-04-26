@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    Height: '',
     id: '',
     title: '',
     min_price: '',
@@ -67,9 +68,12 @@ Page({
       show: true
     })
   },
-  previewImage({ currentTarget: { dataset: { key: key } } }) {
+  previewImage({ currentTarget: { dataset: { key: key, item } } }) {
     let data = this.data[key]
-    this.setData({ previewImageList: data, showPreview: true })
+    wx.previewImage({
+      current: item,
+      urls: data
+    })
   },
   closePreview() {
     this.setData({ showPreview: false })
@@ -166,6 +170,15 @@ Page({
       content_pic_list: res.content_pic_list,
       price_list: res.price_list,
       current_price: res.price_list[0]
+    })
+  },
+  imgHeight: function (e) {
+    var winWid = wx.getSystemInfoSync().windowWidth
+    var imgh = e.detail.height
+    var imgw = e.detail.width
+    var swiperH = winWid * imgh / imgw + "px"
+    this.setData({
+      Height: swiperH
     })
   },
   /**

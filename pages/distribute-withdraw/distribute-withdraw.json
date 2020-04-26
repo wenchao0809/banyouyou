@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "提现记录",
   "usingComponents": {
+    "noneData": "/components/noneData/noneData"
   },
   "enablePullDownRefresh": true
 }

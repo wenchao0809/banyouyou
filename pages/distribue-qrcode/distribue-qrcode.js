@@ -17,7 +17,6 @@ Page({
         wx.getImageInfo({
             src: this.data.qrCode,
             success: function (sres) {
-                debugger
               console.log(sres.path);
               wx.saveImageToPhotosAlbum({
                 filePath: sres.path,
@@ -38,7 +37,10 @@ Page({
     onLoad: function (options) {
         let userInfo = wx.getStorageSync(USERINFO)
         this.setData({ userInfo })
-        getMappQrCode({ scene: `?distribution_id=${userInfo.Id}` })
+        getMappQrCode({ 
+            scene: `?distribution_id=${userInfo.Id}`,
+            page: 'pages/register/register'
+         })
             .then(res => {
                 this.setData({ qrCode: res })
             })

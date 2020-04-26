@@ -1,4 +1,7 @@
 {
     "navigationBarTitleText": "BUU板优优",
+    "usingComponents": {
+        "noneData": "/components/noneData/noneData"
+      },
     "enablePullDownRefresh": true
 }

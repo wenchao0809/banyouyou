@@ -1,5 +1,5 @@
 <view class="distributor">
-    <view class="distribute-order-list">
+    <view class="distribute-order-list" wx:if="{{ rewardList.length > 0 }}">
         <!-- <view class="tab">
             <view class="tab-item">
                 订单id
@@ -26,4 +26,5 @@
             </view>
         </view>
     </view>
+      <noneData wx:else></noneData>
 </view>

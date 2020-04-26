@@ -1,14 +1,16 @@
 <!--pages/productdetail/productdetail.wxml-->
 <view class="productdetail-container">
   <view class="productdetail-swiper">
-    <swiper autoplay="{{true}}" style="height: 100%; width: 100%;" bindchange="swiperChange" current="{{index}}">
+    <swiper autoplay="{{true}}" style="width: 100%;height: {{Height}};" bindchange="swiperChange" current="{{index}}">
         <block wx:for="{{imgList}}" wx:key="*this">
           <swiper-item>
             <image 
               bind:tap="previewImage" 
               src="{{item}}"
               data-key="imgList"
-              style="height: 100%; width: 100%;">
+              bindload="imgHeight"
+              mode="widthFix"
+              style="width: 100%;">
             </image>
           </swiper-item>
         </block>
@@ -44,6 +46,7 @@
     bind:tap="previewImage"
     data-key="content_pic_list"
     wx:key="*this" src="{{item}}" 
+    mode="widthFix"
     style="width: 100%;">
   </image>
   </view>

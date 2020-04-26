@@ -27,8 +27,6 @@ Page({
         // 标识上拉是否还有数据继续加载
         pullUpDone: false,
         rewardList: [
-            { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 },
-            { Id: 1, DistributionPrice: 1000, DistributionStatus: 1 }
         ]
     },
     getList() {

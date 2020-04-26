@@ -1,6 +1,6 @@
 /* pages/productdetail/productdetail.wxss */
 .productdetail-swiper {
-  height: 500rpx;
+  /* height: 500rpx; */
   width: 100%;
   position: relative;
 }

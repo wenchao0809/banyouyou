@@ -37,13 +37,16 @@ Page({
       let price_list = this.data.goodList.map(item => ({ id: item.priceId, number: item.count }))
       newOrder({ address_id, coupon_list, total_price, price_list })
         .then(res => {
-          if (this.data.type === 2) {
-            let cartGoodIds = this.data.goodList.map(item => item.Id)
+          debugger
+          if (this.data.type === '2') {
+            let cartGoodIds = this.data.goodList.map(item => item.cartId)
             // 删除购物车
             cartDel({ id: cartGoodIds })
-              then(() => {
-                wx.navigateTo({ url: '/pages/my-orders/my-orders' })
+              .then(() => {
+                wx.redirectTo({ url: '/pages/my-orders/my-orders' })
               })
+          } else {
+            wx.redirectTo({ url: '/pages/my-orders/my-orders' })
           }
         })
     },
