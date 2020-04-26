@@ -68,9 +68,12 @@ Page({
       show: true
     })
   },
-  previewImage({ currentTarget: { dataset: { key: key } } }) {
+  previewImage({ currentTarget: { dataset: { key: key, item } } }) {
     let data = this.data[key]
-    this.setData({ previewImageList: data, showPreview: true })
+    wx.previewImage({
+      current: item,
+      urls: data
+    })
   },
   closePreview() {
     this.setData({ showPreview: false })
