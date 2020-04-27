@@ -17,7 +17,8 @@
       <couponItem 
       wx:for="{{ unavailableCouponList }}" 
       couponInfo="{{ item }}"
-       disableSelect="{{ true }}">
+       disableSelect="{{ true }}"
+       customeStyle="{{couponCustomStyle}}">
        </couponItem>
     </scroll-view>
   </view>

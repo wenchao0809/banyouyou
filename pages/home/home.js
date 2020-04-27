@@ -142,7 +142,7 @@ Page({
   },
   sizeChange(e) {
     let priceManage = this.data.miniCartGoodInfo.priceManage
-    priceManage.setSelectedSize(e.detail)
+    priceManage.sizeChange(e.detail)
     this.setMiniCartGoodInfo()
   },
   setMiniCartGoodInfo() {

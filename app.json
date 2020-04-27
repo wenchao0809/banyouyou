@@ -28,7 +28,8 @@
     "pages/good-list/good-list",
     "pages/my-distributor/my-distributor",
     "pages/distribue-qrcode/distribue-qrcode",
-    "pages/distribute-withdraw/distribute-withdraw"
+    "pages/distribute-withdraw/distribute-withdraw",
+    "pages/contact-us/contact-us"
   ],
   "window": {
     "backgroundTextStyle": "dark",

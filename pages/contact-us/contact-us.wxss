@@ -1,0 +1,83 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300rpx;
+  background-color: red;
+}
+.header .title {
+  margin-bottom: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #b0895d;
+}
+
+.header .desc {
+  padding: 10rpx;
+  background-color: #2f363d;
+  color: white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20rpx;
+  padding: 30rpx 20rpx;
+  background-color: white;
+}
+
+.content .title {
+  font-weight: bold;
+  font-size: 40rpx;
+  color: #767778;
+}
+
+.content .add-wechat .wechat-item {
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.content .add-wechat .wechat-item .icon-xiaoxi2, .icon-dianhua1 {
+  margin-right: 10rpx;
+  color: #fd354f;
+  font-size: 40rpx;
+}
+
+.content .add-wechat .wechat-item .name {
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.content .add-wechat .wechat-item image {
+  margin-top: 20rpx;
+  width: 350rpx;
+  border-radius: 20rpx;
+  border: 1px solid #e44131;
+}
+
+.content .add-wechat .wechat-item .opearte-desc {
+  color: #797d7e;
+}
+.content .add-wechat .wechat-item .opearte-desc :first-child {
+  margin-bottom: 10rpx;
+}
+
+.phone .phone-item {
+  margin-bottom: 20rpx;
+}
+
+.phone .phone-item .name {
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.footer {
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  text-indent: 40rpx;
+  color: #949898;
+}

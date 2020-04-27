@@ -23,14 +23,17 @@ Component({
   methods: {
     changeValue (e) {
       let title = e.currentTarget.dataset.title
-      let sku = e.detail.name
-      let skus = this.data.skus
-      skus[title] = sku
-      this.setData({
-        skus
-      })
-      console.log(this.data.skus)
-      this.triggerEvent('changeValue', this.data.skus)
+      // debugger
+      let sku = e.detail
+      sku.key = title
+      // let skus = this.data.skus
+      // skus[title] = sku
+      // this.setData({
+      //   skus
+      // })
+      // console.log(this.data.skus)
+      sku.selected = !sku.selected
+      this.triggerEvent('changeValue', sku)
     }
   }
 })

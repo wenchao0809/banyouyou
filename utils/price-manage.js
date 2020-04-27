@@ -7,11 +7,15 @@ export default class PriceMange {
     this.keys = Object.keys(this.sizes)
     this.desc = this._computedDescStr()
     this.curPrice.desc = this.desc
+    // 当前选择规格
+    this.setSelectedSize = {}
      // 剩余可选的规格的key
      this.reaminKeys = []
      // 标识所有规格都已选
      this.done = true
-    this.setSelectedSize(this.curPrice.Description)
+     this.selectedSize = {...this.curPrice.Description}
+     this.sizeChange()
+    // this.setSelectedSize(this.curPrice.Description)
   }
   // 生成sku数据
   _generateSizes(priceList) {
@@ -53,6 +57,42 @@ export default class PriceMange {
       }
     }
     return this
+  }
+  sizeChange(size) {
+    if (size) {
+      let { key, name, selected } = size
+      let skus = this.sizes[key]
+      if (selected) {
+        // 被选中
+        this.selectedSize[key] = name
+        for (let item of skus) {
+          item.selected = item.name === name
+        }
+      } else {
+        // 取消选中
+        if (this.selectedSize[key]) {
+          delete this.selectedSize[key]
+        }
+        for (let item of skus) {
+          if (item.name === name) {
+            item.selected = false
+            break
+          }
+        }
+      }
+      // this.sizes[key] = [...this.sizes[key]]
+    }
+    this.selectedKeys = Object.keys(this.selectedSize)
+    let { keys, selectedKeys } = this
+    // 是否所有规格已选
+    this.done = keys.length === selectedKeys.length
+    if (this.done) {
+      this.curPrice = this._computedPrice()[0]
+      this.desc = this._computedDescStr()
+      this.curPrice.desc = this.desc
+    } else {
+
+    }
   }
   // set selectedSize
   setSelectedSize(size) {
@@ -142,7 +182,6 @@ export default class PriceMange {
         }
       }
     }
-
     return this
   }
   // connect

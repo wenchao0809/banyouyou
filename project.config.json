@@ -244,6 +244,14 @@
 					"id": -1,
 					"name": "pages/distribue-qrcode/distribue-qrcode",
 					"pathName": "pages/distribue-qrcode/distribue-qrcode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/contact-us/contact-us",
+					"pathName": "pages/contact-us/contact-us",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -37,6 +37,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 两种用法1 传递字符串数组 2 传递对象数组
     clickTag(e) {
       let index = e.currentTarget.dataset.index
       this.setData({

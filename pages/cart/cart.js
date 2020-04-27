@@ -41,6 +41,7 @@ Page({
   getList(){
     cartList({limit: MAXCOUNT, offset: 0})
       .then(res => {
+        res = res ? res : []
         // let totalMoney = res.reduce((p, n) => p + n.price, 0)
         let totalMoney = 0
         for (let i = 0; i < res.length; i++) {

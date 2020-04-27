@@ -63,11 +63,11 @@ Page({
         icon: 'icon icon-shezhi',
         url: '/pages/set/set'
       },
-      // {
-      //   name: '帮助中心',
-      //   icon: 'icon icon-kefu',
-      //   url: ''
-      // }
+      {
+        name: '帮助中心',
+        icon: 'icon icon-kefu',
+        url: '/pages/contact-us/contact-us'
+      }
     ],
     user: {},
     couponCount: 1
