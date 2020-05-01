@@ -45,6 +45,7 @@ Page({
       coupon_list = coupon_list.map(item => item.UUID)
       let total_price = this.data.orderMoney
       let price_list = this.data.goodList.map(item => ({ id: item.priceId, number: item.count }))
+      console.log(coupon_list)
       newOrder({ address_id, coupon_list, total_price, price_list })
         .then(res => {
           if (this.data.type === '2') {
@@ -66,8 +67,8 @@ Page({
     showCouponSelector() {
       this.setData({ showCouponSelector: true })
     },
-    setCouponList(totalMoney, vipDiscountMoney) {
-      let cpTotalMoney = totalMoney
+  setCouponList(totalMoney, couTotalMoney,vipDiscountMoney) {
+      // let cpTotalMoney = totalMoney
       getUserCoupon({ limit: MAXCOUNT, offset: 0, type: 0 })
       .then(res => {
         let list = res.list
@@ -77,17 +78,18 @@ Page({
         let orderUnavailableCouponList = availableCouponList.filter(item => totalMoney < item.FullPrice)
         // set checked
         let discountMoney = 0
+        let CouTotalMoney = couTotalMoney - vipDiscountMoney
         orderAvailableCouponList.map(item => {
-          if (totalMoney >= item.FullPrice) {
+          if (CouTotalMoney >= item.FullPrice) {
             item.checked = true
             discountMoney += item.Price
-            totalMoney -= item.FullPrice
+            CouTotalMoney -= item.FullPrice
           }
           return item
         })
         this.setData({
           discountMoney,
-          orderMoney: cpTotalMoney - discountMoney - vipDiscountMoney,
+          orderMoney: totalMoney - discountMoney - vipDiscountMoney,
           availableCouponList,
           orderAvailableCouponList,
           orderUnavailableCouponList
@@ -120,10 +122,18 @@ Page({
         var userInfo = wx.getStorageSync(USERINFO)
         if (goodList) {
           let totalMoney = goodList.reduce((p, n) => p + n.price * n.count, 0)
+          let couTotalMoney = goodList.reduce((p, n) => {
+            let total = p
+            if (!n.isSpecialOffer) {
+              total = p + n.price * n.count
+            }
+            return total
+
+          }, 0)
           // 服务端保存折扣是乘1000, 比如 997就是0.997
           let vipTotalMoney = Math.floor(totalMoney * (userInfo.Discount / 1000))
           let vipDiscountMoney = Math.ceil(parseInt(totalMoney * (1 - userInfo.Discount / 1000)))
-          this.setCouponList(totalMoney, vipDiscountMoney)
+          this.setCouponList(totalMoney, couTotalMoney, vipDiscountMoney)
           this.setData({
             userInfo,
             address,
