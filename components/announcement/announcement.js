@@ -8,9 +8,9 @@ Component({
     },
     properties: {
       advertising: {
-          type: Object,
-          value: {}
-        }
+        type: Object,
+        value: {}
+      },
     },
   
     /**
@@ -41,6 +41,12 @@ Component({
       onClickHide() {
         this.setData({
           showPop: false
+        })
+      },
+      gotoDetail() {
+        const { Id } = this.properties.advertising
+        wx.navigateTo({
+          url: `/pages/productdetail/productdetail?id=${Id}`,
         })
       }
     }

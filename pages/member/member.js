@@ -2,6 +2,8 @@
 import { USERINFO } from '../../utils/constant'
 import { connect, extract } from 'mobx-wxapp'
 import { user } from '../../store/index'
+import { getUserInfo } from '../../api/index'
+import { getToken } from '../../utils/http'
 const vipLevelMapStr = {
   '0': 'VIP0',
   '1': 'VIP1',
@@ -69,7 +71,8 @@ Page({
     percent: 0,
     nextPoints: 0,
     nextLevelStr: '',
-    user: {}
+    user: {},
+    couponCount: 0,
   },
 
   showModal () {
@@ -101,36 +104,55 @@ Page({
       url: '/pages/memberIntroduction/memberIntroduction'
     })
   },
-
+  async getUserInfo() {
+    return new Promise((resolve, reject) => {
+      let token = getToken()
+      if (token) {
+        getUserInfo()
+          .then(res => {
+            user.changeUser(res)
+            wx.setStorageSync(USERINFO, res)
+            this.setData({ couponCount: res.CouponCount })
+            resolve(res)
+          })
+      } else {
+        reject()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     connect(this, () => ({
       user: { ...extract(user) }
     }))
-    let userInfo = wx.getStorageSync(USERINFO)
-    let vipLevelStr = vipLevelMapStr[userInfo.VipLevel]
-    let nextPoints,
+    try {
+      let userInfo = await this.getUserInfo()
+      let vipLevelStr = vipLevelMapStr[userInfo.VipLevel]
+      let nextPoints,
         percent
 
-    // if (userInfo.VipLevel < 11) {
-    //   let nextLevel = userInfo.VipLevel + 1
-    //   let nextLevelStr = vipLevelMapStr[nextLevel]
-    //   let curPoints = userInfo.Points
-    //   let curLevelPoints = integrals[vipLevelStr]
-    //   nextPoints = integrals[nextLevelStr]
-    //   let donePoints = curPoints - curLevelPoints
-    //   percent = donePoints / (nextPoints - curLevelPoints)
-    // }
-    let nextLevel = userInfo.VipLevel < 11 ? userInfo.VipLevel + 1 : userInfo.VipLevel
-    let nextLevelStr = vipLevelMapStr[nextLevel]
-    let curPoints = userInfo.Points
-    let curLevelPoints = integrals[vipLevelStr]
-    nextPoints = integrals[nextLevelStr]
-    let donePoints = curPoints - curLevelPoints
-    percent = userInfo.VipLevel < 11 ? (donePoints / (nextPoints - curLevelPoints)) : 100
-    this.setData({ userInfo, percent, nextPoints, vipLevelStr, nextLevelStr })
+      // if (userInfo.VipLevel < 11) {
+      //   let nextLevel = userInfo.VipLevel + 1
+      //   let nextLevelStr = vipLevelMapStr[nextLevel]
+      //   let curPoints = userInfo.Points
+      //   let curLevelPoints = integrals[vipLevelStr]
+      //   nextPoints = integrals[nextLevelStr]
+      //   let donePoints = curPoints - curLevelPoints
+      //   percent = donePoints / (nextPoints - curLevelPoints)
+      // }
+      let nextLevel = userInfo.VipLevel < 11 ? userInfo.VipLevel + 1 : userInfo.VipLevel
+      let nextLevelStr = vipLevelMapStr[nextLevel]
+      let curPoints = userInfo.Points
+      let curLevelPoints = integrals[vipLevelStr]
+      nextPoints = integrals[nextLevelStr]
+      let donePoints = curPoints - curLevelPoints
+      percent = userInfo.VipLevel < 11 ? (donePoints / (nextPoints - curLevelPoints)) : 100
+      this.setData({ userInfo, percent, nextPoints, vipLevelStr, nextLevelStr })
+    } catch {
+      wx.redirectTo({ url: '/pages/login/login' })
+    }
   },
 
   /**

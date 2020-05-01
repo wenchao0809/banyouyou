@@ -27,7 +27,7 @@
     <view class="red-line">已享有优惠券</view>
     <view class="coupon-box">
       <view class="coupon-item">
-        <text>{{userInfo.CouponCount}}张</text>
+        <text>{{couponCount}}张</text>
         <view class="coupon-btn" bindtap="goCoupon">立即查看</view>
       </view>
     </view>

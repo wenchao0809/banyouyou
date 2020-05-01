@@ -213,3 +213,10 @@
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
+
+.cart-num {
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  position: relative;
+  top: 4rpx;
+}

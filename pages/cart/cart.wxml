@@ -7,7 +7,8 @@
     <view class="header">
       <view class="left">
         <checkRadio check-raio="check" class="select-all" catch:change="selectAll" checked="{{selectAll}}"></checkRadio>
-        <image src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-13/bcc07c4d-b8e4-4d02-a2d0-41b796a889bd.png"></image>
+        <image src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-14/7346a58c-b209-41b0-8c0a-83034f5479f4.png"></image>
+        <text class="cart-num">购物车当前有{{cartList.length}}件商品</text>
       </view>
       <text class="icon icon-shanchu" bind:tap="deleteSelect"></text>
     </view>

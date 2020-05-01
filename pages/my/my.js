@@ -64,7 +64,7 @@ Page({
         url: '/pages/set/set'
       },
       {
-        name: '帮助中心',
+        name: '联系我们',
         icon: 'icon icon-kefu',
         url: '/pages/contact-us/contact-us'
       }
@@ -73,8 +73,8 @@ Page({
     couponCount: 1
   },
   onLoad() {
-    let userInfo = wx.getStorageSync(USERINFO)
-    this.setData({ couponCount: userInfo.CouponCount })
+    // let userInfo = wx.getStorageSync(USERINFO)
+    // this.setData({ couponCount: userInfo.CouponCount })
     console.log('load my page')
     connect(this, () => ({
       user: { ...extract(user) }
@@ -93,6 +93,7 @@ Page({
         .then(res => {
           user.changeUser(res)
           wx.setStorageSync(USERINFO, res)
+          this.setData({ couponCount: res.CouponCount })
         })
     } else {
       wx.redirectTo({ url: '/pages/login/login' })

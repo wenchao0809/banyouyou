@@ -33,6 +33,19 @@ Component({
     'activeIndex': ''
   },
 
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
+      this.properties.tags.forEach((item, index) => {
+        if (item.selected) {
+          this.setData({
+            activeIndex: index
+          })
+        }
+      })
+    },
+  },
+
   /**
    * 组件的方法列表
    */

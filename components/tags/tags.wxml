@@ -2,7 +2,7 @@
 <view class="tags-container">
   <block wx:for="{{tags}}">
     <tag 
-      customStyle="{{activeItem === item || item.selected ? activeStyle : '' || item.disable ? disableStyle: '' || customStyle}} " 
+      customStyle="{{activeItem === item || activeIndex === index ? activeStyle : '' || item.disable ? disableStyle: '' || customStyle}} " 
       data-index="{{index}}" 
       bindtap="clickTag">
       {{item.name || item}}

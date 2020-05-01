@@ -14,10 +14,11 @@
     transform: translateX(-50%);
     z-index: 1;
     transition:all .5s;
+    align-items: center;
 }
 .search-container .logo {
-  height: 60rpx;
-  width: 150rpx;
+  height: 90rpx;
+  width: 250rpx;
 }
 .search-container .search-input {
   display: flex;
@@ -110,7 +111,7 @@
 }
 .nav-item {
   flex-basis: 120rpx;
-  margin-left: 10px;
+  margin-left: 8px;
   display: inline-block;
   text-align: center;
   box-sizing: border-box;
@@ -306,6 +307,7 @@ border-radius: 50rpx
   /* padding: 0 20rpx; */
   /* display: flex; */
   padding-bottom: 20rpx;
+  flex-basis: 50%;
   /* justify-content: space-between;
   align-items: center; */
 }

@@ -7,11 +7,13 @@ Page({
   data: {
     qrcodeImages: [
       {
-        name: 'BUU-8号客服微信：BUU-120801',
+        name: 'BUU-8号客服微信：',
+        wechat: 'BUU-120801',
         url: 'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-27/9135f37e-fa77-4adb-85da-1a0ff6b2288c.jpeg'
       },
       {
-        name: 'BUU-6号客服微信：STR1066053831',
+        name: 'BUU-6号客服微信：',
+        wechat: 'STR1066053831',
         url:  'https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-27/9135f37e-fa77-4adb-85da-1a0ff6b2288c.jpeg'
       }
     ]
@@ -45,6 +47,19 @@ Page({
   logout() {
     wx.removeStorageSync('token')
     wx.navigateTo({ url: '/pages/login/login' })
+  },
+  makePhoneCall(e) {
+    console.log(e)
+    const phoneNumber = e.currentTarget.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber
+    })
+  },
+  setClipboardData(e) {
+    const data = e.currentTarget.dataset.wechat
+      wx.setClipboardData({
+        data
+      })
   },
   /**
    * 生命周期函数--监听页面加载

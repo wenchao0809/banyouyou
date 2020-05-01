@@ -8,13 +8,23 @@ export default class PriceMange {
     this.desc = this._computedDescStr()
     this.curPrice.desc = this.desc
     // 当前选择规格
-    this.setSelectedSize = {}
+    // this.setSelectedSize({})
+    this.selectedKeys = []
+    this.keys.forEach(key => {
+      this.sizes[key].some(item => {
+        if (item.selected) {
+          this.selectedKeys.push(key)
+          return true
+        }
+        return false
+      })
+    })
      // 剩余可选的规格的key
      this.reaminKeys = []
      // 标识所有规格都已选
      this.done = true
      this.selectedSize = {...this.curPrice.Description}
-     this.sizeChange()
+    //  this.sizeChange()
     // this.setSelectedSize(this.curPrice.Description)
   }
   // 生成sku数据
@@ -82,7 +92,9 @@ export default class PriceMange {
       }
       // this.sizes[key] = [...this.sizes[key]]
     }
-    this.selectedKeys = Object.keys(this.selectedSize)
+    // this.selectedKeys = Object.keys(this.selectedSize)
+    this.selectedKeys.push(this.selectedSize.key)
+
     let { keys, selectedKeys } = this
     // 是否所有规格已选
     this.done = keys.length === selectedKeys.length
@@ -98,12 +110,23 @@ export default class PriceMange {
   setSelectedSize(size) {
     this.resetStatus()
     this.selectedSize = size
-    this.selectedKeys = Object.keys(this.selectedSize)
+    // this.selectedKeys = Object.keys(this.selectedSize)
+    if (!this.selectedKeys.includes(size.key)) {
+      this.selectedKeys.push(size.key)
+    }
     let { keys, selectedKeys } = this
     this.done = keys.length === selectedKeys.length
     this.reaminKeys.length = 0
     if (this.done) {
-      this.curPrice = this._computedPrice()[0]
+      let prices = this._computedPrice()
+      prices.forEach(item => {
+        Object.keys(item.Description).forEach(key => {
+          if (item.Description[key] === size.name) {
+            this.curPrice = item
+          }
+        })
+      })
+      // this.curPrice = this._computedPrice()[0]
       this.desc = this._computedDescStr()
       this.curPrice.desc = this.desc
     } else {
@@ -123,7 +146,10 @@ export default class PriceMange {
     for (let price of priceList) {
       let size = price.Description
       for (let key of keys) {
-        if(size[key] !== selectedSize[key]) break
+        if(size[key] === selectedSize[key]) {
+          prices.push(price)
+          break
+        }
         if (key === keys[keys.length - 1]) prices.push(price)
       }
     }
@@ -151,9 +177,12 @@ export default class PriceMange {
     for (let key of selectedKeys) {
       let selectName = selectedSize[key]
       let values = sizes[key]
-      for (let item of values) {
-        if (item.name === selectName) {
-          item.selected = true
+      if (values) {
+        for (let item of values) {
+
+          if (item.name === selectName) {
+            item.selected = true
+          }
         }
       }
     }

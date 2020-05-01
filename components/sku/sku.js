@@ -23,7 +23,6 @@ Component({
   methods: {
     changeValue (e) {
       let title = e.currentTarget.dataset.title
-      // debugger
       let sku = e.detail
       sku.key = title
       // let skus = this.data.skus

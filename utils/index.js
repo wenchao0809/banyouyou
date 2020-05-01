@@ -11,7 +11,7 @@ export const saveConfirmOrderAddress = function(address) {
  * 获取默认地址,优先读缓存，其次网络请求获取
  */
 export const getConfirmOrderAddress = async function() {
-    let address
+    let address = {}
     try {
         // 取本地缓存
         let value = wx.getStorageSync(CONFIRMORDERADDRESS)
@@ -25,6 +25,9 @@ export const getConfirmOrderAddress = async function() {
                   address = item
                   break
               }
+          }
+          if (addressList.length && !address.Id) {
+            address = addressList[0]
           }
          saveConfirmOrderAddress(address)
         }

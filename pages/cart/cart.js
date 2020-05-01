@@ -38,7 +38,7 @@ Page({
    */
   onLoad: function (options) {
   },
-  getList(){
+  getList(flag = true){
     cartList({limit: MAXCOUNT, offset: 0})
       .then(res => {
         res = res ? res : []
@@ -52,10 +52,15 @@ Page({
           totalMoney += item.Price * item.Number
          }
         }
-        this.setData({ cartList: res, totalMoney: totalMoney })
+        if (flag) {
+          this.setData({ cartList: res, totalMoney: totalMoney })
+        } else {
+          this.setData({ totalMoney: totalMoney })
+        }
       })
   },
   getCartCount({currentTarget:{dataset:{index}},detail}) {
+    console.log(index, detail)
     let data = this.data.cartList[index]
     data.Number = detail;
     this.updateCart(data)
@@ -105,7 +110,7 @@ Page({
     let selectAll = this.data.selectAll
 
     selectAll = !selectAll // 全选按钮置反
-    this.dta.selectedIds = cartList.map(item => item.Id)
+    this.data.selectedIds = cartList.map(item => item.Id)
     cartList.forEach(cart => {
       // 设置选中或不选中状态 每个商品的选中状态和全选按钮一致
       cart.select = selectAll
@@ -171,11 +176,12 @@ Page({
   },
   updateCart(data) {
     let { MaterialsId, Number, PriceId } = data
+    console.log(Number)
     let params = { materials_id: MaterialsId, number: Number, price_id: PriceId }
     params.is_update = true
     addCart(params)
       .then(res => {
-        this.getList()
+        this.getList(false)
       })
   },
   tapToConfirmOrder() {

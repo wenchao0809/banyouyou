@@ -27,9 +27,19 @@ Page({
       showCouponSelector: false
     },
     toSelectAddress() {
-      wx.navigateTo({ url: `/pages/selectAddress/selectAddress?id=${this.data.address.Id}` })
+      let url = ''
+      if (this.data.address.Id) {
+        url = `/pages/selectAddress/selectAddress?id=${this.data.address.Id}`
+      } else {
+        url = '/pages/add-address/add-address'
+      }
+      wx.navigateTo({ url })
     },
     submitOrder() {
+      if (!this.data.address.Id) {
+        wx.showToast({ title: '请选择收货地址', icon: "none" });
+        return
+      }
       let address_id = this.data.address.Id
       let coupon_list = this.data.orderAvailableCouponList.filter(item => item.checked)
       coupon_list = coupon_list.map(item => item.UUID)

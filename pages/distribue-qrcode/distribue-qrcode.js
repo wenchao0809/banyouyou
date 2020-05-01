@@ -42,6 +42,7 @@ Page({
             page: 'pages/register/register'
          })
             .then(res => {
+              console.log(res)
                 this.setData({ qrCode: res })
             })
     },

@@ -11,7 +11,7 @@
     <text class="icon icon-youjiantou" bindtap = "showPop"></text>
   </view>
   <view class="announcement-image">
-    <image src="{{advertising.pic}}"></image>
+    <image src="{{advertising.pic}}" bind:tap="gotoDetail"></image>
   </view>
   <view class="announcement-pop">
     <van-overlay show="{{ showPop }}" bind:click="onClickHide">

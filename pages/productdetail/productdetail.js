@@ -160,6 +160,7 @@ Page({
     let original_price = res.original_price ? res.original_price : ''
     // let sku = generateSku(res.price_list)
     this.priceMange = new PriceManage(res.price_list)
+    console.log(this.priceMange.setSelectedSize)
     this.priceMange.connect(this)
     this.setData({
       title: res.title,
