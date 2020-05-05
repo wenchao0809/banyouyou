@@ -6,7 +6,7 @@ function formateOrderData(res) {
     return res.map(item => {
         item.DistributionPrice = (item.DistributionPrice / 1000).toFixed(2)
         item.TotalPrice = (item.TotalPrice / 1000).toFixed(2)
-        item.CreateAt = formateDate(item.CreateAt)
+        item.distribution_time = formateDate(item.distribution_time)
         if ([1, 2, 3, 4].includes(item.Status)) {
             item.Status = '未完成'
             item.statusStyle = 'color: #3d8b0f;'

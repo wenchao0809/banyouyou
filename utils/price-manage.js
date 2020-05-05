@@ -8,8 +8,8 @@ export default class PriceMange {
     this.desc = this._computedDescStr()
     this.curPrice.desc = this.desc
     // 当前选择规格
-    // this.setSelectedSize({})
     this.selectedKeys = []
+    // this.setSelectedSize({})
     this.keys.forEach(key => {
       this.sizes[key].some(item => {
         if (item.selected) {
@@ -95,11 +95,12 @@ export default class PriceMange {
     // this.selectedKeys = Object.keys(this.selectedSize)
     this.selectedKeys.push(this.selectedSize.key)
 
-    let { keys, selectedKeys } = this
+    let { keys, selectedKeys, curPrice } = this
     // 是否所有规格已选
     this.done = keys.length === selectedKeys.length
     if (this.done) {
-      this.curPrice = this._computedPrice()[0]
+      // this.curPrice = this._computedPrice()[0]
+      this.curPrice = this.getOnlyOnePrice(this._computedPrice(), curPrice.Description)
       this.desc = this._computedDescStr()
       this.curPrice.desc = this.desc
     } else {
@@ -114,18 +115,11 @@ export default class PriceMange {
     if (!this.selectedKeys.includes(size.key)) {
       this.selectedKeys.push(size.key)
     }
-    let { keys, selectedKeys } = this
+    let { keys, selectedKeys, curPrice } = this
     this.done = keys.length === selectedKeys.length
     this.reaminKeys.length = 0
     if (this.done) {
-      let prices = this._computedPrice()
-      prices.forEach(item => {
-        Object.keys(item.Description).forEach(key => {
-          if (item.Description[key] === size.name) {
-            this.curPrice = item
-          }
-        })
-      })
+      this.curPrice = this.getOnlyOnePrice(this._computedPrice(), curPrice.Description)
       // this.curPrice = this._computedPrice()[0]
       this.desc = this._computedDescStr()
       this.curPrice.desc = this.desc
@@ -139,6 +133,21 @@ export default class PriceMange {
     this.setDisableStatus()
     return this
   }
+  getOnlyOnePrice(priceList, prePrciceDesc) {
+    const { keys, selectedSize } = this
+    let prices = []
+    keys.forEach(key => {
+      if (key !== selectedSize.key) {
+        priceList.forEach(price => {
+          if (price.Description[key] === prePrciceDesc[key]) {
+            prices.push(price)
+          }
+        })
+        priceList = prices
+      }
+    })
+    return priceList[0]
+  }
   _computedPrice(type) {
     // 所有规格已选计算价格
     let prices = [], disablePrices = []
@@ -146,11 +155,11 @@ export default class PriceMange {
     for (let price of priceList) {
       let size = price.Description
       for (let key of keys) {
-        if(size[key] === selectedSize[key]) {
+        if(size[key] === selectedSize.name) {
           prices.push(price)
-          break
+          // break
         }
-        if (key === keys[keys.length - 1]) prices.push(price)
+        // if (key === keys[keys.length - 1]) prices.push(price)
       }
     }
     if (type === 1) {

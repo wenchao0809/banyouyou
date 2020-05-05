@@ -90,7 +90,7 @@ export function orderList(data) {
  * @param {} data 
  */
 export function distributeOrderList(data) {
-  return http._request('/user/order/distribution', { data })
+  return http._request('/user/order/distribution/month', { data })
     .then(res => res.data)
 }
 

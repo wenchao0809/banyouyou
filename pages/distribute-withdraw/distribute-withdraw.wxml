@@ -2,8 +2,10 @@
   <view class="order-list" wx:if="{{ rewardList.length > 0 }}">
     <view class="order-item" wx:for="{{ rewardList }}">
         <view class="left">
-            <view class="order-create-date">提现时间：{{item.CreateAt}}</view>
-            <view class="order-create-date">订单金额：{{item.DistributionPrice}}</view>
+            <view style="margin-bottom: 15rpx;">{{item.month}}</view>
+            <view class="order-create-date">分销单数：{{item.count}}笔</view>
+            <view class="order-create-date">累计收益：￥{{item.money / 100}}</view>
+            <view class="order-create-date">收益到账时间：{{item.distribution_time}}</view>
         </view>
         <view class="right">
           <button class="status-button">已到账</button>

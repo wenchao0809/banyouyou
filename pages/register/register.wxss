@@ -90,4 +90,10 @@
     cursor: pointer;
     text-decoration: underline;
 }
-
+.Idcard-photo {
+  display: inline-block;
+  margin-left: 25rpx;
+}
+.Idcard-photo image {
+  margin: 0 -90rpx;
+}

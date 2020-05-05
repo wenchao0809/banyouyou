@@ -18,8 +18,9 @@ Page({
         formErrmsg: '',
         time: 0
     },
-    takePhoto() {
+    takePhoto(e) {
       let that = this
+      const type = e.currentTarget.dataset.type
         wx.chooseImage({
             count: 1,
             sizeType: ['original', 'compressed'],
@@ -31,7 +32,7 @@ Page({
               uploadImage({ filePath: tempFilePaths[0], name: 'file' })
                 .then(res => {
                   let form = that.data.form
-                  that.setData({ form: { ...form, company_pic: res }  })
+                  that.setData({ form: { ...form, [type]: res }  })
                 })
             }
           })
