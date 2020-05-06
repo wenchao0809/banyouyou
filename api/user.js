@@ -90,6 +90,11 @@ export function orderList(data) {
  * @param {} data 
  */
 export function distributeOrderList(data) {
+  return http._request('/user/order/distribution', { data })
+    .then(res => res.data)
+}
+
+export function distributeWithdrawOrderList(data) {
   return http._request('/user/order/distribution/month', { data })
     .then(res => res.data)
 }

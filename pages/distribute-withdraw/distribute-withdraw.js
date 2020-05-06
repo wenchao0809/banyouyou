@@ -1,4 +1,4 @@
-import { registerDistributor, distributeOrderList, getUserInfo } from '../../api/index'
+import { registerDistributor, distributeWithdrawOrderList, getUserInfo } from '../../api/index'
 import { formateDate } from '../../utils/index'
 
 const app = getApp()
@@ -31,7 +31,7 @@ Page({
     },
     getList() {
         let query = this.data.query
-        distributeOrderList(query)
+        distributeWithdrawOrderList(query)
             .then(res => {
                 if (res.length < query.limit) {
                     this.setData({ pullUpDone: true })
@@ -44,7 +44,7 @@ Page({
         let query = this.data.query
         ++query.offset
         this.setData({ query })
-        distributeOrderList(query)
+        distributeWithdrawOrderList(query)
         .then(res => {
             res = formateOrderData(res)
             let curList = this.data.rewardList

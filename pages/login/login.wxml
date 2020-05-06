@@ -1,7 +1,7 @@
 <view class="login-wrap">
     <view class="nick-and-photo">
-        <view class="photo" style="width: 100%;">
-            <image style="width: 100%;" mode="widthFix" src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg"></image>
+        <view class="photo" style="width: 100%;text-align: center;">
+            <image style="width: 50%;" mode="widthFix" src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-07/eebbf889-7231-4af1-9494-78690cdae39a.jpeg"></image>
         </view>
     </view>
     <view class="wrap">

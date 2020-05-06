@@ -56,6 +56,10 @@
         <text class="icon icon-youjiantou"></text>
         <text class="title">分销二维码</text>
       </navigator>
+        <navigator class="navigator" hover-class="none" url="/pages/distributionRules/distributionRules">
+        <text class="icon icon-youjiantou"></text>
+        <text class="title">分销规则</text>
+      </navigator>
     </view>
   </view>
 </view>
