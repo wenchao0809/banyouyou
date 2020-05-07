@@ -4,7 +4,8 @@
   justify-content: center;
   flex-direction: column;
   height: 300rpx;
-  background-color: red;
+  background: url('https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-07/322bda1f-2831-4d88-8f90-13cfbc4659cb.png');
+  background-size: 100% 100%;
 }
 .header .title {
   margin-bottom: 20rpx;
