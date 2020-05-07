@@ -1,5 +1,6 @@
 // pages/my-coupon/my-coupon.js
 import { getCouponList } from '../../api/index.js'
+import { formateDate } from '../../utils/index.js'
 
 Page({
   limit: 20,
@@ -23,6 +24,12 @@ Page({
   getList(type = 'load') {
     getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
       let data = res.list
+      if (data) {
+        data = data.map(item => {
+          item.OverTime = formateDate(item.OverTime * 1000)
+          return item
+        })
+      }
       let { Status1Total, Status2Total, Status3Total } = res
       if (type === 'load') {
         let curData = this.data.couponList
@@ -34,13 +41,13 @@ Page({
   loadMore() {
     let { couponList, totalCount } = this.data
     this.setData({ loadMoreText: '正在加载...' })
-    if (couponList.length ===  totalCount) {
-        let that = this
-        that.setData({ loadMoreText: '没有更多数据' })
-        setTimeout(() => {
-          that.setData({ loadMoreText: '' })
-        }, 1000);
-        return
+    if (couponList.length === totalCount) {
+      let that = this
+      that.setData({ loadMoreText: '没有更多数据' })
+      setTimeout(() => {
+        that.setData({ loadMoreText: '' })
+      }, 1000);
+      return
     }
     this.pageIndex++
     this.getList()
@@ -61,9 +68,9 @@ Page({
 
   changeTabIndex(e) {
     this.type = e.detail.current + 1,
-    this.setData({
-      tabIndex: e.detail.current
-    })
+      this.setData({
+        tabIndex: e.detail.current
+      })
     this.getList('refresh')
   },
   /**
@@ -77,7 +84,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

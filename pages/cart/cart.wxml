@@ -12,7 +12,7 @@
       </view>
       <text class="icon icon-shanchu" bind:tap="deleteSelect"></text>
     </view>
-    <block wx:for='{{cartList}}' wx:key="index">
+    <block wx:for='{{cartList}}' wx:key="{{index}}">
       <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}"  data-index="{{index}}">
         <view class='content'>
           <checkRadio 
@@ -34,9 +34,10 @@
               <view class='good_price'>
                 <text class='price'>￥{{item.Price / 100}}</text>
                 <!-- 商品数量 -->
-                <count 
+                <count
                   bind:changeNum="getCartCount" 
                   data-index="{{index}}" 
+                  miniCount="{{1}}"
                   count="{{item.Number}}" 
                   bind:addEvent="addNums" 
                   bind:subEvent="subNums" />

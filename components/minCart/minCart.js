@@ -49,7 +49,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onClose () {
+    onClose() {
       this.triggerEvent('onClose', {})
     },
     getSkus(e) {
@@ -64,6 +64,7 @@ Component({
       this.setData({ count })
     },
     subCount() {
+      debugger
       let count = this.data.count
       --count
       this.setData({ count })
@@ -74,9 +75,13 @@ Component({
       this.setData({ count })
     },
     addCart() {
+      let number = this.data.count
+      if (!number || number <= 0) {
+        wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
+        return
+      }
       let { goodInfo, price } = this.properties
       let materials_id = goodInfo.materials_id
-      let number = this.data.count
       let price_id = price.Id
       addCart({ materials_id, number, price_id })
         .then(res => {
@@ -85,20 +90,24 @@ Component({
         })
     },
     toBuy() {
+      let number = this.data.count
+      if (!number || number <= 0) {
+        wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
+        return
+      }
       let { goodInfo, price } = this.properties
       let { title, image } = goodInfo
       let { desc, Price, Id } = price
-      let count = this.data.count
       setConfirmGoodList([{
         priceId: Id,
         title, image,
         sizeDesc: desc,
         price: Price,
-        count
+        count: number
       }])
-      wx.navigateTo({url: '/pages/confirm-order/confirm-order?type=1'})
+      wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=1' })
     },
-    clickBtn (e) {
+    clickBtn(e) {
       let name = e.target.dataset.name
       if (name === '加入购物车') {
         this.triggerEvent('addCart', this.data.count)

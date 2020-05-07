@@ -9,11 +9,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cartList:[],
+    cartList: [],
     selectedIds: [],
-    totalMoney:'0.00',
-    totalCount:0,
-    selectAll:false,
+    totalMoney: '0.00',
+    totalCount: 0,
+    selectAll: false,
     showCart: false,
     btns: [
       {
@@ -38,8 +38,8 @@ Page({
    */
   onLoad: function (options) {
   },
-  getList(flag = true){
-    cartList({limit: MAXCOUNT, offset: 0})
+  getList(flag = true) {
+    cartList({ limit: MAXCOUNT, offset: 0 })
       .then(res => {
         res = res ? res : []
         // let totalMoney = res.reduce((p, n) => p + n.price, 0)
@@ -48,9 +48,9 @@ Page({
           let item = res[i]
           item.Desc = objectToString(item.DescriptionJson)
           item.select = this.data.selectedIds.includes(item.Id)
-         if (item.select) {
-          totalMoney += item.Price * item.Number
-         }
+          if (item.select) {
+            totalMoney += item.Price * item.Number
+          }
         }
         if (flag) {
           this.setData({ cartList: res, totalMoney: totalMoney })
@@ -59,24 +59,25 @@ Page({
         }
       })
   },
-  getCartCount({currentTarget:{dataset:{index}},detail}) {
+  getCartCount({ currentTarget: { dataset: { index } }, detail }) {
     console.log(index, detail)
     let data = this.data.cartList[index]
     data.Number = detail;
+    data.index = index
     this.updateCart(data)
   },
-  gotoProductDetail({ currentTarget: { dataset: { index } }}){
+  gotoProductDetail({ currentTarget: { dataset: { index } } }) {
     let id = this.data.cartList[index].MaterialsId
     wx.navigateTo({
       url: `/pages/productdetail/productdetail?id=${id}`,
     })
   },
-  selectProduct({currentTarget:{dataset:{index}}}) {
+  selectProduct({ currentTarget: { dataset: { index } } }) {
 
     let totalMoney = Number(this.data.totalMoney),
-        totalCount = this.data.totalCount,
-        cartList = this.data.cartList,
-        selectAll = this.data.selectAll;
+      totalCount = this.data.totalCount,
+      cartList = this.data.cartList,
+      selectAll = this.data.selectAll;
 
     cartList[index].select = !cartList[index].select
 
@@ -84,9 +85,9 @@ Page({
       this.data.selectedIds.push(cartList[index].Id)
       totalMoney += cartList[index].Price * cartList[index].Number;
       totalCount++;
-    }else {
+    } else {
       let i = this.data.selectedIds.indexOf(cartList[index].Id)
-      this.data.selectedIds.splice(i,)
+      this.data.selectedIds.splice(i)
       totalMoney -= cartList[index].Price * cartList[index].Number;
       totalCount--;
       selectAll = false
@@ -101,8 +102,8 @@ Page({
 
   },
   // 选择商品属性
-  selectGoodAttr() {},
-  selectAll(){
+  selectGoodAttr() { },
+  selectAll() {
     console.log('select all');
     const cartList = this.data.cartList
     let totalMoney = 0 // 合计初始化为0
@@ -132,12 +133,12 @@ Page({
       selectAll
     })
   },
-  addNums({currentTarget:{dataset:{index}}}){
+  addNums({ currentTarget: { dataset: { index } } }) {
 
     let totalMoney = Number(this.data.totalMoney),
-        cartList = this.data.cartList;
+      cartList = this.data.cartList;
     ++cartList[index].Number
-    
+
     if (cartList[index].select) {
       totalMoney += cartList[index].Price;
     }
@@ -145,18 +146,18 @@ Page({
     let number = cartList[index].Number
     let params = { materials_id: MaterialsId, number, price_id: PriceId, is_update: true }
     addCart(params)
-    .then(res => {
-      this.getList()
-    })
+      .then(res => {
+        this.getList()
+      })
     this.setData({
       cartList,
       totalMoney: String(totalMoney.toFixed(2))
     })
 
   },
-  subNums({ currentTarget: { dataset: { index } } }){
+  subNums({ currentTarget: { dataset: { index } } }) {
     let totalMoney = Number(this.data.totalMoney),
-    cartList = this.data.cartList;
+      cartList = this.data.cartList;
     --cartList[index].Number
     if (cartList[index].select) {
       totalMoney -= cartList[index].Price;
@@ -165,9 +166,9 @@ Page({
     let number = cartList[index].Number
     let params = { materials_id: MaterialsId, number, price_id: PriceId, is_update: true }
     addCart(params)
-    .then(res => {
-      this.getList()
-    })
+      .then(res => {
+        this.getList()
+      })
     this.setData({
       cartList,
       totalMoney: String(totalMoney.toFixed(2))
@@ -181,16 +182,18 @@ Page({
     params.is_update = true
     addCart(params)
       .then(res => {
-        this.getList(false)
+        this.data.cartList.splice(data.index, 1, data)
+        this.setData({ cartList: [...this.data.cartList] })
+        // this.getList(false)
       })
   },
   tapToConfirmOrder() {
     if (this.data.totalCount === 0) {
-      wx.showToast({title: '你还没有选择商品哦',icon:"none"});
+      wx.showToast({ title: '你还没有选择商品哦', icon: "none" });
     }
     let { cartList } = this.data
     let goods = cartList.filter(item => item.select)
-    if (goods.length === 0) return 
+    if (goods.length === 0) return
     setConfirmGoodList(goods)
     wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=2' })
   },

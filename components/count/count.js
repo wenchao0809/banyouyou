@@ -1,3 +1,4 @@
+
 // components/count/count.js
 Component({
   /**
@@ -7,6 +8,10 @@ Component({
     count: { // 商品数量
       type: Number,
       value: 1
+    },
+    miniCount: {// 最小数量
+      type: Number,
+      value: 0
     }
   },
 
@@ -21,23 +26,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    changeNum({detail:{value}}){
-      let curCount = this.properties.count
-      if (!value || value <=0) {
-        wx.showToast({title: '你输入的数量不能为空，且不能小于0',icon:"none"});
-        value = curCount
-      }
-      this.triggerEvent('changeNum', parseInt(value)) 
+    changeNum({ detail: { value } }) {
+      value = value ? parseInt(value) : this.properties.miniCount
+      this.triggerEvent('changeNum', value)
     },
-    subtract(){
-      if(this.properties.count === 0) {
-        wx.showToast({ title: '你输入的数量不能为空，且不能小于0', icon: "none" });
-        return
-      }
+    subtract() {
       this.triggerEvent('subEvent')
     },
-    add(){
-      this.triggerEvent('addEvent') 
+    add() {
+      this.triggerEvent('addEvent')
     }
   }
 })

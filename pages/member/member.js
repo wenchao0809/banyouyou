@@ -75,7 +75,7 @@ Page({
     couponCount: 0,
   },
 
-  showModal () {
+  showModal() {
     this.setData({
       showFlag: true
     })
@@ -87,19 +87,19 @@ Page({
     })
   },
 
-  goCoupon () {
+  goCoupon() {
     wx.navigateTo({
       url: '/pages/my-coupon/my-coupon'
     })
   },
 
-  goMemberData () {
+  goMemberData() {
     wx.navigateTo({
       url: '/pages/memberData/memberData'
     })
   },
 
-  goMemberIntroduction () {
+  goMemberIntroduction() {
     wx.navigateTo({
       url: '/pages/memberIntroduction/memberIntroduction'
     })
