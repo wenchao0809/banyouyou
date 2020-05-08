@@ -26,7 +26,7 @@
             <couponItem 
               wx:for="{{ couponList }}" 
               couponInfo="{{ item }}"
-              customeStyle="{{couponCustomStyle}}"
+              customeStyle="{{disableCouponCustomStyle}}"
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>
@@ -39,7 +39,7 @@
             <couponItem 
               wx:for="{{ couponList }}" 
               couponInfo="{{ item }}" 
-              customeStyle="{{couponCustomStyle}}"
+              customeStyle="{{disableCouponCustomStyle}}"
               disableSelect="true" />
             <text class="load-text">{{ loadMoreText }}</text>
           </view>

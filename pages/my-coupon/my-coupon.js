@@ -18,7 +18,9 @@ Page({
     couponList: [],
     loadMore: '正在加载...',
     loadDone: false,
-    couponCustomStyle: `background-image: url("https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-15/363f5fe1-5f4a-4e26-978f-9d4d0b086e99.jpeg"); background-size: cover`
+
+    couponCustomStyle: `background-image: url("https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-15/363f5fe1-5f4a-4e26-978f-9d4d0b086e99.jpeg"); background-size: cover`,
+    disableCouponCustomStyle: `background-image: url(" https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/666dcbfc-df67-4cbb-a0b8-fa09289a31bb.jpeg"); background-size: cover`
   },
 
   getList(type = 'load') {

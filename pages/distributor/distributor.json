@@ -1,7 +1,7 @@
 {
-    "navigationBarTitleText": "BUU板优优",
-    "usingComponents": {
-        "noneData": "/components/noneData/noneData"
-      },
-    "enablePullDownRefresh": true
+  "navigationBarTitleText": "分销记录",
+  "usingComponents": {
+    "noneData": "/components/noneData/noneData"
+  },
+  "enablePullDownRefresh": true
 }

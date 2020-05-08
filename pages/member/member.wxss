@@ -166,9 +166,9 @@ page {
 }
 
 .coupon-item {
-  background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-17/bb80c987-eb31-4171-82a6-4154d6f0fd74.jpg);
-  height: 180rpx;
-  width: 250rpx;
+  background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/49fec828-9ec2-4902-b445-1e05a04ddcd8.jpeg);
+  height: 138px;
+  width: 165px;
   background-size: 100% 100%;
   border-radius: 25rpx;
   position: relative;
@@ -177,14 +177,14 @@ page {
 
 .coupon-item text {
   display: inline-block;
-  padding-top: 30rpx;
+  padding-top: 40px;
   font-size: 38rpx;
   color: #db9500;
 }
 
 .coupon-btn {
   position: absolute;
-  bottom: 15rpx;
+  margin-top: 23px;
   left: 50%;
   transform: translateX(-50%);
   background: #ffc02b;

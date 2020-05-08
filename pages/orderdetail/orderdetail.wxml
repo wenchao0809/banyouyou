@@ -57,6 +57,34 @@
         <text>微信支付</text>
       </view> -->
     </view>
+    <view class="orderdetail-information-pay-money" wx:if="{{ orderInfo.pay_item.length > 0 }}">
+      <view class="orderdetail-information-title">结算明细</view>
+      <view class="orderdetail-information-item">
+        <text class="color">应收金额：</text>
+        <text class="money">￥{{ orderInfo.total_price / 100}}元</text>
+      </view>
+      <view class="orderdetail-information-item">
+        <text class="color" style="vertical-align:top;">实际收款金额：</text>
+        <view class="pay-money-wrap">
+          <view class="pay-money-item" wx:for="{{orderInfo.pay_item}}">
+            <text class="money">￥{{ item.Money / 100 }} </text>
+            <text> {{ item.CreatedAt }}</text>
+          </view>
+        </view>
+      </view>
+      <view class="orderdetail-information-item">
+        <text class="color">应收款余额：</text>
+        <text class="money">￥{{ orderInfo.remainMoney / 100 }}</text>
+      </view>
+      <view class="orderdetail-information-item">
+        <text class="color">结算状态：</text>
+        <text>{{ orderInfo.remainMoney > 0 ? '未结清' : '已结清' }}</text>
+      </view>
+      <!-- <view class="orderdetail-information-item">
+      <text class="color">支付方式：</text>
+      <text>微信支付</text>
+    </view> -->
+    </view>
     <view class="divider"></view>
     <view class="contact-merchant" bindtap="contactMerchant">
       <view class="contact-merchant-btn">
@@ -66,5 +94,8 @@
     </view>
   </view>
   <view class="orderdetail-blank"></view>
-  <submitOrder money="{{2700}}" />
+  <view class="bottom-operate">
+    <view bindtap = "opearteOrder">{{ bottomOperateText }}</view>
+  </view>
+  <!-- <submitOrder /> -->
 </view>

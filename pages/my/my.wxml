@@ -57,7 +57,7 @@
     <view class="wrap">
         <view class="left">
           <text class="icon icon-VIP"></text>
-          <text>我的分销1</text>
+          <text>我的分销</text>
         </view>
         <view class="right">
           <text class="desc" wx:if="{{ user.IsDistribution === 0 }}">联系我们加入分销商</text>
