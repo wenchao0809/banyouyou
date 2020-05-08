@@ -1,70 +1,95 @@
 <view class="register">
-  <view class="form-wrap">
-    <form action="">
-      <view class="form-item">
-        <text class="icon icon-yonghu"></text>
-        <input type="text" placeholder-class="placeholder" placeholder="用户名" data-name="name" bindinput="inputChange" />
-      </view>
-      <view class="form-item">
-        <text class="icon icon-shouji"></text>
-        <input type="text" placeholder-class="placeholder" placeholder="请输入手机号" data-name="phone" bindinput="inputChange" />
-      </view>
-      <view class="form-item sms">
-        <text class="icon icon-pinglun"></text>
-        <input type="text" placeholder-class="placeholder" placeholder="请输入验证码" data-name="code" bindinput="inputChange" />
-        <view class="send-sms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
-      </view>
-      <view class="form-item">
-        <text class="icon icon-mima"></text>
-        <input type="password" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password" bindinput="inputChange" />
-      </view>
-      <view class="form-item">
-        <text class="icon icon-mima"></text>
-        <input type="password" placeholder-class="placeholder" placeholder="请重复输入密码" data-name="checkPassword" bindinput="inputChange" />
-      </view>
-      <view class="form-item">
-        <text class="icon icon-credentials_icon"></text>
-        <!-- <input type="text" placeholder-class="placeholder" placeholder="身份证号码" data-name="china_id" bindinput="inputChange" /> -->
-        <view class="Idcard-photo" bindtap="takePhoto" data-type="china_id">
-          <view wx:if="{{ !form.china_id }}" class="Idcard-text">点击上传身份证号</view>
-          <image wx:else src="{{ form.china_id }}"></image>
-        </view>
-      </view>
-    </form>
-    <!-- <view class="form-error">错误文案</view> -->
-  </view>
-  <!-- 营业执照 -->
+	<view class="form-wrap">
+		<form action="">
+			<view class="form-item">
+				<text class="icon icon-yonghu"></text>
+				<input type="text" placeholder-class="placeholder" placeholder="用户名" data-name="name" bindinput="inputChange" />
+			</view>
+			<view class="form-item">
+				<text class="icon icon-shouji"></text>
+				<input type="text" placeholder-class="placeholder" placeholder="请输入手机号" data-name="phone" bindinput="inputChange" />
+			</view>
+			<view class="form-item sms">
+				<text class="icon icon-pinglun"></text>
+				<input type="text" placeholder-class="placeholder" placeholder="请输入验证码" data-name="code" bindinput="inputChange" />
+				<view class="send-sms" bind:tap="sendSms">{{ time > 0 ? time + 's' : '发送验证码' }}</view>
+			</view>
+			<view class="form-item">
+				<text class="icon icon-mima"></text>
+				<input type="password" placeholder-class="placeholder" placeholder="字母+字数,至少八位数密码" data-name="password" bindinput="inputChange" />
+			</view>
+			<view class="form-item">
+				<text class="icon icon-mima"></text>
+				<input type="password" placeholder-class="placeholder" placeholder="请重复输入密码" data-name="checkPassword" bindinput="inputChange" />
+			</view>
+		</form>
+		<!-- <view class="form-error">错误文案</view> -->
+	</view>
+
+	<view class="bussiness-photo">
+		<!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
+		<view wx:if="{{ !form.china_pic_front }}">
+			<view class="china-front" bindtap="takePhoto" data-type="china_pic_front">
+				<view class="photo">
+					<text class="icon icon-zhaoxiangji"></text>
+				</view>
+			</view>
+			<view class="desc1">请拍摄或上传身份证正面</view>
+			<view class="desc2">拍照时请确保身份证边框完整、自己清晰、亮度均衡</view>
+		</view>
+		<view class="" bind:tap="takePhoto" data-type="china_pic_front" wx:else>
+			<image src="{{ form.china_pic_front }}"></image>
+		</view>
+	</view>
+
   <view class="bussiness-photo">
-    <!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
-    <view wx:if="{{ !form.company_pic }}">
-      <view class="photo">
-        <text class="icon icon-zhaoxiangji" bindtap="takePhoto" data-type="company_pic"></text>
-      </view>
-      <view class="desc1">这里上传你的营业执照</view>
-      <view class="desc2">拍照时请确保身份证边框完整、自己清晰、亮度均衡</view>
-    </view>
-    <view class="" bind:tap="takePhoto" data-type="company_pic" wx:else>
-      <image src="{{ form.company_pic }}"></image>
-    </view>
-  </view>
-  <!-- 是否对公 -->
-  <!-- <view class="is-public">
+		<!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
+		<view wx:if="{{ !form.china_pic_background }}">
+			<view class="china-background" bindtap="takePhoto" data-type="china_pic_background">
+				<view class="photo">
+					<text class="icon icon-zhaoxiangji"></text>
+				</view>
+			</view>
+			<view class="desc1">请拍摄或上传身份证反面</view>
+			<view class="desc2">拍照时请确保身份证边框完整、自己清晰、亮度均衡</view>
+		</view>
+		<view class="" bind:tap="takePhoto" data-type="china_pic_background" wx:else>
+			<image src="{{ form.china_pic_background }}"></image>
+		</view>
+	</view>
+
+	<!-- 营业执照 -->
+	<view class="bussiness-photo">
+		<!-- <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> -->
+		<view wx:if="{{ !form.company_pic }}">
+			<view class="photo">
+				<text class="icon icon-zhaoxiangji" bindtap="takePhoto" data-type="company_pic"></text>
+			</view>
+			<view class="desc1">这里上传你的营业执照</view>
+			<view class="desc2">拍照时请确保身份证边框完整、自己清晰、亮度均衡</view>
+		</view>
+		<view class="" bind:tap="takePhoto" data-type="company_pic" wx:else>
+			<image src="{{ form.company_pic }}"></image>
+		</view>
+	</view>
+	<!-- 是否对公 -->
+	<!-- <view class="is-public">
         <view>是否有对公账户</view>
         <view>
             <switch checked bindchange="switch1Change" />
         </view>
     </view> -->
-  <!-- 隐私政策 -->
-  <view class="private-policy">
-    <icon type="success" size="20" color="{{policyStatus}}" bind:tap="tagglePolicyStatus" />
-    <text class="desc">我已知晓并同意</text>
-    <text class="link">《板优优账号说明/隐私政策》</text>
-  </view>
-  <view class="button-wrap" bind:tap="register">
-    <view class="button">注册</view>
-  </view>
-  <view class="to-login">
-    <text>已有账号，</text>
-    <text class="link" bind:tap="tologin">去登录</text>
-  </view>
+	<!-- 隐私政策 -->
+	<view class="private-policy">
+		<icon type="success" size="20" color="{{policyStatus}}" bind:tap="tagglePolicyStatus" />
+		<text class="desc">我已知晓并同意</text>
+		<text class="link">《板优优账号说明/隐私政策》</text>
+	</view>
+	<view class="button-wrap" bind:tap="register">
+		<view class="button">注册</view>
+	</view>
+	<view class="to-login">
+		<text>已有账号，</text>
+		<text class="link" bind:tap="tologin">去登录</text>
+	</view>
 </view>
