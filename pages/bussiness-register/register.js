@@ -10,7 +10,9 @@ Page({
           code: '',
           password: '',
           checkPassword: '',
-          china_id: '',
+          // china_id: '',
+          china_pic_front: '',
+          china_pic_background: '',
           type: 2, // 企业用户
           company_pic: ''
         },
@@ -76,7 +78,7 @@ Page({
       validateForm() {
         let message = ''
         let phoneReg = /^[1]\d{10}$/
-        let { name, phone, code, company_pic, password, checkPassword, china_id } = this.data.form
+        let { name, phone, code, company_pic, password, checkPassword, china_pic_front, china_pic_background } = this.data.form
         let policyStatus = this.data.policyStatus
         if (!name) {
             message = '请输入姓名'
@@ -90,13 +92,15 @@ Page({
             message = '输入验证码'
         } else if (!(checkPassword === password)) {
             message = '两次密码输入不一致'
-        } else if (!china_id) {
-            message = '请输入身份证号码'
+        } else if (!china_pic_front) {
+            message = '请上传身份证正面'
         } else if (policyStatus === 'gray') {
             message = '请阅读同意隐私政策'
         } else if (!company_pic) {
             message = '请上传图片'
-        } 
+        } else if (!china_pic_background) {
+            message = '请上传身份证反面'
+        }
         wx.showToast({ title: message, icon: 'none' })
         return !message
     },

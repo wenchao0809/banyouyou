@@ -97,3 +97,53 @@
 .Idcard-photo image {
   margin: 0 -90rpx;
 }
+.bussiness-photo {
+    padding-bottom: 20rpx;
+    margin: 0 -70rpx;
+    color: #c1c1c1;
+    text-align: center;
+    border-bottom: 1px solid #e9e9e9;
+}
+.bussiness-photo .desc1 {
+    margin-bottom: 20rpx;
+    font-size: 40rpx;
+}
+.bussiness-photo .desc2 {
+    font-size: 24rpx;
+}
+.bussiness-photo .photo .icon-zhaoxiangji {
+    color: #e9452c;
+    font-size: 120rpx;
+}
+.is-public {
+    display: flex;
+    padding: 20rpx 70rpx;
+    margin: 0 -70rpx;
+    justify-content: space-between;
+    border-bottom: 1px solid #e9e9e9;
+}
+.Idcard-photo {
+  display: inline-block;
+  margin-left: 25rpx;
+}
+.Idcard-photo image {
+  margin: 0 -90rpx;
+}
+
+.china-front {
+    background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/7ae1206f-b6c5-48b2-9f9b-47e931421949.png) no-repeat;
+    background-size: 100% 100%;
+    height: 330rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.china-background {
+    background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/557cd1dc-ec98-4417-8b97-229e511ec009.png) no-repeat;
+    background-size: 100% 100%;
+    height: 330rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
