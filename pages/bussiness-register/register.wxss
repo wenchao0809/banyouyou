@@ -60,6 +60,7 @@
 .private-policy {
     margin-top: 20rpx;
     font-size: 28rpx;
+    padding: 0 70rpx;
 }
 
 .private-policy icon {
@@ -80,6 +81,7 @@
 
 .button-wrap {
     margin: 0 auto;
+    padding: 0 70rpx;
 }
 .button-wrap .button {
     margin-top: 110rpx;
@@ -110,6 +112,7 @@
     color: #c1c1c1;
     text-align: center;
     border-bottom: 1px solid #e9e9e9;
+    width: 100%;
 }
 .bussiness-photo .desc1 {
     margin-bottom: 20rpx;
@@ -144,6 +147,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .china-background {
@@ -153,4 +157,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
