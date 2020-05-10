@@ -1,5 +1,9 @@
 .register {
-    padding: 50rpx 70rpx;
+    padding: 50rpx 0;
+}
+
+.form-wrap {
+    padding: 0 70rpx;
 }
 
 .form-item {
@@ -102,7 +106,7 @@
 
 .bussiness-photo {
     padding-bottom: 20rpx;
-    margin: 0 -70rpx;
+    /* margin: 0 -70rpx; */
     color: #c1c1c1;
     text-align: center;
     border-bottom: 1px solid #e9e9e9;
@@ -136,7 +140,7 @@
 .china-front {
     background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/7ae1206f-b6c5-48b2-9f9b-47e931421949.png) no-repeat;
     background-size: 100% 100%;
-    height: 330rpx;
+    height: 400rpx;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,7 +149,7 @@
 .china-background {
     background: url(https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/557cd1dc-ec98-4417-8b97-229e511ec009.png) no-repeat;
     background-size: 100% 100%;
-    height: 330rpx;
+    height: 400rpx;
     display: flex;
     justify-content: center;
     align-items: center;
