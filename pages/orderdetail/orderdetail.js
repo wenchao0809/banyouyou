@@ -1,5 +1,5 @@
 // pages/orderdetail/orderdetail.js
-import { orderInfo } from '../../api/index.js'
+import { orderInfo, updateOrder } from '../../api/index.js'
 import { ORDERSTATUS } from '../../utils/constant'
 import { objectToString, formateDate } from '../../utils/index'
 
@@ -25,21 +25,33 @@ Page({
     }],
     id: '',
     orderInfo: {},
-    orderStatusMap: ORDERSTATUS
+    orderStatusMap: ORDERSTATUS,
+    bottomOperateText: ''
   },
 
-  contactMerchant () {
+  contactMerchant() {
     wx.makePhoneCall({
       phoneNumber: '1340000' //仅为示例，并非真实的电话号码
     })
   },
-
+  opearteOrder() {
+    let orderInfo = this.data.orderInfo
+    let id = orderInfo.id
+    let status
+    if (orderInfo.status === 1) {
+      status = -1
+    } else if (orderInfo.status === 2) {
+      status = 3
+    }
+    updateOrder({ id, status })
+      .then(res => {
+        this.getOrderInfo(id)
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let id = parseInt(options.id)
-    this.setData({ id  })
+  getOrderInfo(id) {
     orderInfo({ id })
       .then(res => {
         res.createDateStr = formateDate(res.CreatedAt)
@@ -47,8 +59,25 @@ Page({
           item.sizeDesc = objectToString(item.description)
           return item
         })
-        this.setData({ orderInfo: res })
+        res.pay_item = res.pay_item.map(item => {
+          item.CreatedAt = formateDate(item.CreatedAt)
+          return item
+        })
+        let doneMoey = res.pay_item.reduce((p, n) => p + n.Money, 0)
+        res.remainMoney = res.total_price - doneMoey
+        let bottomOperateText
+        if (res.status === 1) {
+          bottomOperateText = '取消订单'
+        } else if (res.status === 2) {
+          bottomOperateText = '已收货'
+        }
+        this.setData({ orderInfo: res, bottomOperateText })
       })
+  },
+  onLoad: function (options) {
+    let id = parseInt(options.id)
+    this.setData({ id })
+    this.getOrderInfo(id)
   },
 
   /**
@@ -97,6 +126,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

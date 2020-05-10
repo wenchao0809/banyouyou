@@ -103,3 +103,32 @@
 .good-item-wrap:first-child {
     margin-top: 0;
 }
+
+.orderdetail-information-pay-money .pay-money-wrap {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.orderdetail-information-pay-money .money {
+  color: #d46734;
+}
+
+.bottom-operate {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  /* align-items: center; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: white;
+}
+
+.bottom-operate view {
+  width: 25%;
+  text-align: center;
+  color: white;
+  background: #e74030;
+}

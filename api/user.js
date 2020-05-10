@@ -27,7 +27,7 @@ export function sendSmsCode(data) {
 
 export function initUser(data) {
   return http._request('/user/login/init', { data })
-   .then(res => res.data)
+    .then(res => res.data)
 }
 
 /**
@@ -136,20 +136,25 @@ export function cartDel(data) {
  */
 export function cartList(data) {
   return http._request('/user/cart/list', { data })
-  .then(res => res.data)
+    .then(res => res.data)
 }
 
 export function getMappQrCode(data) {
   return http._request('/user/getwxacodeunlimit', { data })
-  .then(res => res.data)
+    .then(res => res.data)
 }
 
 export function updateHeadPic(data) {
-  return http._request('/user/update/header', { data})
+  return http._request('/user/update/header', { data })
     .then(res => res.data)
 }
 
 export function distributeOverview(data) {
-  return http._request('/user/order/distribution_total', { data})
+  return http._request('/user/order/distribution_total', { data })
+    .then(res => res.data)
+}
+// 更新订单状态
+export function updateOrder(data) {
+  return http._request('/user/order/update', { data })
     .then(res => res.data)
 }
