@@ -94,7 +94,7 @@
     </view>
   </view>
   <view class="orderdetail-blank"></view>
-  <view class="bottom-operate">
+  <view class="bottom-operate" wx:if="{{bottomOperateText}}">
     <view bindtap = "opearteOrder">{{ bottomOperateText }}</view>
   </view>
   <!-- <submitOrder /> -->
