@@ -70,6 +70,8 @@ Page({
           bottomOperateText = '取消订单'
         } else if (res.status === 2) {
           bottomOperateText = '已收货'
+        } else {
+          bottomOperateText = ''
         }
         this.setData({ orderInfo: res, bottomOperateText })
       })

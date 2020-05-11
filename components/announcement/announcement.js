@@ -45,9 +45,8 @@ Component({
       },
       gotoDetail() {
         const { Id } = this.properties.advertising
-        wx.navigateTo({
-          url: `/pages/productdetail/productdetail?id=${Id}`,
-        })
+        let url = `/pages/class/class?id=${Id}`
+        wx.reLaunch({ url })
       }
     }
   })
