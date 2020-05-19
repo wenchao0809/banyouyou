@@ -19,4 +19,7 @@
       <text class="icon icon-shanchu"></text>
     </view>
   </view>
+  <view class="bottom-operate">
+    <view class="operate-item" bind:tap="goOrderDetail">查看详情</view>
+  </view>
 </view>

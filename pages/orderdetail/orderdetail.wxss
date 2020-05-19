@@ -110,7 +110,7 @@
 }
 
 .orderdetail-information-pay-money .money {
-  color: #d46734;
+  color: #e74030;
 }
 
 .bottom-operate {

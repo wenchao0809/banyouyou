@@ -161,7 +161,7 @@
                    </view>
                    <view class="desc-wrap">
                        <view class="title">{{ item.title }}</view>
-                        <view class="price">￥{{ item.min_price / 100 }}</view>
+                        <view class="money">￥{{ item.min_price / 100 }}</view>
                         <view class="count-and-operate">
                             <view class="count">销量：{{ item.sale_count }}</view>
                             <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>

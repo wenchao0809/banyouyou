@@ -43,3 +43,18 @@
 .order-item .footer .money .number {
   color: #e4393c;
 }
+
+.order-item .bottom-operate {
+  text-align: right;
+  padding-bottom: 20rpx;
+}
+.bottom-operate .operate-item {
+  display: inline-block;
+  padding: 0 20rpx;
+  margin-right: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  border: 1px solid lightgray;
+  text-align: center;
+}

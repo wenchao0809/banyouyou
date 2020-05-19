@@ -14,10 +14,10 @@
       <text class="icon icon-dianhua"></text>
       <text>电话</text>
     </view>
-    <button class="chat-type-item" bindcontact="handleContact" plain open-type="contact">
+    <!-- <button class="chat-type-item" bindcontact="handleContact" plain open-type="contact">
       <text class="icon icon-conversation_icon"></text>
       <text>聊天</text>
-    </button>
+    </button> -->
   </view>
   <minCart 
     show="{{ showCart }}" 

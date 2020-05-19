@@ -237,12 +237,12 @@ border-radius: 50rpx
 .hot-item .price .cur {
   font-size: 0rpx;
   text-align: center;
+}
+.money {
+  display: inline-block;
+  font-size: 35rpx;
   font-weight: 700;
   color: #d41c12;
-}
-.hot-item .price .cur .money {
-  display: inline-block;
-  font-size: 30rpx;
 }
 .hot-item .price .cur .num {
   display: inline-block;
@@ -296,7 +296,7 @@ border-radius: 50rpx
 
 
 .new-list {
-  width: 750rpx;
+  width: 710rpx;
 }
 .hot-list-wrap {
   display: flex;
@@ -319,8 +319,8 @@ border-radius: 50rpx
 }
 
 .good-item .image image {
-  width: 360rpx;
-  height: 360rpx;
+  width: 350rpx;
+  height: 350rpx;
   /* height: 170rpx; */
   vertical-align: middle;
 }
