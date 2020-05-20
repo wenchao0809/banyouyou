@@ -71,4 +71,16 @@
         unavailableCouponList="{{ orderUnavailableCouponList }}">
     </couponSelector>
     <submitOrder money="{{ orderMoney / 100 }}"  bind:tap="submitOrder" />
+    <van-popup show="{{ showPopup }}">
+        <view class="popup-container">
+            <view style="margin-top: 8rpx;">
+                <van-icon name="passed" color="green" size="40rpx" />
+            </view>
+            <view class="popup-content">
+                <view class="content-title">成功提交订单</view>
+                <view class="content-tip"><text style="color: #686667;">待商家确认后即可安排发货\n(请勿重复提交相同订单)</text></view>
+                <view class="content-btn" bindtap="goOrderDesc">查看订单详情</view>
+            </view>
+        </view>
+    </van-popup>
 </view>

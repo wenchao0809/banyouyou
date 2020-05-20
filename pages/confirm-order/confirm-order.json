@@ -3,6 +3,8 @@
     "usingComponents": {
         "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
         "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder",
-        "couponSelector": "/components/selectCoupon/selectCoupon"
+        "couponSelector": "/components/selectCoupon/selectCoupon",
+        "van-popup": "/@vant/weapp/popup/index",
+        "van-icon": "/@vant/weapp/icon/index"
       }
 }

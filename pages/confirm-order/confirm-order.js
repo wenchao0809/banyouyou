@@ -24,7 +24,8 @@ Page({
       orderAvailableCouponList: [],
       orderUnavailableCouponList: [],
       goodList: [],
-      showCouponSelector: false
+      showCouponSelector: false,
+      showPopup: false
     },
     toSelectAddress() {
       let url = ''
@@ -54,12 +55,16 @@ Page({
             // 删除购物车
             cartDel({ id: cartGoodIds })
               .then(() => {
-                wx.redirectTo({ url: '/pages/my-orders/my-orders' })
+                // wx.redirectTo({ url: '/pages/my-orders/my-orders' })
               })
           } else {
-            wx.redirectTo({ url: '/pages/my-orders/my-orders' })
+            // wx.redirectTo({ url: '/pages/my-orders/my-orders' })
           }
+          this.setData({ showPopup: true })
         })
+    },
+    goOrderDesc() {
+      wx.redirectTo({ url: '/pages/my-orders/my-orders' })
     },
     closeCouponSelector() {
       this.setData({ showCouponSelector: false })

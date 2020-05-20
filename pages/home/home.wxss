@@ -326,6 +326,7 @@ border-radius: 50rpx
 }
 .good-item .desc-wrap {
   padding: 0 10rpx;
+  word-break: break-word;
 }
 .good-item .desc {
   vertical-align: middle;
