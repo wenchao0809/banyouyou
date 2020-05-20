@@ -18,6 +18,7 @@ Page({
     original_price: '',
     imgList: [],
     content_pic_list: [],
+    is_special_offer: false,
     price_list: [],
     show: false,
     showFlag: false,
@@ -157,7 +158,8 @@ Page({
   async initData() {
     let id = this.data.id
     let res = await getGoodInfo({ id })
-    let original_price = res.original_price ? res.original_price : ''
+    let is_special_offer = res.is_special_offer
+    let original_price = is_special_offer ? res.original_price : 0
     // let sku = generateSku(res.price_list)
     this.priceMange = new PriceManage(res.price_list)
     console.log(this.priceMange.setSelectedSize)
@@ -167,6 +169,7 @@ Page({
       min_price: res.min_price,
       max_price: res.max_price,
       original_price,
+      is_special_offer,
       imgList: res.top_pic_list,
       content_pic_list: res.content_pic_list,
       price_list: res.price_list,

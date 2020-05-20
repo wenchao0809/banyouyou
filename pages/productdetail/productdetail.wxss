@@ -1,4 +1,7 @@
 /* pages/productdetail/productdetail.wxss */
+.productdetail-container {
+  margin-bottom: 100rpx;
+}
 .productdetail-swiper {
   /* height: 500rpx; */
   width: 100%;
@@ -32,6 +35,8 @@
 
 .productdetail-current-price {
   margin-right: 20rpx;
+  font-size: 35rpx;
+  font-weight: 700;
   color: #F00;
 }
 

@@ -27,9 +27,9 @@
 
 .goodsAction-btn {
   flex: 1;
-  height: 75rpx;
+  height: 100rpx;
   text-align: center;
-  line-height: 75rpx;
+  line-height: 100rpx;
   font-size: 26rpx;
   background: #f1ab32;
   color: #fff;
