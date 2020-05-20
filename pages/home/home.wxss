@@ -238,7 +238,7 @@ border-radius: 50rpx
   font-size: 0rpx;
   text-align: center;
 }
-.money {
+.money, .num {
   display: inline-block;
   font-size: 35rpx;
   font-weight: 700;
