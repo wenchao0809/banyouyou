@@ -132,3 +132,6 @@
   color: white;
   background: #e74030;
 }
+.van-dialog__header {
+  padding: 20px 0;
+}

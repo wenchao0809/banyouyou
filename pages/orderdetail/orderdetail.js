@@ -26,15 +26,23 @@ Page({
     id: '',
     orderInfo: {},
     orderStatusMap: ORDERSTATUS,
-    bottomOperateText: ''
+    bottomOperateText: '',
+    showConfirmOperateOrder: false,
+    conifrmDialogTitle: ''
   },
 
   contactMerchant() {
     wx.makePhoneCall({
-      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+      phoneNumber: '13590385880' //仅为示例，并非真实的电话号码
     })
   },
   opearteOrder() {
+    this.setData({ showConfirmOperateOrder: true, conifrmDialogTitle: `确认${this.data.bottomOperateText}?` })
+  },
+  onCloseDialog() {
+    this.setData({ showConfirmOperateOrder: false })
+  },
+  confirmUpdateOrder() {
     let orderInfo = this.data.orderInfo
     let id = orderInfo.id
     let status
@@ -46,6 +54,12 @@ Page({
     updateOrder({ id, status })
       .then(res => {
         this.getOrderInfo(id)
+        wx.showToast({
+          title: `${this.data.bottomOperateText}成功`,
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
       })
   },
   /**
@@ -73,6 +87,8 @@ Page({
         } else {
           bottomOperateText = ''
         }
+        res.SendTime = formateDate(res.SendTime)
+        res.GetTime = formateDate(res.GetTime)
         this.setData({ orderInfo: res, bottomOperateText })
       })
   },

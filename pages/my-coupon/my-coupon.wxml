@@ -8,14 +8,14 @@
     </view>
     <swiper current="{{tabIndex}}" style="flex: 1;" class='coupon-Swiper' duration="200" bindchange="changeTabIndex">
       <swiper-item>
-        <scroll-view scroll-y="{{true}}" style="height: 100%;" bindscrolltoupper="refreshData" bindscrolltolower="loadMore">
+        <scroll-view scroll-y="{{true}}" style="height: 100%;">
           <view class="coupon-content" wx:if="{{ couponList.length > 0 }}">
             <couponItem 
               wx:for="{{ couponList }}" 
               customeStyle="{{couponCustomStyle}}"
               couponInfo="{{ item }}" 
               disableSelect="true" />
-            <text class="load-text">{{ loadMoreText }}</text>
+            <!-- <text class="load-text">{{ loadMoreText }}</text> -->
           </view>
           <noneData  wx:else></noneData>
         </scroll-view>
@@ -28,7 +28,7 @@
               couponInfo="{{ item }}"
               customeStyle="{{disableCouponCustomStyle}}"
               disableSelect="true" />
-            <text class="load-text">{{ loadMoreText }}</text>
+            <!-- <text class="load-text">{{ loadMoreText }}</text> -->
           </view>
           <noneData  wx:else></noneData>
         </scroll-view>
@@ -41,7 +41,7 @@
               couponInfo="{{ item }}" 
               customeStyle="{{disableCouponCustomStyle}}"
               disableSelect="true" />
-            <text class="load-text">{{ loadMoreText }}</text>
+            <!-- <text class="load-text">{{ loadMoreText }}</text> -->
           </view>
           <noneData  wx:else></noneData>
           <!-- <view class="none-data" wx:else>暂无更多数据</view> -->

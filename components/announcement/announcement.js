@@ -44,8 +44,8 @@ Component({
         })
       },
       gotoDetail() {
-        const { Id } = this.properties.advertising
-        let url = `/pages/class/class?id=${Id}`
+        const { category_id } = this.properties.advertising
+        let url = `/pages/class/class?id=${category_id}`
         wx.reLaunch({ url })
       }
     }

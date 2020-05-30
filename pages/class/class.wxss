@@ -132,12 +132,16 @@
 }
 
 .good-item .price {
-  display: flex;
+  /* display: flex; */
+  /* padding: 0 20rpx; */
   justify-content: space-between;
   align-items: center;
 }
 
 .good-item .price .cur {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
   font-size: 0rpx;
   text-align: center;
   font-weight: 700;
@@ -145,7 +149,7 @@
 }
 .good-item .price .cur .money {
   display: inline-block;
-  font-size: 20rpx;
+  font-size: 40rpx;
 }
 .good-item .price .cur .num {
   display: inline-block;
@@ -153,6 +157,8 @@
   font-size: 40rpx;
 }
 .good-item .price .old {
+  display: inline-block;
+  vertical-align: middle;
   color: #694a07;
   text-decoration: line-through;
 }

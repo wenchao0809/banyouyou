@@ -36,7 +36,7 @@
     <view class="orderdetail-supplement-title">补充信息</view>
     <view class="orderdetail-supplement-leaveMessage">
       <text class="color">留言：{{ orderInfo.Message }}</text>
-      <text wx:if="{{ orderInfo.Message }}" class="orderdetail-supplement-leaveMessage-content">无</text>
+      <!-- <text wx:if="{{ orderInfo.Message }}" class="orderdetail-supplement-leaveMessage-content">无</text> -->
     </view>
     <view class="orderdetail-information">
       <view class="orderdetail-information-title">订单信息</view>
@@ -47,6 +47,14 @@
       <view class="orderdetail-information-item">
         <text class="color">下单时间：</text>
         <text>{{ orderInfo.createDateStr }}</text>
+      </view>
+       <view class="orderdetail-information-item" wx:if="{{orderInfo.SendTime}}">
+        <text class="color">发货时间：</text>
+        <text>{{ orderInfo.SendTime }}</text>
+      </view>
+        <view class="orderdetail-information-item" wx:if="{{orderInfo.GetTime  }}">
+        <text class="color">收货时间：</text>
+        <text>{{ orderInfo.GetTime  }}</text>
       </view>
       <view class="orderdetail-information-item">
         <text class="color">配送方式：</text>
@@ -97,5 +105,14 @@
   <view class="bottom-operate" wx:if="{{bottomOperateText}}">
     <view bindtap = "opearteOrder">{{ bottomOperateText }}</view>
   </view>
+  <van-dialog
+    use-slot
+    title="{{ conifrmDialogTitle }}"
+    show="{{ showConfirmOperateOrder }}"
+    show-cancel-button
+    bind:close="onCloseDialog"
+    bind:confirm="confirmUpdateOrder"
+  >
+  </van-dialog>
   <!-- <submitOrder /> -->
 </view>

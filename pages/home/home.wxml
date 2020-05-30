@@ -113,7 +113,7 @@
                             <text class="money">￥</text>
                             <text class="num"> {{ item.min_price / 100 }}</text>
                         </view>
-                        <!-- <view class="old">￥{{ item.max_price }}</view> -->
+                        <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
                     </view>
                     <!-- <view class="count-and-cart">
                         <view class="count">销量：{{ item.sale_count }}</view>
@@ -126,7 +126,7 @@
         </scroll-view>
     </view>
     <!-- 新品推荐 -->
-     <view class='page-margin'>
+     <view class='page-margin hot-list'>
         <view class="page-row">
             <text class="icon icon-zhixianbolangleft"></text>
             <view class="title-wrap">
@@ -161,7 +161,10 @@
                    </view>
                    <view class="desc-wrap">
                        <view class="title">{{ item.title }}</view>
-                        <view class="money">￥{{ item.min_price / 100 }}</view>
+                        <view class="price">
+                            <view class="money">￥{{ item.min_price / 100 }}</view>
+                            <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
+                        </view>
                         <view class="count-and-operate">
                             <view class="count">销量：{{ item.sale_count }}</view>
                             <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>

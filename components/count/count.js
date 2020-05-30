@@ -9,6 +9,10 @@ Component({
       type: Number,
       value: 1
     },
+    Inventory: {
+      type: Number,
+      value: 0
+    },
     miniCount: {// 最小数量
       type: Number,
       value: 0
@@ -34,6 +38,16 @@ Component({
       this.triggerEvent('subEvent')
     },
     add() {
+      let { count, Inventory } = this.properties
+      if (count + 1 > Inventory) {
+        wx.showToast({
+          title: `下单数量不可以超过当前库存${Inventory}`,
+          icon: 'none',
+          mask: true,
+          duration: 2000
+        })
+        return
+      }
       this.triggerEvent('addEvent')
     }
   }

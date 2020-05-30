@@ -28,7 +28,7 @@
         <view class="remark">
             <view class="label">留言:</view>
             <view class="input-wrap">
-                 <input class="weui-input" placeholder="请填写内容"/>
+                 <input class="weui-input" bind:input="changeMessage" placeholder="请填写内容"/>
             </view>
         </view>
         <view class="goods">
@@ -71,7 +71,7 @@
         unavailableCouponList="{{ orderUnavailableCouponList }}">
     </couponSelector>
     <submitOrder money="{{ orderMoney / 100 }}"  bind:tap="submitOrder" />
-    <van-popup show="{{ showPopup }}">
+    <van-popup show="{{ showPopup }}" closeable  bind:close="onClose">
         <view class="popup-container">
             <view style="margin-top: 8rpx;">
                 <van-icon name="passed" color="green" size="40rpx" />

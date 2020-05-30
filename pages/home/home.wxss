@@ -162,7 +162,10 @@ border-radius: 50rpx
 	flex-direction: column;
 	align-items: center;
 }
-
+.hot-list {
+  padding-left: 0;
+  padding-right: 0;
+}
 .theme_img{
   width:180rpx;
   height:40rpx;
@@ -230,7 +233,7 @@ border-radius: 50rpx
 
 .hot-item .price {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -248,7 +251,7 @@ border-radius: 50rpx
   display: inline-block;
   font-size: 30rpx;
 }
-.hot-item .price .old {
+.price .old {
   color: #694a07;
   text-decoration: line-through;
 }
@@ -294,9 +297,8 @@ border-radius: 50rpx
   color: transparent;
 }
 
-
 .new-list {
-  width: 710rpx;
+  width: 750rpx;
 }
 .hot-list-wrap {
   display: flex;
@@ -307,6 +309,7 @@ border-radius: 50rpx
   /* padding: 0 20rpx; */
   /* display: flex; */
   padding-bottom: 20rpx;
+  width: 350rpx;
   flex-basis: 50%;
   /* justify-content: space-between;
   align-items: center; */
@@ -340,7 +343,12 @@ border-radius: 50rpx
   margin: 10rpx 0;
   font-weight: 700;
 }
-.good-item .price {
+
+.good-item .price { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   margin-bottom: 10rpx;
   color: #d41c12;
 }

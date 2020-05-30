@@ -57,6 +57,7 @@ Component({
       console.log(skus)
     },
     sizeChange(e) {
+      this.setData({ count: 0 })
       this.triggerEvent('sizeChange', e.detail)
     },
     // 获取数量
@@ -64,7 +65,6 @@ Component({
       this.setData({ count })
     },
     subCount() {
-      debugger
       let count = this.data.count
       --count
       this.setData({ count })

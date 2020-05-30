@@ -23,12 +23,12 @@ Page({
     disableCouponCustomStyle: `background-image: url(" https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/666dcbfc-df67-4cbb-a0b8-fa09289a31bb.jpeg"); background-size: cover`
   },
 
-  getList(type = 'load') {
+   getList(type = 'load') {
     getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
       let data = res.list
       if (data) {
         data = data.map(item => {
-          item.OverTime = formateDate(item.OverTime * 1000)
+          item.OverTimeStr = formateDate(item.OverTime * 1000)
           return item
         })
       }
@@ -39,6 +39,16 @@ Page({
       }
       this.setData({ couponList: data, Status1Total, Status2Total, Status3Total })
     })
+  },
+  async getListNoPage() {
+    let { Status1Total, Status2Total, Status3Total, list } = (await getCouponList({ limit: 999999, offset: 1, type: this.type }))
+    if (list) {
+      list = list.map(item => {
+        item.OverTimeStr = formateDate(item.OverTime * 1000)
+        return item
+      })
+    }
+    this.setData({ couponList: list, Status1Total, Status2Total, Status3Total })
   },
   loadMore() {
     let { couponList, totalCount } = this.data
@@ -65,7 +75,7 @@ Page({
     this.setData({
       tabIndex
     })
-    this.getList('refresh')
+    this.getListNoPage()
   },
 
   changeTabIndex(e) {
@@ -73,13 +83,13 @@ Page({
       this.setData({
         tabIndex: e.detail.current
       })
-    this.getList('refresh')
+    this.getListNoPage()
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList('refresh')
+    this.getListNoPage()
   },
 
   /**
@@ -113,11 +123,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    this.pageIndex++
-    getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
-      console.log(res)
-    })
+  onPullDownRefresh: async function () {
+    // await this.getListNoPage()
+    // wx.stopPullDownRefresh()
   },
 
   /**

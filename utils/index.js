@@ -76,9 +76,11 @@ export const setConfirmGoodList = function(goods) {
     }
 }
 
-export const formateDate = function(da) {
-    let date = new Date(da)
-    if (date === 'Invalid Date') throw new Error('Invalid Date')
+export const formateDate = function(date) {
+    if (date) {
+      date = new Date(date)
+    }
+    if (!date || date.toString() === 'Invalid Date') return ''
     let y = date.getFullYear() + ''
     let m = (date.getMonth() + 1 + '').padStart(2, '0')
     let d = (date.getDate() + '').padStart(2, '0')

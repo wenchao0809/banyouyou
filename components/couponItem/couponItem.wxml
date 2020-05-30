@@ -20,7 +20,7 @@
   </view>
   <view class="desc {{ disableSelect ? 'desc-no-select' : '' }}">
     <view>板优优购物专享优惠券</view>
-    <view class="use-date">过期时间：{{couponInfo.OverTime}}</view>
+    <view class="use-date" wx:if="{{couponInfo.OverTime}}">过期时间：{{couponInfo.OverTimeStr}}</view>
   </view>
   <view class="select" wx:if="{{ !disableSelect }}">
      <!-- <radio class="radio"  value="{{ couponInfo.UUID }}" checked="{{item.checked}}">

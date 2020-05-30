@@ -1,4 +1,11 @@
 const formatTime = date => {
+  if (date) {
+    date = new Date(date)
+  }
+  if (!date || date.toString() === 'Invalid Date') {
+    return ''
+  }
+  debugger
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()

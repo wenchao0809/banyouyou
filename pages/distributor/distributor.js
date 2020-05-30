@@ -4,8 +4,8 @@ import { formateDate } from '../../utils/index'
 const app = getApp()
 function formateOrderData(res) {
     return res.map(item => {
-        item.DistributionPrice = (item.DistributionPrice / 1000).toFixed(2)
-        item.TotalPrice = (item.TotalPrice / 1000).toFixed(2)
+        item.DistributionPrice = (item.DistributionPrice / 100).toFixed(2)
+        item.TotalPrice = (item.TotalPrice / 100).toFixed(2)
         item.CreateAt = formateDate(item.CreateAt)
         if ([1, 2, 3, 4].includes(item.Status)) {
             item.Status = '未完成'

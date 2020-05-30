@@ -134,7 +134,6 @@ Page({
     })
   },
   addNums({ currentTarget: { dataset: { index } } }) {
-
     let totalMoney = Number(this.data.totalMoney),
       cartList = this.data.cartList;
     ++cartList[index].Number

@@ -25,7 +25,9 @@ Page({
       orderUnavailableCouponList: [],
       goodList: [],
       showCouponSelector: false,
-      showPopup: false
+      showPopup: false,
+      // 留言
+      message: ''
     },
     toSelectAddress() {
       let url = ''
@@ -47,7 +49,7 @@ Page({
       let total_price = this.data.orderMoney
       let price_list = this.data.goodList.map(item => ({ id: item.priceId, number: item.count }))
       console.log(coupon_list)
-      newOrder({ address_id, coupon_list, total_price, price_list })
+      newOrder({ address_id, coupon_list, total_price, price_list, message: this.data.message })
         .then(res => {
           if (this.data.type === '2') {
             // 从购物车跳过来的
@@ -72,7 +74,7 @@ Page({
     showCouponSelector() {
       this.setData({ showCouponSelector: true })
     },
-  setCouponList(totalMoney, couTotalMoney,vipDiscountMoney) {
+    setCouponList(totalMoney, couTotalMoney,vipDiscountMoney) {
       // let cpTotalMoney = totalMoney
       getUserCoupon({ limit: MAXCOUNT, offset: 0, type: 0 })
       .then(res => {
@@ -114,6 +116,12 @@ Page({
       let checkedCouponList = orderAvailableCouponList.filter(item => item.checked)
       let discountMoney = checkedCouponList.reduce((p, n) => p + n.Price, 0)
       this.setData({ orderAvailableCouponList, discountMoney, orderMoney: totalMoney - (vipDiscountMoney + discountMoney)  })
+    },
+    changeMessage(e) {
+      this.setData({ message: e.detail.value })
+    },
+    onClose() {
+      wx.switchTab({ url: '/pages/home/home' })
     },
     onLoad(options) {
       // type 1为立即购买 2购物车

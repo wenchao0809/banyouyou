@@ -129,7 +129,9 @@ Page({
         code,
         type,
         password,
-        china_id
+        china_id,
+        china_pic_background,
+        china_pic_front
       } = this.data.form
       codeRegisterAndLogin({
           name,
@@ -137,7 +139,9 @@ Page({
           code,
           password,
           china_id,
-          type
+          type,
+          china_pic_front,
+          china_pic_background
         })
         .then(res => {
           wx.setStorage({

@@ -39,7 +39,8 @@
                   data-index="{{index}}" 
                   miniCount="{{1}}"
                   count="{{item.Number}}" 
-                  bind:addEvent="addNums" 
+                  bind:addEvent="addNums"
+                  Inventory="{{ item.Inventory }}"
                   bind:subEvent="subNums" />
               </view>
             </view>
