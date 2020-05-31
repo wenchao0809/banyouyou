@@ -309,9 +309,9 @@ border-radius: 50rpx
   /* padding: 0 20rpx; */
   /* display: flex; */
   padding-bottom: 20rpx;
-  width: 350rpx;
-  flex-basis: 50%;
-  /* justify-content: space-between;
+  width: 370rpx;
+  flex-basis: 370rpx;
+  /* justify-content: space-between5
   align-items: center; */
 }
 
@@ -322,8 +322,8 @@ border-radius: 50rpx
 }
 
 .good-item .image image {
-  width: 350rpx;
-  height: 350rpx;
+  width: 370rpx;
+  height: 370;
   /* height: 170rpx; */
   vertical-align: middle;
 }

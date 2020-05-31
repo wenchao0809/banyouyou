@@ -34,6 +34,8 @@
 }
 
 .productdetail-current-price {
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 20rpx;
   font-size: 35rpx;
   font-weight: 700;
@@ -41,6 +43,8 @@
 }
 
 .productdetail-original-price {
+  display: inline-block;
+  vertical-align: middle;
   font-size: 24rpx;
   color: #888;
   text-decoration:line-through;
