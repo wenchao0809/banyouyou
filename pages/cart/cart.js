@@ -62,9 +62,10 @@ Page({
   getCartCount({ currentTarget: { dataset: { index } }, detail }) {
     console.log(index, detail)
     let data = this.data.cartList[index]
+    const oldNum = data.Number
     data.Number = detail;
     data.index = index
-    this.updateCart(data)
+    this.updateCart(data, oldNum)
   },
   gotoProductDetail({ currentTarget: { dataset: { index } } }) {
     let id = this.data.cartList[index].MaterialsId
@@ -175,15 +176,20 @@ Page({
     })
 
   },
-  updateCart(data) {
-    let { MaterialsId, Number, PriceId } = data
-    console.log(Number)
-    let params = { materials_id: MaterialsId, number: Number, price_id: PriceId }
+  updateCart(data, oldNum) {
+    let totalMoney = Number(this.data.totalMoney)
+    let { MaterialsId, PriceId, select, Price } = data
+    // console.log(data)
+    const num = data.Number - oldNum;
+    if (select) {
+      totalMoney += Price * num;
+    }
+    let params = { materials_id: MaterialsId, number: data.Number, price_id: PriceId }
     params.is_update = true
     addCart(params)
       .then(res => {
         this.data.cartList.splice(data.index, 1, data)
-        this.setData({ cartList: [...this.data.cartList] })
+        this.setData({ cartList: [...this.data.cartList], totalMoney: String(totalMoney.toFixed(2)) })
         // this.getList(false)
       })
   },
