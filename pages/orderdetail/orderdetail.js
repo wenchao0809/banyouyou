@@ -33,7 +33,7 @@ Page({
 
   contactMerchant() {
     wx.makePhoneCall({
-      phoneNumber: '13590385880' //仅为示例，并非真实的电话号码
+      phoneNumber: '13377744329' //仅为示例，并非真实的电话号码
     })
   },
   opearteOrder() {
