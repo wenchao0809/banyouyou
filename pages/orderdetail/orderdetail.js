@@ -28,7 +28,8 @@ Page({
     orderStatusMap: ORDERSTATUS,
     bottomOperateText: '',
     showConfirmOperateOrder: false,
-    conifrmDialogTitle: ''
+    conifrmDialogTitle: '',
+    showAfterSales: false
   },
 
   contactMerchant() {
@@ -37,6 +38,10 @@ Page({
     })
   },
   opearteOrder() {
+    if (this.data.bottomOperateText === '售后申请') {
+      this.showAfterSales()
+      return
+    }
     this.setData({ showConfirmOperateOrder: true, conifrmDialogTitle: `确认${this.data.bottomOperateText}?` })
   },
   onCloseDialog() {
@@ -80,17 +85,36 @@ Page({
         let doneMoey = res.pay_item.reduce((p, n) => p + n.Money, 0)
         res.remainMoney = res.total_price - doneMoey
         let bottomOperateText
-        if (res.status === 1) {
-          bottomOperateText = '取消订单'
-        } else if (res.status === 2) {
-          bottomOperateText = '已收货'
-        } else {
-          bottomOperateText = ''
+        switch (res.status) {
+          case 1:
+            bottomOperateText = '取消订单'
+            break;
+          case 2:
+            bottomOperateText = '已收货'
+            break
+          case 3:
+          case 4:
+          case 5:
+            bottomOperateText = '售后申请'
+            break;
         }
+        // if (res.status === 1) {
+        //   bottomOperateText = '取消订单'
+        // } else if (res.status === 2) {
+        //   bottomOperateText = '已收货'
+        // } else {
+        //   bottomOperateText = ''
+        // }
         res.SendTime = formateDate(res.SendTime)
         res.GetTime = formateDate(res.GetTime)
         this.setData({ orderInfo: res, bottomOperateText })
       })
+  },
+  showAfterSales() {
+    this.setData({ showAfterSales: true })
+  },
+  closeAfterSales() {
+    this.setData({ showAfterSales: false })
   },
   onLoad: function (options) {
     let id = parseInt(options.id)

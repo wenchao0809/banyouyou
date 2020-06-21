@@ -7,19 +7,18 @@
     <view class="header">
       <view class="left">
         <checkRadio check-raio="check" class="select-all" catch:change="selectAll" checked="{{selectAll}}"></checkRadio>
-        <image src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-14/7346a58c-b209-41b0-8c0a-83034f5479f4.png"></image>
+        <image
+          src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-06-21/0f84acc3-44ea-4dcc-af7b-783e4aa88612.jpg">
+        </image>
         <text class="cart-num">购物车当前有{{cartList.length}}件商品</text>
       </view>
       <text class="icon icon-shanchu" bind:tap="deleteSelect"></text>
     </view>
     <block wx:for='{{cartList}}' wx:key="{{index}}">
-      <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}"  data-index="{{index}}">
+      <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}">
         <view class='content'>
-          <checkRadio 
-            class="select-single"
-            data-index="{{index}}"
-            catch:change="selectProduct" 
-            checked="{{ item.select }}" /> 
+          <checkRadio class="select-single" data-index="{{index}}" catch:change="selectProduct"
+            checked="{{ item.select }}" />
           <view class='goods'>
             <image class='good_img' src="{{ item.TopPic }}" catchtap='gotoProductDetail' data-index="{{index}}"></image>
             <view class='good_info'>
@@ -34,14 +33,8 @@
               <view class='good_price'>
                 <text class='price'>￥{{item.Price / 100}}</text>
                 <!-- 商品数量 -->
-                <count
-                  bind:changeNum="getCartCount" 
-                  data-index="{{index}}" 
-                  miniCount="{{1}}"
-                  count="{{item.Number}}" 
-                  bind:addEvent="addNums"
-                  Inventory="{{ item.Inventory }}"
-                  bind:subEvent="subNums" />
+                <count bind:changeNum="getCartCount" data-index="{{index}}" miniCount="{{1}}" count="{{item.Number}}"
+                  bind:addEvent="addNums" Inventory="{{ item.Inventory }}" bind:subEvent="subNums" />
               </view>
             </view>
           </view>
@@ -59,10 +52,6 @@
         <button>去结算({{totalCount}})</button>
       </view>
     </view>
-    </view>
-    <minCart 
-      show="{{ showCart }}" 
-      bind:onClose="onClose" 
-      btns="{{ btns }}" 
-      style="margin-bottom: 200rpx;" toastText="修改成功" />
   </view>
+  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" toastText="修改成功" />
+</view>

@@ -12,8 +12,8 @@
   vertical-align: middle;
 }
 .header image {
-  width: 84px;
-  height: 32px;
+  width: 80px;
+  height: 13.8px;
   vertical-align: middle;
 }
 .header .select-all {

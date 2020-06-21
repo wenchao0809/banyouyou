@@ -1,10 +1,10 @@
 <view class="container">
-    <!-- 头部 -->
-    <view class="search-container {{scrollFlag ? 'active' : ''}}">
-        <!-- <view class="search-icon">
+  <!-- 头部 -->
+  <view class="search-container {{scrollFlag ? 'active' : ''}}">
+    <!-- <view class="search-icon">
             <image class="search-img" src="/image/ai3.png" />
         </view> -->
-        <!-- <view class="location">
+    <!-- <view class="location">
             <view class="province">
                 {{ region[0] }}
             </view>
@@ -14,57 +14,55 @@
                 </view>
             </picker>
         </view> -->
-        <image class="logo" src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-04-14/7346a58c-b209-41b0-8c0a-83034f5479f4.png" />
-        <view class="search-input">
-            <!-- <i>
+    <image class="logo"
+      src="https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-06-21/8fc34927-df64-4688-9891-d3f153fdb0fe.png" />
+    <view class="search-input">
+      <!-- <i>
                 <image src="/image/ati.png" />
             </i> -->
-            <input 
-                type="text"
-                bindinput="searchChange"
-                bindconfirm="toGoodList"
-                value="{{ searchText }}"
-                placeholder-class="place-holder"
-                confirm-type="search"
-                placeholder="请输入您要搜索的商品" />
-            <text class="icon icon-sousuo" catchtap="toGoodList"></text>
-        </view>
-        <!-- <view class="search-icon">
+      <input type="text" bindinput="searchChange" bindconfirm="toGoodList" value="{{ searchText }}"
+        placeholder-class="place-holder" confirm-type="search" placeholder="请输入您要搜索的商品" />
+      <text class="icon icon-sousuo" catchtap="toGoodList"></text>
+    </view>
+    <!-- <view class="search-icon">
             <image class="search-img" src="/image/ahw.png" />
         </view> -->
-    </view>
-    <view class="swiper-container">
-        <!-- 轮播图 -->
-        <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color='{{ctrlColor}}' indicator-active-color="{{ctrlCurrentColor}}">
-            <block wx:for="{{banners}}" wx:key="index">
-                <swiper-item class="swiper-item">
-                    <image src="{{item.Pic}}" bind:tap="gotoDetail" data-goodid="{{ item.Info.id }}" class="slide-image" width="355" height="150" />
-                </swiper-item>
-            </block>
-        </swiper>
-    </view>
-    <!-- 导航 -->
-    <view class="nav-list">
-        <block>
-            <swiper indicator-dots="{{indicatorDots}}"  style="height: 370rpx;"  indicator-color='{{gray}}' indicator-active-color="{{black}}">
-                <block wx:for="{{categorys}}" wx:key="index">
-                    <swiper-item class="swiper-item">
-                        <view class="nav-row1">
-                            <view wx:for="{{ item[0] }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
-                                <image src="{{ item.Pic }}"></image>
-                                <view class="title">{{ item.Name }}</view>
-                            </view>
-                        </view>
-                        <view class="nav-row2">
-                            <view wx:for="{{ item[1] }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
-                                <image src="{{ item.Pic }}"></image>
-                                <view class="title">{{ item.Name }}</view>
-                            </view>
-                        </view>
-                    </swiper-item>
-                </block>
-            </swiper>
-            <!-- <scroll-view class='nav-row1' scroll-x="true" style="width: 100%">
+  </view>
+  <view class="swiper-container">
+    <!-- 轮播图 -->
+    <swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}"
+      duration="{{duration}}" indicator-color='{{ctrlColor}}' indicator-active-color="{{ctrlCurrentColor}}">
+      <block wx:for="{{banners}}" wx:key="index">
+        <swiper-item class="swiper-item">
+          <image src="{{item.Pic}}" bind:tap="gotoDetail" data-goodid="{{ item.Info.id }}" class="slide-image"
+            width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 导航 -->
+  <view class="nav-list">
+    <block>
+      <swiper indicator-dots="{{indicatorDots}}" style="height: 370rpx;" indicator-color='{{gray}}'
+        indicator-active-color="{{black}}">
+        <block wx:for="{{categorys}}" wx:key="index">
+          <swiper-item class="swiper-item">
+            <view class="nav-row1">
+              <view wx:for="{{ item[0] }}" class="nav-item" bindtap="toClass" data-classId="{{ item.Id }}">
+                <image src="{{ item.Pic }}"></image>
+                <view class="title">{{ item.Name }}</view>
+              </view>
+            </view>
+            <view class="nav-row2">
+              <view wx:for="{{ item[1] }}" class="nav-item" bindtap="toClass" data-classId="{{ item.Id }}">
+                <image src="{{ item.Pic }}"></image>
+                <view class="title">{{ item.Name }}</view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- <scroll-view class='nav-row1' scroll-x="true" style="width: 100%">
                 <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
@@ -72,72 +70,72 @@
                     </view>
                 </view>
             </scroll-view> -->
-            <!-- <view class="nav-row1">
+      <!-- <view class="nav-row1">
                 <view wx:for="{{ categorys }}" class="nav-item" bindtap = "toClass" data-classId="{{ item.Id }}">
                     <image src="{{ item.Pic }}"></image>
                     <view class="text-desc">
                         <view class="title">{{ item.Name }}</view> -->
-                        <!-- <view class="desc">{{ item.Desc }}</view> -->
-                    <!-- </view>
+      <!-- <view class="desc">{{ item.Desc }}</view> -->
+      <!-- </view>
                 </view> -->
-               <!-- <view class="nav-item"> -->
-                   <!-- <view class="title">厚芯板</view>
+      <!-- <view class="nav-item"> -->
+      <!-- <view class="title">厚芯板</view>
                    <view class="desc">限量第二人免单</view>
                </view> -->
-            <!-- </view> -->
-        </block>
-    </view>
-    <announcement advertising="{{advertising}}"></announcement>
-    <!-- 热品推荐 -->
-    <view class='page-margin'>
-        <view class="page-row">
-            <text class="icon icon-zhixianbolangleft"></text>
-            <text class="title">新品推荐</text>
-            <text class="icon icon-zhixianbolangright"></text>
-             <!-- <view class='theme_more'>
+      <!-- </view> -->
+    </block>
+  </view>
+  <announcement advertising="{{advertising}}"></announcement>
+  <!-- 热品推荐 -->
+  <view class='page-margin'>
+    <view class="page-row">
+      <text class="icon icon-zhixianbolangleft"></text>
+      <text class="title">新品推荐</text>
+      <text class="icon icon-zhixianbolangright"></text>
+      <!-- <view class='theme_more'>
                <text class="icon icon-youjiantou"></text>
             </view> -->
-            <!-- <image class='theme_img' src="/image/bej.png" mode="aspectFill" /> -->
-           
-        </view>
-        <scroll-view class='hot-list' scroll-x="true" style="width: 100%">
-            <block wx:for-items="{{newGoods}}" wx:key="index">
-                <view class="hot-item" style="display: inline-block;">
-                    <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
-                        <image src="{{item.top_pic_list[0]}}" mode="aspectFill" />
-                    </view>
-                    <view class="title" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">{{ item.title }}</view>
-                    <view class="price">
-                        <view class="cur">
-                            <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
-                            <text class="money">￥</text>
-                            <text class="num"> {{ item.min_price / 100 }}</text>
-                        </view>
-                        <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
-                    </view>
-                    <!-- <view class="count-and-cart">
+      <!-- <image class='theme_img' src="/image/bej.png" mode="aspectFill" /> -->
+
+    </view>
+    <scroll-view class='hot-list' scroll-x="true" style="width: 100%">
+      <block wx:for-items="{{newGoods}}" wx:key="index">
+        <view class="hot-item" style="display: inline-block;">
+          <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
+            <image src="{{item.top_pic_list[0]}}" mode="aspectFill" />
+          </view>
+          <view class="title" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">{{ item.title }}</view>
+          <view class="price">
+            <view class="cur">
+              <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
+              <text class="money">￥</text>
+              <text class="num"> {{ item.min_price / 100 }}</text>
+            </view>
+            <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
+          </view>
+          <!-- <view class="count-and-cart">
                         <view class="count">销量：{{ item.sale_count }}</view>
                         <view class="cart">
                             <text class="icon icon-cart" catchtap="showMinCart" data-goodid="{{ item.Id }}"></text>
                         </view>
                     </view> -->
-                </view>
-            </block>
-        </scroll-view>
-    </view>
-    <!-- 新品推荐 -->
-     <view class='page-margin hot-list'>
-        <view class="page-row">
-            <text class="icon icon-zhixianbolangleft"></text>
-            <view class="title-wrap">
-                <view class="title">精选</view>
-                <view class="desc">热卖好货</view>
-            </view>
-            <text class="icon icon-zhixianbolangright"></text>
         </view>
-        <!-- <view class="border"></view> -->
-       <scroll-view class="new-list" scroll-y>
-           <!-- <block wx:for-items="{{newGoods}}" wx:key="index">
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 新品推荐 -->
+  <view class='page-margin hot-list'>
+    <view class="page-row">
+      <text class="icon icon-zhixianbolangleft"></text>
+      <view class="title-wrap">
+        <view class="title">精选</view>
+        <view class="desc">热卖好货</view>
+      </view>
+      <text class="icon icon-zhixianbolangright"></text>
+    </view>
+    <!-- <view class="border"></view> -->
+    <scroll-view class="new-list" scroll-y>
+      <!-- <block wx:for-items="{{newGoods}}" wx:key="index">
                <view class="good-item">
                    <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
                         <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
@@ -154,39 +152,32 @@
                </view>
                 <view class="border"></view>
            </block> -->
-            <view class="hot-list-wrap">
-               <view class="good-item" wx:for-items="{{hotItems}}" wx:key="index">
-                   <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
-                        <image src="{{ item.top_pic_list[0] }}" mode="aspectFill" />
-                   </view>
-                   <view class="desc-wrap">
-                       <view class="title">{{ item.title }}</view>
-                        <view class="price">
-                            <view class="money">￥{{ item.min_price / 100 }}</view>
-                            <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
-                        </view>
-                        <view class="count-and-operate">
-                            <view class="count">销量：{{ item.sale_count }}</view>
-                            <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>
-                        </view>
-                   </view>
-               </view>
-           </view>
-       </scroll-view>
-    </view>
-    <!-- <block wx:for='{{pageRow}}' wx:for-item="page" wx:key="index">
+      <view class="hot-list-wrap">
+        <view class="good-item" wx:for-items="{{hotItems}}" wx:key="index">
+          <view class="image" catch:tap="gotoDetail" data-goodid="{{ item.Id }}">
+            <image src="{{ item.top_pic_list[0] }}" mode="aspectFit" />
+          </view>
+          <view class="desc-wrap">
+            <view class="title">{{ item.title }}</view>
+            <view class="price">
+              <view class="money">￥{{ item.min_price / 100 }}</view>
+              <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
+            </view>
+            <view class="count-and-operate">
+              <view class="count">销量：{{ item.sale_count }}</view>
+              <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- <block wx:for='{{pageRow}}' wx:for-item="page" wx:key="index">
         <view class='page-row' style="justify-content:center">
             <image class='page_img' wx:for='{{page}}' wx:key="index" src="{{item}}" mode="aspectFill"></image>
         </view>
     </block> -->
-    <minCart 
-        show="{{ showCart }}" 
-        bind:onClose="onClose" 
-        btns="{{ btns }}" 
-        style="margin-bottom: 200rpx;" 
-        toastText="添加购物车成功"
-        sku="{{ miniCartGoodInfo.sizes }}"
-        goodInfo="{{ miniCartGoodInfo.goodInfo }}"
-        price="{{ miniCartGoodInfo.curPrice }}"
-        bind:sizeChange="sizeChange"/>
+  <minCart show="{{ showCart }}" bind:onClose="onClose" btns="{{ btns }}" toastText="添加购物车成功"
+    sku="{{ miniCartGoodInfo.sizes }}" goodInfo="{{ miniCartGoodInfo.goodInfo }}"
+    price="{{ miniCartGoodInfo.curPrice }}" bind:sizeChange="sizeChange" />
 </view>

@@ -8,7 +8,7 @@ const sortTypeMap = {
   bysum: 0,
   priceDesc: 1,
   priceAsc: 2,
-  count: 3
+  bycount: 3
 }
 Page({
 
@@ -16,8 +16,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navLeftItems:[],  // 左侧导航
-    navRightItems:[], // 右侧产品
+    navLeftItems: [],  // 左侧导航
+    navRightItems: [], // 右侧产品
     query: {
       limit: 20,
       offset: 0,
@@ -25,7 +25,7 @@ Page({
     },
     orderName: 'bysum',
     curItem: {},
-    curIndex:0,
+    curIndex: 0,
     showCart: false,
     miniCartGoodInfo: {},
     btns: [
@@ -46,30 +46,30 @@ Page({
     // 分类id
     let id = parseInt(options.id)
     // 请求分类数据
-      getCategoryList({ limit: 100, offset: 0 })
-        .then(res => {
-          this.setData({
-            navLeftItems: res
-          })
-          let index = 0
-          if (id) {
-            for (let i = 0; i < res.length; i++) {
-              if (res[i].Id === id) {
-                index = i
-              }
-            }
-          } 
-          this.currentTabs(index)          
-          wx.hideLoading()
+    getCategoryList({ limit: 100, offset: 0 })
+      .then(res => {
+        this.setData({
+          navLeftItems: res
         })
-      // 隐藏loading
+        let index = 0
+        if (id) {
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].Id === id) {
+              index = i
+            }
+          }
+        }
+        this.currentTabs(index)
+        wx.hideLoading()
+      })
+    // 隐藏loading
   },
   // 改变tab栏
-  currentTabs(e){
+  currentTabs(e) {
     let curIndex = e
     if (typeof e === 'object') {
       curIndex = e.currentTarget.dataset.index
-    } 
+    }
     this.setData({
       curIndex
     })
@@ -79,13 +79,13 @@ Page({
     let { query, orderName, navLeftItems } = this.data
     let curItem = navLeftItems[this.data.curIndex]
     query.sortType = sortTypeMap[orderName]
-    getCategoryGoodList({ id:  curItem.Id, ...this.data.query })
+    getCategoryGoodList({ id: curItem.Id, ...this.data.query })
       .then(res => {
         this.setData({ navRightItems: res })
       })
   },
-   // 去详情页
-  gotoProductDetail({ currentTarget: { dataset:{ goodid: id }} }){
+  // 去详情页
+  gotoProductDetail({ currentTarget: { dataset: { goodid: id } } }) {
     wx.navigateTo({
       url: `/pages/productdetail/productdetail?id=${id}`
       // url: `/pages/productlist/productlist?name=${name}`
@@ -107,7 +107,7 @@ Page({
     })
     this.getNavRightItems()
   },
-  showMinCart({currentTarget: { dataset: { goodid: id } }}) {
+  showMinCart({ currentTarget: { dataset: { goodid: id } } }) {
     getGoodInfo({ id })
       .then(res => {
         let miniCartGoodInfo = {}
@@ -140,7 +140,7 @@ Page({
     let text = this.data.searchText
     wx.navigateTo({ url: `/pages/good-list/good-list?likeName=${text}` })
   },
-  handleContact (e) {
+  handleContact(e) {
     console.log(e.detail.path)
     console.log(e.detail.query)
   },

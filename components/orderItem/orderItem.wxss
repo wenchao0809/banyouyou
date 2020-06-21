@@ -58,3 +58,7 @@
   border: 1px solid lightgray;
   text-align: center;
 }
+.bottom-operate  .afeter-sales {
+  border: 1px solid #e4393c;
+  color: #e4393c;
+}
