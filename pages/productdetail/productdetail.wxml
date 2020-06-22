@@ -2,35 +2,29 @@
 <view class="productdetail-container">
   <view class="productdetail-swiper">
     <swiper autoplay="{{true}}" style="width: 100%;height: {{Height}};" bindchange="swiperChange" current="{{index}}">
-        <block wx:for="{{imgList}}" wx:key="*this">
-          <swiper-item>
-            <image 
-              bind:tap="previewImage" 
-              src="{{item}}"
-              data-key="imgList"
-              data-item="{{item}}"
-              bindload="imgHeight"
-              mode="widthFix"
-              style="width: 100%;">
-            </image>
-          </swiper-item>
-        </block>
-      </swiper>
-      <view class="swiper-item">
-        {{index + 1}} / {{imgList.length}}
-      </view>
+      <block wx:for="{{imgList}}" wx:key="*this">
+        <swiper-item>
+          <image bind:tap="previewImage" src="{{item}}" data-key="imgList" data-item="{{item}}" bindload="imgHeight"
+            mode="widthFix" style="width: 100%;">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="swiper-item">
+      {{index + 1}} / {{imgList.length}}
+    </view>
   </view>
   <view class="productdetail-desc">
     <view>
       <text>{{ title }}</text>
       <view class="productdetail-price">
-        <text wx:if="{{ curPrice.Id }}" class="productdetail-current-price">￥{{ curPrice.Price / 100 }}</text>
-          <text wx:else class="productdetail-current-price">￥{{min_price}} ~ ￥{{max_price}}</text>
+        <text class="productdetail-current-price">￥{{ min_price / 100 }}</text>
+        <!-- <text class="productdetail-current-price">￥{{min_price}} ~ ￥{{max_price}}</text> -->
         <text wx:if="{{is_special_offer}}" class="productdetail-original-price">￥{{original_price / 100}}</text>
       </view>
       <view>
-        <text class="productdetail-stock">库存：{{ curPrice.Inventory }}</text>
-        <text class="productdetail-sales">销量：{{ curPrice.Number }}</text>
+        <text class="productdetail-stock">库存：{{  total_inventory }}</text>
+        <text class="productdetail-sales">销量：{{ total_sale }}</text>
       </view>
     </view>
     <view bindtap="showPopup">
@@ -41,18 +35,12 @@
   <!-- <view class="productdetail-sku">规格</view> -->
   <!-- <sku sku="{{sizes}}" bind:changeValue="sizeChange" /> -->
   <view class="productdetail-imgdesc">
-   <image 
-    wx:for="{{content_pic_list}}"
-    src="{{ item }}"
-    bind:tap="previewImage"
-    data-key="content_pic_list"
-    data-item="{{item}}"
-    wx:key="*this" src="{{item}}" 
-    mode="widthFix"
-    style="width: 100%;">
-  </image>
+    <image wx:for="{{content_pic_list}}" src="{{ item }}" bind:tap="previewImage" data-key="content_pic_list"
+      data-item="{{item}}" wx:key="*this" src="{{item}}" mode="widthFix" style="width: 100%;">
+    </image>
   </view>
-  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}" customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;height: 22%;">
+  <popup show="{{ show }}" bind:close="onClose" overlay="{{false}}"
+    customStyle="border-top: 1rpx solid #888;display: flex;flex-direction: column;height: 22%;">
     <view style="flex: 1;display: flex;justify-content: space-around;align-items: center;">
       <button class="productdetail-popup" plain="true" open-type="share">
         <text class="icon icon-weixin" style="font-size: 70rpx;color: #32CD32;"></text>
@@ -66,11 +54,7 @@
     <button style="width: 100%;" bindtap="cancel">取消</button>
   </popup>
   <previewImage show="{{ showPreview }}" imageList="{{ content_pic_list }}" bind:close="closePreview"></previewImage>
-  <goodsAction 
-    icons="{{ iconList }}" 
-    btns="{{ btns }}" 
-    bind:sizeChange="sizeChange"
-    bind:addCart="addCart"
+  <goodsAction icons="{{ iconList }}" btns="{{ btns }}" bind:sizeChange="sizeChange" bind:addCart="addCart"
     bind:toBuy="toBuy"
     cartInfo="{{ { goodInfo: {  materials_id: id, title, image: imgList[0] }, sizes, price: curPrice } }}" />
 </view>

@@ -1,6 +1,6 @@
 // pages/productdetail/productdetail.js
 import { getGoodInfo, addCart } from '../../api/index.js'
-import { generateSku  } from '../../utils/index'
+import { generateSku } from '../../utils/index'
 import PriceManage from '../../utils/price-manage'
 import { confirmOrder } from '../../store/index'
 
@@ -20,6 +20,8 @@ Page({
     content_pic_list: [],
     is_special_offer: false,
     price_list: [],
+    total_inventory: 0,
+    total_sale: 0,
     show: false,
     showFlag: false,
     iconList: [
@@ -58,13 +60,13 @@ Page({
     showPreview: false,
     index: 0
   },
-  swiperChange (e) {
+  swiperChange(e) {
     this.setData({
       index: e.detail.current
     })
   },
 
-  showPopup () {
+  showPopup() {
     this.setData({
       show: true
     })
@@ -79,51 +81,51 @@ Page({
   closePreview() {
     this.setData({ showPreview: false })
   },
-  cancel () {
+  cancel() {
     this.setData({
       show: false
     })
   },
 
-  getSkus (e) {
+  getSkus(e) {
     let skus = e.detail
     console.log(skus)
   },
 
   onShareAppMessage: function (options) {
-  　　// 自定义分享内容
-　　var shareObj = {
-　　　  title: "板优优",        // 小程序的名称
-       path: `/pages/productdetail/productdetail?id=${this.data.id}`,  // 默认是当前页面，必须是以‘/’开头的完整路径
-// 　　　　imgUrl: '',     //自定义图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-　　　　success: function (res) {
-　　　　　　// 转发成功之后的回调
-　　　　　　if (res.errMsg == 'shareAppMessage:ok') {
-　　　　　　}
-　　　　},
-　　　　fail: function () {
-　　　　　　// 转发失败之后的回调
-　　　　　　if (res.errMsg == 'shareAppMessage:fail cancel') {
-  　　　　　　　　// 用户取消转发
-　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {
-  　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
-　　　　　　}
-　　　　},
-　　　　complete: function () {
-　　　　　　// 转发结束之后的回调（转发成不成功都会执行）
-　　　　}
-　　}
-　　// 来自页面内的按钮的转发
-// 　　if (options.from == 'button') {
-// 　　　　console.log("来源于button")
-// 　　　　// 此处可以修改 shareObj 中的内容
-// 　　　　shareObj.path = '/pages/btnname/btnname?btn_name=' + eData.name
-// 　　}
-　　// 返回shareObj
-　　return shareObj
+    // 自定义分享内容
+    var shareObj = {
+      title: "板优优",        // 小程序的名称
+      path: `/pages/productdetail/productdetail?id=${this.data.id}`,  // 默认是当前页面，必须是以‘/’开头的完整路径
+      // 　　　　imgUrl: '',     //自定义图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      success: function (res) {
+        // 转发成功之后的回调
+        if (res.errMsg == 'shareAppMessage:ok') {
+        }
+      },
+      fail: function () {
+        // 转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {
+          // 用户取消转发
+        } else if (res.errMsg == 'shareAppMessage:fail') {
+          // 转发失败，其中 detail message 为详细失败信息
+        }
+      },
+      complete: function () {
+        // 转发结束之后的回调（转发成不成功都会执行）
+      }
+    }
+    // 来自页面内的按钮的转发
+    // 　　if (options.from == 'button') {
+    // 　　　　console.log("来源于button")
+    // 　　　　// 此处可以修改 shareObj 中的内容
+    // 　　　　shareObj.path = '/pages/btnname/btnname?btn_name=' + eData.name
+    // 　　}
+    // 返回shareObj
+    return shareObj
   },
 
-  goPoster () {
+  goPoster() {
     let { title, imgList, curPrice, min_price, max_price } = this.data
     let params = {}
     if (curPrice.Id) {
@@ -139,7 +141,7 @@ Page({
       }
     })
   },
-  sizeChange ({ detail: size }) {
+  sizeChange({ detail: size }) {
     this.priceMange
       .setSelectedSize(size)
       .connect(this)
@@ -173,7 +175,10 @@ Page({
       imgList: res.top_pic_list,
       content_pic_list: res.content_pic_list,
       price_list: res.price_list,
-      current_price: res.price_list[0]
+      current_price: res.price_list[0],
+      total_inventory: res.total_inventory,
+      total_sale: res.total_sale
+
     })
   },
   imgHeight: function (e) {
