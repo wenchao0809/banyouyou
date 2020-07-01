@@ -4,12 +4,8 @@
     <view class="order-status">{{ orderStatusMap[orderInfo.status] }}</view>
   </view>
   <view class="content" bind:tap="goOrderDetail">
-    <goodItem 
-    class="good-item" 
-    customeStyle="margin-bottom: 20rpx; background: #f3f3f3"
-    wx:for="{{ orderInfo.order_item }}"
-    disableToDetail="{{ true }}"
-    goodInfo="{{ item }}" />
+    <goodItem class="good-item" customeStyle="margin-bottom: 20rpx; background: #f3f3f3"
+      wx:for="{{ orderInfo.order_item }}" disableToDetail="{{ true }}" goodInfo="{{ item }}" />
   </view>
   <view class="footer">
     <view class="money">
@@ -20,8 +16,9 @@
     </view>
   </view>
   <view class="bottom-operate">
-    <view wx:if="{{ orderInfo.status === 5 }}" class="operate-item apply-after-sales" bind:tap="showPopup">申请售后</view>
+    <view wx:if="{{ orderInfo.status === 3 || orderInfo.status === 4 || orderInfo.status === 5 }}"
+      class="operate-item afeter-sales" bind:tap="showAfterSales">申请售后</view>
     <view class="operate-item" bind:tap="goOrderDetail">查看详情</view>
   </view>
-  <afterSales isShowPopup="{{ showPopup }}" bind:close="closePopup"></afterSales>
+  <afterSalesPopu show="{{ showAfterSales }}" bind:close="closeAfterSales"></afterSalesPopu>
 </view>

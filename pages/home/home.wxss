@@ -17,8 +17,8 @@
     align-items: center;
 }
 .search-container .logo {
-  height: 90rpx;
-  width: 250rpx;
+  height: 66.6rpx;
+  width: 260rpx;
 }
 .search-container .search-input {
   display: flex;
@@ -155,7 +155,7 @@ border-radius: 50rpx
 
 .page-margin{
   box-sizing: border-box;
-  padding: 20rpx;
+  padding: 24rpx;
 	margin-top: 20rpx;
   background-color: #fff;
   display: flex;
@@ -213,7 +213,9 @@ border-radius: 50rpx
 .hot-item {
   margin-right: 20rpx;
 }
-
+.hot-list:last-child {
+ margin-right: 0;
+}
 .hot-item .image {
   text-align: center;
 }

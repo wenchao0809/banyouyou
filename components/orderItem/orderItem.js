@@ -17,7 +17,7 @@ Component({
    */
   data: {
     orderStatusMap: ORDERSTATUS,
-    showPopup: false
+    showAfterSales: false
   },
 
   /**
@@ -28,11 +28,11 @@ Component({
       let Id = this.properties.orderInfo.id
       this.triggerEvent('goOrderDetail', Id)
     },
-    showPopup() {
-      this.setData({ showPopup: true })
+    showAfterSales() {
+      this.setData({ showAfterSales: true })
     },
-    closePopup () {
-      this.setData({ showPopup: false })
+    closeAfterSales() {
+      this.setData({ showAfterSales: false })
     }
   }
 })

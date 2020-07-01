@@ -13,7 +13,7 @@ Page({
     registerDistributor()
       .then(res => {
         this.setData({ status: 1 })
-    })
+      })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,9 +24,9 @@ Page({
     if (status === 3) {
       distributeOverview()
         .then(res => {
-          res.total = (res.total / 1000).toFixed(2)
-          res.getMoney = (res.getMoney / 1000).toFixed(2)
-          res.willGet = (res.getMoney / 1000).toFixed(2)
+          res.total = (res.total / 100).toFixed(2)
+          res.getMoney = (res.getMoney / 100).toFixed(2)
+          res.willGet = (res.getMoney / 100).toFixed(2)
           this.setData({ overview: res })
         })
     }

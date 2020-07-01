@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
-    "afterSales": "/components/afterSales/afterSales"
+    "afterSalesPopu": "/components/afterSalesPop/afterSalesPop"
   }
 }

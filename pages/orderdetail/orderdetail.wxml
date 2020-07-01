@@ -48,11 +48,11 @@
         <text class="color">下单时间：</text>
         <text>{{ orderInfo.createDateStr }}</text>
       </view>
-       <view class="orderdetail-information-item" wx:if="{{orderInfo.SendTime}}">
+      <view class="orderdetail-information-item" wx:if="{{orderInfo.SendTime}}">
         <text class="color">发货时间：</text>
         <text>{{ orderInfo.SendTime }}</text>
       </view>
-        <view class="orderdetail-information-item" wx:if="{{orderInfo.GetTime  }}">
+      <view class="orderdetail-information-item" wx:if="{{orderInfo.GetTime  }}">
         <text class="color">收货时间：</text>
         <text>{{ orderInfo.GetTime  }}</text>
       </view>
@@ -103,17 +103,11 @@
   </view>
   <view class="orderdetail-blank"></view>
   <view class="bottom-operate" wx:if="{{bottomOperateText}}">
-    <view bindtap = "opearteOrder">{{ bottomOperateText }}</view>
+    <view bindtap="opearteOrder">{{ bottomOperateText }}</view>
   </view>
-  <van-dialog
-    use-slot
-    title="{{ conifrmDialogTitle }}"
-    show="{{ showConfirmOperateOrder }}"
-    show-cancel-button
-    bind:close="onCloseDialog"
-    bind:confirm="confirmUpdateOrder"
-  >
-  </van-dialog> 
-  <afterSales isShowPopup="{{ showPopup }}" bind:close="closePopup"></afterSales>
+  <van-dialog use-slot title="{{ conifrmDialogTitle }}" show="{{ showConfirmOperateOrder }}" show-cancel-button
+    bind:close="onCloseDialog" bind:confirm="confirmUpdateOrder">
+  </van-dialog>
   <!-- <submitOrder /> -->
+  <afterSalesPopu show="{{ showAfterSales }}" bind:close="closeAfterSales"></afterSalesPopu>
 </view>

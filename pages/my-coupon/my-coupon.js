@@ -23,7 +23,7 @@ Page({
     disableCouponCustomStyle: `background-image: url(" https://housestore.oss-cn-hangzhou.aliyuncs.com/2020-05-08/666dcbfc-df67-4cbb-a0b8-fa09289a31bb.jpeg"); background-size: cover`
   },
 
-   getList(type = 'load') {
+  getList(type = 'load') {
     getCouponList({ limit: this.limit, offset: (this.pageIndex - 1) * 20, type: this.type }).then(res => {
       let data = res.list
       if (data) {
