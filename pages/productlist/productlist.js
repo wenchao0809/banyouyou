@@ -75,7 +75,7 @@ Page({
   getDataList(){
 
     // 显示loading
-    link.showLoading()
+    // link.showLoading()
 
     // 获取列表数据
     link.ajax({ url: `${app.globalData.defaultURL}/api/profiles/productionsList` }, res => {
@@ -84,7 +84,7 @@ Page({
       })
 
       // 隐藏loading
-      link.hideLoading();
+      // link.hideLoading();
 
       // 关闭下拉刷新
       setTimeout(_ =>{

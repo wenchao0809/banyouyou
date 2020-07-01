@@ -58,3 +58,7 @@
   border: 1px solid lightgray;
   text-align: center;
 }
+.bottom-operate  .apply-after-sales  {
+  color: #e4393c;
+  border-color: #e4393c;
+}

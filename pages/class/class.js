@@ -8,7 +8,7 @@ const sortTypeMap = {
   bysum: 0,
   priceDesc: 1,
   priceAsc: 2,
-  count: 3
+  bycount: 3
 }
 Page({
 
@@ -60,7 +60,7 @@ Page({
             }
           } 
           this.currentTabs(index)          
-          wx.hideLoading()
+          // wx.hideLoading()
         })
       // 隐藏loading
   },
@@ -98,10 +98,10 @@ Page({
   handleOrderChange(e) {
     console.log(e)
     let orderName = e.target.dataset.name || e.currentTarget.dataset.name
-    if (orderName === 'byprice') {
-      // 默认升序
-      orderName = this.data.orderName === 'priceAsc' ? 'priceDesc' : 'priceAsc'
-    }
+    // if (orderName === 'byprice') {
+    //   // 默认升序
+    //   orderName = this.data.orderName === 'priceAsc' ? 'priceDesc' : 'priceAsc'
+    // }
     this.setData({
       orderName: orderName
     })

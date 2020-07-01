@@ -1,0 +1,15 @@
+<van-popup show="{{ isShowPopup }}" closeable  bind:close="onClose">
+        <view class="popup-container">
+            <view style="margin-top: 8rpx;">
+                <van-icon name="fail" color="#5e5e5e" size="40rpx" />
+            </view>
+            <view class="popup-content">
+                <view class="content-title">退/换货申请</view>
+                <view class="content-tip"><text style="color: #686667;">申请售后需向商家说明具体原因\n(注意：非质量问题不同意退换货处理)</text></view>
+            </view>
+        </view>
+        <view class="popup-footer">
+          <view class="cancel" bind:tap="onClose">取消</view>
+          <view class="confrim" bind:tap="makePhoneCall">确认申请售后</view>
+        </view>
+    </van-popup>

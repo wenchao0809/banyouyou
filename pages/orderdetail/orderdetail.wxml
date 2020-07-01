@@ -113,6 +113,7 @@
     bind:close="onCloseDialog"
     bind:confirm="confirmUpdateOrder"
   >
-  </van-dialog>
+  </van-dialog> 
+  <afterSales isShowPopup="{{ showPopup }}" bind:close="closePopup"></afterSales>
   <!-- <submitOrder /> -->
 </view>

@@ -41,7 +41,7 @@ Page({
     })
   },
   async getListNoPage() {
-    let { Status1Total, Status2Total, Status3Total, list } = (await getCouponList({ limit: 999999, offset: 1, type: this.type }))
+    let { Status1Total, Status2Total, Status3Total, list } = (await getCouponList({ limit: 999999, offset: 0, type: this.type }))
     if (list) {
       list = list.map(item => {
         item.OverTimeStr = formateDate(item.OverTime * 1000)

@@ -323,7 +323,7 @@ border-radius: 50rpx
 
 .good-item .image image {
   width: 370rpx;
-  height: 370;
+  height: 370rpx;
   /* height: 170rpx; */
   vertical-align: middle;
 }

@@ -16,7 +16,7 @@
             <view class="good-item" bind:tap="gotoProductDetail" data-goodid="{{ item.Id }}">
               <view class="desc">
                 <view class="title">{{ item.title }}</view>
-                  <view class="count">销量：{{ item.sale_count }}</view>
+                  <view class="count">销量：{{ item.total_sale }}</view>
                   <view class="price">
                     <view class="cur">
                           <!-- <rich-text nodes={{[{name: 'sub', children: [{type=""}]}]}}></rich-text> -->
@@ -46,6 +46,5 @@
     goodInfo="{{ miniCartGoodInfo.goodInfo }}"
     price="{{ miniCartGoodInfo.curPrice }}"
     bind:sizeChange="sizeChange" 
-    style="margin-bottom: 200rpx;" 
     toastText="添加购物车成功" />
 </view>

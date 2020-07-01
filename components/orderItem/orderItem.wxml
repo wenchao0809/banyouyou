@@ -20,6 +20,8 @@
     </view>
   </view>
   <view class="bottom-operate">
+    <view wx:if="{{ orderInfo.status === 5 }}" class="operate-item apply-after-sales" bind:tap="showPopup">申请售后</view>
     <view class="operate-item" bind:tap="goOrderDetail">查看详情</view>
   </view>
+  <afterSales isShowPopup="{{ showPopup }}" bind:close="closePopup"></afterSales>
 </view>

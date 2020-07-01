@@ -2,6 +2,7 @@
   "usingComponents": {
     "goodItem": "/components/goodItem/simpleGoodItem/simpleGoodItem",
     "submitOrder": "/components/BottomSubmitOrder/BottomSubmitOrder",
+    "afterSales": "/components/afterSales/afterSales",
     "van-dialog": "@vant/weapp/dialog/index"
   },
   "navigationBarTitleText": "订单详情"

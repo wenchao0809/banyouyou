@@ -64,5 +64,5 @@
       show="{{ showCart }}" 
       bind:onClose="onClose" 
       btns="{{ btns }}" 
-      style="margin-bottom: 200rpx;" toastText="修改成功" />
+      toastText="修改成功" />
   </view>

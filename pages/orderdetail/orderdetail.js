@@ -28,7 +28,8 @@ Page({
     orderStatusMap: ORDERSTATUS,
     bottomOperateText: '',
     showConfirmOperateOrder: false,
-    conifrmDialogTitle: ''
+    conifrmDialogTitle: '',
+    showPopup: false
   },
 
   contactMerchant() {
@@ -37,6 +38,10 @@ Page({
     })
   },
   opearteOrder() {
+    if (this.data.bottomOperateText === '售后申请') {
+      this.setData({ showPopup: true })
+      return
+    }
     this.setData({ showConfirmOperateOrder: true, conifrmDialogTitle: `确认${this.data.bottomOperateText}?` })
   },
   onCloseDialog() {
@@ -84,6 +89,8 @@ Page({
           bottomOperateText = '取消订单'
         } else if (res.status === 2) {
           bottomOperateText = '已收货'
+        } else if (res.status === 5) {
+          bottomOperateText = '售后申请'
         } else {
           bottomOperateText = ''
         }
@@ -92,12 +99,15 @@ Page({
         this.setData({ orderInfo: res, bottomOperateText })
       })
   },
+  closePopup () {
+    this.setData({ showPopup: false })
+  },
   onLoad: function (options) {
     let id = parseInt(options.id)
     this.setData({ id })
     this.getOrderInfo(id)
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

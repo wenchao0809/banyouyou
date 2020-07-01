@@ -33,16 +33,16 @@ Page({
         wx.navigateTo({ url: '/pages/bussiness-register/register' })
     },
     login() {
-        wx.showLoading({
-            title: '加载中',
-          })
+        // wx.showLoading({
+        //     title: '加载中',
+        //   })
         this.data.activeTab === 1 ? this.smsLogin() : this.passwordLogin()
     },
     passwordLogin() {
         let form = this.data.form
         login(form)
             .then(res => {
-                wx.hideLoading()
+                // wx.hideLoading()
                 wx.setStorage({ key: 'token', data: res })
                 wx.switchTab({ url: '/pages/home/home', fail: function(error) { console.log(error) } })
             })
@@ -50,7 +50,7 @@ Page({
     smsLogin() {
         codeRegisterAndLogin(this.data.smsForm)
                 .then(res => {
-                    wx.hideLoading()
+                    // wx.hideLoading()
                     wx.setStorage({ key: 'token', data: res })
                     wx.switchTab({ url: '/pages/home/home' })
                 })

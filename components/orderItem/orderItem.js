@@ -16,7 +16,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    orderStatusMap: ORDERSTATUS
+    orderStatusMap: ORDERSTATUS,
+    showPopup: false
   },
 
   /**
@@ -26,6 +27,12 @@ Component({
     goOrderDetail() {
       let Id = this.properties.orderInfo.id
       this.triggerEvent('goOrderDetail', Id)
+    },
+    showPopup() {
+      this.setData({ showPopup: true })
+    },
+    closePopup () {
+      this.setData({ showPopup: false })
     }
   }
 })
