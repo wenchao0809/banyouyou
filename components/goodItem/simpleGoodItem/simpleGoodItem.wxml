@@ -5,6 +5,7 @@
     <view class="desc">
         <view class="title">{{goodInfo.title}}</view>
         <view class="size" wx:if="{{goodInfo.sizeDesc}}">{{goodInfo.sizeDesc}}</view>
+        <view wx:if="{{goodInfo.isSpecialOffer}}" class="is-spcial">特价商品不参与优惠</view>
     </view>
     <view class="single-price-count">
         <view class="price">￥{{ goodInfo.price / 100  }}</view>

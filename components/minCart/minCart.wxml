@@ -12,7 +12,7 @@
           </view>
           <view>
             <text class="productdetail-stock">库存：{{ price.Inventory }}</text>
-            <text class="productdetail-sales">销量：{{ price.Number }}</text>
+            <text class="productdetail-sales">销量：{{ price.sale }}</text>
           </view>
         </view>
       </view>

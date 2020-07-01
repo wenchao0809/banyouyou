@@ -97,13 +97,14 @@ Component({
       }
       let { goodInfo, price } = this.properties
       let { title, image } = goodInfo
-      let { desc, Price, Id } = price
+      let { desc, Price, Id, is_special_offer } = price
       setConfirmGoodList([{
         priceId: Id,
         title, image,
         sizeDesc: desc,
         price: Price,
-        count: number
+        count: number,
+        IsSpecialOffer: is_special_offer
       }])
       wx.navigateTo({ url: '/pages/confirm-order/confirm-order?type=1' })
     },

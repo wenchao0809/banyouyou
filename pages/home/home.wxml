@@ -164,7 +164,7 @@
               <view class="old" wx:if="{{item.is_special_offer}}">￥{{ item.original_price / 100 }}</view>
             </view>
             <view class="count-and-operate">
-              <view class="count">销量：{{ item.sale_count }}</view>
+              <view class="count">销量：{{ item.total_sale}}</view>
               <view class="icon icon-cart" catch:tap="showMinCart" data-goodid="{{ item.Id }}"></view>
             </view>
           </view>

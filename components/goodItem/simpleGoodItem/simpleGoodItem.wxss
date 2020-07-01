@@ -34,3 +34,7 @@
     flex: 0 1 150rpx;
     text-align: right;
 }
+.is-spcial {
+    font-size: 20rpx;
+    color: #e74030;
+}
