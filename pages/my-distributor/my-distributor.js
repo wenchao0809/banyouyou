@@ -26,7 +26,7 @@ Page({
         .then(res => {
           res.total = (res.total / 100).toFixed(2)
           res.getMoney = (res.getMoney / 100).toFixed(2)
-          res.willGet = (res.getMoney / 100).toFixed(2)
+          res.willGet = (res.willGet / 100).toFixed(2)
           this.setData({ overview: res })
         })
     }

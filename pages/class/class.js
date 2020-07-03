@@ -98,10 +98,10 @@ Page({
   handleOrderChange(e) {
     console.log(e)
     let orderName = e.target.dataset.name || e.currentTarget.dataset.name
-    // if (orderName === 'byprice') {
-    //   // 默认升序
-    //   orderName = this.data.orderName === 'priceAsc' ? 'priceDesc' : 'priceAsc'
-    // }
+    if (orderName === 'byprice') {
+      // 默认升序
+      orderName = this.data.orderName === 'priceAsc' ? 'priceDesc' : 'priceAsc'
+    }
     this.setData({
       orderName: orderName
     })
