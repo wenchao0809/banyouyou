@@ -133,6 +133,7 @@ Page({
         china_pic_background,
         china_pic_front
       } = this.data.form
+      let distribution_id = wx.getStorageSync('distribution_id')
       codeRegisterAndLogin({
           name,
           phone,
@@ -140,6 +141,7 @@ Page({
           password,
           china_id,
           type,
+          distribution_id,
           china_pic_front,
           china_pic_background
         })
@@ -185,5 +187,12 @@ Page({
     this.setData({
       form
     })
+  },
+  onLoad(options) {
+    console.log('test pages', options)
+    let distribution_id = options.distribution_id
+    if (distribution_id) {
+      wx.setStorageSync('distribution_id', distribution_id)
+    }
   }
 })

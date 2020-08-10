@@ -65,7 +65,9 @@ Page({
       register() {
         console.log('register')
         if (this.validateForm()) {
+          let distribution_id = wx.getStorageSync('distribution_id')
           let  params = { ...this.data.form }
+          if (distribution_id) params.distribution_id = distribution_id
           delete params.checkPassword
           codeRegisterAndLogin(params)
           .then(res => {

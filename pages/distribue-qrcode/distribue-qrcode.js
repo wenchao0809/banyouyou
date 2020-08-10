@@ -13,23 +13,45 @@ Page({
         userInfo: {},
         qrCode: ''
     },
-    saveCodeImage() {
+  saveCodeImage() {
+    let that = this
+    wx.authorize({
+      scope: "scope.writePhotosAlbum",
+      success: function () {
         wx.getImageInfo({
-            src: this.data.qrCode,
-            success: function (sres) {
-              console.log(sres.path);
-              wx.saveImageToPhotosAlbum({
-                filePath: sres.path,
-                success: function (fres) {
-                    wx.showToast({
-                        title: '保存图片成功',
-                        icon: 'success',
-                        duration: 2000
-                    })
-                }
-              })
-            }
-          })
+          src: that.data.qrCode,
+          success: function (sres) {
+            console.log(sres.path);
+            wx.saveImageToPhotosAlbum({
+              filePath: sres.path,
+              success: function (fres) {
+                wx.showToast({
+                  title: "保存图片成功",
+                  icon: "success",
+                  duration: 2000,
+                });
+              },
+              fail: function (error) {
+                console.log("save image error -->", error);
+                wx.showToast({
+                  title: "保存失败",
+                  icon: "none",
+                  duration: 2000,
+                });
+              },
+            });
+          },
+        });
+      },
+      fail: function (error) {
+        console.log("save image error -->", error);
+        wx.showToast({
+          title: "保存失败",
+          icon: "none",
+          duration: 2000,
+        });
+      },
+    });
     },
     /**
      * 生命周期函数--监听页面加载
