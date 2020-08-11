@@ -3,6 +3,7 @@ import {
   codeRegisterAndLogin,
   uploadImage
 } from '../../api/index'
+import { parseQuery } from '../../utils/index'
 
 const app = getApp()
 
@@ -189,8 +190,20 @@ Page({
     })
   },
   onLoad(options) {
-    console.log('test pages', options)
-    let distribution_id = options.distribution_id
+    // wx.scanCode({
+    //   success: function (result) {
+    //     console.log(result)
+    //   },
+    //   fail: function (error) {
+    //     wx.showModal(
+    //       {
+    //         content: JSON.stringify(error)
+    //       })
+    //   }
+    // })
+    let scene = decodeURIComponent(options.scene)
+    let query = parseQuery(scene)
+    let distribution_id = query.distribution_id
     if (distribution_id) {
       wx.setStorageSync('distribution_id', distribution_id)
     }

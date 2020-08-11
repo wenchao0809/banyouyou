@@ -60,7 +60,7 @@ Page({
         let userInfo = wx.getStorageSync(USERINFO)
         this.setData({ userInfo })
         getMappQrCode({ 
-            scene: `?distribution_id=${userInfo.Id}`,
+            scene: `distribution_id=${userInfo.Id}`,
             page: 'pages/register/register'
          })
             .then(res => {

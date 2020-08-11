@@ -89,3 +89,13 @@ export const formateDate = function(date) {
     let s = (date.getSeconds() + '').padStart(2, 0)
     return `${y}-${m}-${d} ${h}:${min}:${s}`
 }
+
+export const parseQuery = function (querySting) {
+  let a = querySting.split('&')
+  let query = {}
+  for (let i = 0; i < a.length; i++) {
+    let [name, value] = a[i].split('=')
+    query[name] = value
+  }
+  return query
+}
